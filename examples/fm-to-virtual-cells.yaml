@@ -1,0 +1,317 @@
+# papermap corpus — the FM-to-virtual-cells literature.
+#
+# This is the worked example: ~50 papers from the talk "From Foundation Models
+# to Virtual Cells", arranged as a relationship network. It doubles as the
+# reference for the corpus file format — see README.md for the schema.
+
+title: "The paper map — how the FM-to-virtual-cells literature connects"
+subtitle: >-
+  ~50 curated papers · colour = category · edge = relationship.
+  Hover any node for why to read it; drag to pan, scroll to zoom.
+
+# Optional layout overrides. hub_category goes in the centre; the other
+# categories ring it in the order they appear under `categories:` below.
+# hub_node (optional) is centred within the hub cluster, with the rest of
+# that category ringed around it.
+layout:
+  hub_category: reckoning
+  hub_node: ahlmann
+
+# Node colours. The first non-hub category also carries the legend group
+# title. Order here = the order clusters are placed around the ring.
+categories:
+  - id: reckoning
+    label: "The reckoning (critique / benchmark)"
+    color: "#d62728"
+  - id: scfm
+    label: "Single-cell FM (model paper)"
+    color: "#1f77b4"
+  - id: position
+    label: "Position / framing"
+    color: "#7b3fa0"
+  - id: other_fm
+    label: "Other-family FM (path/genomic/protein)"
+    color: "#7f7f7f"
+  - id: agentic
+    label: "Agentic system"
+    color: "#8c564b"
+  - id: interp
+    label: "Mechanistic interpretability"
+    color: "#17becf"
+  - id: arch_response
+    label: "Architectural response"
+    color: "#2ca02c"
+  - id: contrarian_theory
+    label: "Contrarian + theoretical framing"
+    color: "#ff7f0e"
+
+# Edge styles. `dash` is any Plotly dash value: solid, dot, dash, longdash...
+relations:
+  - id: builds_on
+    label: "builds on / lineage"
+    color: "#c2c2c2"
+    dash: solid
+  - id: evaluates
+    label: "evaluates / critiques"
+    color: "#e8888a"
+    dash: dash
+  - id: responds
+    label: "responds to"
+    color: "#74c476"
+    dash: solid
+  - id: frames
+    label: "frames / explains"
+    color: "#c9a3dd"
+    dash: dot
+
+# Each paper: id (unique), category, label (shown on the graph),
+# title + meta + why (shown on hover), weight (>=1, scales the marker).
+papers:
+  # — position / framing —
+  - {id: bunne, category: position, label: "Bunne 2024", weight: 2,
+     title: "How to build the virtual cell with AI", meta: "Cell · 2024",
+     why: "The canonical virtual-cell thesis — the goal everything else chases."}
+  - {id: rood, category: position, label: "Rood/Regev 24",
+     title: "The future of automated single-cell analysis", meta: "Cell · 2024",
+     why: "Regev's reference-mapping framing of the same ambition."}
+  - {id: theis, category: position, label: "Theis 2026",
+     title: "From modality-specific to compositional FMs", meta: "Cell Systems · 2026",
+     why: "The post-reckoning forward path — stop scaling monoliths."}
+  - {id: vcc, category: position, label: "VCC 2025",
+     title: "Virtual Cell Challenge — a Turing test for the virtual cell", meta: "Cell · 2025",
+     why: "What success is supposed to look like, operationalized."}
+  - {id: rao, category: position, label: "Rao 2026",
+     title: "Generalist biological AI — modeling the language of life", meta: "Nat Biotech · 2026",
+     why: "The position paper that unifies the five FM families."}
+  - {id: li_agentic, category: position, label: "Li 2026",
+     title: "Agentic AI and in silico team science", meta: "Nat Biotech · 2026",
+     why: "The position paper behind the agentic-FM intersection."}
+  - {id: singh, category: position, label: "Singh 2025",
+     title: "Single-cell foundation models — bringing AI into cell biology", meta: "Exp Mol Med · 2025",
+     why: "Clean mid-2025 review — the orientation read."}
+  # — single-cell FM model papers —
+  - {id: scbert, category: scfm, label: "scBERT",
+     title: "scBERT", meta: "Nat Mach Intell · 2022",
+     why: "The BERT-style precursor that pre-dated the 2023 sc-FM wave."}
+  - {id: scgpt, category: scfm, label: "scGPT", weight: 2,
+     title: "scGPT", meta: "Nat Methods · 2024",
+     why: "Defined the category — genes + cells as tokens. The reckoning's main target."}
+  - {id: geneformer, category: scfm, label: "Geneformer", weight: 2,
+     title: "Geneformer", meta: "Nature · 2023",
+     why: "First atlas-pretrained transformer; rank-based tokenization."}
+  - {id: uce, category: scfm, label: "UCE",
+     title: "Universal Cell Embedding", meta: "Nat Methods · 2024",
+     why: "Cross-species sc-FM — bridges through ESM2 protein embeddings."}
+  - {id: scfoundation, category: scfm, label: "scFoundation",
+     title: "scFoundation", meta: "Nat Methods · 2024",
+     why: "Read-depth-aware attention; one of the four reckoning regulars."}
+  - {id: cellplm, category: scfm, label: "CellPLM",
+     title: "CellPLM", meta: "ICLR · 2024",
+     why: "Cell-as-token sc-FM; beats scGPT/Geneformer on cell-typing cheaply."}
+  - {id: state, category: scfm, label: "STATE",
+     title: "STATE (Arc Institute)", meta: "bioRxiv · 2025",
+     why: "First production virtual cell at Tahoe-100M scale."}
+  - {id: transcriptformer, category: scfm, label: "TranscriptFormer", weight: 2,
+     title: "TranscriptFormer", meta: "Science · 2025",
+     why: "First generative cross-species sc-FM; CZ Biohub flagship."}
+  - {id: nicheformer, category: scfm, label: "Nicheformer",
+     title: "Nicheformer", meta: "Nat Methods · 2025",
+     why: "Spatial-omics sc-FM with a niche-aware objective."}
+  # — the reckoning —
+  - {id: boiarsky, category: reckoning, label: "Boiarsky 2023",
+     title: "Earliest 'linear baselines are competitive' warning", meta: "NeurIPS workshop · 2023",
+     why: "The first warning shot — read it to see how early the signal was."}
+  - {id: csendes, category: reckoning, label: "Csendes 2024",
+     title: "scPerturBench replication", meta: "BM2 Lab preprint · 2024",
+     why: "Showed the original scGPT split was leaky."}
+  - {id: ahlmann, category: reckoning, label: "Ahlmann-Eltze 2025", weight: 3,
+     title: "Deep-learning predictions of gene expression don't generalize", meta: "Nature Methods · 2025",
+     why: "THE canonical reckoning paper — start here."}
+  - {id: kedzierska, category: reckoning, label: "Kedzierska 2025",
+     title: "Limits of zero-shot foundation models in single-cell biology", meta: "Genome Biology · 2025",
+     why: "Extends the result to UCE and the zero-shot setting."}
+  - {id: wenkel, category: reckoning, label: "Wenkel 2025",
+     title: "latent-additive is the new baseline floor", meta: "Nature Methods · 2025",
+     why: "Proposed the stronger baseline current FMs still don't beat."}
+  - {id: wu_nm, category: reckoning, label: "Wu NatMeth 26",
+     title: "27 methods x 29 datasets x 6 metrics", meta: "Nature Methods · 2026",
+     why: "The first axis-by-axis failure decomposition."}
+  - {id: wu_gb, category: reckoning, label: "Wu GenBiol 25",
+     title: "No single scFM consistently outperforms", meta: "Genome Biology · 2025",
+     why: "6 scFMs, cell-ontology-grounded metrics."}
+  - {id: liu, category: reckoning, label: "Liu scEval 2026",
+     title: "scEval — challenges the necessity of sc-FMs", meta: "Advanced Science · 2026",
+     why: "The strongest 'is the paradigm worth it' framing."}
+  - {id: paramfree, category: reckoning, label: "Param-free 26",
+     title: "Parameter-free baseline beats sc-FMs", meta: "bioRxiv · 2026",
+     why: "The cleanest post-reckoning headline; direct Ahlmann successor."}
+  - {id: perteval, category: reckoning, label: "PertEval-scFM",
+     title: "PertEval-scFM standardized framework", meta: "ICML · 2025",
+     why: "Formal venue stamp on the perturbation critique."}
+  - {id: cellbench, category: reckoning, label: "CellBench-LS 26",
+     title: "Stratified low-supervision benchmark", meta: "bioRxiv · 2026",
+     why: "FMs lead cell-type ID; classical wins gene-expression."}
+  - {id: han, category: reckoning, label: "Han 2026",
+     title: "Real-world RNA-seq integration", meta: "bioRxiv · 2026",
+     why: "Industry-authored — deployment-grade robustness gaps."}
+  - {id: celldyn, category: reckoning, label: "Cell-dynamics 26",
+     title: "Zero-shot scFMs fail to recover cellular dynamics", meta: "bioRxiv · 2026",
+     why: "Extends the critique to RNA-velocity / dynamics."}
+  # — contrarian + theory —
+  - {id: contrarian, category: contrarian_theory, label: "FMs Improve Pert. 26", weight: 2,
+     title: "Foundation Models Improve Perturbation Response", meta: "bioRxiv · 2026",
+     why: "The contrarian voice — FMs DO improve with enough data."}
+  - {id: context, category: contrarian_theory, label: "Need Context 2026", weight: 2,
+     title: "Virtual Cells Need Context, Not Just Scale", meta: "bioRxiv · 2026",
+     why: "Names the theory: a causal-transportability problem (Pearl)."}
+  - {id: sis, category: contrarian_theory, label: "SIS 2026",
+     title: "Beyond Alignment — Synergistic Information Score", meta: "bioRxiv (Microsoft) · 2026",
+     why: "A multimodal-FM evaluation metric nobody has applied broadly yet."}
+  # — architectural response —
+  - {id: xverse, category: arch_response, label: "xVERSE 2026", weight: 2,
+     title: "xVERSE — transcriptomics-native sc-FM", meta: "bioRxiv · 2026",
+     why: "First evidence the architectural choice is load-bearing (+17.9%)."}
+  - {id: txpert, category: arch_response, label: "TxPert 2026",
+     title: "TxPert — multiple-knowledge-graph perturbation prediction", meta: "Nat Biotech · 2026",
+     why: "The reckoning answering itself — Wenkel co-authored both."}
+  - {id: map, category: arch_response, label: "MAP 2026",
+     title: "MAP — knowledge-driven perturbation framework", meta: "bioRxiv · 2026",
+     why: "Zero-shot prediction for unprofiled drugs."}
+  # — mechanistic interpretability —
+  - {id: adams, category: interp, label: "Adams 2025",
+     title: "SAEs uncover features in protein language models", meta: "PNAS · 2025",
+     why: "The protein-FM SAE paper that started the interpretability wave."}
+  - {id: simonzou, category: interp, label: "Simon & Zou 2026", weight: 2,
+     title: "SAEs reveal organized biology but minimal regulatory logic", meta: "arXiv · 2026",
+     why: "The mechanistic explanation of the reckoning, on Geneformer + scGPT."}
+  - {id: sae_scgpt, category: interp, label: "SAE-scGPT 2025",
+     title: "SAEs reveal interpretable features in single-cell FMs", meta: "bioRxiv · 2025",
+     why: "Independent confirmation on scGPT."}
+  - {id: sae_synth, category: interp, label: "SAE synthesis 26",
+     title: "What do biological foundation models compute?", meta: "bioRxiv · 2026",
+     why: "Synthesis across families — the wave's summary read."}
+  # — agentic systems —
+  - {id: rbio, category: agentic, label: "rBio 2025",
+     title: "rBio — reasoning model trained on TranscriptFormer", meta: "CZ Biohub · 2025",
+     why: "Agent that REASONS OVER a virtual cell as a verifier."}
+  - {id: vcharness, category: agentic, label: "VCHarness 2026",
+     title: "VCHarness — autonomous virtual-cell builder", meta: "bioRxiv (BioMap) · 2026",
+     why: "Agent that BUILDS virtual-cell models end to end."}
+  - {id: cellvoyager, category: agentic, label: "CellVoyager 2026",
+     title: "CellVoyager — autonomous comp-bio agent", meta: "Nat Methods · 2026",
+     why: "Agent that ANALYZES single-cell data with the FM as substrate."}
+  # — other-family FMs —
+  - {id: enformer, category: other_fm, label: "Enformer 2021",
+     title: "Enformer", meta: "Nat Methods · 2021",
+     why: "The pre-FM-era gene-expression-from-sequence model."}
+  - {id: alphagenome, category: other_fm, label: "AlphaGenome 2025",
+     title: "AlphaGenome", meta: "Nature · 2025",
+     why: "Genomic variant-effect SOTA; replaces Enformer + Borzoi."}
+  - {id: evo2, category: other_fm, label: "Evo2 2026",
+     title: "Evo 2", meta: "Nature · 2026",
+     why: "The only genomic FM with demonstrated in-context learning."}
+  - {id: esm2, category: other_fm, label: "ESM-2 2023",
+     title: "ESM-2 / ESMFold", meta: "Science · 2023",
+     why: "The open protein LM — and UCE's cross-species bridge."}
+  - {id: esm3, category: other_fm, label: "ESM-3 2025",
+     title: "ESM-3", meta: "Science · 2025",
+     why: "98B-param multimodal protein FM; cleanest compute disclosure."}
+  - {id: alphafold3, category: other_fm, label: "AlphaFold 3 2024",
+     title: "AlphaFold 3", meta: "Nature · 2024",
+     why: "Structure prediction extended to complexes."}
+  - {id: uni, category: other_fm, label: "UNI 2024",
+     title: "UNI", meta: "Nat Medicine · 2024",
+     why: "The original Mahmood-lab pathology tile encoder."}
+  - {id: virchow2, category: other_fm, label: "Virchow2 2024",
+     title: "Virchow2 / Virchow2G", meta: "arXiv · 2024",
+     why: "The most hardware-transparent pathology FM; current SOTA."}
+  - {id: pathchat, category: other_fm, label: "PathChat 2024",
+     title: "PathChat", meta: "Nature · 2024",
+     why: "Vision-language pathology assistant; PathChat-DX got FDA Breakthrough."}
+
+# Each edge: [source, target, relation] — read as "source <relation> target".
+edges:
+  # position lineage — Bunne is the root
+  - [rood, bunne, builds_on]
+  - [theis, bunne, builds_on]
+  - [vcc, bunne, builds_on]
+  - [rao, bunne, builds_on]
+  - [li_agentic, bunne, builds_on]
+  - [singh, bunne, builds_on]
+  # single-cell FM lineage
+  - [scgpt, scbert, builds_on]
+  - [geneformer, scbert, builds_on]
+  - [scfoundation, scgpt, builds_on]
+  - [cellplm, scgpt, builds_on]
+  - [state, scgpt, builds_on]
+  - [nicheformer, geneformer, builds_on]
+  - [uce, esm2, builds_on]
+  - [transcriptformer, uce, builds_on]
+  # reckoning internal lineage — Ahlmann-Eltze is the hub
+  - [ahlmann, boiarsky, builds_on]
+  - [ahlmann, csendes, builds_on]
+  - [kedzierska, ahlmann, builds_on]
+  - [wenkel, ahlmann, builds_on]
+  - [wu_nm, ahlmann, builds_on]
+  - [wu_gb, ahlmann, builds_on]
+  - [liu, ahlmann, builds_on]
+  - [paramfree, ahlmann, builds_on]
+  - [perteval, ahlmann, builds_on]
+  - [cellbench, ahlmann, builds_on]
+  - [han, ahlmann, builds_on]
+  - [celldyn, ahlmann, builds_on]
+  # reckoning evaluates the models
+  - [ahlmann, scgpt, evaluates]
+  - [ahlmann, geneformer, evaluates]
+  - [ahlmann, scfoundation, evaluates]
+  - [ahlmann, uce, evaluates]
+  - [boiarsky, scgpt, evaluates]
+  - [csendes, scgpt, evaluates]
+  - [kedzierska, uce, evaluates]
+  - [kedzierska, geneformer, evaluates]
+  - [wenkel, scgpt, evaluates]
+  - [wu_nm, scgpt, evaluates]
+  - [wu_gb, geneformer, evaluates]
+  - [liu, scgpt, evaluates]
+  - [paramfree, scgpt, evaluates]
+  - [perteval, geneformer, evaluates]
+  - [cellbench, cellplm, evaluates]
+  - [cellbench, nicheformer, evaluates]
+  - [han, scgpt, evaluates]
+  - [celldyn, scgpt, evaluates]
+  # responses to the reckoning
+  - [xverse, ahlmann, responds]
+  - [txpert, wenkel, responds]
+  - [txpert, ahlmann, responds]
+  - [map, ahlmann, responds]
+  - [theis, ahlmann, responds]
+  - [transcriptformer, ahlmann, responds]
+  - [contrarian, ahlmann, responds]
+  - [contrarian, liu, responds]
+  - [vcharness, ahlmann, responds]
+  # theory + interpretability frame the reckoning
+  - [context, ahlmann, frames]
+  - [sis, wu_nm, frames]
+  - [simonzou, ahlmann, frames]
+  - [sae_scgpt, ahlmann, frames]
+  - [adams, simonzou, builds_on]
+  - [adams, sae_scgpt, builds_on]
+  - [sae_synth, simonzou, builds_on]
+  - [sae_synth, adams, builds_on]
+  # agentic systems
+  - [rbio, transcriptformer, builds_on]
+  - [li_agentic, rbio, frames]
+  - [li_agentic, vcharness, frames]
+  - [li_agentic, cellvoyager, frames]
+  - [cellvoyager, scgpt, builds_on]
+  # other-family FMs — wired in via the generalist position paper + lineage
+  - [esm3, esm2, builds_on]
+  - [alphagenome, enformer, builds_on]
+  - [virchow2, uni, builds_on]
+  - [pathchat, uni, builds_on]
+  - [rao, evo2, frames]
+  - [rao, esm3, frames]
+  - [rao, alphagenome, frames]
+  - [rao, alphafold3, frames]
+  - [rao, virchow2, frames]
+  - [rao, scgpt, frames]

@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+
+# Test / tooling caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Build output (corpus HTML renders) — keep examples/*.yaml, ignore renders
+examples/*.html
+
+# OS / editor
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# uv lockfile (project builds with setuptools; lock is dev-only)
+uv.lock
