@@ -22,7 +22,7 @@ back at it.*
 ## Install
 
 ```bash
-pip install git+https://github.com/LiudengZhang/papermap.git
+pip install git+https://github.com/Light-Kit/papermap.git
 # or, from a clone:
 pip install -e .
 ```
