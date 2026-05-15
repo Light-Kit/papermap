@@ -45,60 +45,91 @@ body {
 #corpora li.active { background: #d62728; color: white; }
 #corpora li.invalid { color: #999; cursor: help; }
 
+#content {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  overflow: hidden;
+  height: 100vh;
+}
+
+#viewtabs {
+  display: flex;
+  gap: 4px;
+  padding: 10px 22px 0;
+  border-bottom: 1px solid #e5e5e3;
+}
+
+#viewtabs button {
+  border: 0;
+  background: transparent;
+  padding: 8px 14px;
+  font: inherit;
+  color: #444;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+
+#viewtabs button:hover { color: #1f77b4; }
+#viewtabs button.active {
+  color: #1f77b4;
+  border-bottom-color: #1f77b4;
+}
+
+#filterbar {
+  padding: 8px 22px;
+  border-bottom: 1px solid #f0f0ee;
+  background: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  font-size: 12px;
+}
+
+#filterbar .group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#filterbar .group b {
+  color: #666;
+  margin-right: 2px;
+}
+
+#filterbar .chip {
+  border: 1px solid #d0d0cc;
+  border-radius: 12px;
+  padding: 2px 8px;
+  cursor: pointer;
+  background: #fff;
+}
+
+#filterbar .chip.on {
+  background: #1f77b4;
+  color: white;
+  border-color: #1f77b4;
+}
+
+#filterbar input[type="search"] {
+  flex: 1 1 220px;
+  min-width: 140px;
+  padding: 4px 8px;
+  border: 1px solid #d0d0cc;
+  border-radius: 4px;
+  font: inherit;
+}
+
 #main {
-  padding: 18px 22px;
+  padding: 0;
   overflow-y: auto;
 }
 
-#main .placeholder { color: #999; }
-
-#main header {
-  display: flex;
-  align-items: baseline;
-  gap: 18px;
-  margin-bottom: 4px;
-}
-
-#main h2 { margin: 0; font-size: 18px; }
-#main .stats { color: #666; font-size: 12px; }
-
-#main .warnings {
-  background: #fff8e1;
-  border-left: 3px solid #f1c40f;
-  padding: 8px 12px;
-  margin: 10px 0;
-  font-size: 12px;
-}
-
-#main .warnings ul { margin: 4px 0 0 18px; padding: 0; }
-
-#main .download {
-  display: inline-block;
-  margin: 6px 0 12px;
-  padding: 5px 10px;
-  background: #1f77b4;
-  color: white;
-  border-radius: 4px;
-  text-decoration: none;
-  font-size: 12px;
-}
-
-#main details {
-  margin: 10px 0;
-  font-size: 12px;
-}
-
-#main details pre {
-  background: #f6f6f4;
-  padding: 10px;
-  border-radius: 4px;
-  overflow-x: auto;
-  max-height: 320px;
-}
-
+#main .placeholder { color: #999; padding: 18px 22px; }
 #main .error {
   color: #b00020;
   background: #fdecea;
   padding: 10px 14px;
   border-radius: 4px;
+  margin: 18px 22px;
 }
