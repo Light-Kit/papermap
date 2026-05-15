@@ -28,6 +28,27 @@ def create_app(corpus_dir: Path) -> Flask:
     def list_corpora():
         return jsonify(_scan(app.config["CORPUS_DIR"]))
 
+    @app.get("/api/map/<path:name>")
+    def map_for(name: str):
+        path = _resolve(app.config["CORPUS_DIR"], name)
+        try:
+            corpus = load_corpus(path)
+        except CorpusError as exc:
+            return jsonify({"error": str(exc)}), 422
+        fig = build_figure(corpus)
+        return jsonify({
+            "title": corpus.title,
+            "fragment": fig.to_html(full_html=False, include_plotlyjs=False),
+            "stats": {
+                "papers": len(corpus.papers),
+                "edges": len(corpus.edges),
+                "categories": len(corpus.categories),
+                "relations": len(corpus.relations),
+            },
+            "warnings": lint_corpus(corpus),
+            "yaml": path.read_text(encoding="utf-8"),
+        })
+
     return app
 
 
@@ -52,3 +73,19 @@ def _scan(root: Path) -> list[dict]:
             entry["error"] = str(exc)
         out.append(entry)
     return out
+
+
+def _resolve(root: Path, name: str) -> Path:
+    """Resolve a corpus name against root, refusing path traversal.
+
+    The candidate must live directly under ``root`` and be an existing
+    ``.yaml`` / ``.yml`` file; anything else aborts with 404.
+    """
+    candidate = (root / name).resolve()
+    if candidate.parent != root:
+        abort(404)
+    if not candidate.is_file():
+        abort(404)
+    if candidate.suffix.lower() not in (".yaml", ".yml"):
+        abort(404)
+    return candidate
