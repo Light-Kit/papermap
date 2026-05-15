@@ -106,3 +106,20 @@ def test_api_map_invalid_corpus_is_422(mixed_client):
 def test_api_map_rejects_path_traversal(mixed_client):
     resp = mixed_client.get("/api/map/..%2Fetc%2Fpasswd")
     assert resp.status_code == 404
+
+
+def test_download_returns_full_html(mixed_client):
+    resp = mixed_client.get("/download/good.yaml")
+    assert resp.status_code == 200
+    assert resp.mimetype == "text/html"
+    disposition = resp.headers.get("Content-Disposition", "")
+    assert "attachment" in disposition
+    assert "good.html" in disposition
+    body = resp.get_data(as_text=True)
+    assert "<html" in body.lower()
+    assert "plotly" in body.lower()
+
+
+def test_download_invalid_corpus_is_422(mixed_client):
+    resp = mixed_client.get("/download/broken.yaml")
+    assert resp.status_code == 422

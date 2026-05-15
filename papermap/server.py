@@ -49,6 +49,27 @@ def create_app(corpus_dir: Path) -> Flask:
             "yaml": path.read_text(encoding="utf-8"),
         })
 
+    @app.get("/download/<path:name>")
+    def download(name: str):
+        path = _resolve(app.config["CORPUS_DIR"], name)
+        try:
+            corpus = load_corpus(path)
+        except CorpusError as exc:
+            return jsonify({"error": str(exc)}), 422
+        fig = build_figure(corpus)
+        html = fig.to_html(
+            full_html=True,
+            include_plotlyjs="cdn",
+            config={"responsive": True, "displaylogo": False},
+        )
+        buf = io.BytesIO(html.encode("utf-8"))
+        return send_file(
+            buf,
+            mimetype="text/html",
+            as_attachment=True,
+            download_name=path.with_suffix(".html").name,
+        )
+
     return app
 
 
