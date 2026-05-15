@@ -6,6 +6,7 @@ import argparse
 import sys
 from pathlib import Path
 
+from .export import export_static
 from .render import RenderConfig, build_figure, write_html
 from .schema import CorpusError, lint_corpus, load_corpus
 
@@ -47,6 +48,16 @@ def _check(args: argparse.Namespace) -> int:
     return 0
 
 
+def _export(args: argparse.Namespace) -> int:
+    try:
+        out = export_static(args.corpus, args.output)
+    except Exception as exc:  # noqa: BLE001 — surface every reason as one
+        print(f"error: {exc}", file=sys.stderr)
+        return 1
+    print(f"exported static site to {out}")
+    return 0
+
+
 def _serve(args: argparse.Namespace) -> int:
     from .server import create_app
 
@@ -85,6 +96,12 @@ def main(argv: list[str] | None = None) -> int:
     p_check = sub.add_parser("check", help="validate a corpus file without rendering")
     p_check.add_argument("corpus", help="path to the corpus YAML file")
     p_check.set_defaults(func=_check)
+
+    p_export = sub.add_parser("export", help="export a corpus as a static site")
+    p_export.add_argument("corpus", help="path to the corpus YAML file")
+    p_export.add_argument("-o", "--output", default="site",
+                          help="output directory (default: ./site)")
+    p_export.set_defaults(func=_export)
 
     p_serve = sub.add_parser("serve", help="run a local web server for a directory of corpora")
     p_serve.add_argument("directory", nargs="?", default=".",
