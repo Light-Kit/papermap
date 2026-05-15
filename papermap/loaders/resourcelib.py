@@ -9,7 +9,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from ..schema import Category, Corpus, Edge, LayoutConfig, Paper, Relation
+from ..schema import Category, Corpus, Edge, Item, LayoutConfig, Paper, Relation
 
 
 def load_resourcelib(raw: dict, source: Path | None = None) -> Corpus:
@@ -63,7 +63,28 @@ def load_resourcelib(raw: dict, source: Path | None = None) -> Corpus:
         cluster_radius_max=float(layout_raw.get("cluster_radius_max", 3.0)),
     )
 
-    return Corpus(
+    items: list[Item] = []
+    for it in raw.get("items", []):
+        if not isinstance(it, dict) or "id" not in it:
+            continue
+        items.append(Item(
+            id=str(it["id"]),
+            label=str(it.get("label", it["id"])),
+            kind=str(it["kind"]) if "kind" in it else None,
+            topics=tuple(it.get("topics", []) or []),
+            year=int(it["year"]) if "year" in it else None,
+            status=it.get("status"),
+            org_type=it.get("org_type"),
+            region=it.get("region"),
+            category=it.get("papermap_category"),
+            title=str(it.get("title", "")),
+            meta=str(it.get("meta", "")),
+            why=str(it.get("why", "")),
+            weight=int(it.get("weight", 1)),
+            people=tuple(it.get("people", []) or []),
+        ))
+
+    corpus = Corpus(
         title=str(raw.get("title", "Resourcelib corpus")),
         subtitle=str(raw.get("subtitle", "")),
         categories=categories,
@@ -72,3 +93,5 @@ def load_resourcelib(raw: dict, source: Path | None = None) -> Corpus:
         edges=edges,
         layout=layout,
     )
+    corpus.items = items
+    return corpus

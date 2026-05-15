@@ -51,6 +51,32 @@ class Edge:
     relation: str
 
 
+@dataclass(frozen=True)
+class Item:
+    """Unified record consumed by views.
+
+    Built from a native ``Paper`` or a resourcelib item. Map-related fields
+    (``category``, ``weight``, ``title``, ``meta``, ``why``) come from native
+    Paper or from ``papermap_category``/``label``/etc on a resourcelib item.
+    Browse/Table/Timeline/Topics fields (``kind``, ``topics``, ``year``, ...)
+    are resourcelib-first; native papermap may carry them as optional fields.
+    """
+    id: str
+    label: str
+    kind: str | None = None
+    topics: tuple[str, ...] = ()
+    year: int | None = None
+    status: str | None = None
+    org_type: str | None = None
+    region: str | None = None
+    category: str | None = None
+    title: str = ""
+    meta: str = ""
+    why: str = ""
+    weight: int = 1
+    people: tuple[str, ...] = ()
+
+
 @dataclass
 class LayoutConfig:
     hub_category: str | None = None
@@ -71,6 +97,7 @@ class Corpus:
     papers: list[Paper]
     edges: list[Edge]
     layout: LayoutConfig = field(default_factory=LayoutConfig)
+    items: list[Item] = field(default_factory=list)
 
     @property
     def categories_by_id(self) -> dict[str, Category]:
