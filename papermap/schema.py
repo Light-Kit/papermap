@@ -126,14 +126,16 @@ def _as_int(value: object, where: str, key: str) -> int:
 
 
 def load_corpus(path: str | Path) -> Corpus:
-    """Read, parse, and validate a corpus YAML file."""
-    path = Path(path)
-    if not path.exists():
-        raise CorpusError(f"corpus file not found: {path}")
-    raw = yaml.safe_load(path.read_text(encoding="utf-8"))
-    if not isinstance(raw, dict):
-        raise CorpusError(f"{path}: top level must be a mapping")
+    """Read, parse, and validate a corpus YAML file.
 
+    Auto-detects native papermap vs resourcelib via the loaders package.
+    """
+    from .loaders import load_corpus as _load
+    return _load(path)
+
+
+def _parse_raw_papermap(raw: dict) -> Corpus:
+    """Parse a native papermap YAML mapping into a Corpus (no IO)."""
     categories = []
     for c in _as_list(raw, "categories"):
         c = _as_mapping(c, "category")
