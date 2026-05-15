@@ -7,8 +7,12 @@ from pathlib import Path
 
 from flask import Flask, abort, jsonify, render_template, send_file
 
+import yaml
+
+from .loaders import Format, detect_format, load_corpus
 from .render import build_figure
-from .schema import CorpusError, lint_corpus, load_corpus
+from .schema import CorpusError, lint_corpus
+from .state import build_state
 
 
 def create_app(corpus_dir: Path) -> Flask:
@@ -28,26 +32,23 @@ def create_app(corpus_dir: Path) -> Flask:
     def list_corpora():
         return jsonify(_scan(app.config["CORPUS_DIR"]))
 
-    @app.get("/api/map/<path:name>")
-    def map_for(name: str):
+    @app.get("/api/state/<path:name>")
+    def state_for(name: str):
         path = _resolve(app.config["CORPUS_DIR"], name)
         try:
             corpus = load_corpus(path)
         except CorpusError as exc:
             return jsonify({"error": str(exc)}), 422
-        fig = build_figure(corpus)
-        return jsonify({
-            "title": corpus.title,
-            "fragment": fig.to_html(full_html=False, include_plotlyjs=False),
-            "stats": {
-                "papers": len(corpus.papers),
-                "edges": len(corpus.edges),
-                "categories": len(corpus.categories),
-                "relations": len(corpus.relations),
-            },
-            "warnings": lint_corpus(corpus),
-            "yaml": path.read_text(encoding="utf-8"),
-        })
+        raw = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+        try:
+            fmt = "resourcelib" if detect_format(raw) is Format.RESOURCELIB else "papermap"
+        except ValueError:
+            fmt = "papermap"
+        return jsonify(build_state(corpus, name=path.stem, format_label=fmt))
+
+    @app.get("/healthz")
+    def healthz():
+        return ("ok", 200, {"Content-Type": "text/plain"})
 
     @app.get("/download/<path:name>")
     def download(name: str):

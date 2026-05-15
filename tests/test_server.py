@@ -75,37 +75,38 @@ def test_api_corpora_lists_valid_and_invalid(mixed_client):
     assert "unknown category" in names["broken.yaml"]["error"]
 
 
-def test_api_map_returns_fragment_and_metadata(mixed_client):
-    resp = mixed_client.get("/api/map/good.yaml")
+def test_api_state_returns_payload(client):
+    resp = client.get("/api/state/good.yaml")
     assert resp.status_code == 200
     data = resp.get_json()
+    assert data["name"] == "good"
+    assert data["format"] == "papermap"
     assert data["title"] == "t"
-    assert "<div" in data["fragment"]
-    assert "plotly" in data["fragment"].lower()
-    assert data["stats"] == {
-        "papers": 2,
-        "edges": 1,
-        "categories": 1,
-        "relations": 1,
-    }
-    assert data["warnings"] == []
-    assert "categories:" in data["yaml"]
+    assert {it["id"] for it in data["items"]} == {"p1", "p2"}
+    assert data["facets"]["kinds"] == ["a"]
+    assert data["map"]["traces"]
 
 
-def test_api_map_unknown_name_is_404(mixed_client):
-    resp = mixed_client.get("/api/map/nope.yaml")
+def test_api_state_unknown_name_is_404(mixed_client):
+    resp = mixed_client.get("/api/state/nope.yaml")
     assert resp.status_code == 404
 
 
-def test_api_map_invalid_corpus_is_422(mixed_client):
-    resp = mixed_client.get("/api/map/broken.yaml")
+def test_api_state_invalid_corpus_is_422(mixed_client):
+    resp = mixed_client.get("/api/state/broken.yaml")
     assert resp.status_code == 422
     assert "unknown category" in resp.get_json()["error"]
 
 
-def test_api_map_rejects_path_traversal(mixed_client):
-    resp = mixed_client.get("/api/map/..%2Fetc%2Fpasswd")
+def test_api_state_rejects_path_traversal(mixed_client):
+    resp = mixed_client.get("/api/state/..%2Fetc%2Fpasswd")
     assert resp.status_code == 404
+
+
+def test_healthz(client):
+    resp = client.get("/healthz")
+    assert resp.status_code == 200
+    assert resp.data == b"ok"
 
 
 def test_download_returns_full_html(mixed_client):
