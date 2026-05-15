@@ -189,3 +189,23 @@ body {
   margin: 1px 2px 1px 0;
 }
 .chip.kind { background: #e7f0fa; color: #1f77b4; }
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  margin-top: 12px;
+}
+.data-table th, .data-table td {
+  text-align: left;
+  padding: 5px 8px;
+  border-bottom: 1px solid #ebebe9;
+}
+.data-table th {
+  cursor: pointer;
+  background: #f7f7f5;
+  user-select: none;
+}
+.data-table th.sorted-asc::after  { content: " ▲"; color: #1f77b4; }
+.data-table th.sorted-desc::after { content: " ▼"; color: #1f77b4; }
+.data-table tbody tr:hover { background: #fafafa; }
