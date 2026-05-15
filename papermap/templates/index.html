@@ -11,9 +11,20 @@
     <h1>papermap</h1>
     <ul id="corpora"></ul>
   </aside>
-  <main id="main">
-    <p class="placeholder">Pick a corpus from the sidebar.</p>
-  </main>
-  <script src="{{ url_for('static', filename='app.js') }}"></script>
+  <section id="content">
+    <nav id="viewtabs" hidden>
+      <button data-view="stats">Stats</button>
+      <button data-view="browse">Browse</button>
+      <button data-view="map">Map</button>
+      <button data-view="table">Table</button>
+      <button data-view="ranked">Topics &amp; People</button>
+      <button data-view="timeline">Timeline</button>
+    </nav>
+    <div id="filterbar" hidden></div>
+    <main id="main">
+      <p class="placeholder">Pick a corpus from the sidebar.</p>
+    </main>
+  </section>
+  <script type="module" src="{{ url_for('static', filename='app.js') }}"></script>
 </body>
 </html>
