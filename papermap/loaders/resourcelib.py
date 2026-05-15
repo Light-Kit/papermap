@@ -82,6 +82,7 @@ def load_resourcelib(raw: dict, source: Path | None = None) -> Corpus:
             why=str(it.get("why", "")),
             weight=int(it.get("weight", 1)),
             people=tuple(it.get("people", []) or []),
+            url=str(it.get("url", "")),
         ))
 
     corpus = Corpus(

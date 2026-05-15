@@ -33,3 +33,24 @@ items:
     assert corpus.categories == []
     assert corpus.relations == []
     assert corpus.papers == []
+
+
+def test_resourcelib_propagates_url_to_item(tmp_path):
+    """url on a resourcelib item must reach the Item dataclass.
+
+    The Browse view turns the url into a clickable card; without this
+    plumbing every card would be a dead element.
+    """
+    raw = """
+title: "URL test"
+vocab: {kinds: [{id: paper, label: Paper}]}
+items:
+  - {id: with-url, kind: paper, label: A, url: "https://example.org/a"}
+  - {id: no-url, kind: paper, label: B}
+"""
+    p = tmp_path / "url.yaml"
+    p.write_text(raw)
+    corpus = load_corpus(p)
+    by_id = {i.id: i for i in corpus.items}
+    assert by_id["with-url"].url == "https://example.org/a"
+    assert by_id["no-url"].url == ""

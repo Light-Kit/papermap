@@ -32,8 +32,16 @@ function sortItems(items) {
 }
 
 function card(it) {
-  const c = document.createElement("article");
-  c.className = "card";
+  // If the item has a source url, render the card as a clickable anchor that
+  // opens in a new tab. Cards without a url stay as plain <article>.
+  const tag = it.url ? "a" : "article";
+  const c = document.createElement(tag);
+  c.className = it.url ? "card card-link" : "card";
+  if (it.url) {
+    c.href = it.url;
+    c.target = "_blank";
+    c.rel = "noopener noreferrer";
+  }
   c.innerHTML = `
     ${it.kind ? `<span class="chip kind">${escape(it.kind)}</span>` : ""}
     <h4>${escape(it.label || it.id)}</h4>

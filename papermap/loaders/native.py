@@ -38,6 +38,7 @@ def load_native(raw: dict, source: Path | None = None) -> Corpus:
             why=paper.why,
             weight=paper.weight,
             people=tuple(rawp.get("people", []) or []),
+            url=str(rawp.get("url", "")),
         ))
     corpus.items = items
     return corpus
