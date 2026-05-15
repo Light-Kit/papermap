@@ -10,6 +10,7 @@ from flask import Flask, Response, abort, jsonify, render_template, request, sen
 
 import yaml
 
+from .blogs import list_blogs
 from .loaders import Format, detect_format, load_corpus
 from .render import build_figure
 from .schema import CorpusError, lint_corpus
@@ -36,6 +37,14 @@ def create_app(corpus_dir: Path) -> Flask:
     app = Flask(__name__)
     app.config["CORPUS_DIR"] = Path(corpus_dir).resolve()
     app.config["PAPERMAP_PASSWORD"] = os.environ.get("PAPERMAP_PASSWORD")
+    # Blogs may reference sibling mkdocs pages (e.g. supplementary)
+    # that don't have a blog equivalent. If this env var is set, those
+    # links are rewritten to land on the live talk site instead of
+    # 404ing inside papermap.
+    app.config["EXTERNAL_DOCS_BASE_URL"] = os.environ.get(
+        "PAPERMAP_EXTERNAL_DOCS_BASE_URL",
+        "https://liudengzhang.github.io/fm-to-virtual-cells",
+    )
 
     @app.before_request
     def _require_auth():
@@ -74,6 +83,31 @@ def create_app(corpus_dir: Path) -> Flask:
         except ValueError:
             fmt = "papermap"
         return jsonify(build_state(corpus, name=path.stem, format_label=fmt))
+
+    @app.get("/api/blogs/<path:name>")
+    def blogs_for(name: str):
+        path = _resolve(app.config["CORPUS_DIR"], name)
+        blogs_dir = app.config["CORPUS_DIR"] / "blogs" / path.stem
+        asset_prefix = f"/api/blogs/{name}/assets/"
+        return jsonify([
+            b.to_dict() for b in list_blogs(
+                blogs_dir,
+                asset_url_prefix=asset_prefix,
+                external_docs_base=app.config.get("EXTERNAL_DOCS_BASE_URL", ""),
+            )
+        ])
+
+    @app.get("/api/blogs/<path:name>/assets/<asset>")
+    def blog_asset(name: str, asset: str):
+        # `_resolve` validates the corpus path; assets live under
+        # `<corpus_dir>/blogs/<stem>/assets/` and we refuse traversal by
+        # comparing the resolved file's parent to that exact directory.
+        path = _resolve(app.config["CORPUS_DIR"], name)
+        assets_dir = (app.config["CORPUS_DIR"] / "blogs" / path.stem / "assets").resolve()
+        candidate = (assets_dir / asset).resolve()
+        if candidate.parent != assets_dir or not candidate.is_file():
+            abort(404)
+        return send_file(candidate)
 
     @app.get("/healthz")
     def healthz():

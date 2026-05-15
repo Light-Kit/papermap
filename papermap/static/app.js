@@ -1,12 +1,14 @@
 "use strict";
 
 import { loadState, getState } from "./state.js";
+import { loadBlogs } from "./blogs-state.js";
 import { mount as mountFilterBar } from "./filterbar.js";
 import * as stats    from "./views/stats.js";
 import * as browse   from "./views/browse.js";
 import * as mapView  from "./views/map.js";
 import * as table    from "./views/table.js";
 import * as topics   from "./views/topics.js";
+import * as blogs    from "./views/blogs.js";
 import * as timeline from "./views/timeline.js";
 
 const sidebar  = document.getElementById("corpora");
@@ -14,7 +16,7 @@ const tabsBar  = document.getElementById("viewtabs");
 const filterBar = document.getElementById("filterbar");
 const main     = document.getElementById("main");
 
-const views = { stats, browse, map: mapView, table, topics, timeline };
+const views = { stats, browse, map: mapView, table, topics, blogs, timeline };
 
 // Filters are mutated in place by filterbar.js (Phase 7).
 const filters = {
@@ -37,12 +39,24 @@ async function init() {
   // setView / filterBar internals to the views themselves.
   document.addEventListener("papermap:filter-and-show", (ev) => {
     const { view, topic } = ev.detail || {};
+    if (view === "blogs") {
+      // Blogs filters live in the view module, not on the global filterbar
+      // (blogs aren't corpus items so the facet vocab doesn't apply 1:1).
+      blogs.setTopicFilter(topic || null);
+      blogs.setActiveSlug(null);
+      setView("blogs");
+      return;
+    }
     if (topic) {
       filters.topics.clear();
       filters.topics.add(topic);
       mountFilterBar(filterBar, getState(), filters, () => setView(activeView));
     }
     if (view) setView(view);
+  });
+
+  document.addEventListener("papermap:rerender-active-view", () => {
+    setView(activeView);
   });
 
   if (sidebar.parentElement.hidden) {
@@ -53,6 +67,7 @@ async function init() {
       main.innerHTML = `<div class="error">${exc.message}</div>`;
       return;
     }
+    await loadBlogs("__static__");
     activeCorpus = "__static__";
     tabsBar.hidden = false;
     resetFilters();
@@ -90,6 +105,7 @@ async function pickCorpus(li, item) {
     main.innerHTML = `<div class="error">${exc.message}</div>`;
     return;
   }
+  await loadBlogs(item.name);
   activeCorpus = item.name;
   tabsBar.hidden = false;
   resetFilters();

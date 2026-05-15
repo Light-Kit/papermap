@@ -5,6 +5,8 @@
 // to that topic (filter mutation + view switch are handled by app.js's
 // `papermap:filter-and-show` listener so this view stays UI-only).
 
+import { blogsByTopic } from "../blogs-state.js";
+
 export function render(state, _filters, el) {
   const div = document.createElement("div");
   div.className = "view topics";
@@ -18,10 +20,11 @@ export function render(state, _filters, el) {
     <small>auto-derived TL;DRs from each topic's most recent items</small></h2>`;
   div.appendChild(header);
 
+  const blogs = blogsByTopic();
   const grid = document.createElement("div");
   grid.className = "card-grid topic-grid";
   for (const [topic, items] of sorted) {
-    grid.appendChild(topicCard(topic, items));
+    grid.appendChild(topicCard(topic, items, blogs.get(topic) || []));
   }
   if (!sorted.length) {
     grid.innerHTML = `<p class="placeholder">No items carry a topic.</p>`;
@@ -50,7 +53,7 @@ function pickHighlights(items, n = 3) {
     .slice(0, n);
 }
 
-function topicCard(topic, items) {
+function topicCard(topic, items, blogs) {
   const c = document.createElement("article");
   c.className = "card card-topic";
   c.dataset.topic = topic;
@@ -63,14 +66,34 @@ function topicCard(topic, items) {
       }).join("")}</ul>`
     : `<p class="muted">No <code>why:</code> lines yet for items in this topic.</p>`;
 
+  const blogChip = blogs.length
+    ? `<a href="#" class="topic-blog-chip" data-topic="${escape(topic)}">📖 ${blogs.length} blog${blogs.length > 1 ? "s" : ""} →</a>`
+    : "";
+
   c.innerHTML = `
     <header class="topic-head">
       <h4>${escape(topic)}</h4>
       <span class="chip count">${items.length}</span>
     </header>
     ${tldr}
-    <footer class="topic-cta">See all ${items.length} in Browse →</footer>
+    <footer class="topic-cta">
+      <span>See all ${items.length} in Browse →</span>
+      ${blogChip}
+    </footer>
   `;
+
+  // The blog chip dispatches its own event and stops propagation so the
+  // card's Browse handler doesn't also fire.
+  const chip = c.querySelector(".topic-blog-chip");
+  if (chip) {
+    chip.addEventListener("click", ev => {
+      ev.preventDefault();
+      ev.stopPropagation();
+      document.dispatchEvent(new CustomEvent("papermap:filter-and-show", {
+        detail: { view: "blogs", topic },
+      }));
+    });
+  }
 
   c.addEventListener("click", () => {
     document.dispatchEvent(new CustomEvent("papermap:filter-and-show", {
