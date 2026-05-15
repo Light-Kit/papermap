@@ -1,0 +1,52 @@
+title: "Minimal resourcelib fixture"
+vocab:
+  kinds:
+    - {id: critique, label: Critique}
+    - {id: model,    label: Model}
+  topics:
+    - {id: benchmarks,     label: Benchmarks}
+    - {id: generalization, label: Generalization}
+  statuses:
+    - {id: published, label: Published}
+  org_types:
+    - {id: academic, label: Academic}
+  regions:
+    - {id: EU, label: Europe}
+papermap_categories:
+  - {id: reckoning, label: "The reckoning", color: "#d62728"}
+  - {id: scfm,      label: "Model papers",  color: "#1f77b4"}
+papermap_relations:
+  - {id: evaluates, label: "evaluates / critiques", color: "#e8888a", dash: dash}
+papermap_edges:
+  - [ahlmann, scgpt, evaluates]
+papermap_layout:
+  hub_category: reckoning
+  hub_node: ahlmann
+items:
+  - id: ahlmann
+    kind: critique
+    topics: [benchmarks, generalization]
+    status: published
+    org_type: academic
+    region: EU
+    year: 2025
+    people: [Ahlmann-Eltze, Huber]
+    papermap_category: reckoning
+    label: "Ahlmann-Eltze 2025"
+    title: "Deep-learning predictions don't generalize"
+    meta: "Nature Methods · 2025"
+    why: "THE canonical critique."
+    weight: 3
+  - id: scgpt
+    kind: model
+    topics: [generalization]
+    status: published
+    org_type: academic
+    region: EU
+    year: 2024
+    people: [Cui]
+    papermap_category: scfm
+    label: "scGPT"
+    title: "scGPT foundation model"
+    meta: "Nature Methods · 2024"
+    why: "Representative target of critique."
