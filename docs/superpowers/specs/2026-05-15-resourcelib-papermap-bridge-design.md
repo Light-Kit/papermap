@@ -2,18 +2,55 @@
 
 **Date:** 2026-05-15
 **Status:** approved (design), pending spec review
-**Repos touched:** `Light-Kit/resourcelib` (schema authority), `Light-Kit/papermap` (consumer)
+**Repos touched:** `Light-Kit/resourcelib` (core), `Light-Kit/papermap` (plugin)
+**Sibling unblocked:** `Light-Kit/resourcelib-views` (already pins `resourcelib>=0.2`)
 
 ## Goal
 
-Make a single **resourcelib** YAML the source of truth for both tools: the
-landscape card grid (`resourcelib build`) and the citation graph
-(`papermap build` / `serve`). One file, two views.
+Make a single **resourcelib** YAML the source of truth for the whole
+Light-Kit plugin ecosystem: the landscape card grid (`resourcelib
+build`), the citation graph (`papermap build` / `serve`), and ranked
+dossier pages (`resourcelib-views generate`). One file, N views.
 
-Today the bridge is one-directional and incomplete: `resourcelib export
---to-papermap` emits only the `papers:` section, so the output is not a
-loadable papermap corpus. Users have to hand-paste papers into a separate
-papermap YAML and maintain it in parallel.
+Today the bridge between resourcelib and papermap is one-directional
+and incomplete: `resourcelib export --to-papermap` emits only the
+`papers:` section, so the output is not a loadable papermap corpus.
+Users have to hand-paste papers into a separate papermap YAML and
+maintain it in parallel.
+
+## Ecosystem framing
+
+resourcelib is the **thin core** of a plugin ecosystem:
+
+```
+                       mycorpus.yaml
+                  (one resourcelib YAML)
+                            │
+            ┌───────────────┼───────────────┐
+            ▼               ▼               ▼
+     resourcelib   resourcelib-views     papermap
+       (core)         (plugin)          (plugin)
+   schema +         ranked dossiers   citation graph
+   validator +      per person/       clustered-ring
+   card grid +      institute/theme   node-link map
+   aggregate
+   helpers
+```
+
+Plugins all follow the same import contract:
+
+```python
+from resourcelib import (
+    Doc, Item, load, validate,
+    items_by_kind, items_by_topic, topic_counts, kind_counts,
+)
+from resourcelib.validator import ValidationError
+```
+
+…and ship their own CLI. `resourcelib-views` is the first plugin and
+sets the convention; `papermap` becomes the second by following the
+same contract for the resourcelib path (its native-papermap path
+remains, so it works standalone too).
 
 ## Approach
 
@@ -22,6 +59,11 @@ top-level sections. papermap learns to read resourcelib YAML directly and
 project it into its existing `Corpus` dataclass. The two tools couple at
 the YAML level by design — the user explicitly chose "all in resourcelib"
 for maximum DRY.
+
+Independently, resourcelib v0.2 also formalises the aggregation helpers
+(`items_by_kind` / `items_by_topic` / `topic_counts` / `kind_counts`)
+that `resourcelib-views` already pins for. Bundling these into the same
+v0.2 release means one core release unblocks both plugins.
 
 ## Non-goals (YAGNI)
 
@@ -33,7 +75,30 @@ for maximum DRY.
 - No new visualisations or UI work beyond what `papermap serve` already
   delivers — the same UI just opens resourcelib YAMLs.
 
-## resourcelib v0.2 — schema upgrade
+## resourcelib v0.2 — schema upgrade + aggregate helpers
+
+This release ships **two** independent additions, both backwards-compatible:
+
+1. **`papermap_*:` schema additions** — for the papermap bridge (this spec).
+2. **`resourcelib.aggregate` module** — the helpers `resourcelib-views`
+   already imports. Pulling them out of any ad-hoc location into a
+   dedicated module formalises them as the public plugin API.
+
+### Aggregate helpers (`resourcelib/aggregate.py`)
+
+A new module with four pure functions over a `Doc`:
+
+- `items_by_kind(doc) -> dict[str, list[Item]]` — items grouped by `kind`.
+- `items_by_topic(doc) -> dict[str, list[Item]]` — items grouped by each
+  topic in `item.topics`; an item with N topics appears under N keys.
+- `kind_counts(doc) -> dict[str, int]` — `kind` → number of items.
+- `topic_counts(doc) -> dict[str, int]` — topic → number of items.
+
+These are re-exported from `resourcelib/__init__.py` so plugins import
+them as `from resourcelib import items_by_kind`. Unit-tested with a
+small fixture corpus. No new dependencies.
+
+### Schema additions for the papermap bridge
 
 Four optional top-level sections, additive to the current schema:
 
@@ -187,16 +252,19 @@ who only have native papermap YAMLs.
 ## Data flow
 
 ```
-my-corpus.yaml  ──┬──>  resourcelib check / build      ──>  resource-library.md
+my-corpus.yaml  ──┬──>  resourcelib check / build           ──>  catalog.md
    (resourcelib   │
-    shape with    └──>  papermap   check / build / serve
-    papermap_* )                                       ──>  map.html (or live web view)
+    shape with    ├──>  resourcelib-views generate          ──>  dossiers/*.md
+    papermap_* )  │
+                  └──>  papermap   check / build / serve    ──>  map.html
+                                                             ──>  live web view
 ```
 
-The same file produces the card grid and the citation graph. To preview
-the citation-graph subset standalone (e.g. to commit a static papermap
-YAML alongside a corpus snapshot), `resourcelib export --to-papermap`
-still produces a complete papermap corpus.
+One file, three views. To preview the citation-graph subset standalone
+(e.g. to commit a static papermap YAML alongside a corpus snapshot),
+`resourcelib export --to-papermap` still produces a complete papermap
+corpus that any plain-papermap user can render without installing
+resourcelib.
 
 ## Error handling
 
@@ -218,27 +286,38 @@ still produces a complete papermap corpus.
 
 Two stages, two repos, two version bumps. The papermap stage cannot land
 before the resourcelib stage because papermap pins the new resourcelib
-version.
+version. resourcelib-views also picks up its v0.2 dependency from the
+same release — no work in that repo, but its CI starts running against
+a real published v0.2 instead of an aspirational pin.
 
 1. **resourcelib v0.2.0** — schema upgrade + validator + completed
-   export + tests + README updates (incl. fixing the stale
-   `LiudengZhang/papermap` link). The example YAML is upgraded in place
+   export + new `aggregate.py` module (`items_by_kind` / `items_by_topic`
+   / `topic_counts` / `kind_counts`, formalising what
+   `resourcelib-views` already imports) + tests + README updates (incl.
+   fixing the stale `LiudengZhang/papermap` link, adding a
+   "plugin ecosystem" section). The example YAML is upgraded in place
    to carry the four new sections (the 33 already-tagged papers get
    their colors, relations, edges, and hub layout). All existing
-   `resourcelib check` / `build` commands keep working. Tag `v0.2.0`.
+   `resourcelib check` / `build` commands keep working; `resourcelib-views`
+   keeps working unchanged. Tag `v0.2.0`.
 2. **papermap v0.3.0** — `resourcelib_loader.py` + auto-detect in
    `load_corpus` + `[resourcelib]` extra (pinned to resourcelib v0.2.0)
    + tests + README. Tag `v0.3.0`.
 
 ## Documentation
 
-- **resourcelib README** — fix the stale URL, document the four new
-  top-level sections and the upgraded `papermap_categories:` form, show
-  the one-YAML-two-tools workflow, point at papermap's
-  `[resourcelib]` extra.
+- **resourcelib README** — fix the stale `LiudengZhang/papermap` URL,
+  add a top-level **"Plugin ecosystem"** section that names
+  `resourcelib-views` and `papermap` as the two current plugins, document
+  the four new `papermap_*:` top-level sections and the upgraded
+  `papermap_categories:` form, document `resourcelib.aggregate` as the
+  public plugin API, and show the one-YAML-N-views workflow.
+- **resourcelib-views README** — no code changes needed, but a one-line
+  edit noting it's "one of two plugins" alongside papermap.
 - **papermap README** — add a "From a resourcelib YAML" section
   showing `pip install "papermap[resourcelib]"` and `papermap build my-corpus.yaml`
-  working transparently on either YAML shape.
+  working transparently on either YAML shape; describe papermap as a
+  resourcelib plugin (with the native-papermap path preserved).
 
 ## Out of scope (revisit later, not in this design)
 
