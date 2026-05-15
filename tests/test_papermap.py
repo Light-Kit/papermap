@@ -226,3 +226,15 @@ def test_lint_flags_empty_category(tmp_path):
     )
     warnings = lint_corpus(load_corpus(_write(tmp_path, body)))
     assert any("empty" in w and "no papers" in w for w in warnings)
+
+
+# ── papermap serve --help advertises the subcommand ──────────────────────────
+
+def test_serve_appears_in_help():
+    result = subprocess.run(
+        [sys.executable, "-m", "papermap", "--help"],
+        capture_output=True,
+        text=True,
+    )
+    assert result.returncode == 0
+    assert "serve" in result.stdout
