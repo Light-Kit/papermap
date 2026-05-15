@@ -1,0 +1,9 @@
+services:
+  papermap:
+    build: .
+    image: papermap:dev
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./examples:/corpora:ro
+    restart: unless-stopped
