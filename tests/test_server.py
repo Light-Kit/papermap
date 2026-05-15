@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import base64
 from pathlib import Path
 
 import pytest
@@ -124,3 +125,44 @@ def test_download_returns_full_html(mixed_client):
 def test_download_invalid_corpus_is_422(mixed_client):
     resp = mixed_client.get("/download/broken.yaml")
     assert resp.status_code == 422
+
+
+@pytest.fixture
+def auth_client(tmp_path, monkeypatch):
+    monkeypatch.setenv("PAPERMAP_PASSWORD", "s3cret")
+    (tmp_path / "good.yaml").write_text(MINIMAL, encoding="utf-8")
+    app = create_app(tmp_path)
+    app.config["TESTING"] = True
+    return app.test_client()
+
+
+def _basic_auth_header(password: str) -> dict:
+    token = base64.b64encode(f"x:{password}".encode("utf-8")).decode("ascii")
+    return {"Authorization": f"Basic {token}"}
+
+
+def test_auth_required_when_password_set(auth_client):
+    resp = auth_client.get("/")
+    assert resp.status_code == 401
+    assert "Basic" in resp.headers.get("WWW-Authenticate", "")
+
+
+def test_auth_passes_with_correct_password(auth_client):
+    resp = auth_client.get("/", headers=_basic_auth_header("s3cret"))
+    assert resp.status_code == 200
+
+
+def test_auth_rejects_wrong_password(auth_client):
+    resp = auth_client.get("/", headers=_basic_auth_header("nope"))
+    assert resp.status_code == 401
+
+
+def test_auth_does_not_gate_healthz(auth_client):
+    resp = auth_client.get("/healthz")
+    assert resp.status_code == 200
+    assert resp.data == b"ok"
+
+
+def test_no_auth_when_password_unset(client):
+    resp = client.get("/")
+    assert resp.status_code == 200

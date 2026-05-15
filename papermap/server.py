@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 import io
+import os
 from pathlib import Path
 
-from flask import Flask, abort, jsonify, render_template, send_file
+from flask import Flask, Response, abort, jsonify, render_template, request, send_file
 
 import yaml
 
@@ -15,14 +16,42 @@ from .schema import CorpusError, lint_corpus
 from .state import build_state
 
 
+def _check_basic_auth(expected_password: str) -> bool:
+    auth = request.authorization
+    if auth is None or auth.type != "basic":
+        return False
+    return auth.password == expected_password
+
+
 def create_app(corpus_dir: Path) -> Flask:
     """Build the Flask app rooted at corpus_dir.
 
     The directory is rescanned per request, so dropping a new YAML file
     into it just appears on the next refresh.
+
+    If ``PAPERMAP_PASSWORD`` is set in the environment, every route
+    except ``/healthz`` requires HTTP basic auth whose password matches
+    that value. The username is ignored.
     """
     app = Flask(__name__)
     app.config["CORPUS_DIR"] = Path(corpus_dir).resolve()
+    app.config["PAPERMAP_PASSWORD"] = os.environ.get("PAPERMAP_PASSWORD")
+
+    @app.before_request
+    def _require_auth():
+        expected = app.config.get("PAPERMAP_PASSWORD")
+        if not expected:
+            return None
+        if request.path == "/healthz":
+            return None
+        if _check_basic_auth(expected):
+            return None
+        return Response(
+            "Authentication required.\n",
+            status=401,
+            headers={"WWW-Authenticate": 'Basic realm="papermap"'},
+            mimetype="text/plain",
+        )
 
     @app.get("/")
     def index():
