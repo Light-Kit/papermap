@@ -38,4 +38,9 @@ Issues = "https://github.com/Light-Kit/papermap/issues"
 packages = ["papermap"]
 
 [tool.setuptools.package-data]
-papermap = ["templates/*.html", "static/*.js", "static/*.css"]
+papermap = [
+    "templates/*.html",
+    "static/*.js",
+    "static/*.css",
+    "static/views/*.js",
+]
