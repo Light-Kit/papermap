@@ -12,14 +12,38 @@ from pathlib import Path
 from ..schema import Category, Corpus, Edge, Item, LayoutConfig, Paper, Relation
 
 
+_DEFAULT_CATEGORY_COLORS = [
+    "#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd",
+    "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf",
+]
+
+
+def _category_from_raw(raw_cat, idx: int) -> Category:
+    """Accept either a dict ({id,label,color}) or a bare string (id only).
+
+    Resourcelib corpora often list categories as a flat string list because
+    the per-item `papermap_category` is the only thing the resourcelib
+    schema cares about; colors get filled in here so the map can still
+    render.
+    """
+    if isinstance(raw_cat, str):
+        return Category(
+            id=raw_cat,
+            label=raw_cat,
+            color=_DEFAULT_CATEGORY_COLORS[idx % len(_DEFAULT_CATEGORY_COLORS)],
+        )
+    return Category(
+        id=str(raw_cat["id"]),
+        label=str(raw_cat.get("label", raw_cat["id"])),
+        color=str(raw_cat.get("color",
+            _DEFAULT_CATEGORY_COLORS[idx % len(_DEFAULT_CATEGORY_COLORS)])),
+    )
+
+
 def load_resourcelib(raw: dict, source: Path | None = None) -> Corpus:
     categories = [
-        Category(
-            id=str(c["id"]),
-            label=str(c.get("label", c["id"])),
-            color=str(c["color"]),
-        )
-        for c in raw.get("papermap_categories", [])
+        _category_from_raw(c, idx)
+        for idx, c in enumerate(raw.get("papermap_categories", []))
     ]
     relations = [
         Relation(

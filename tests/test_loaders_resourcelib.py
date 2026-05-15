@@ -35,6 +35,30 @@ items:
     assert corpus.papers == []
 
 
+def test_resourcelib_accepts_flat_string_categories(tmp_path):
+    """`papermap_categories` may be a bare string list — auto-color it.
+
+    The fm-to-virtual-cells resourcelib corpus uses the bare-string form,
+    so the loader must tolerate it instead of KeyErroring on `c["id"]`.
+    """
+    raw = """
+title: "Flat cats"
+vocab: {kinds: [{id: paper, label: Paper}]}
+papermap_categories:
+  - scfm
+  - reckoning
+items:
+  - {id: a, kind: paper, label: A, papermap_category: scfm}
+  - {id: b, kind: paper, label: B, papermap_category: reckoning}
+"""
+    p = tmp_path / "flat.yaml"
+    p.write_text(raw)
+    corpus = load_corpus(p)
+    assert [c.id for c in corpus.categories] == ["scfm", "reckoning"]
+    # Both categories got a non-empty color so the map can render.
+    assert all(c.color for c in corpus.categories)
+
+
 def test_resourcelib_propagates_url_to_item(tmp_path):
     """url on a resourcelib item must reach the Item dataclass.
 
