@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "papermap"
-version = "0.2.0"
+version = "0.3.0"
 description = "Interactive relationship maps for a body of literature — a clustered-ring node-link diagram from a simple YAML corpus."
 readme = "README.md"
 requires-python = ">=3.10"

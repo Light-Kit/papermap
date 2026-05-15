@@ -22,7 +22,7 @@ from .schema import (
     load_corpus,
 )
 
-__version__ = "0.1.0"
+__version__ = "0.3.0"
 
 __all__ = [
     "Category",

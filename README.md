@@ -52,19 +52,39 @@ write_html(fig, "map.html")
 The output is one HTML file with `plotly.js` loaded from a CDN — open it
 directly, or embed it in a site with an `<iframe>`.
 
-## Serve (local web view)
+## Views (local web app)
 
 ```bash
-papermap serve examples              # scan the examples directory
-papermap serve .                     # scan the current directory
-papermap serve corpora --port 9000   # custom port
-papermap serve corpora --no-browser  # don't auto-open
+papermap serve examples            # scan a directory of corpora
+papermap serve --port 9000
+papermap serve corpora --no-browser
 ```
 
-The server scans the directory for `*.yaml` / `*.yml` files, lists them in a
-sidebar, and renders each interactive map in the browser. Invalid corpora show
-greyed-out with their error. Each map view also offers a **Download HTML**
-button — the same self-contained artifact `papermap build` produces.
+The browser opens with a six-tab view of every corpus in the directory:
+
+- **Stats** — counts + by-kind + top-topics bar charts.
+- **Browse** — filterable card grid (the "data vault").
+- **Map** — the clustered-ring relationship graph.
+- **Table** — sortable spreadsheet view.
+- **Topics & People** — ranked lists.
+- **Timeline** — items by year (requires `year:` on items).
+
+Filters (kind, topic, status, org_type, region, free-text) apply to Browse,
+Map, and Table. Resourcelib YAML corpora (`vocab:` + `items:`) are read
+directly via auto-detect; the Map tab is hidden for corpora that don't
+declare `papermap_categories`/`papermap_edges`.
+
+## Static export
+
+```bash
+papermap export examples/fm-to-virtual-cells.yaml -o site/
+python -m http.server -d site/ 9001
+```
+
+Produces a folder with `index.html` + `state.json` + the JS bundle. Drop it
+into any static host (GitHub Pages, Cloudflare Pages, Netlify, S3). For
+hosted deployment of the live server, see
+[`docs/deploy/agent-prompt.md`](docs/deploy/agent-prompt.md).
 
 ## Docker
 
