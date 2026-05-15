@@ -42,6 +42,8 @@ async function init() {
     }
     activeCorpus = "__static__";
     tabsBar.hidden = false;
+    resetFilters();
+    mountFilterBar(filterBar, getState(), filters, () => setView(activeView));
     setView(activeView);
     return;
   }
