@@ -1,6 +1,7 @@
 "use strict";
 
 import { loadState, getState } from "./state.js";
+import { mount as mountFilterBar } from "./filterbar.js";
 import * as stats    from "./views/stats.js";
 import * as browse   from "./views/browse.js";
 import * as mapView  from "./views/map.js";
@@ -76,8 +77,19 @@ async function pickCorpus(li, item) {
   }
   activeCorpus = item.name;
   tabsBar.hidden = false;
+  resetFilters();
+  mountFilterBar(filterBar, getState(), filters, () => setView(activeView));
   setView(activeView);
   writeHash();
+}
+
+function resetFilters() {
+  filters.kinds.clear();
+  filters.topics.clear();
+  filters.statuses.clear();
+  filters.org_types.clear();
+  filters.regions.clear();
+  filters.q = "";
 }
 
 function setView(name) {
