@@ -52,6 +52,40 @@ write_html(fig, "map.html")
 The output is one HTML file with `plotly.js` loaded from a CDN — open it
 directly, or embed it in a site with an `<iframe>`.
 
+## Serve (local web view)
+
+```bash
+papermap serve examples              # scan the examples directory
+papermap serve .                     # scan the current directory
+papermap serve corpora --port 9000   # custom port
+papermap serve corpora --no-browser  # don't auto-open
+```
+
+The server scans the directory for `*.yaml` / `*.yml` files, lists them in a
+sidebar, and renders each interactive map in the browser. Invalid corpora show
+greyed-out with their error. Each map view also offers a **Download HTML**
+button — the same self-contained artifact `papermap build` produces.
+
+## Docker
+
+The shipped `Dockerfile` and `docker-compose.yml` give you a one-command run.
+
+```bash
+docker compose up -d --build
+# open http://127.0.0.1:8000
+docker compose down
+```
+
+By default the compose file mounts `./examples` into `/corpora` (read-only).
+Point it at your own corpora directory by editing the `volumes:` line.
+
+Or with plain Docker:
+
+```bash
+docker build -t papermap .
+docker run --rm -p 8000:8000 -v "$(pwd)/my-corpora":/corpora:ro papermap
+```
+
 ## The corpus format
 
 A corpus is a single YAML file with four required sections and one optional
@@ -147,9 +181,15 @@ field's structure readable instead of collapsing into a hairball.
 ## Development
 
 ```bash
-pip install -e ".[dev]"
-pytest
+make dev      # editable install with dev deps
+make test     # run pytest
+make serve    # papermap serve examples
+make docker-build
+make docker-up
 ```
+
+The render pipeline (`schema.py` → `layout.py` → `render.py`) is independent
+of the server (`server.py`). Tests live in `tests/`.
 
 ## License
 
