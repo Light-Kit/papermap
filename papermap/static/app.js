@@ -6,7 +6,7 @@ import * as stats    from "./views/stats.js";
 import * as browse   from "./views/browse.js";
 import * as mapView  from "./views/map.js";
 import * as table    from "./views/table.js";
-import * as ranked   from "./views/ranked.js";
+import * as topics   from "./views/topics.js";
 import * as timeline from "./views/timeline.js";
 
 const sidebar  = document.getElementById("corpora");
@@ -14,7 +14,7 @@ const tabsBar  = document.getElementById("viewtabs");
 const filterBar = document.getElementById("filterbar");
 const main     = document.getElementById("main");
 
-const views = { stats, browse, map: mapView, table, ranked, timeline };
+const views = { stats, browse, map: mapView, table, topics, timeline };
 
 // Filters are mutated in place by filterbar.js (Phase 7).
 const filters = {
@@ -31,6 +31,19 @@ async function init() {
     btn.addEventListener("click", () => setView(btn.dataset.view));
   }
   window.addEventListener("hashchange", routeFromHash);
+
+  // Lets the Topics view (or any future view) ask app.js to apply a
+  // facet filter and switch views in one gesture, without exposing
+  // setView / filterBar internals to the views themselves.
+  document.addEventListener("papermap:filter-and-show", (ev) => {
+    const { view, topic } = ev.detail || {};
+    if (topic) {
+      filters.topics.clear();
+      filters.topics.add(topic);
+      mountFilterBar(filterBar, getState(), filters, () => setView(activeView));
+    }
+    if (view) setView(view);
+  });
 
   if (sidebar.parentElement.hidden) {
     // Static-export mode: state.js will pick up the sibling state.json.
