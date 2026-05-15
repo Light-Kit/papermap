@@ -133,3 +133,31 @@ body {
   border-radius: 4px;
   margin: 18px 22px;
 }
+
+.view { padding: 18px 22px; overflow-y: auto; height: 100%; }
+.view header { display: flex; align-items: baseline; gap: 18px; }
+.view h2 { margin: 0; font-size: 18px; }
+.view .stats { color: #666; font-size: 12px; }
+.view .warnings {
+  background: #fff8e1;
+  border-left: 3px solid #f1c40f;
+  padding: 8px 12px;
+  margin: 10px 0;
+  font-size: 12px;
+}
+.view .warnings ul { margin: 4px 0 0 18px; padding: 0; }
+
+.bar-chart { margin: 20px 0; }
+.bar-chart h3 { margin: 0 0 8px; font-size: 13px; color: #555; }
+.bar-chart ul { list-style: none; margin: 0; padding: 0; }
+.bar-chart li {
+  display: grid;
+  grid-template-columns: 140px 1fr 36px;
+  align-items: center;
+  gap: 8px;
+  padding: 2px 0;
+  font-size: 12px;
+}
+.bar-chart .lbl { color: #444; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bar-chart .bar { background: #1f77b4; height: 10px; border-radius: 2px; }
+.bar-chart .n { color: #666; text-align: right; }
