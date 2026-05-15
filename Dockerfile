@@ -8,7 +8,9 @@ COPY pyproject.toml README.md LICENSE ./
 COPY papermap ./papermap
 RUN pip install --no-cache-dir .
 
-# Default mount point for user corpora.
+# Bake the example corpora into the image so the deployed site has content.
+# Mount a volume at /corpora to add your own corpora at runtime.
+COPY examples /corpora
 VOLUME ["/corpora"]
 EXPOSE 8000
 

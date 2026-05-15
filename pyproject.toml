@@ -35,7 +35,7 @@ Homepage = "https://github.com/Light-Kit/papermap"
 Issues = "https://github.com/Light-Kit/papermap/issues"
 
 [tool.setuptools]
-packages = ["papermap"]
+packages = ["papermap", "papermap.loaders"]
 
 [tool.setuptools.package-data]
 papermap = [
