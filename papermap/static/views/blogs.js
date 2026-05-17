@@ -114,6 +114,7 @@ function blogCard(post, el, state, filters) {
 function renderReader(post) {
   const wrap = document.createElement("article");
   wrap.className = "blog-post";
+  wrap.setAttribute("data-slug", post.slug);
   const topics = (post.topics || []).map(t =>
     `<span class="chip">${escape(t)}</span>`).join(" ");
   const date = post.date ? `<span class="meta">${escape(post.date)}</span>` : "";
