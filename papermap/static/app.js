@@ -3,10 +3,8 @@
 import { loadState, getState } from "./state.js";
 import { loadBlogs } from "./blogs-state.js";
 import { mount as mountFilterBar } from "./filterbar.js";
-import * as stats    from "./views/stats.js";
 import * as browse   from "./views/browse.js";
 import * as mapView  from "./views/map.js";
-import * as table    from "./views/table.js";
 import * as topics   from "./views/topics.js";
 import * as blogs    from "./views/blogs.js";
 import * as timeline from "./views/timeline.js";
@@ -16,17 +14,17 @@ const tabsBar  = document.getElementById("viewtabs");
 const filterBar = document.getElementById("filterbar");
 const main     = document.getElementById("main");
 
-const views = { stats, browse, map: mapView, table, topics, blogs, timeline };
+const views = { browse, map: mapView, topics, blogs, timeline };
 
 // Filters are mutated in place by filterbar.js (Phase 7).
 const filters = {
   kinds: new Set(), topics: new Set(), statuses: new Set(),
   org_types: new Set(), regions: new Set(), q: "",
 };
-const filterableViews = new Set(["browse", "map", "table"]);
+const filterableViews = new Set(["browse", "map"]);
 
 let activeCorpus = null;
-let activeView = "stats";
+let activeView = "browse";
 
 async function init() {
   for (const btn of tabsBar.querySelectorAll("button")) {

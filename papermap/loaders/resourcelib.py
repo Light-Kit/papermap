@@ -55,20 +55,46 @@ def load_resourcelib(raw: dict, source: Path | None = None) -> Corpus:
         for r in raw.get("papermap_relations", [])
     ]
 
+    # When most items lack an explicit `papermap_category` we fall back to
+    # `topics[0]` so the Map view doesn't drop them. New categories get
+    # appended to the existing list with an auto-cycling color so the
+    # original narrative-arc categories (reckoning, scfm, …) still anchor
+    # the layout — topic-derived ones just expand the cluster set.
+    raw_items = raw.get("items", [])
+    category_index = {c.id: c for c in categories}
+
+    def resolve_category(it: dict) -> str | None:
+        if "papermap_category" in it:
+            return str(it["papermap_category"])
+        topics = it.get("topics") or []
+        if topics:
+            return str(topics[0])
+        return None
+
     papers: list[Paper] = []
-    if categories:
-        for it in raw.get("items", []):
-            if not isinstance(it, dict) or "papermap_category" not in it:
-                continue
-            papers.append(Paper(
-                id=str(it["id"]),
-                category=str(it["papermap_category"]),
-                label=str(it.get("label", it["id"])),
-                title=str(it.get("title", "")),
-                meta=str(it.get("meta", "")),
-                why=str(it.get("why", "")),
-                weight=int(it.get("weight", 1)),
-            ))
+    for it in raw_items:
+        if not isinstance(it, dict):
+            continue
+        cat_id = resolve_category(it)
+        if not cat_id:
+            continue
+        if cat_id not in category_index:
+            new_cat = Category(
+                id=cat_id,
+                label=cat_id,
+                color=_DEFAULT_CATEGORY_COLORS[len(categories) % len(_DEFAULT_CATEGORY_COLORS)],
+            )
+            categories.append(new_cat)
+            category_index[cat_id] = new_cat
+        papers.append(Paper(
+            id=str(it["id"]),
+            category=cat_id,
+            label=str(it.get("label", it["id"])),
+            title=str(it.get("title", "")),
+            meta=str(it.get("meta", "")),
+            why=str(it.get("why", "")),
+            weight=int(it.get("weight", 1)),
+        ))
 
     edges = [
         Edge(str(e[0]), str(e[1]), str(e[2]))
@@ -88,7 +114,7 @@ def load_resourcelib(raw: dict, source: Path | None = None) -> Corpus:
     )
 
     items: list[Item] = []
-    for it in raw.get("items", []):
+    for it in raw_items:
         if not isinstance(it, dict) or "id" not in it:
             continue
         items.append(Item(
@@ -100,13 +126,14 @@ def load_resourcelib(raw: dict, source: Path | None = None) -> Corpus:
             status=it.get("status"),
             org_type=it.get("org_type"),
             region=it.get("region"),
-            category=it.get("papermap_category"),
+            category=resolve_category(it),
             title=str(it.get("title", "")),
             meta=str(it.get("meta", "")),
             why=str(it.get("why", "")),
             weight=int(it.get("weight", 1)),
             people=tuple(it.get("people", []) or []),
             url=str(it.get("url", "")),
+            description=str(it.get("description", "")),
         ))
 
     corpus = Corpus(

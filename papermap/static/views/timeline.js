@@ -1,5 +1,11 @@
 "use strict";
 
+// Topic-emergence timeline — heatmap with topics on the y-axis (sorted
+// by total count, busiest at top) and year on the x-axis. Cell colour
+// intensity = item count for that topic in that year; cell hover shows
+// the actual item labels. Designed to answer "when did each topic
+// emerge, peak, or fade?" rather than just "papers per year".
+
 import { applyFilter } from "../filters.js";
 
 export function render(state, filters, el) {
@@ -7,65 +13,94 @@ export function render(state, filters, el) {
   div.className = "view timeline";
   el.appendChild(div);
 
-  const items = applyFilter(state.items, filters);
-  const withYear = items.filter(i => i.year != null);
-  const noYear = items.length - withYear.length;
-
-  const header = document.createElement("header");
-  header.innerHTML = `<h2>Timeline
-    <small>(${withYear.length} dated · ${noYear} missing year)</small></h2>`;
-  div.appendChild(header);
-
-  if (!withYear.length) {
-    const p = document.createElement("p");
-    p.className = "placeholder";
-    p.textContent = "No items carry `year:`. Add a 4-digit `year:` to items to populate the timeline.";
-    div.appendChild(p);
+  const items = applyFilter(state.items, filters).filter(i => i.year != null);
+  if (!items.length) {
+    div.innerHTML = `<header><h2>Topic emergence</h2></header>
+      <p class="placeholder">No items carry both <code>year:</code> and <code>topics:</code>.</p>`;
     return;
   }
 
-  const colourByKind = new Map();
-  for (const c of state.categories) colourByKind.set(c.id, c.color);
-  const palette = ["#1f77b4","#ff7f0e","#2ca02c","#d62728","#9467bd","#8c564b","#e377c2","#7f7f7f"];
-
-  const byKind = new Map();
-  for (const it of withYear) {
-    if (!byKind.has(it.kind)) byKind.set(it.kind, []);
-    byKind.get(it.kind).push(it);
+  // (topic, year) → list of items; topic totals decide row order.
+  const byTopicYear = new Map();
+  const topicTotals = new Map();
+  let minYear = Infinity, maxYear = -Infinity;
+  for (const it of items) {
+    if (it.year < minYear) minYear = it.year;
+    if (it.year > maxYear) maxYear = it.year;
+    for (const t of it.topics || []) {
+      const key = `${t}|${it.year}`;
+      if (!byTopicYear.has(key)) byTopicYear.set(key, []);
+      byTopicYear.get(key).push(it);
+      topicTotals.set(t, (topicTotals.get(t) || 0) + 1);
+    }
+  }
+  if (!topicTotals.size) {
+    div.innerHTML = `<header><h2>Topic emergence</h2></header>
+      <p class="placeholder">No items carry both <code>year:</code> and <code>topics:</code>.</p>`;
+    return;
   }
 
-  const kinds = [...byKind.keys()];
-  const traces = kinds.map((k, idx) => {
-    const pts = byKind.get(k);
-    return {
-      type: "scatter",
-      mode: "markers",
-      name: k || "(no kind)",
-      x: pts.map(p => p.year),
-      y: pts.map(() => Math.random() * 0.8 + idx),
-      text: pts.map(p => `${p.label}<br><i>${p.title || ""}</i>`),
-      hoverinfo: "text",
-      marker: {
-        size: 10,
-        color: colourByKind.get(k) || palette[idx % palette.length],
-        line: { color: "#fff", width: 1 },
-      },
-    };
-  });
+  // Topics sorted by total descending; top first so they sit at the
+  // chart's top edge (Plotly's y-axis runs bottom-up).
+  const topics = [...topicTotals.entries()]
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .map(([t]) => t);
+  const years = [];
+  for (let y = minYear; y <= maxYear; y++) years.push(y);
 
-  const minY = Math.min(...withYear.map(i => i.year));
-  const maxY = Math.max(...withYear.map(i => i.year));
-  const layout = {
-    xaxis: { title: "year", range: [minY - 0.5, maxY + 0.5], dtick: 1 },
-    yaxis: { visible: false, range: [-0.5, kinds.length + 0.5] },
-    showlegend: true,
-    legend: { orientation: "h", y: -0.15 },
-    margin: { l: 30, r: 30, t: 20, b: 60 },
-    height: 460,
-  };
+  const z = [], hover = [];
+  // Plotly heatmaps render row 0 at the bottom, so build rows in
+  // reverse so the most-active topic ends up at the top.
+  for (const t of [...topics].reverse()) {
+    const zRow = [], hRow = [];
+    for (const y of years) {
+      const cell = byTopicYear.get(`${t}|${y}`) || [];
+      zRow.push(cell.length || null);
+      if (cell.length) {
+        const sample = cell.slice(0, 5).map(i => i.label || i.id).join("<br>");
+        const more = cell.length > 5 ? `<br>… +${cell.length - 5} more` : "";
+        hRow.push(`<b>${t}</b> · ${y}<br>${cell.length} item${cell.length > 1 ? "s" : ""}<br>${sample}${more}`);
+      } else {
+        hRow.push(`${t} · ${y} — no items`);
+      }
+    }
+    z.push(zRow);
+    hover.push(hRow);
+  }
+
+  const header = document.createElement("header");
+  header.innerHTML = `<h2>Topic emergence
+    <small>${topics.length} topics × ${years.length} years · cell shade = item count</small></h2>
+    <p class="view-blurb">Rows = topics (busiest at top); columns = year. Hover any cell to see the items that landed in that bucket.</p>`;
+  div.appendChild(header);
 
   const figDiv = document.createElement("div");
   div.appendChild(figDiv);
+
+  const trace = {
+    type: "heatmap",
+    x: years,
+    y: [...topics].reverse(),
+    z,
+    text: hover,
+    hoverinfo: "text",
+    colorscale: [
+      [0, "#f3f6fb"], [0.05, "#dde7f4"], [0.25, "#a8c5e7"],
+      [0.5, "#6494c8"], [0.75, "#2c64a3"], [1.0, "#1a4480"],
+    ],
+    showscale: true,
+    xgap: 1,
+    ygap: 1,
+    colorbar: { title: "items", thickness: 12, len: 0.6 },
+  };
+
+  const layout = {
+    xaxis: { title: "year", dtick: 1, tickangle: -45 },
+    yaxis: { automargin: true, ticksuffix: "  " },
+    margin: { l: 10, r: 30, t: 10, b: 60 },
+    height: Math.max(360, topics.length * 22 + 100),
+  };
+
   // eslint-disable-next-line no-undef
-  Plotly.newPlot(figDiv, traces, layout, { responsive: true, displaylogo: false });
+  Plotly.newPlot(figDiv, [trace], layout, { responsive: true, displaylogo: false });
 }
