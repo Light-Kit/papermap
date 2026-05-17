@@ -14,6 +14,37 @@ body {
   height: 100vh;
 }
 
+#zen-toggle {
+  position: fixed;
+  top: 12px;
+  right: 14px;
+  z-index: 9999;
+  width: 28px;
+  height: 28px;
+  border-radius: 14px;
+  border: 1px solid #d0d0cc;
+  background: #fff;
+  color: #888;
+  font: 600 13px/1 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+#zen-toggle:hover { color: #1a4480; border-color: #1a4480; }
+#zen-toggle.on { background: #1a4480; color: #fff; border-color: #1a4480; }
+
+body.zen {
+  grid-template-columns: 1fr;
+}
+body.zen #sidebar,
+body.zen #viewtabs,
+body.zen #filterbar {
+  display: none !important;
+}
+body.zen #content {
+  grid-template-rows: 1fr;
+}
+body.zen #zen-toggle { top: 10px; right: 10px; }
+
 #sidebar {
   background: #f1f1f0;
   border-right: 1px solid #d8d8d6;
