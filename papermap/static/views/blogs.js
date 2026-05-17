@@ -11,6 +11,7 @@ import { getBlogs } from "../blogs-state.js";
 
 let _topicFilter = null;
 let _activeSlug = null;
+let _starOnly = false;
 
 export function setTopicFilter(topic) {
   _topicFilter = topic || null;
@@ -36,20 +37,29 @@ export function render(_state, _filters, el) {
     _activeSlug = null;
   }
 
-  const visible = _topicFilter
+  let visible = _topicFilter
     ? blogs.filter(b => (b.topics || []).includes(_topicFilter))
     : blogs;
+  if (_starOnly) visible = visible.filter(b => b.starred);
+  const starredCount = blogs.filter(b => b.starred).length;
 
   const header = document.createElement("header");
   const headline = _topicFilter
     ? `${visible.length} blogs tagged <em>${escape(_topicFilter)}</em>`
-    : `${blogs.length} blogs`;
+    : `${visible.length} blogs${_starOnly ? " · ★ only" : ""}`;
   const clearChip = _topicFilter
     ? ` <a href="#" class="blog-clear-filter">clear ×</a>`
     : "";
   header.innerHTML = `<h2>${headline}${clearChip}
-    <small>long-form essays from the FM-to-virtual-cells corpus</small></h2>`;
+    <small>long-form essays from the FM-to-virtual-cells corpus</small>
+    <a href="#" class="star-filter ${_starOnly ? "on" : ""}">${_starOnly ? "★" : "☆"} starred (${starredCount})</a></h2>`;
   div.appendChild(header);
+  header.querySelector(".star-filter").addEventListener("click", ev => {
+    ev.preventDefault();
+    _starOnly = !_starOnly;
+    el.innerHTML = "";
+    render(_state, _filters, el);
+  });
 
   const clearLink = header.querySelector(".blog-clear-filter");
   if (clearLink) {
@@ -79,9 +89,10 @@ function blogCard(post, el, state, filters) {
   const topics = (post.topics || []).map(t =>
     `<span class="chip">${escape(t)}</span>`).join("");
   const date = post.date ? `<span class="meta">${escape(post.date)}</span>` : "";
+  const star = post.starred ? `<span class="star" title="Editorial pick">★</span> ` : "";
   c.innerHTML = `
     <header class="blog-head">
-      <h4>${escape(post.title)}</h4>
+      <h4>${star}${escape(post.title)}</h4>
       ${date}
     </header>
     <p class="blog-summary">${escape(post.summary)}</p>

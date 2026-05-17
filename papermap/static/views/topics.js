@@ -12,19 +12,37 @@ import { blogsByTopic } from "../blogs-state.js";
 import { getTopicAbstract } from "../topics-state.js";
 
 const _open = new Set();  // expanded abstracts persist across re-renders
+let _starOnly = false;
 
 export function render(state, _filters, el) {
   const div = document.createElement("div");
   div.className = "view topics";
 
   const byTopic = groupByTopic(state.items);
-  const sorted = [...byTopic.entries()].sort((a, b) =>
+  let sorted = [...byTopic.entries()].sort((a, b) =>
     b[1].length - a[1].length || a[0].localeCompare(b[0]));
+  if (_starOnly) sorted = sorted.filter(([t]) => {
+    const a = getTopicAbstract(t);
+    return a && a.starred;
+  });
+  const starredCount = sorted.filter
+    ? [...byTopic.keys()].filter(t => {
+        const a = getTopicAbstract(t);
+        return a && a.starred;
+      }).length
+    : 0;
 
   const header = document.createElement("header");
-  header.innerHTML = `<h2>${byTopic.size} topics across ${state.items.length} items
-    <small>auto-derived TL;DRs + an authored abstract per topic</small></h2>`;
+  header.innerHTML = `<h2>${sorted.length} topics${_starOnly ? " · ★ only" : ` across ${state.items.length} items`}
+    <small>auto-derived TL;DRs + an authored abstract per topic</small>
+    <a href="#" class="star-filter ${_starOnly ? "on" : ""}">${_starOnly ? "★" : "☆"} starred (${starredCount})</a></h2>`;
   div.appendChild(header);
+  header.querySelector(".star-filter").addEventListener("click", ev => {
+    ev.preventDefault();
+    _starOnly = !_starOnly;
+    el.innerHTML = "";
+    render(state, _filters, el);
+  });
 
   const blogs = blogsByTopic();
   const grid = document.createElement("div");
@@ -33,7 +51,7 @@ export function render(state, _filters, el) {
     grid.appendChild(topicCard(topic, items, blogs.get(topic) || []));
   }
   if (!sorted.length) {
-    grid.innerHTML = `<p class="placeholder">No items carry a topic.</p>`;
+    grid.innerHTML = `<p class="placeholder">No topics match the current filter.</p>`;
   }
   div.appendChild(grid);
   el.appendChild(div);
@@ -84,9 +102,10 @@ function topicCard(topic, items, blogs) {
     ? `<a href="#" class="topic-blog-chip" data-topic="${escape(topic)}">📖 ${blogs.length} blog${blogs.length > 1 ? "s" : ""} →</a>`
     : "";
 
+  const star = abstract && abstract.starred ? `<span class="star" title="Editorial pick">★</span> ` : "";
   c.innerHTML = `
     <header class="topic-head">
-      <h4>${escape(topic)}</h4>
+      <h4>${star}${escape(topic)}</h4>
       <span class="chip count">${items.length}</span>
     </header>
     ${tldr}

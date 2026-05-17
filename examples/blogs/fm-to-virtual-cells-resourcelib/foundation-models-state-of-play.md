@@ -5,6 +5,7 @@ topics:
 - foundation-model
 summary: Cross-vault synthesis of every biology FM in the corpus — 15 net-new dossiers + 12 deepened, covering single-cell, pathology, genomic, protein, multimodal.
 source: foundation-models.md
+starred: true
 ---
 
 A cross-vault synthesis of every foundation-model (FM) dossier in this corpus. Links resolve to per-tool deep dives in the AACR / ICLR / ISBI / Single-Cell-Genomics vaults.

@@ -42,6 +42,7 @@ class Blog:
     summary: str
     body_html: str
     source: str
+    starred: bool = False
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -52,6 +53,7 @@ class Blog:
             "summary": self.summary,
             "body_html": self.body_html,
             "source": self.source,
+            "starred": self.starred,
         }
 
 
@@ -125,6 +127,7 @@ def load_blog(path: Path) -> Blog:
         summary=str(front.get("summary") or ""),
         body_html=html,
         source=str(front.get("source") or ""),
+        starred=bool(front.get("starred", False)),
     )
 
 
@@ -156,7 +159,7 @@ def list_blogs(
         out = [
             Blog(
                 slug=b.slug, title=b.title, date=b.date, topics=b.topics,
-                summary=b.summary, source=b.source,
+                summary=b.summary, source=b.source, starred=b.starred,
                 body_html=_rewrite_html(
                     b.body_html,
                     asset_url_prefix=asset_url_prefix,
