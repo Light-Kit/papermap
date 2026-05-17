@@ -229,6 +229,20 @@ a.card-link:hover h4 { color: #1a4480; }
 .card-head-left { display: flex; align-items: center; gap: 6px; }
 .star { color: #d4a017; font-size: 13px; line-height: 1; }
 .item-head .star { font-size: 18px; }
+.star-btn {
+  background: none;
+  border: 0;
+  padding: 0 2px;
+  font: inherit;
+  font-size: 14px;
+  line-height: 1;
+  color: #b8b8b3;
+  cursor: pointer;
+}
+.star-btn:hover { color: #d4a017; }
+.star-btn.on { color: #d4a017; }
+.item-head .star-btn { font-size: 18px; padding: 0 6px; }
+.topic-head .star-btn, .blog-head .star-btn { font-size: 13px; }
 .star-filter {
   margin-left: 14px;
   font-size: 12px;

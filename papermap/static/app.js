@@ -3,6 +3,7 @@
 import { loadState, getState } from "./state.js";
 import { loadBlogs } from "./blogs-state.js";
 import { loadTopicAbstracts } from "./topics-state.js";
+import { setActiveCorpus } from "./stars-state.js";
 import { mount as mountFilterBar } from "./filterbar.js";
 import * as browse   from "./views/browse.js";
 import * as mapView  from "./views/map.js";
@@ -67,6 +68,7 @@ async function init() {
       return;
     }
     await loadBlogs("__static__");
+    setActiveCorpus("__static__");
     activeCorpus = "__static__";
     tabsBar.hidden = false;
     resetFilters();
@@ -106,6 +108,7 @@ async function pickCorpus(li, item) {
   }
   await loadBlogs(item.name);
   await loadTopicAbstracts(item.name);
+  setActiveCorpus(item.name);
   activeCorpus = item.name;
   tabsBar.hidden = false;
   resetFilters();

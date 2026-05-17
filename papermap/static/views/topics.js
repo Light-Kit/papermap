@@ -10,6 +10,8 @@
 
 import { blogsByTopic } from "../blogs-state.js";
 import { getTopicAbstract } from "../topics-state.js";
+import { isStarred, toggleStar, getActiveCorpus } from "../stars-state.js";
+import { starButton, attachStarHandler } from "./browse.js";
 
 const _open = new Set();  // expanded abstracts persist across re-renders
 let _starOnly = false;
@@ -18,19 +20,17 @@ export function render(state, _filters, el) {
   const div = document.createElement("div");
   div.className = "view topics";
 
+  const corpus = getActiveCorpus();
   const byTopic = groupByTopic(state.items);
+  const editorialStarOf = t => {
+    const a = getTopicAbstract(t);
+    return !!(a && a.starred);
+  };
+  const isTopicStarred = t => isStarred(corpus, "topics", t, editorialStarOf(t));
   let sorted = [...byTopic.entries()].sort((a, b) =>
     b[1].length - a[1].length || a[0].localeCompare(b[0]));
-  if (_starOnly) sorted = sorted.filter(([t]) => {
-    const a = getTopicAbstract(t);
-    return a && a.starred;
-  });
-  const starredCount = sorted.filter
-    ? [...byTopic.keys()].filter(t => {
-        const a = getTopicAbstract(t);
-        return a && a.starred;
-      }).length
-    : 0;
+  if (_starOnly) sorted = sorted.filter(([t]) => isTopicStarred(t));
+  const starredCount = [...byTopic.keys()].filter(isTopicStarred).length;
 
   const header = document.createElement("header");
   header.innerHTML = `<h2>${sorted.length} topics${_starOnly ? " · ★ only" : ` across ${state.items.length} items`}
@@ -48,7 +48,7 @@ export function render(state, _filters, el) {
   const grid = document.createElement("div");
   grid.className = "card-grid topic-grid";
   for (const [topic, items] of sorted) {
-    grid.appendChild(topicCard(topic, items, blogs.get(topic) || []));
+    grid.appendChild(topicCard(topic, items, blogs.get(topic) || [], state, _filters, el));
   }
   if (!sorted.length) {
     grid.innerHTML = `<p class="placeholder">No topics match the current filter.</p>`;
@@ -76,7 +76,10 @@ function pickHighlights(items, n = 3) {
     .slice(0, n);
 }
 
-function topicCard(topic, items, blogs) {
+function topicCard(topic, items, blogs, state, filters, el) {
+  const corpus = getActiveCorpus();
+  const abstractMeta = getTopicAbstract(topic);
+  const editorial = !!(abstractMeta && abstractMeta.starred);
   const c = document.createElement("article");
   c.className = "card card-topic";
   c.dataset.topic = topic;
@@ -102,10 +105,9 @@ function topicCard(topic, items, blogs) {
     ? `<a href="#" class="topic-blog-chip" data-topic="${escape(topic)}">📖 ${blogs.length} blog${blogs.length > 1 ? "s" : ""} →</a>`
     : "";
 
-  const star = abstract && abstract.starred ? `<span class="star" title="Editorial pick">★</span> ` : "";
   c.innerHTML = `
     <header class="topic-head">
-      <h4>${star}${escape(topic)}</h4>
+      <h4>${starButton(corpus, "topics", topic, editorial)} ${escape(topic)}</h4>
       <span class="chip count">${items.length}</span>
     </header>
     ${tldr}
@@ -139,6 +141,7 @@ function topicCard(topic, items, blogs) {
       }));
     });
   }
+  attachStarHandler(c, corpus, "topics", topic, editorial, state, filters, el);
   // Card body click → Browse filtered. Ignore clicks on the expanded
   // abstract body so users can select / click links inside it.
   c.addEventListener("click", ev => {

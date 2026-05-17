@@ -6,6 +6,7 @@
 // stops propagation so it doesn't also open the detail.
 
 import { applyFilter } from "../filters.js";
+import { isStarred, toggleStar, userStateOf, getActiveCorpus } from "../stars-state.js";
 
 let _activeId = null;
 
@@ -27,10 +28,12 @@ export function render(state, filters, el) {
     _activeId = null;
   }
 
+  const corpus = getActiveCorpus();
   let items = applyFilter(state.items, filters);
   const starOnly = filters._starOnly === true;
-  if (starOnly) items = items.filter(i => i.starred);
-  const starredCount = state.items.filter(i => i.starred).length;
+  const isItemStarred = i => isStarred(corpus, "items", i.id, !!i.starred);
+  if (starOnly) items = items.filter(isItemStarred);
+  const starredCount = state.items.filter(isItemStarred).length;
   const header = document.createElement("header");
   header.innerHTML = `<h2>${state.items.length} items
     <small>(${items.length} shown${starOnly ? ` · ★ only` : ""})</small>
@@ -63,17 +66,17 @@ function sortItems(items) {
 }
 
 function card(it, state, filters, el) {
+  const corpus = getActiveCorpus();
   const c = document.createElement("article");
   c.className = "card card-item";
   const sourceBadge = it.url
     ? `<a class="card-source" href="${escape(it.url)}" target="_blank" rel="noopener noreferrer" title="Open source">↗ source</a>`
     : "";
-  const star = it.starred ? `<span class="star" title="Editorial pick">★</span>` : "";
   c.innerHTML = `
     <div class="card-head">
       <div class="card-head-left">
         ${it.kind ? `<span class="chip kind">${escape(it.kind)}</span>` : ""}
-        ${star}
+        ${starButton(corpus, "items", it.id, !!it.starred)}
       </div>
       ${sourceBadge}
     </div>
@@ -88,6 +91,7 @@ function card(it, state, filters, el) {
   // Source badge stops propagation so the body click still opens detail.
   const badge = c.querySelector(".card-source");
   if (badge) badge.addEventListener("click", ev => ev.stopPropagation());
+  attachStarHandler(c, corpus, "items", it.id, !!it.starred, state, filters, el);
   c.addEventListener("click", () => {
     _activeId = it.id;
     el.innerHTML = "";
@@ -96,7 +100,35 @@ function card(it, state, filters, el) {
   return c;
 }
 
+// Star button + click handler shared across views.
+export function starButton(corpus, kind, id, editorial) {
+  const on = isStarred(corpus, kind, id, editorial);
+  const state = userStateOf(corpus, kind, id, editorial);
+  const title = state === "editorial" ? "Editorial pick — click to unstar"
+    : state === "added" ? "You starred this — click to unstar"
+    : state === "removed" ? "Editorial pick (you unstarred) — click to restore"
+    : "Click to star";
+  return `<button class="star-btn ${on ? "on" : ""}" data-star-id="${escape(id)}" data-star-kind="${kind}" data-star-editorial="${editorial ? "1" : "0"}" title="${escape(title)}">${on ? "★" : "☆"}</button>`;
+}
+
+export function attachStarHandler(root, corpus, kind, id, editorial, state, filters, el) {
+  const btn = root.querySelector(`.star-btn[data-star-id="${cssEscape(id)}"][data-star-kind="${kind}"]`);
+  if (!btn) return;
+  btn.addEventListener("click", ev => {
+    ev.preventDefault();
+    ev.stopPropagation();
+    toggleStar(corpus, kind, id, editorial);
+    el.innerHTML = "";
+    render(state, filters, el);
+  });
+}
+
+function cssEscape(s) {
+  return String(s).replace(/(["\\])/g, "\\$1");
+}
+
 function detailView(it, state, filters, el) {
+  const corpus = getActiveCorpus();
   const wrap = document.createElement("article");
   wrap.className = "item-detail";
   const facetRow = (label, value) => value
@@ -117,7 +149,7 @@ function detailView(it, state, filters, el) {
     <p class="item-back"><a href="#" class="item-back-link">← All items</a></p>
     <div class="item-head">
       ${it.kind ? `<span class="chip kind">${escape(it.kind)}</span>` : ""}
-      ${it.starred ? `<span class="star" title="Editorial pick">★</span>` : ""}
+      ${starButton(corpus, "items", it.id, !!it.starred)}
       <h1>${escape(it.label || it.id)}</h1>
       ${it.year ? `<span class="item-year">${it.year}</span>` : ""}
     </div>
@@ -141,6 +173,7 @@ function detailView(it, state, filters, el) {
     el.innerHTML = "";
     render(state, filters, el);
   });
+  attachStarHandler(wrap, corpus, "items", it.id, !!it.starred, state, filters, el);
   return wrap;
 }
 

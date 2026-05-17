@@ -8,6 +8,8 @@
 // the papermap:filter-and-show CustomEvent).
 
 import { getBlogs } from "../blogs-state.js";
+import { isStarred, toggleStar, getActiveCorpus } from "../stars-state.js";
+import { starButton, attachStarHandler } from "./browse.js";
 
 let _topicFilter = null;
 let _activeSlug = null;
@@ -37,11 +39,13 @@ export function render(_state, _filters, el) {
     _activeSlug = null;
   }
 
+  const corpus = getActiveCorpus();
+  const isBlogStarred = b => isStarred(corpus, "blogs", b.slug, !!b.starred);
   let visible = _topicFilter
     ? blogs.filter(b => (b.topics || []).includes(_topicFilter))
     : blogs;
-  if (_starOnly) visible = visible.filter(b => b.starred);
-  const starredCount = blogs.filter(b => b.starred).length;
+  if (_starOnly) visible = visible.filter(isBlogStarred);
+  const starredCount = blogs.filter(isBlogStarred).length;
 
   const header = document.createElement("header");
   const headline = _topicFilter
@@ -84,20 +88,21 @@ export function render(_state, _filters, el) {
 }
 
 function blogCard(post, el, state, filters) {
+  const corpus = getActiveCorpus();
   const c = document.createElement("article");
   c.className = "card card-blog";
   const topics = (post.topics || []).map(t =>
     `<span class="chip">${escape(t)}</span>`).join("");
   const date = post.date ? `<span class="meta">${escape(post.date)}</span>` : "";
-  const star = post.starred ? `<span class="star" title="Editorial pick">★</span> ` : "";
   c.innerHTML = `
     <header class="blog-head">
-      <h4>${star}${escape(post.title)}</h4>
+      <h4>${starButton(corpus, "blogs", post.slug, !!post.starred)} ${escape(post.title)}</h4>
       ${date}
     </header>
     <p class="blog-summary">${escape(post.summary)}</p>
     <footer class="blog-foot">${topics}</footer>
   `;
+  attachStarHandler(c, corpus, "blogs", post.slug, !!post.starred, state, filters, el);
   c.addEventListener("click", () => {
     _activeSlug = post.slug;
     el.innerHTML = "";
