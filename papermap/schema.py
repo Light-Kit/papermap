@@ -76,6 +76,7 @@ class Item:
     weight: int = 1
     people: tuple[str, ...] = ()
     url: str = ""
+    description: str = ""
 
 
 @dataclass
