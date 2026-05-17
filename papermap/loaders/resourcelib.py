@@ -134,6 +134,7 @@ def load_resourcelib(raw: dict, source: Path | None = None) -> Corpus:
             people=tuple(it.get("people", []) or []),
             url=str(it.get("url", "")),
             description=str(it.get("description", "")),
+            starred=bool(it.get("starred", False)),
         ))
 
     corpus = Corpus(

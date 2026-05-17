@@ -97,6 +97,19 @@ def create_app(corpus_dir: Path) -> Flask:
             )
         ])
 
+    @app.get("/api/topics/<path:name>")
+    def topics_for(name: str):
+        # Topic abstracts share the blog markdown loader but live in a
+        # separate dir so they don't leak into the Blogs index.
+        path = _resolve(app.config["CORPUS_DIR"], name)
+        topics_dir = app.config["CORPUS_DIR"] / "topics" / path.stem
+        return jsonify([
+            b.to_dict() for b in list_blogs(
+                topics_dir,
+                external_docs_base=app.config.get("EXTERNAL_DOCS_BASE_URL", ""),
+            )
+        ])
+
     @app.get("/api/blogs/<path:name>/assets/<asset>")
     def blog_asset(name: str, asset: str):
         # `_resolve` validates the corpus path; assets live under

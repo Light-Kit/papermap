@@ -27,11 +27,21 @@ export function render(state, filters, el) {
     _activeId = null;
   }
 
-  const items = applyFilter(state.items, filters);
+  let items = applyFilter(state.items, filters);
+  const starOnly = filters._starOnly === true;
+  if (starOnly) items = items.filter(i => i.starred);
+  const starredCount = state.items.filter(i => i.starred).length;
   const header = document.createElement("header");
   header.innerHTML = `<h2>${state.items.length} items
-    <small>(${items.length} shown)</small></h2>`;
+    <small>(${items.length} shown${starOnly ? ` · ★ only` : ""})</small>
+    <a href="#" class="star-filter ${starOnly ? "on" : ""}">${starOnly ? "★" : "☆"} starred (${starredCount})</a></h2>`;
   div.appendChild(header);
+  header.querySelector(".star-filter").addEventListener("click", ev => {
+    ev.preventDefault();
+    filters._starOnly = !starOnly;
+    el.innerHTML = "";
+    render(state, filters, el);
+  });
 
   const grid = document.createElement("div");
   grid.className = "card-grid";
@@ -58,9 +68,13 @@ function card(it, state, filters, el) {
   const sourceBadge = it.url
     ? `<a class="card-source" href="${escape(it.url)}" target="_blank" rel="noopener noreferrer" title="Open source">↗ source</a>`
     : "";
+  const star = it.starred ? `<span class="star" title="Editorial pick">★</span>` : "";
   c.innerHTML = `
     <div class="card-head">
-      ${it.kind ? `<span class="chip kind">${escape(it.kind)}</span>` : ""}
+      <div class="card-head-left">
+        ${it.kind ? `<span class="chip kind">${escape(it.kind)}</span>` : ""}
+        ${star}
+      </div>
       ${sourceBadge}
     </div>
     <h4>${escape(it.label || it.id)}</h4>
@@ -103,6 +117,7 @@ function detailView(it, state, filters, el) {
     <p class="item-back"><a href="#" class="item-back-link">← All items</a></p>
     <div class="item-head">
       ${it.kind ? `<span class="chip kind">${escape(it.kind)}</span>` : ""}
+      ${it.starred ? `<span class="star" title="Editorial pick">★</span>` : ""}
       <h1>${escape(it.label || it.id)}</h1>
       ${it.year ? `<span class="item-year">${it.year}</span>` : ""}
     </div>

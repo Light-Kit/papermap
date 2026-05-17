@@ -144,6 +144,7 @@ items:
   why: What success is supposed to look like, operationalised.
   papermap_category: position
   description: The Virtual Cell Challenge (Arc Institute, 2025) is what success for a virtual cell is supposed to look like, operationalised as a community benchmark with a $50k prize. Five thousand teams registered; over 300 submissions were scored. Most submissions scored worse than the mean-baseline on MAE — the same finding that anchored the Ahlmann-Eltze reckoning months earlier. The winning approach was a hybrid using protein embeddings plus classical features, not a pure single-cell foundation model. As a single result the VCC validates both the reckoning's claim (current sc-FMs don't beat strong baselines) and the post-reckoning architectural response (hybrid + biology-specific features can). It is also the cleanest precedent the next generation of benchmark designers (Open Problems v2, VCBench, Echoes) will reference when building their evaluation suites.
+  starred: true
 - id: rao-2026
   kind: paper
   name: Generalist biological AI — modeling the language of life
@@ -523,6 +524,7 @@ items:
   why: First evidence the architectural choice is load-bearing (+17.9% over LM-derived sc-FMs).
   papermap_category: arch_response
   description: xVERSE is the first published 2026 evidence that the architectural choice underneath a single-cell foundation model is empirically load-bearing. By dropping the language-model spine and using a transcriptomics-native architecture instead, the authors report 17.9% improvement on representation, 11.4% on batch correction, and 34.3% on spatial imputation versus leading LM-derived sc-FMs. It is the single cleanest data point against the position that scale alone drives FM performance in single-cell, and is the architectural counterpart to the methodological response wave (TxPert, Nicheformer, CellaMa) emerging from the post-reckoning landscape. Whether xVERSE generalises to perturbation-prediction — the task the reckoning landed on — is the next open test the paper itself does not yet decisively answer.
+  starred: true
 - id: txpert
   kind: tool
   name: TxPert — multiple-knowledge-graph perturbation prediction
@@ -539,6 +541,7 @@ items:
   why: The reckoning answering itself — Wenkel co-authored both critique and response.
   papermap_category: arch_response
   description: 'TxPert is the most striking 2026 example of the reckoning answering itself. Wenkel co-authored both the 2025 latent-additive critique (which set the new baseline floor that current sc-FMs still don''t beat) and TxPert itself — the same author''s next-step model. Rather than abandoning the FM paradigm, TxPert keeps the FM backbone and adds multiple knowledge graphs as the inductive bias for transcriptomic-perturbation prediction. The choice signals what the post-reckoning architectural response actually looks like from inside the critic camp: not ''FMs are wrong'' but ''the transformer is missing biology-specific priors the next model has to encode''. Whether knowledge-graph priors are the right priors is an open architectural bet TxPert tests; alternatives include pathway encoders (xVERSE), spatial encoders (Nicheformer), and lineage-aware encoders (CLM-X).'
+  starred: true
 - id: map-perturb
   kind: tool
   name: MAP — knowledge-driven perturbation framework
@@ -603,6 +606,7 @@ items:
   why: THE canonical reckoning paper — start here.
   papermap_category: reckoning
   description: 'The canonical 2025 reckoning paper. Ahlmann-Eltze and Huber ran a pure-inference comparison of six published single-cell foundation models (scGPT, Geneformer, scFoundation, GEARS, CPA, UCE) against a one-line linear baseline that just predicts the mean of training perturbations. The linear baseline matched or beat every FM on perturbation-prediction as originally defined, on under $2k of compute. The paper retired the entire sc-FM perturbation-prediction leaderboard in one stroke and kicked off the 2025–2026 evaluation wave (Kedzierska, Wenkel, Wu, Liu, parameter-free, CellBench-LS, Han, cell-dynamics-zero-shot) that extended the same finding across tasks and labs. The remaining question is structural: do current sc-FMs encode the wrong thing, or just not enough — the contrarian voice (Feb 2026) bets the latter.'
+  starred: true
 - id: kedzierska-2025
   kind: paper
   name: Limits of zero-shot foundation models in single-cell biology
@@ -781,6 +785,7 @@ items:
   why: Contrarian voice — FMs DO improve with enough data.
   papermap_category: contrarian_theory
   description: 'The 2026 contrarian voice against the perturbation-prediction reckoning. Titled "Foundation Models Improve Perturbation Response Prediction", the bioRxiv preprint argues — directly opposing Ahlmann-Eltze, Liu sc-Eval, the Wu papers, and the parameter-free baseline — that with sufficient data, FMs DO significantly improve genetic and chemical perturbation predictions and approach fundamental performance limits. The honest May 2026 framing is that the reckoning is not yet a one-sided consensus: the ten reckoning papers evaluated current sc-FMs trained on current data with current evaluation methodology, and the contrarian argues the picture changes as data scales further (Tahoe-100M and beyond). Citing both is necessary intellectual honesty. The paper''s claim is testable and explicitly framed against the reckoning canon, which makes it one of the most consequential open empirical questions in the field heading into 2027.'
+  starred: true
 - id: context-not-scale-2026
   kind: paper
   name: Virtual Cells Need Context, Not Just Scale
@@ -797,6 +802,7 @@ items:
   why: 'Names the theory: a causal-transportability problem (Pearl).'
   papermap_category: contrarian_theory
   description: 'A 2026 preprint naming the theoretical diagnosis behind the reckoning: sc-FM failures are a causal-transportability problem in the Pearl sense, not a data-scale problem to be solved by another order of magnitude of cells. Its importance is conceptual scaffolding — it gives the empirical critique a vocabulary borrowed from causal inference, which lets the conversation move past ''just train bigger'' by formalising why bigger doesn''t help when the train and deployment distributions differ in interventional structure rather than only in covariate distribution. Pairing this with Theis 2026''s ''stop scaling monoliths'' message is the cleanest theory-plus-strategy combination in the corpus. Open: whether the causal-transportability framing can be turned into actionable design changes (data collection, regularisation, architecture) for the next generation of sc-FMs, or whether it remains a diagnosis without a treatment plan.'
+  starred: true
 - id: sis-2026
   kind: paper
   name: Beyond Alignment — Synergistic Information Score
@@ -990,6 +996,7 @@ items:
   why: Variant-effect SOTA; replaces Enformer + Borzoi; 25/26 wins at 1-Mb context.
   papermap_category: other_fm
   description: 'DeepMind''s 2025 successor to Enformer and Borzoi, published as the new state of the art on variant-effect prediction. It extends the sequence-to-function paradigm to roughly 1-Mb context and reportedly wins 25 of 26 benchmark comparisons against the prior generation. The practical consequence is that two previously distinct models with different output tracks collapse into one stack, which simplifies downstream variant-interpretation pipelines and pushes more of the noncoding-variant burden onto a single foundation model. Open questions are the usual ones for industrial sequence FMs: how much of the gain is from architecture versus data and compute, how it handles cell types underrepresented in training, and what the licensing and access story looks like for academic use of the weights versus the API.'
+  starred: true
 - id: evo2-2026
   kind: tool
   name: Evo 2
@@ -1006,6 +1013,7 @@ items:
   why: Only genomic FM with demonstrated in-context learning; 1M-token context, ~$5M training.
   papermap_category: other_fm
   description: Evo2 is the only genomic foundation model to date with demonstrated in-context learning, the property that lets language models adapt to new tasks from a few examples in-prompt without weight updates. The model carries a 1M-token context window, was trained for roughly $5M, and is the direct successor to Evo-v1. It sits at the largest end of the academic genomic-FM compute spectrum, behind only AlphaGenome in raw variant-effect benchmarks but ahead of it on generative and in-context capabilities. Arc Institute, its host, is the largest non-DeepMind biology-AI compute (~2,048 × H100) and also produced STATE and Tahoe-100M. The open question for 2026 is whether ICL on genomic sequence translates into usable downstream prediction without per-task fine-tuning, especially against AlphaGenome's supervised track-prediction lead.
+  starred: true
 - id: nt-instadeep
   kind: tool
   name: Nucleotide Transformer
@@ -1095,6 +1103,7 @@ items:
   why: 98B-param multimodal protein FM; generated esmGFP de novo; cleanest compute disclosure.
   papermap_category: other_fm
   description: 'EvolutionaryScale''s 98B-parameter multimodal protein foundation model, published in 2025, which extended the ESM line from sequence-only masked language modelling to a model that reasons jointly over sequence, structure, and function tokens. The headline result was the de novo generation of esmGFP, a fluorescent protein with no close homolog in nature, demonstrated experimentally and held up as evidence that the model is doing more than interpolation. ESM-3 also stood out at release for unusually clean compute disclosure, which made it one of the few large protein FMs whose training-cost claims could be independently sanity-checked rather than taken on faith. The launch marked the moment when the protein-FM frontier moved from FAIR''s research line into a venture-funded company building specifically around scaled protein generation. The open issues are the usual ones at this scale: licensing terms, what fraction of generated proteins actually fold and function in the wet lab, and whether the multimodal gains transfer to the standard zero-shot benchmarks ESM-2 still anchors.'
+  starred: true
 - id: alphafold3
   kind: tool
   name: AlphaFold 3
@@ -1110,6 +1119,7 @@ items:
   why: Structure prediction extended to complexes (proteins + nucleic acids + ions + ligands).
   papermap_category: other_fm
   description: AlphaFold3 extends structure prediction from single proteins (the AlphaFold2 breakthrough) to full biomolecular complexes — proteins with nucleic acids, ions, and ligands. This makes the model directly useful for drug-design pipelines that need protein-ligand and protein-DNA pose prediction, not just monomer folds. The 2024 release shipped through DeepMind's Isomorphic Labs commercial arm with closed weights and a hosted API, which sets a precedent the field has been pushing back on (the academic preference is open weights, see ESM-3, RFDiffusion). Together with RFDiffusion (de novo design) and ESM-3 (98B-param multimodal generation), AF3 is one corner of the 2024–2025 protein-design trio that pharma drug-discovery groups now treat as table stakes rather than research novelty.
+  starred: true
 - id: proteina-complexa
   kind: tool
   name: Proteina / Proteina Complexa
@@ -1556,6 +1566,7 @@ items:
   region: US
   why: First large-scale perturbation atlas framed as virtual-cell training data.
   description: 'Tahoe-100M is the first large-scale perturbation atlas explicitly framed as virtual-cell training data rather than as a standalone biology resource. Produced by Vevo, the Arc Institute, and the CZ Biohub, the 2025 release sits at the centre of the ''data is what the reckoning needs to overcome'' bet: if the contrarian Feb 2026 paper is right that current sc-FMs hit their ceiling because of data not architecture, Tahoe-100M is the dataset that will test the claim. The corpus carries the 2026 Tahoe-Arc-CZBiohub partnership announcement (the big three of US AIVC join up around the dataset). Pertpy (Nat Methods 2025) is the scverse-blessed analysis layer designed for atlases of this scale. The next round of perturbation-prediction benchmarks will be judged on how much Tahoe-100M-trained models close the gap to linear baselines.'
+  starred: true
 - id: tabula-sapiens
   kind: dataset
   name: Tabula Sapiens
@@ -3593,6 +3604,7 @@ items:
   why: Multi-agent LLM diagnosis system that outperformed physicians on rare-disease cases — the agentic-clinical proof point.
   papermap_category: agentic
   description: 'DeepRare is the 2026 agentic-clinical proof point. The multi-agent LLM diagnosis system outperformed physicians on rare-disease cases in a Nature-published study, making it the strongest peer-reviewed evidence the agentic-FM intersection (Lane 9 in the corpus''s lane analysis) is clinically viable. The framing matters: this is not a foundation model used directly for diagnosis, but an agent that orchestrates reasoning, retrieval, and FM-level inference around a clinical case. The same pattern shows up in Owkin''s Pathology Explorer (an agent using pathology FMs inside Claude''s clinical workflow) and PathChat-DX (FDA Breakthrough). DeepRare is the result that makes the agentic-FM lane the most commercially fundable lane in the 2026 menu for academic labs that can''t compete on training-from-scratch compute.'
+  starred: true
 - id: hex-natmed-2026
   kind: paper
   name: HEX — virtual spatial proteomics from histopathology for lung-cancer biomarkers
@@ -3611,6 +3623,7 @@ items:
   region: US
   why: H&E → 40-protein spatial proteomics; +22% prognostic, +24-39% immunotherapy-response prediction across 2298 NSCLC patients.
   description: 'Hex is the headline 2026 clinical proof-of-concept for the multimodal pathology-FM thread. The model maps H&E whole-slide images directly to 40-protein spatial proteomics, then uses those inferred proteomic profiles for downstream prediction. On a 2298-patient NSCLC cohort it delivered +22% prognostic accuracy and +24-39% immunotherapy-response prediction over single-modality baselines. The result validates two bets at once: that pathology FMs can substitute expensive spatial-proteomics assays at inference time, and that multimodal fusion produces clinically-meaningful lift rather than marketing-only lift. Published in Nature Medicine, it is the strongest single peer-reviewed clinical result the FM-to-virtual-cells corpus has seen, and a likely template for the next wave of image-omics fusion papers targeting other tumour types and treatment decisions.'
+  starred: true
 - id: aging-clocks-cell-2026
   kind: paper
   name: Multimodal clocks of human aging
@@ -3627,6 +3640,7 @@ items:
   region: CN
   why: mCAS cohort (2019 individuals) → core-capacity / multimodal / organ-specific aging clocks; MAE 3.87y on chronological age.
   description: 'A 2026 Cell paper from a Chinese consortium that assembles the mCAS cohort of 2,019 individuals with paired multimodal measurements and trains a hierarchy of aging clocks: a core-capacity clock, multimodal integrative clocks, and organ-specific clocks. The lead chronological-age clock reaches a mean absolute error of 3.87 years, putting it on par with the best methylation clocks while drawing on a broader signal base. The interest for a virtual-cell library is less the headline number and more that aging clocks are becoming multimodal digital twins of physiology, with organ-resolution outputs that can be perturbed in silico to ask which interventions shift biological age. That makes the dataset and the clock decomposition more durable than any single model. Open questions include cross-ancestry generalisation beyond the Chinese cohort and whether the organ-specific clocks predict actual organ failure rather than just correlate with age.'
+  starred: true
 - id: keep-cancercell
   kind: paper
   name: KEEP — knowledge-enhanced pathology vision-language foundation model
@@ -3693,6 +3707,7 @@ items:
   region: EU
   why: scverse-blessed perturbation toolbox — distances, perturbation spaces, harmonisation. The canonical analysis layer.
   description: 'Pertpy is the scverse-blessed perturbation-analysis toolbox, formalised in a 2025 Nature Methods paper from European academic groups, that aggregates distances, perturbation-space embeddings, harmonisation utilities, and standardised loaders for Perturb-seq style data into a single Python package. It has become the canonical analysis layer that downstream models and benchmarks plug into, much as scanpy is the canonical layer for general scRNA-seq. The practical effect is to lower the cost of running fair comparisons: a method developer can lean on pertpy''s distance implementations and dataset adapters rather than reimplementing them, which makes critical benchmarks like Kernfeld and Wong-Dilworth easier to reproduce. As a living tool inside scverse, it will absorb whatever new evaluation protocols emerge from the metric debates. The open question is whether the API stabilises fast enough for downstream models to commit.'
+  starred: true
 - id: dia-bert-natcomm-2025
   kind: paper
   name: DIA-BERT — pre-trained transformer for DIA proteomics

@@ -1,11 +1,17 @@
 "use strict";
 
-// Topics view — one card per topic, auto-derived TL;DR from the topic's
-// top items' `why:` lines. Click a card to jump into Browse pre-filtered
-// to that topic (filter mutation + view switch are handled by app.js's
-// `papermap:filter-and-show` listener so this view stays UI-only).
+// Topics view — one card per topic. Each card carries:
+//   1. count chip + 3-line TL;DR from items' `why:` lines
+//   2. an expandable "abstract" (~150 words, authored prose) when an
+//      abstract markdown file exists for the topic
+//   3. footers linking to Browse (filtered) and Blogs (filtered)
+// Clicking the card body still routes to Browse pre-filtered to the
+// topic; the abstract toggle + blog chip stop propagation.
 
 import { blogsByTopic } from "../blogs-state.js";
+import { getTopicAbstract } from "../topics-state.js";
+
+const _open = new Set();  // expanded abstracts persist across re-renders
 
 export function render(state, _filters, el) {
   const div = document.createElement("div");
@@ -17,7 +23,7 @@ export function render(state, _filters, el) {
 
   const header = document.createElement("header");
   header.innerHTML = `<h2>${byTopic.size} topics across ${state.items.length} items
-    <small>auto-derived TL;DRs from each topic's most recent items</small></h2>`;
+    <small>auto-derived TL;DRs + an authored abstract per topic</small></h2>`;
   div.appendChild(header);
 
   const blogs = blogsByTopic();
@@ -45,7 +51,6 @@ function groupByTopic(items) {
 }
 
 function pickHighlights(items, n = 3) {
-  // Prefer items with a `why:`; within those, most recent first, then label.
   return [...items]
     .filter(i => i.why)
     .sort((a, b) => (b.year || 0) - (a.year || 0)
@@ -66,6 +71,15 @@ function topicCard(topic, items, blogs) {
       }).join("")}</ul>`
     : `<p class="muted">No <code>why:</code> lines yet for items in this topic.</p>`;
 
+  const abstract = getTopicAbstract(topic);
+  const isOpen = _open.has(topic);
+  const abstractBlock = abstract
+    ? `<div class="topic-abstract ${isOpen ? "open" : ""}">
+         <a href="#" class="topic-abstract-toggle">${isOpen ? "▾ Hide abstract" : "▸ Read abstract"}</a>
+         ${isOpen ? `<div class="topic-abstract-body">${abstract.body_html}</div>` : ""}
+       </div>`
+    : "";
+
   const blogChip = blogs.length
     ? `<a href="#" class="topic-blog-chip" data-topic="${escape(topic)}">📖 ${blogs.length} blog${blogs.length > 1 ? "s" : ""} →</a>`
     : "";
@@ -76,14 +90,26 @@ function topicCard(topic, items, blogs) {
       <span class="chip count">${items.length}</span>
     </header>
     ${tldr}
+    ${abstractBlock}
     <footer class="topic-cta">
       <span>See all ${items.length} in Browse →</span>
       ${blogChip}
     </footer>
   `;
 
-  // The blog chip dispatches its own event and stops propagation so the
-  // card's Browse handler doesn't also fire.
+  // Abstract toggle: prevents card click; flips local open-state.
+  const toggle = c.querySelector(".topic-abstract-toggle");
+  if (toggle) {
+    toggle.addEventListener("click", ev => {
+      ev.preventDefault();
+      ev.stopPropagation();
+      if (_open.has(topic)) _open.delete(topic);
+      else _open.add(topic);
+      // Replace just this card in place to avoid re-rendering the whole grid.
+      c.replaceWith(topicCard(topic, items, blogs));
+    });
+  }
+  // Blog chip stops propagation so the card-body filter still works.
   const chip = c.querySelector(".topic-blog-chip");
   if (chip) {
     chip.addEventListener("click", ev => {
@@ -94,8 +120,10 @@ function topicCard(topic, items, blogs) {
       }));
     });
   }
-
-  c.addEventListener("click", () => {
+  // Card body click → Browse filtered. Ignore clicks on the expanded
+  // abstract body so users can select / click links inside it.
+  c.addEventListener("click", ev => {
+    if (ev.target.closest(".topic-abstract-body")) return;
     document.dispatchEvent(new CustomEvent("papermap:filter-and-show", {
       detail: { view: "browse", topic },
     }));

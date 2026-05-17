@@ -77,6 +77,7 @@ class Item:
     people: tuple[str, ...] = ()
     url: str = ""
     description: str = ""
+    starred: bool = False
 
 
 @dataclass

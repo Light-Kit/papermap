@@ -40,6 +40,7 @@ def load_native(raw: dict, source: Path | None = None) -> Corpus:
             people=tuple(rawp.get("people", []) or []),
             url=str(rawp.get("url", "")),
             description=str(rawp.get("description", "")),
+            starred=bool(rawp.get("starred", False)),
         ))
     corpus.items = items
     return corpus

@@ -2,6 +2,7 @@
 
 import { loadState, getState } from "./state.js";
 import { loadBlogs } from "./blogs-state.js";
+import { loadTopicAbstracts } from "./topics-state.js";
 import { mount as mountFilterBar } from "./filterbar.js";
 import * as browse   from "./views/browse.js";
 import * as mapView  from "./views/map.js";
@@ -104,6 +105,7 @@ async function pickCorpus(li, item) {
     return;
   }
   await loadBlogs(item.name);
+  await loadTopicAbstracts(item.name);
   activeCorpus = item.name;
   tabsBar.hidden = false;
   resetFilters();
