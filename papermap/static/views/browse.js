@@ -111,15 +111,16 @@ export function starButton(corpus, kind, id, editorial) {
   return `<button class="star-btn ${on ? "on" : ""}" data-star-id="${escape(id)}" data-star-kind="${kind}" data-star-editorial="${editorial ? "1" : "0"}" title="${escape(title)}">${on ? "★" : "☆"}</button>`;
 }
 
-export function attachStarHandler(root, corpus, kind, id, editorial, state, filters, el) {
+export function attachStarHandler(root, corpus, kind, id, editorial) {
   const btn = root.querySelector(`.star-btn[data-star-id="${cssEscape(id)}"][data-star-kind="${kind}"]`);
   if (!btn) return;
   btn.addEventListener("click", ev => {
     ev.preventDefault();
     ev.stopPropagation();
     toggleStar(corpus, kind, id, editorial);
-    el.innerHTML = "";
-    render(state, filters, el);
+    // Let app.js re-render the active view — direct render() here would
+    // re-render Browse from cross-view callers (Topics, Blogs).
+    document.dispatchEvent(new CustomEvent("papermap:rerender-active-view"));
   });
 }
 
