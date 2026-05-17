@@ -570,3 +570,40 @@ a.card-link:hover h4 { color: #1a4480; }
 .blog-post hr { border: 0; border-top: 1px solid #e5e5e3; margin: 24px 0; }
 .blog-post ul, .blog-post ol { padding-left: 22px; margin: 0 0 12px; }
 .blog-post li { margin: 2px 0; }
+
+/* Inline Q/A annotations
+   Authoring convention: insert <aside class="qa" data-q="N">…question…</aside>
+   immediately after the paragraph containing the target sentence. Quote the
+   target inside the question. On the next read pass Claude appends a sibling
+   <aside class="qa-reply" data-q="N">…~70-word answer…</aside>. Follow-ups:
+   add more qa / qa-reply pairs with the same data-q. */
+.blog-post aside.qa,
+.blog-post aside.qa-reply {
+  display: block;
+  margin: 10px 0;
+  padding: 9px 14px 9px 15px;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.blog-post aside.qa {
+  background: #fff8e1;
+  border-left: 3px solid #f9a825;
+  color: #5d4037;
+}
+.blog-post aside.qa-reply {
+  background: #e3f2fd;
+  border-left: 3px solid #1976d2;
+  color: #1a237e;
+  margin-left: 20px;
+}
+.blog-post aside.qa b,
+.blog-post aside.qa-reply b { font-weight: 600; }
+.blog-post aside.qa[data-q]::before,
+.blog-post aside.qa-reply[data-q]::before {
+  content: "#" attr(data-q);
+  float: right;
+  font-size: 11px;
+  opacity: 0.55;
+  font-family: ui-monospace, monospace;
+}
