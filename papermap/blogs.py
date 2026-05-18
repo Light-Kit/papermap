@@ -9,6 +9,7 @@ surface "N blogs on this topic" without any extra schema work.
 
 from __future__ import annotations
 
+import posixpath
 import re
 from dataclasses import dataclass
 from pathlib import Path
@@ -82,6 +83,7 @@ def _rewrite_html(
     asset_url_prefix: str,
     known_slugs: set[str],
     external_docs_base: str = "",
+    source_subpath: str = "",
 ) -> str:
     """Rewrite iframe asset srcs + relative .md hrefs in rendered body_html.
 
@@ -89,9 +91,11 @@ def _rewrite_html(
     server is set up to serve. Relative ``.md`` hrefs split two ways:
     if the basename matches another blog in the corpus, the link becomes
     ``papermap-blog:<slug>`` (intercepted by blogs.js); otherwise — when
-    ``external_docs_base`` is set — the link is rewritten to that base
-    using MkDocs' ``foo.md`` → ``foo/`` convention so it opens the live
-    talk site instead of 404ing inside papermap.
+    ``external_docs_base`` is set — the link is resolved against
+    ``source_subpath`` (the dir the blog markdown was authored to live
+    in on the MkDocs site) and rewritten to ``{base}/{resolved}/`` so
+    ``../foo.md`` from a blog whose source lives at ``talks/<x>/`` ends
+    up at ``{base}/talks/foo/`` instead of a stripped-prefix 404.
     """
     if asset_url_prefix:
         html = _IFRAME_SRC_RE.sub(rf'\1{asset_url_prefix}\2\3', html)
@@ -102,10 +106,15 @@ def _rewrite_html(
         if slug in known_slugs:
             return f'{prefix}papermap-blog:{slug}{anchor}{suffix}'
         if external_docs_base:
-            # MkDocs renders `foo.md` to `foo/`. Strip any leading `../`
-            # so the path joins cleanly onto the base.
-            clean = target.lstrip("./").lstrip("../")
             base = external_docs_base.rstrip("/")
+            if source_subpath:
+                resolved = posixpath.normpath(posixpath.join(source_subpath, target))
+                # A leading `..` means the target escaped the docs root —
+                # leave the link untouched rather than emit a broken URL.
+                if resolved.startswith(".."):
+                    return m.group(0)
+                return f'{prefix}{base}/{resolved}/{anchor}{suffix}'
+            clean = target.lstrip("./").lstrip("../")
             return f'{prefix}{base}/{clean}/{anchor}{suffix}'
         return m.group(0)
 
@@ -136,6 +145,7 @@ def list_blogs(
     *,
     asset_url_prefix: str = "",
     external_docs_base: str = "",
+    source_subpath: str = "",
 ) -> list[Blog]:
     """Return blogs in ``blogs_dir`` sorted by date desc, then title.
 
@@ -165,6 +175,7 @@ def list_blogs(
                     asset_url_prefix=asset_url_prefix,
                     known_slugs=slugs,
                     external_docs_base=external_docs_base,
+                    source_subpath=source_subpath,
                 ),
             )
             for b in out

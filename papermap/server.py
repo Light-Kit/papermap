@@ -95,6 +95,7 @@ def create_app(corpus_dir: Path) -> Flask:
                 blogs_dir,
                 asset_url_prefix=asset_prefix,
                 external_docs_base=app.config.get("EXTERNAL_DOCS_BASE_URL", ""),
+                source_subpath=_blog_source_subpath(path.stem),
             )
         ])
 
@@ -202,6 +203,20 @@ def create_app(corpus_dir: Path) -> Flask:
         )
 
     return app
+
+
+def _blog_source_subpath(stem: str) -> str:
+    """Where this corpus's blog markdown was authored to live on the MkDocs site.
+
+    The resourcelib blogs in this repo are copies of pages under
+    ``docs/talks/<stem>/`` in fm-to-virtual-cells, so ``../foo.md`` in
+    a blog body refers to ``docs/talks/foo.md``. We surface that source
+    location to the link rewriter so relative refs resolve to the right
+    MkDocs URL instead of being naively stripped of `../`.
+    """
+    if stem.endswith("-resourcelib"):
+        return f"talks/{stem.removesuffix('-resourcelib')}"
+    return ""
 
 
 def _escape_attr(s: str) -> str:

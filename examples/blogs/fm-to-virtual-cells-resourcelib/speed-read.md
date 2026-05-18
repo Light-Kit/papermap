@@ -18,7 +18,7 @@ Read top-to-bottom. Each link opens the canonical page for that conference / tri
 
 | Item | Why read |
 |---|---|
-| [Home](index.md) | Quick skim of the 37-conference landscape — what's built vs scaffolded. |
+| [Home](https://liudengzhang.github.io/conference-vaults/) | Quick skim of the 37-conference landscape — what's built vs scaffolded. |
 | [2026 Timeline](https://liudengzhang.github.io/conference-vaults/timeline/) | Year-at-a-glance Gantt + 4-criterion scoring rubric for all 36 scored conferences. |
 
 ## 0:05 — the cancer-research anchor (5 min)
