@@ -6,7 +6,7 @@ topics:
 - clinical
 - agents
 summary: A landscape of how biology FMs are crossing from preprint to clinical product in 2025-2026 — Owkin Pathology Explorer inside Claude for Healthcare, DeepRare for rare-disease diagnosis, multimodal aging clocks, ECG/retinal/EHR FMs, and the deployment surface that decides which research actually ships.
-starred: true
+starred: false
 ---
 
 > *Companion to [pathology FM landscape](pathology-fm-landscape.md) (the biggest clinical-product family) and [agentic methods meets FMs](agentic-meets-foundation.md) (the orchestration layer). For build mechanics see [how to build a biological FM](how-to-build-a-biological-fm.md).*

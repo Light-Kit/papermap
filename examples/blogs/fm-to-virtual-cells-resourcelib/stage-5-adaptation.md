@@ -5,7 +5,7 @@ topics:
 - foundation-model
 - virtual-cell
 summary: The four standard adaptation patterns (zero-shot, full fine-tune, LoRA/adapter, prompt-tuning) plus the family-specific twists — attention-MIL for pathology, function heads for protein, variant-effect probes for genomic — and why small adapters now often outperform full fine-tunes.
-starred: true
+starred: false
 ---
 
 > *Expansion of stage 5 from [how a biological FM is built](how-to-build-a-biological-fm.md). Sibling stages: [data corpus](stage-1-data-corpus.md) · [tokenization](stage-2-tokenization.md) · [architecture](stage-3-architecture.md) · [pretraining objective](stage-4-pretraining-objective.md) · [evaluation](stage-6-evaluation.md). Related: [what small labs build](small-labs-what-to-build.md), [agentic methods meets FMs](agentic-meets-foundation.md).*

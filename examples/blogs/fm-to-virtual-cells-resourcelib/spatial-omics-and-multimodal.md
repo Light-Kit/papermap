@@ -6,7 +6,7 @@ topics:
 - multimodal
 - foundation-model
 summary: A landscape of spatial omics and multimodal biology in 2026 — the SpatialData / OME-NGFF substrate, HEX's virtual spatial proteomics from H&E, the Stegle and Mahmood-lab integrations, BioMedCLIP / PathChat-2 / LLaVA-Med on the multimodal side, and what small teams build at the interfaces between modalities.
-starred: true
+starred: false
 ---
 
 > *Companion landscape blog: [pathology FMs](pathology-fm-landscape.md), [genomic + protein FMs](genomic-and-protein-fm-landscape.md), [clinical AI](clinical-and-agentic-clinical.md). For build mechanics see [how to build a biological FM](how-to-build-a-biological-fm.md).*

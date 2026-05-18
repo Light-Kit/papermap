@@ -6,7 +6,7 @@ topics:
 - virtual-cell
 - people
 summary: An honest taxonomy for ML-leaning postdocs and junior PIs — the moats you can't cross, plus six wedge shapes that small teams actually shipped in 2025-2026, each anchored to one exemplar.
-starred: true
+starred: false
 ---
 
 > *Audience: an ML-leaning postdoc or junior PI with 1-5 people, no $1B compute budget, no 800-hospital data partnership, and a real desire to **ship something** in the virtual-cell / foundation-model space rather than write yet another critique paper. Companion to the [foundation-models state-of-play](foundation-models-state-of-play.md) (what's been built) and [how to make a biological FM](how-to-build-a-biological-fm.md) (how big-FM teams build).*

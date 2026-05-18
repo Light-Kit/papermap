@@ -9,7 +9,7 @@ topics:
 - iclr-2026
 - agbt-2026
 summary: 2026 didn't deliver virtual cells through AACR alone. JPM set the money signal, AGBT set the substrate, ICLR set the methods, ISBI/ASCO set the clinic. A round-up of the seven conferences that mattered most.
-starred: true
+starred: false
 ---
 
 > *Companion to the [AACR 2026 digest](aacr-2026-digest.md) and the [people-and-institutes blog](people-and-institutes.md). The AACR digest covered what AACR did. This page covers everywhere else: what JPM, AGBT, ICLR, ISBI, scverse, single-cell-genomics, and the post-AACR ASCO cluster added that AACR did not.*

@@ -7,7 +7,7 @@ topics:
 - causal
 - foundation-model
 summary: A landscape of the smallest but most-important corner of the FM field — the work that asks not "does the model perform?" but "do we understand why, and would the explanation survive intervention?". Interpretability, mechanistic modeling, and causal inference in 2025-2026.
-starred: true
+starred: false
 ---
 
 > *Closely related: [why linear baselines win](why-linear-baselines-win.md) (the empirical reckoning that made this corner urgent), [stage 4 — pretraining objective](stage-4-pretraining-objective.md) (where correlational/causal mismatch is born), [reading an FM paper critically](reading-an-fm-paper-critically.md).*

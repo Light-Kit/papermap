@@ -7,7 +7,7 @@ topics:
 - foundation-model
 summary: Four overlapping reasons single-cell FMs fail to beat linear baselines on perturbation prediction — and the contrarian voice arguing the reckoning is overstated.
 source: talks/fm-to-virtual-cells/why-linear-baselines-win.md
-starred: true
+starred: false
 ---
 
 > *Explainer page from the FM-to-Virtual-Cells talk corpus — see also the [state-of-play hub](foundation-models-state-of-play.md). Answers the question someone asks during Act 1 §1.3 when you say "the 2025 reckoning." The short answer: it's not one cause; it's four overlapping ones — and the honest position in May 2026 is that the reckoning has a contrarian voice too.*

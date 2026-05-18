@@ -6,7 +6,7 @@ topics:
 - benchmark
 summary: Directory of the 2025–2026 reckoning canon — eleven evaluation papers plus a contrarian, organized by what each one evaluated and which axis.
 source: talks/fm-to-virtual-cells/evaluation-papers-catalog.md
-starred: true
+starred: false
 ---
 
 > *Explainer page from the FM-to-Virtual-Cells talk corpus — see also the [state-of-play hub](foundation-models-state-of-play.md). The full reckoning canon, organized by what each paper evaluated and what axis it covered. As of May 2026, Lane 4 (replication / critique) is the most-published lane of 2025–2026 by a wide margin — eleven evaluation papers + one contrarian. This page is the directory.*

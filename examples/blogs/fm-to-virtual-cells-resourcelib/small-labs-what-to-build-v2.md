@@ -6,7 +6,7 @@ topics:
 - virtual-cell
 - people
 summary: A v2 narrowing of the six-wedge small-labs taxonomy down to the three wedges that fit an ML-leaning lab with software-engineering chops but no industry-scale data deals — inductive-bias modules, frozen-backbone adapters, interop infrastructure — example-first.
-starred: true
+starred: false
 ---
 
 > *This is v2 of [What can a small lab actually build in the VC / FM era?](small-labs-what-to-build.md). v1 maps all six wedge shapes (architecture, adapters, continual pretraining, permissive-licence alternatives, agentic wrappers, interop) and the three moats you can't cross. This v2 keeps only the three wedges that fit an **ML + software-engineering profile** — no privileged hospital corpus, no $10M continual-pretraining budget, no FDA submission machinery, no LLM-agent orchestration shop. The v1 framing is intact; this page just leans into the worked examples for wedges 1, 2, and 6. If v1 felt too rationale-heavy, treat this as the catalog version.*

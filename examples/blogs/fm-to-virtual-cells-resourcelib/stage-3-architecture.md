@@ -5,7 +5,7 @@ topics:
 - foundation-model
 - virtual-cell
 summary: A tour of biological-FM architectures across families — why almost everyone shipped a BERT clone in 2023-2024, why the most interesting 2026 work is moving past it (xVERSE, state-space models, ESM-3), and what each architectural choice trades.
-starred: true
+starred: false
 ---
 
 > *Expansion of stage 3 from [how a biological FM is built](how-to-build-a-biological-fm.md). Sibling stages: [data corpus](stage-1-data-corpus.md) · [tokenization](stage-2-tokenization.md) · [pretraining objective](stage-4-pretraining-objective.md) · [adaptation](stage-5-adaptation.md) · [evaluation](stage-6-evaluation.md).*

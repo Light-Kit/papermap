@@ -6,7 +6,7 @@ topics:
 - pathology
 - clinical
 summary: A landscape of the pathology foundation models that became the first biology FMs to land in real clinical product in 2025-2026 — UNI/UNI2-h, Virchow2, CHIEF, PathChat, CONCH/TITAN, Hibou, H-Optimus — plus the institutional moats, license politics, and the Owkin → Claude for Healthcare deployment.
-starred: true
+starred: false
 ---
 
 > *Companion landscape blog to the [foundation models state-of-play](foundation-models-state-of-play.md) — same family, deeper cut. Sibling landscape: [genomic + protein FMs](genomic-and-protein-fm-landscape.md). For the build mechanics see [how to build a biological FM](how-to-build-a-biological-fm.md); for clinical deployment see [clinical AI + agentic clinical](clinical-and-agentic-clinical.md).*

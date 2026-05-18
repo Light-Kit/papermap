@@ -6,7 +6,7 @@ topics:
 - virtual-cell
 - evaluation
 summary: How biological FMs actually get scored — sc-Arena, the Campanella 2025 pathology clinical benchmark, GUE+ for genomics, AlphaGenome's 25/26 win, and why proxy benchmarks oversold for years before the 2025 reckoning forced the field to face downstream signal honestly.
-starred: true
+starred: false
 ---
 
 > *Expansion of stage 6 from [how a biological FM is built](how-to-build-a-biological-fm.md). Sibling stages: [data corpus](stage-1-data-corpus.md) · [tokenization](stage-2-tokenization.md) · [architecture](stage-3-architecture.md) · [pretraining objective](stage-4-pretraining-objective.md) · [adaptation](stage-5-adaptation.md). See also: [evaluation papers catalog](evaluation-papers-catalog.md), [why linear baselines win](why-linear-baselines-win.md), [reading an FM paper critically](reading-an-fm-paper-critically.md).*

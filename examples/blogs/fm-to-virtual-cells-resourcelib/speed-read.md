@@ -6,7 +6,7 @@ topics:
 - foundation-model
 summary: A self-contained 90-minute path through the corpus — each item carries its own TL;DR inline so you can absorb the finding here. Links demote to deep-dive only if you want more.
 source: speed-read.md
-starred: true
+starred: false
 ---
 
 A self-contained 90-minute read through the highest-value content of the cancer-AI corpus. Each item carries the finding **inline** so you can absorb it on this page; the link is a "go deeper" cue, not the only payload. Stop markers at **10 / 35 / 60 / 75 / 85 / 90** minutes let you bail with most of what matters.

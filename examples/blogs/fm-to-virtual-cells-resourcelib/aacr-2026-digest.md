@@ -7,7 +7,7 @@ topics:
 - foundation-model
 - agentic-ai
 summary: AACR 2026 ran two dedicated AI plenaries (ED03 on FMs, AT02 on agentic AI) plus a 48-poster virtual-cells corpus. The headline is a widening stage-to-poster gap on evaluation and reliability.
-starred: true
+starred: false
 ---
 
 > *Companion to the [people-and-institutes blog](people-and-institutes.md) and the [other-conferences-2026 blog](aacr-and-other-conferences-2026-virtual-cells.md). This page is the AACR-specific cut: what was new on stage, what was new in the poster hall, and where the gap between the two is widening.*

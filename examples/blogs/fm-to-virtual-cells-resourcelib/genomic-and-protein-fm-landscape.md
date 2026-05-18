@@ -6,7 +6,7 @@ topics:
 - genomic
 - protein
 summary: A combined landscape of the two FM families where downstream evaluation actually correlates with deployment value — Enformer → AlphaGenome 25/26 sweep on the genomic side, ESM-2/3 + AlphaFold 1/2/3 + RFdiffusion / Chroma on the protein side — plus what they share, where they diverge, and what to read first.
-starred: true
+starred: false
 ---
 
 > *Companion landscape blog to the [foundation models state-of-play](foundation-models-state-of-play.md). Sibling landscape: [pathology FMs](pathology-fm-landscape.md). For build mechanics see [how to build a biological FM](how-to-build-a-biological-fm.md); for the long-context architecture story see [stage 3 — architecture](stage-3-architecture.md).*

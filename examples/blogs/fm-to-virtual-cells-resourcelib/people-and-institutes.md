@@ -7,7 +7,7 @@ topics:
 - virtual-cell
 - foundation-model
 summary: A field map of the labs, institutes, and companies whose 2025–2026 output sets the agenda for virtual cells — organised by what each one actually ships, not by reputation.
-starred: true
+starred: false
 ---
 
 > *Companion to the [foundation-models state-of-play](foundation-models-state-of-play.md) and the [evaluation-papers catalog](evaluation-papers-catalog.md). Same corpus, different cut: this is "who" rather than "what." Read this first if you want to know which Twitter accounts, lab pages, and substacks to follow; read the others if you want the method-level synthesis.*

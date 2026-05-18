@@ -6,7 +6,7 @@ topics:
 - virtual-cell
 - evaluation
 summary: Masked vs. autoregressive vs. self-distillation vs. generative joint modeling — the pretraining objective dictates downstream behavior more than any other design choice, and it's the choice the linear-baselines reckoning indicts.
-starred: true
+starred: false
 ---
 
 > *Expansion of stage 4 from [how a biological FM is built](how-to-build-a-biological-fm.md). Sibling stages: [data corpus](stage-1-data-corpus.md) · [tokenization](stage-2-tokenization.md) · [architecture](stage-3-architecture.md) · [adaptation](stage-5-adaptation.md) · [evaluation](stage-6-evaluation.md). Closely related: [why linear baselines win](why-linear-baselines-win.md).*

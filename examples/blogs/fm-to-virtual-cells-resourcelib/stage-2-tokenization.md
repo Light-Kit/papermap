@@ -5,7 +5,7 @@ topics:
 - foundation-model
 - virtual-cell
 summary: How each biological FM family converts its raw substrate into discrete tokens — and why tokenization is the stage where single-cell, pathology, protein, and genomic FMs diverge most, with the largest downstream consequences.
-starred: true
+starred: false
 ---
 
 > *Expansion of stage 2 from [how a biological FM is built](how-to-build-a-biological-fm.md). Sibling stages: [data corpus](stage-1-data-corpus.md) · [architecture](stage-3-architecture.md) · [pretraining objective](stage-4-pretraining-objective.md) · [adaptation](stage-5-adaptation.md) · [evaluation](stage-6-evaluation.md).*

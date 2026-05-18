@@ -5,7 +5,7 @@ topics:
 - foundation-model
 - virtual-cell
 summary: A worked end-to-end walkthrough using scGPT as the spine across six stages — data, tokenization, architecture, pretraining objective, adaptation, evaluation — with callouts showing how pathology, protein, and genomic FMs diverge at each step.
-starred: true
+starred: false
 ---
 
 > *Companion to the [foundation-models state-of-play](foundation-models-state-of-play.md). Same FMs, different cut: this one asks "how is the thing actually built?" rather than "which one wins?". Reading order: this first if you want the conceptual + technical scaffolding; that one if you want the 2026 leaderboards.*

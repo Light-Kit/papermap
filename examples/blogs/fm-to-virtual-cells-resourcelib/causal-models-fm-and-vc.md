@@ -7,7 +7,7 @@ topics:
 - virtual-cell
 - interpretability
 summary: A worked-example primer on causal models (Pearl's ladder, do-operator, transportability), why today's biological FMs are correlational and not causal, and why the virtual-cell promise specifically *requires* the causal rung — illustrated through the 2025-2026 papers that name the gap.
-starred: true
+starred: false
 ---
 
 > *Companion landscape: [interpretability, mech-modeling, causal](interpretability-mech-causal.md) — the conceptual sibling of this page. For the empirical pressure that made causal framing urgent, see [why linear baselines win](why-linear-baselines-win.md). For a worked architectural response, [TxPert](https://doi.org/10.1038/s41587-026-03113-4) and [xVERSE](https://liudengzhang.github.io/conference-vaults/conferences/iclr-2026/tools/) are the 2026 papers that operationalize bits of this picture.*

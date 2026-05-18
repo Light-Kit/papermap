@@ -5,7 +5,7 @@ topics:
 - foundation-model
 - virtual-cell
 summary: How the training corpus is assembled across single-cell, pathology, protein, and genomic FMs — harmonization is the unglamorous majority of the work, and curated-and-small often beats raw-and-huge.
-starred: true
+starred: false
 ---
 
 > *Expansion of stage 1 from [how a biological FM is built](how-to-build-a-biological-fm.md). Sibling stages: [tokenization](stage-2-tokenization.md) · [architecture](stage-3-architecture.md) · [pretraining objective](stage-4-pretraining-objective.md) · [adaptation](stage-5-adaptation.md) · [evaluation](stage-6-evaluation.md).*
