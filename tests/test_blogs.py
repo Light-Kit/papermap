@@ -54,6 +54,29 @@ def test_list_blogs_missing_dir_returns_empty(tmp_path: Path):
     assert list_blogs(tmp_path / "nope") == []
 
 
+def test_list_blogs_skips_broken_frontmatter_instead_of_aborting(tmp_path: Path, caplog):
+    """One unparsable file must not blank out the whole corpus.
+
+    Regression for the YAML colon-space crash: a stray `key: value` inside
+    an unquoted summary raised ScannerError, list_blogs aborted, and the
+    Flask endpoint 500'd — taking every blog with it.
+    """
+    (tmp_path / "good.md").write_text(
+        "---\ntitle: Good\ndate: 2026-05-18\n---\nbody\n"
+    )
+    # Unquoted ": " inside the summary scalar trips YAML's mapping parser.
+    (tmp_path / "broken.md").write_text(
+        "---\ntitle: Broken\ndate: 2026-05-18\n"
+        "summary: oops here is a colon: inside an unquoted scalar\n"
+        "---\nbody\n"
+    )
+    import logging
+    with caplog.at_level(logging.WARNING, logger="papermap.blogs"):
+        blogs = list_blogs(tmp_path)
+    assert [b.slug for b in blogs] == ["good"]
+    assert any("broken.md" in r.message for r in caplog.records)
+
+
 def test_load_blog_without_frontmatter_falls_back_to_slug_title(tmp_path: Path):
     p = tmp_path / "no-frontmatter-here.md"
     p.write_text("Just a body.\n")

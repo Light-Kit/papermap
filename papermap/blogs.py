@@ -9,6 +9,7 @@ surface "N blogs on this topic" without any extra schema work.
 
 from __future__ import annotations
 
+import logging
 import posixpath
 import re
 from dataclasses import dataclass
@@ -18,6 +19,7 @@ from typing import Any
 import markdown
 import yaml
 
+_LOG = logging.getLogger(__name__)
 _MD_EXTENSIONS = ["extra", "sane_lists", "toc"]
 
 # Bodies authored against the mkdocs site reference plotly assets as
@@ -162,7 +164,12 @@ def list_blogs(
     out: list[Blog] = []
     for path in sorted(blogs_dir.iterdir()):
         if path.suffix.lower() == ".md" and path.is_file():
-            out.append(load_blog(path))
+            # Skip-and-log instead of abort-the-corpus: one broken
+            # frontmatter shouldn't take the whole Blogs tab to 500.
+            try:
+                out.append(load_blog(path))
+            except Exception as exc:
+                _LOG.warning("blog load failed for %s: %s", path.name, exc)
     out.sort(key=lambda b: (b.date or "", b.title), reverse=True)
     if asset_url_prefix or external_docs_base:
         slugs = {b.slug for b in out}
