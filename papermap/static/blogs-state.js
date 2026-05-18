@@ -23,6 +23,14 @@ export async function loadBlogs(name) {
 
 export function getBlogs() { return _blogs; }
 
+export function updateBlogBody(slug, bodyHtml) {
+  // Keep the in-memory cache in sync with an optimistic client-side edit
+  // (e.g. a freshly-saved comment) so navigating away and back inside the
+  // session doesn't show the pre-edit state.
+  const b = _blogs.find(b => b.slug === slug);
+  if (b) b.body_html = bodyHtml;
+}
+
 export function blogsByTopic() {
   const m = new Map();
   for (const b of _blogs) {

@@ -16,8 +16,9 @@
 // source — the user can pull the diff or commit it via the normal git
 // flow.
 
-import { loadBlogs, getBlogs } from "./blogs-state.js";
+import { loadBlogs, getBlogs, updateBlogBody } from "./blogs-state.js";
 import { getActiveCorpus } from "./stars-state.js";
+import { refreshMarginComments } from "./margin-comments.js";
 
 const MIN_LEN = 8;
 const MAX_PREVIEW = 90;
@@ -80,7 +81,13 @@ function onSelection() {
   }
   const slug = findActiveSlug();
   if (!slug) return hideButton();
-  _pending = { anchor: text, slug };
+  // Capture the anchor paragraph now so we can insert the aside next to
+  // it on save without re-rendering the whole post.
+  const startEl = range.startContainer.nodeType === 3
+    ? range.startContainer.parentElement
+    : range.startContainer;
+  const anchorPara = startEl?.closest("p, li, blockquote, h1, h2, h3, h4, h5, h6");
+  _pending = { anchor: text, slug, anchorPara };
   const rect = range.getBoundingClientRect();
   _btn.style.top = `${window.scrollY + rect.bottom + 6}px`;
   _btn.style.left = `${window.scrollX + Math.max(8, rect.left)}px`;
@@ -136,12 +143,50 @@ async function submit() {
       status.textContent = `Save failed (${resp.status}): ${msg.slice(0, 120)}`;
       return;
     }
+    const data = await resp.json().catch(() => ({}));
+    const qId = data.q_id;
+    // Capture everything we need off _pending before closePopup nulls it.
+    const slug = _pending.slug;
+    const anchorPara = _pending.anchorPara;
+    const anchorText = _pending.anchor;
     closePopup();
-    await loadBlogs(corpus);
-    document.dispatchEvent(new CustomEvent("papermap:rerender-active-view"));
+    // Optimistic insert: drop the aside into the live DOM next to the
+    // anchor paragraph and re-run the margin layout. No refetch, no
+    // rerender, so scroll position + iframes + selection are preserved
+    // and the user can keep commenting.
+    if (qId && anchorPara && anchorPara.isConnected) {
+      const aside = document.createElement("aside");
+      aside.className = "qa";
+      aside.setAttribute("data-q", String(qId));
+      // Mirror the server's snippet rule (anchor[:120]) so the rendered
+      // <b>Q on "…":</b> matches what disk would render on next reload.
+      const snippet = escapeHtml(anchorText.slice(0, 120));
+      aside.innerHTML = `<b>Q on "${snippet}":</b> ${escapeHtml(question)}`;
+      anchorPara.insertAdjacentElement("afterend", aside);
+      // Sync the in-memory cache so navigating away and back shows the
+      // new aside without a refetch round-trip.
+      const body = document.querySelector(`.blog-post[data-slug="${cssEsc(slug)}"] .blog-body`);
+      if (body) updateBlogBody(slug, body.innerHTML);
+      refreshMarginComments();
+    } else {
+      // Fall back to the old full-rerender path if we lost the anchor
+      // (rare — covers cases where the anchor paragraph was detached
+      // mid-flight, e.g. by a navigation).
+      await loadBlogs(corpus);
+      document.dispatchEvent(new CustomEvent("papermap:rerender-active-view"));
+    }
   } catch (err) {
     status.textContent = `Save failed: ${err.message || err}`;
   }
+}
+
+function escapeHtml(s) {
+  return String(s ?? "").replace(/[<>&"]/g,
+    c => ({"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c]));
+}
+
+function cssEsc(s) {
+  return (window.CSS && CSS.escape) ? CSS.escape(s) : String(s).replace(/"/g, '\\"');
 }
 
 function init() {
