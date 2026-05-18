@@ -8,7 +8,7 @@ summary: Training-cost estimates for the 11 anchor FMs — and the lanes a small
 source: talks/fm-to-virtual-cells/what-does-each-fm-cost.md
 ---
 
-> *Explainer page for the [FM-to-Virtual-Cells talk](../fm-to-virtual-cells.md). Answers the question someone asks during Act 1 or Act 2: "can a small lab even compete on training?" The short answer is no — but the longer answer shapes which lane is yours.*
+> *Explainer page from the FM-to-Virtual-Cells talk corpus — see also the [state-of-play hub](foundation-models-state-of-play.md). Answers the question someone asks during Act 1 or Act 2: "can a small lab even compete on training?" The short answer is no — but the longer answer shapes which lane is yours.*
 
 ## The headline
 
@@ -82,7 +82,7 @@ The pathology family is the *transparency outlier*. Virchow2 / Virchow2G publish
 - **Lane 3 — domain-specific small FM** ($10k–$50k): the Geneformer V2-104M_CLcancer playbook on your disease area. 6–12 months.
 - **Lane 4 — replication / critique** ($0–$2k): inference + linear regression. Ahlmann-Eltze retired the entire sc-FM perturbation-prediction leaderboard at <$2k.
 
-See [the main talk's Act 3 § 3.1](../fm-to-virtual-cells.md#31-the-9-application-lanes-budget-tier-overview) for the full 9-lane budget tier overview.
+See [small labs — what to build](small-labs-what-to-build.md) for the full 9-lane budget tier overview.
 
 ## How to read a compute claim
 
@@ -96,8 +96,8 @@ When you see a paper claiming an FM cost X to train, check:
 
 ## Where to go next
 
-- **[The main talk page](../fm-to-virtual-cells.md)** — full 5-act outline.
-- **[Supplementary §D — compute & resources matrix](../fm-to-virtual-cells-supplementary.md#d-compute-resources)** — fuller resources table with arithmetic.
+- **[Foundation models — state of play](foundation-models-state-of-play.md)** — the cross-family map this cost matrix sits inside.
+- The fuller resources table with arithmetic lives in the talk's supplementary compute matrix.
 - **[`_resources-matrix.md`](../_resources-matrix.md)** — full compute / cost / team / data matrix with DISCLOSED / ESTIMATED / UNKNOWN tags and arithmetic shown.
 - **[NVIDIA BioNeMo training recipes](https://github.com/NVIDIA/bionemo-framework)** — the only public training-cost reproduction recipe for Geneformer V2.
 - **[Epoch AI training-compute methodology](https://epoch.ai/blog/estimating-training-compute)** — the FLOPs ≈ 6 × params × tokens heuristic.

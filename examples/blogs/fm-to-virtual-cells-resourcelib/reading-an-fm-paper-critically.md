@@ -8,7 +8,7 @@ summary: Checklist that turns a 2026 reader from 'this model achieved 0.94 AUC' 
 source: talks/fm-to-virtual-cells/reading-an-fm-paper-critically.md
 ---
 
-> *Explainer page for the [FM-to-Virtual-Cells talk](../fm-to-virtual-cells.md). The checklist that turns a 2026 reader from "this model achieved 0.94 AUC" to "did it actually clear the floor?" Reusable beyond this talk — apply to any biology FM paper you encounter.*
+> *Explainer page from the FM-to-Virtual-Cells talk corpus — see also the [state-of-play hub](foundation-models-state-of-play.md). The checklist that turns a 2026 reader from "this model achieved 0.94 AUC" to "did it actually clear the floor?" Reusable beyond this talk — apply to any biology FM paper you encounter.*
 
 ## The 8-item checklist
 
@@ -41,7 +41,7 @@ For every FM paper you read in 2026, verify the eight items below before believi
 
 - ✅ **Strong**: train and test split on *perturbations* — held-out perturbations the model has never seen.
 - ✅ **Stronger**: train and test split on *donors* — held-out donors the FM never trained on (rare; barely measured at scale).
-- ✅ **Strongest**: cross-context split — train on healthy donors, test on cancer patients; or train on cell-line X, test on cell-line Y. This is the [Track 9 transportability frontier](../fm-to-virtual-cells-supplementary.md#c9-track-9-causal-transportability-benchmarks-new-2026).
+- ✅ **Strongest**: cross-context split — train on healthy donors, test on cancer patients; or train on cell-line X, test on cell-line Y. This is the [Track 9 transportability frontier](interpretability-mech-causal.md).
 - ❌ **Red flag**: "train/test split was random over cells" — this is the pre-Ahlmann-Eltze trap.
 
 ## Item 3: Were the evaluation metrics averaged or stratified?
@@ -138,14 +138,13 @@ If you're writing an FM paper in 2026, the checklist tells you what reviewers wi
 - **Compute disclosed** even if the result wasn't a frontier run.
 - **License + benchmark choice** made explicitly defensible.
 
-The [Lane 4 (negative results / replication) playbook in the talk](../fm-to-virtual-cells.md#31-the-9-application-lanes-budget-tier-overview) is exactly the inverse of this checklist: take a published FM that fails any of items 1–8 and re-evaluate it under the proper protocol. *Nature Methods* takes those papers.
+The [Lane 4 (negative results / replication) playbook](evaluation-papers-catalog.md) is exactly the inverse of this checklist: take a published FM that fails any of items 1–8 and re-evaluate it under the proper protocol. *Nature Methods* takes those papers.
 
 ## Where to go next
 
-- **[The main talk page](../fm-to-virtual-cells.md)** — full 5-act outline.
+- **[Foundation models — state of play](foundation-models-state-of-play.md)** — the cross-family map this checklist sits inside.
 - **[Why do linear baselines win?](why-linear-baselines-win.md)** — the mechanism behind the checklist.
-- **[Evaluation papers catalog](evaluation-papers-catalog.md)** — the 10 critique papers + contrarian.
-- **[Supplementary §B.4 — Lane 4 negative results / replication / critique](../fm-to-virtual-cells-supplementary.md#b4-lane-4-negative-results-replication-critique-02k)** — how to ship a paper that applies this checklist.
+- **[Evaluation papers catalog](evaluation-papers-catalog.md)** — the 10 critique papers + contrarian; the Lane 4 playbook (how to ship a paper that applies this checklist) lives here.
 
 ---
 

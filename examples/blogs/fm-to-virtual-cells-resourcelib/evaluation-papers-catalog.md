@@ -9,7 +9,7 @@ source: talks/fm-to-virtual-cells/evaluation-papers-catalog.md
 starred: true
 ---
 
-> *Explainer page for the [FM-to-Virtual-Cells talk](../fm-to-virtual-cells.md). The full reckoning canon, organized by what each paper evaluated and what axis it covered. As of May 2026, Lane 4 (replication / critique) is the most-published lane of 2025–2026 by a wide margin — eleven evaluation papers + one contrarian. This page is the directory.*
+> *Explainer page from the FM-to-Virtual-Cells talk corpus — see also the [state-of-play hub](foundation-models-state-of-play.md). The full reckoning canon, organized by what each paper evaluated and what axis it covered. As of May 2026, Lane 4 (replication / critique) is the most-published lane of 2025–2026 by a wide margin — eleven evaluation papers + one contrarian. This page is the directory.*
 
 ## The canon at a glance
 
@@ -95,8 +95,8 @@ The first paper that lands any of these owns the citation for the 2026–2028 cy
 
 **If you want to write a methods paper (Track 1–9)**:
 - Tracks 3, 6, 8, 9 are the post-reckoning evaluation frontier.
-- [Track 9 (causal transportability)](../fm-to-virtual-cells-supplementary.md#c9-track-9-causal-transportability-benchmarks-new-2026) is the most open, because Virtual Cells Need Context (2026) named the framework but didn't operationalize it into a benchmark suite.
-- [Track 8 (Synergistic Information Score)](../fm-to-virtual-cells-supplementary.md#c8-track-8-synergistic-information-evaluation-of-multimodal-fms-new-2026) is the most concrete — Microsoft published the metric in Feb 2026 and no one has applied it across the multimodal FM zoo yet.
+- [Track 9 (causal transportability)](interpretability-mech-causal.md) is the most open, because Virtual Cells Need Context (2026) named the framework but didn't operationalize it into a benchmark suite.
+- Track 8 (Synergistic Information Score) is the most concrete — Microsoft published the metric in Feb 2026 and no one has applied it across the multimodal FM zoo yet.
 
 ## The narrative arc
 
@@ -114,11 +114,11 @@ This is the arc the talk's Act 1 walks through.
 
 ## Where to go next
 
-- **[The main talk page Act 1 §1.3](../fm-to-virtual-cells.md#13-the-four-eras)** — the four eras: paradigm → ambition → reckoning → response.
+- **[Foundation models — state of play](foundation-models-state-of-play.md)** — the four-eras framing (paradigm → ambition → reckoning → response) lives here.
 - **[The paper map](paper-map.md)** — this catalog placed in the wider literature network, with a systematic reading order.
 - **[Why do linear baselines win?](why-linear-baselines-win.md)** — the mechanism behind the catalog.
 - **[How to read an FM paper critically](reading-an-fm-paper-critically.md)** — the 8-item checklist.
-- **[Supplementary §E — the full evaluation catalog with methodology details](../fm-to-virtual-cells-supplementary.md#e-20252026-evaluation-papers-catalog)** — even more depth.
+- **[Supplementary §E — the full evaluation catalog with methodology details](../fm-to-virtual-cells-supplementary.md#e-20252026-evaluation-papers-catalog)** *(private notes)* — even more depth.
 
 ---
 

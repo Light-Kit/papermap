@@ -8,7 +8,7 @@ summary: Where LLM agents and biology FMs meet — bidirectionally — and why L
 source: talks/fm-to-virtual-cells/agentic-meets-foundation.md
 ---
 
-> *Explainer page for the [FM-to-Virtual-Cells talk](../fm-to-virtual-cells.md). Answers the question someone asks during Act 1 or Act 4: "what's the relationship between LLM agents and biology FMs?" The short answer: it's bidirectional. The longer answer matters for project selection because Lane 9 — the most commercially fundable lane in the 2026 menu — sits exactly at this intersection.*
+> *Explainer page from the FM-to-Virtual-Cells talk corpus — see also the [state-of-play hub](foundation-models-state-of-play.md). Answers the question someone asks during Act 1 or Act 4: "what's the relationship between LLM agents and biology FMs?" The short answer: it's bidirectional. The longer answer matters for project selection because Lane 9 — the most commercially fundable lane in the 2026 menu — sits exactly at this intersection.*
 
 ## The headline
 
@@ -83,14 +83,14 @@ The **AACR 2026 AT02 session "Agentic AI as the Cancer Researcher"** + the **4/2
 
 ## What this means for academic project selection
 
-**[Lane 9 (FM-aided experimental design / active learning)](../fm-to-virtual-cells.md#31-the-9-application-lanes-budget-tier-overview)** is the lane that sits at this intersection. It uses the FM-as-tool pattern (Pattern 1) in a closed loop with wet-lab experiments. The buyer is AI-native biotech (Recursion, Insitro, Latent Labs, Vevo) — they actively pay for this work.
+**[Lane 9 (FM-aided experimental design / active learning)](small-labs-what-to-build.md)** is the lane that sits at this intersection. It uses the FM-as-tool pattern (Pattern 1) in a closed loop with wet-lab experiments. The buyer is AI-native biotech (Recursion, Insitro, Latent Labs, Vevo) — they actively pay for this work.
 
 **Concrete project shape**: partner with a wet-lab running CRISPRi or drug-perturb screens. Implement an LLM-orchestrated FM-guided selection loop (Pattern 1 — FM-as-tool). Compare to literature-prior baseline. Output: methods paper in *Nat Methods* / *Cell Systems* + a clinical-relevance paper.
 
 **The next-step research questions** that the four patterns expose:
 
 - **Pattern 1 (FM-as-tool)**: how does an agent decide *which* biology FM to call for a given query? Tool-routing for biology is unsolved.
-- **Pattern 2 (FM-builder)**: VCHarness designs architectures but not pretraining objectives. Can an agent design a *better objective* than next-gene-prediction? See [Track 2 in the supplementary](../fm-to-virtual-cells-supplementary.md#c-track-dossiers-the-9-small-lab-innovation-tracks).
+- **Pattern 2 (FM-builder)**: VCHarness designs architectures but not pretraining objectives. Can an agent design a *better objective* than next-gene-prediction? (Track 2 in the talk's small-lab supplementary.)
 - **Pattern 3 (FM-as-verifier)**: rBio uses one verifier (TranscriptFormer). Can a reasoning agent use *multiple* verifiers (TranscriptFormer + pathology FM + AlphaGenome) for cross-modality biological reasoning? This is the open follow-up — and the first paper to do it owns the citation.
 - **Pattern 4 (FM-as-analysis-substrate)**: CellVoyager produces autonomous analyses — but who audits them? A statistical-hygiene layer for agentic comp-bio outputs (multiple-comparisons control, automated sensitivity analysis) does not exist. That layer is itself a publishable small-lab project.
 
@@ -106,8 +106,8 @@ The **AACR 2026 AT02 session "Agentic AI as the Cancer Researcher"** + the **4/2
 
 ## Where to go next
 
-- **[The main talk page](../fm-to-virtual-cells.md)** — full 5-act outline.
-- **[Supplementary §B.9 — Lane 9 detail (FM-aided experimental design / active learning)](../fm-to-virtual-cells-supplementary.md#b9-lane-9-fm-aided-experimental-design-active-learning-1k10k-fm-side-new-2026)** — the application lane at this intersection.
+- **[Foundation models — state of play](foundation-models-state-of-play.md)** — the cross-family map this explainer sits inside.
+- **[Small labs — what to build](small-labs-what-to-build.md)** — Lane 9 (FM-aided experimental design / active learning) sits at the agent ↔ FM intersection.
 - **[AACR 2026 AT02 session](https://liudengzhang.github.io/conference-vaults/conferences/aacr-2026/sessions/2026-04-21-at02-agentic-ai-cancer-researcher/)** — "Agentic AI as the Cancer Researcher."
 - **[AACR 2026 4/22 Oncologist session](https://liudengzhang.github.io/conference-vaults/conferences/aacr-2026/sessions/2026-04-22-agentic-ai-as-the-oncologist/)** — clinical-AI-as-agent angle.
 - **[ICLR 2026 MedAgentGym dossier](https://liudengzhang.github.io/conference-vaults/conferences/iclr-2026/tools/medagentgym/)** — the agent-substrate for biomedical analyses.
