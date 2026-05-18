@@ -1,101 +1,64 @@
 ---
-title: 'Thinking systematically about an agent-in-the-loop project for drug response'
+title: 'Thinking systematically about an agent-in-the-loop project for drug response (v1, superseded)'
 date: '2026-05-18'
 topics:
 - foundation-model
 - agentic
 - clinical
 - virtual-cell
-summary: A systematic walk-through of one concrete project shape — a pretrained virtual-cell FM plus an LLM agent that picks datasets, runs simple analyses, and iteratively fine-tunes the FM until convergence — applied to drug-response prediction for a specific cancer subgroup. The honest 2024-2026 landscape (denser than you'd expect — "closed-loop" VC FMs are already a named paradigm), the formalisms you have to know, the design decisions to lock down, and the no-go conditions that should kill the project on day one.
-starred: true
+summary: A short, systematic walk-through of one concrete project shape — a pretrained FM plus an LLM agent that picks datasets, runs simple analyses, and iteratively fine-tunes the FM until convergence — applied to drug-response prediction for a specific cancer subgroup. Superseded by v2 after three rounds of literature search revealed that the architectural composition is already a published 2025-2026 paradigm; see v2 for the corrected contribution surface and the new no-go condition.
+starred: false
 ---
 
-> *Companion reading: [causal models, FMs and virtual cells](causal-models-fm-and-vc.md) for the rung-1/rung-2 framing; [small labs v2](small-labs-what-to-build-v2.md) for why "adapter on a frozen backbone" is the right Wedge-2 starting point; [why linear baselines win](why-linear-baselines-win.md) for the empirical reckoning that makes the convergence question hard; [clinical and agentic](clinical-and-agentic-clinical.md) for adjacent agentic-clinical work.*
+> *⚠ **Superseded by [v2](agent-loop-for-drug-response-v2.md).** After three literature-search rounds, the architectural composition described here turned out to already exist in the 2025-2026 literature ("Closing the loop", VCHarness, CellForge, BioLab). v2 keeps the design discipline below but is honest about what's actually left as the contribution surface (application + discipline, not methods) and adds a no-go condition v1 missed. Read v2 instead; this v1 stays here for the record.*
+
+> *Companion reading: [causal models, FMs and virtual cells](causal-models-fm-and-vc.md) names the rung-1 / rung-2 problem this project bumps into; [small labs v2](small-labs-what-to-build-v2.md) explains why "adapter on a frozen backbone" is the right wedge to start from; [why linear baselines win](why-linear-baselines-win.md) is the empirical pressure that makes the convergence question hard.*
 
 ## The question
 
-Can you build a system in which one pretrained virtual-cell FM sits in the middle, and an LLM agent loops around it — picking representative datasets, running simple analyses, fine-tuning the FM with what it learned, and re-checking — until the model converges on something useful for one specific clinical question? Concretely: *would drug X work on this gastric cancer subgroup?*
+Can you build a system in which one pretrained foundation model (sc-FM, pathology FM, or genomic FM) sits in the middle, and an LLM agent loops around it — picking representative datasets, running simple analyses, fine-tuning the FM with what it learned, and re-checking — until the model converges on something useful for one specific clinical question? Concretely: *would drug X work on this gastric cancer subgroup?*
 
-This is a real project shape. After three rounds of literature search I have to report that **the architectural composition is already a named, published paradigm in 2025-2026** — "closed-loop in silico perturbation" + "agentic virtual cell modeling." The novelty surface is much narrower than it first appears. The point of this post is to be honest about that and find the contribution that's actually left.
+This is a real project shape. It is also the place where most agent-in-the-loop systems quietly fail. The point of this post is to think through *why* before writing any code.
 
-## The honest landscape: this is a crowded 2025-2026 space
+## Why this shape at all
 
-### Closed-loop VC FMs (the exact composition you proposed)
+You are not trying to invent a new architecture (that's Wedge 1 in the [small labs taxonomy](small-labs-what-to-build-v2.md)). You are taking a frozen FM, layering a small task-specific head, and asking an LLM agent to be the **experiment planner** instead of the human grad student. The FM brings biological pretraining. The adapter brings task specificity. The agent brings *which-data-when* decisions.
 
-- **"Closing the loop: Teaching single-cell foundation models to learn from perturbations"** ([bioRxiv July 2025](https://www.biorxiv.org/content/10.1101/2025.07.08.663754v1)) — fine-tunes Geneformer-30M-12L with CRISPRa/i Perturb-seq data in a closed-loop ISP framework. **Three-fold PPV improvement on T-cell activation prediction.** This is the literal "fine-tune the VC FM with iteratively acquired perturbation data" idea.
-- **VCHarness** ("Harnessing AI to Build Virtual Cells", [bioRxiv April 2026](https://www.biorxiv.org/content/10.64898/2026.04.11.717183v2)) — autonomous AI system combining an AI *coding agent* with multimodal biological FMs to construct perturbation-response models. **Outperforms expert-designed approaches; cuts dev time from months to days.** This is the literal "agent + biological FM" composition.
-- **CellForge** ([arXiv 2508.02276, August 2025](https://arxiv.org/abs/2508.02276)) — multi-agent framework that autonomously designs and synthesizes neural network architectures for single-cell perturbation tasks via collaborative agent reasoning.
-- **BioLab** ([bioRxiv September 2025](https://www.biorxiv.org/content/10.1101/2025.09.03.674085)) — multi-agent autonomous life-sciences system integrating biological FMs, with a Memory Agent that updates a RAG knowledge base in a closed loop between in silico prediction and wet-lab design.
-- **ELISA** ([arXiv 2603.11872](https://arxiv.org/pdf/2603.11872)) — Embedding-Linked Interactive Single-cell Agent: unifies scGPT expression embeddings with BioBERT retrieval and LLM-mediated interpretation in an agentic closed-loop workflow.
-- **Sequential Optimal Experimental Design of Perturbation Screens** ([bioRxiv Dec 2023](https://www.biorxiv.org/content/10.1101/2023.12.12.571389)) — the *original* iterative-active-learning paradigm for Perturb-seq: at each step, acquire data, retrain the model, select the next batch. Pre-dates the LLM-agent wrapper but defines the underlying loop.
-- **Two 2025 surveys**: [LLM4Cell](https://arxiv.org/html/2510.07793v1) and [LLMs Meet Virtual Cell](https://arxiv.org/html/2510.07706v1). The fact that *survey papers* already exist tells you the space is mature.
+The bet is that the agent can navigate the data landscape (TCGA, GDSC, PRISM, DepMap, clinical cohorts) better than a fixed pipeline, because the right next dataset depends on what the model is currently bad at — and the agent can read the model's confusion matrix and pick the next round accordingly.
 
-### Adapter-on-frozen-VC-FM (the wedge for v0)
+## The five things you have to decide before you write any code
 
-- **sc-FM Perturbation Adapter / scDCA** ([arXiv 2412.13478](https://arxiv.org/html/2412.13478v2) → ICLR 2026) — <1% drug-conditional adapter on frozen sc-FM; beats the linear-additive baseline.
-- **PertAdapt** ([bioRxiv Nov 2025](https://www.biorxiv.org/content/10.1101/2025.11.21.689655)) — condition-sensitive adapter for genetic perturbation prediction; gene-level functional structure built in.
-- **scDrugMap** ([Nature Communications 2025](https://www.nature.com/articles/s41467-025-67481-2)) — benchmark of 8 sc-FMs + 2 LLMs across 495K cells / 60 datasets for drug response. scFoundation strongest in pooled, UCE best after finetune, scGPT best zero-shot.
-- **STATE** (Arc Institute) — perturbation-specialist FM, pretrained on ~170M unperturbed + finetuned on 100M+ perturbed cells across 70 species.
-
-### Adjacent agentic biomedical systems (broader context)
-
-- **Biomni** ([Stanford Zou, bioRxiv June 2025](https://www.biorxiv.org/content/10.1101/2025.05.30.656746v1)) — general biomedical agent, 150 tools / 105 packages / 59 databases; beats human experts on LAB-Bench.
-- **TxGemma + Agentic-Tx** ([Google, arXiv 2504.06196](https://arxiv.org/abs/2504.06196)) — therapeutic LLM + 18-tool Gemini-2.5 agent.
-- **Google AI co-scientist** ([arXiv 2502.18864](https://arxiv.org/abs/2502.18864)) — multi-agent (Generation / Reflection / Ranking / Evolution / Meta-review) with Elo tournaments.
-- **PharmaSwarm** ([arXiv 2504.17967](https://arxiv.org/abs/2504.17967)) — three-agent swarm on TxGemma with shared memory that fine-tunes submodels over time.
-
-### Clinical surface (the bar to beat)
-
-- **MuMo** ([Nature Sig Transduct Targeted Ther 2024](https://www.nature.com/articles/s41392-024-01932-y)) — multi-modal HER2+ gastric anti-HER2 ± IO response on 429 patients; **AUC 0.884**. *The actual baseline.*
-- **BATCHIE** ([Nature Communications 2024](https://www.nature.com/articles/s41467-024-55287-7)) — Bayesian AL for combination drug screens; **5-7% of full-data accuracy with only 1.7-20.4% of training data**.
-- **CRISP** ([Nat Comput Sci 2025](https://www.nature.com/articles/s43588-025-00887-6)) — transfer-learning for perturbation in unseen cell types with limited data.
-
-## What this means for your contribution
-
-**Architectural novelty: gone.** "Closing the loop" already publishes Geneformer + iterative Perturb-seq finetune; VCHarness already publishes an AI agent + biological FM that *beats expert-designed architectures*; CellForge and BioLab cover the multi-agent variant. Surveys already exist. Anyone reviewing your paper will land on these in their first hour.
-
-**What's actually left as your surface:**
-
-1. **Clinical drug-response, not gene perturbation.** All the closed-loop work above is on CRISPRa/i Perturb-seq — gene knockouts in cell lines. Drug-response on patient cohorts with clinical outcomes is materially different in (a) data structure (small molecules + dose + time), (b) signal (clinical endpoint, not transcriptomic delta), (c) confounding (oncologist selection bias, not random CRISPR assignment).
-2. **Patient-cohort evaluation, not held-out cell lines.** Every closed-loop VC paper above evaluates on held-out perturbations or held-out cell lines. None evaluates against a sealed *patient* cohort with outcomes. This is the discipline gap.
-3. **A defined cancer + drug + biomarker triple.** No published system combines all three with the loop architecture. HER2+ gastric + trastuzumab + MSI status is the example; pick yours and own it.
-
-That's the contribution surface. It's narrower than v1 of this blog claimed, narrower even than v2 claimed — and it's *application + discipline*, not *methods*.
-
-## Concepts to internalize before any code
-
-1. **Closed-loop in silico perturbation (ISP).** The named paradigm. "Closing the loop" is the canonical citation.
-2. **Ladder of causation** (Pearl rungs 1/2/3) — covered in the [causal-models blog](causal-models-fm-and-vc.md).
-3. **CATE + meta-learner family** (T/S/X/R/DR/EP-learner) — the standard tool for "would this drug work on *this* subgroup." Recent 2024-2025 extensions to right-censored survival.
-4. **Selection bias / propensity score / IPW** — Hernán & Robins, *Causal Inference: What If*.
-5. **Bayesian AL acquisition functions** — UCB, expected improvement, information gain. BATCHIE and Sequential-OED-for-Perturb-seq are the worked oncology examples.
-6. **Iterative-self-refinement reward hacking** — ([arXiv 2410.06491](https://arxiv.org/pdf/2410.06491)) the documented failure mode of LLM-as-evaluator loops. Your stopping rule must defeat this.
-7. **FDA SaMD framework** — January 2025 draft guidance (Docket FDA-2024-D-4488). What the v0 can legitimately claim.
-
-## The five decisions to lock down before code
-
-1. **Stopping rule.** A clinical cohort the agent never sees, AUC plateau over N rounds. Anything else reproduces the reward-hacking literature.
-2. **Subgroup definition.** Narrower = more useful + fewer patients. Train wide; evaluate narrow (the CRISP move).
-3. **What the FM is allowed to do.** Frozen backbone + adapter. PertAdapt / scDCA are the templates.
-4. **Agent action space.** Pick next dataset, pick next subgroup slice, pick next adapter config. Not: invent architectures (CellForge already does that better).
-5. **The baseline.** Not LR. Not your own previous round. **MuMo (AUC 0.884)** is the published bar on HER2+ gastric.
+1. **What is the loop's stopping rule?** This is the single most important design decision. "Train loss flattens" is wrong — the model can drive train loss to zero and still be useless on a new patient. "Validation AUC flattens" is also wrong if the agent picked the validation set. The honest rule: hold out a clinical cohort the agent **never sees and never names**, and stop when AUC on that cohort plateaus for N rounds.
+2. **What does "subgroup" mean exactly?** "HER2+ gastric cancer" is one definition; "HER2+ MSI-H gastric cancer with prior platinum exposure" is another. The narrower it is, the more clinically useful — and the fewer patients exist in any single dataset. You will have to train on a wider population and *evaluate* on the narrow one.
+3. **What is the FM allowed to do?** Frozen backbone + adapter is the safe first move (1-10 GPU-days per round). Full finetune is GPU-weeks per round and your loop will blow up your compute budget by round 3. Pick frozen-plus-adapter unless you have a strong reason.
+4. **What does the agent actually decide?** Realistic agent actions: pick the next dataset, pick the next subgroup slice, pick the next adapter configuration, pick which baseline to compare against. Unrealistic: invent new model architectures or write novel loss functions. Keep the action space small and concrete.
+5. **What is the baseline?** A linear model on simple features (age, mutations, expression) is the baseline you must beat. The [linear-baselines reckoning](why-linear-baselines-win.md) is a year of evidence that sc-FMs lose to this baseline on perturbation tasks. If your agent-plus-FM-plus-adapter system can't beat it after 5 rounds, the loop is wrong and adding more rounds won't fix it.
 
 ## The cheapest first cut
 
-Trastuzumab in HER2+ gastric. Frozen Virchow2 (pathology) or scFoundation (sc) + drug-conditional adapter (scDCA template). Pretrain substrate: [Tahoe-100M](https://www.biorxiv.org/content/10.1101/2025.02.20.639398) (100M cells × 1,100 drugs × 50 cancer lines). Orchestrate dataset selection with a Biomni-style agent. Held-out: sealed internal patient cohort. Stopping: held-out AUC plateau over 3 rounds. Beat MuMo on the held-out.
+Trastuzumab in HER2+ gastric cancer. Frozen Virchow2 (pathology FM) plus a drug-conditional adapter. The agent picks rounds from {TCGA-STAD, GDSC gastric lines, PRISM gastric, a held-out internal cohort the agent never touches}. Stopping rule: held-out AUC plateau over 3 rounds. Compare against a linear logistic regression on HER2 IHC + Lauren classification.
 
-Budget: ~$20-30K compute, ~$2K LLM API, 1 person × 6-12 months.
+Total budget: ~$20-30K in compute, ~$2K in LLM API calls, 1 person × 6-12 months. This is small enough for one motivated PhD student and concrete enough that the comparison matters.
 
-## Three no-go conditions
+## Where it most likely fails — be honest
 
-1. **No sealed clinical patient cohort.** No honest stopping rule → reward-hacking literature guarantees failure.
-2. **Can't beat MuMo (AUC 0.884) within 12 months.** Published bar; below it is a paper without a result.
-3. **VCHarness or CellForge applied to your subgroup matches or beats your bespoke system.** This is the new test, given that both already exist and both *outperform expert-designed approaches*. Run them as control conditions, not just baselines. If a general-purpose agentic VC-model designer wins on your subgroup, your methods contribution is zero and only the clinical-application framing remains.
+- **Causal gap.** You are predicting *what happens if we give the drug*. Your training data is *what happened to patients who received the drug, chosen by oncologists for clinical reasons*. That is selection bias on rung 1, and the [causal-models blog](causal-models-fm-and-vc.md) explains why no amount of fancy modeling fixes it without intervention data or a structural assumption. You will need to either (a) train on randomized-trial data only (rare, small), or (b) be very explicit that this is a hypothesis-generating tool, not a clinical decision tool.
+- **Subgroup data scarcity.** The narrower the clinical subgroup, the smaller the sample. Iterative finetune on n=80 will overfit by round 2. Use the subgroup as the *evaluator*, not the *trainer*.
+- **Convergence theater.** Agent loops are easy to demo and hard to reproduce. The agent will look like it's "deciding" when it's actually pattern-matching on prompt phrasing. Run the same loop 5 times with different random seeds; if the final model is different each time, you don't have convergence — you have a slot machine.
+
+## Prior art to read before starting
+
+- **Biomni** (Zou lab, 2025) — agentic bioinformatics over a tool library, with a benchmark. Closest published analogue to "agent picks the next analysis."
+- **TxAgent / TxGemma** (Google, 2025) — therapeutic-reasoning agent paired with an open small FM.
+- **CellAgent** (2024) — orchestrates a scRNA-seq pipeline end-to-end.
+- **The active-learning-for-perturbation literature** (Replogle/Theis 2024-2026) — same loop idea, applied to *which knockout to do next* instead of *which drug-response dataset to load*.
 
 ## Verdict
 
-After three rounds of search I have to be straightforward: the project's architectural novelty — agent + VC FM + iterative adapter finetune — has been published end-to-end at least four times in 2025-2026 ("Closing the loop", VCHarness, CellForge, BioLab). What's defensibly yours is *application + discipline*: the first such system specifically targeting drug-response in a named cancer subgroup with patient-cohort outcome evaluation. That's a real but narrow contribution, and it lives or dies on whether you can (a) seal a held-out clinical cohort, (b) beat MuMo, and (c) demonstrate that bespoke beats VCHarness on your subgroup. If any of those three fails, the project has no result. Treat this clarity as a feature: the literature has already told you the experiments you need to run.
+The project is interesting and the wedge is correct. The risks are real but named and concrete — convergence rule, subgroup scarcity, causal gap. None of them are research-killers; they are *design constraints*. If you keep the FM frozen, keep the held-out cohort sealed, beat the linear baseline first, and label the output a hypothesis-generation tool rather than a clinical decision-support system, you have a defensible 12-month project that produces a publishable result and a reusable codebase. The thing that turns it from "another agentic-LLM demo" into real work is the discipline of those constraints, not the cleverness of the loop.
+
+> *v2 update (May 2026): the prior-art search done after this v1 found four direct closed-loop-VC-FM systems already published in 2025-2026. The architectural composition isn't novel. See [v2](agent-loop-for-drug-response-v2.md) for the corrected verdict.*
 
 ---
 
-*Last updated 2026-05-18.*
+*v1 published 2026-05-18. Superseded same day by [v2](agent-loop-for-drug-response-v2.md).*
