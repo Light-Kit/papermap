@@ -36,6 +36,8 @@ The pattern: AACR was the **stage** for virtual cells in 2026, but the **substra
 
 The single most consequential JPM 2026 announcement for virtual cells was the **[Lilly + NVIDIA $1B AI Co-Innovation Lab](https://investor.lilly.com/news-releases/news-release-details/nvidia-and-lilly-announce-co-innovation-ai-lab-reinvent-drug)** (Day 1, Mon Jan 12) — explicitly framed as the largest pharma–AI infrastructure commitment ever announced at JPM, with **NVIDIA BioNeMo + Vera Rubin compute** as the substrate. The signal is less about the headline dollar number than about *where the spend goes*: dedicated GPU capacity for in-house FM development inside a top-three pharma, rather than continued reliance on academic releases or model-as-a-service vendors.
 
+<aside class="qa" data-q="1"><b>Q on "NVIDIA BioNeMo":</b> We need to know more.</aside>
+
 The second-most-consequential was **AstraZeneca's acquisition of Modella AI** (Day 2, Tue Jan 13) — described in trade press as the first big-pharma acquisition of an AI firm targeting multi-modal foundation models for oncology. The Day-2 framing was that AI is no longer something pharma *partners* on; it is something pharma *owns*.
 
 Three structural changes this implies for the virtual-cell programme:
