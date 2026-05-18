@@ -6,7 +6,7 @@ topics:
 - agentic
 - clinical
 - virtual-cell
-summary: A v2 narrowing after three rounds of literature search. The architectural composition (agent + VC FM + iterative adapter finetune) turned out to be a published 2025-2026 paradigm — "closed-loop in silico perturbation" + "agentic virtual cell modeling" — with four direct prior systems and two surveys. This v2 rewrites the contribution surface honestly: clinical drug-response (not gene perturbation) + patient-cohort evaluation (not held-out cell lines) + defined cancer subgroup specificity. Adds the no-go condition that didn't exist in v1.
+summary: A v2 narrowing after three rounds of literature search. The architectural composition (agent + VC FM + iterative adapter finetune) turned out to be a published 2025-2026 paradigm — "closed-loop in silico perturbation" + "agentic virtual cell modeling" — with four direct prior systems and two surveys. This v2 rewrites the contribution surface honestly — clinical drug-response (not gene perturbation) + patient-cohort evaluation (not held-out cell lines) + defined cancer subgroup specificity. Adds the no-go condition that didn't exist in v1.
 starred: true
 ---
 
