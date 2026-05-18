@@ -133,6 +133,18 @@ What success looks like in 2026: an FM that beats `latent-additive + scGPT-embed
 
 ---
 
+## Deeper landscape blogs
+
+This page is the cross-family map; each family also has its own dedicated landscape blog:
+
+- [Pathology FMs](pathology-fm-landscape.md) — UNI/UNI2-h, Virchow2, CHIEF, Hibou, PathChat-2, the Owkin → Claude for Healthcare deployment, license politics.
+- [Genomic + protein FMs](genomic-and-protein-fm-landscape.md) — Enformer → AlphaGenome 25/26 sweep, ESM-2/3, AlphaFold 1/2/3, RFdiffusion, Evo 2.
+- [Clinical AI + agentic clinical](clinical-and-agentic-clinical.md) — the deployment surface (Claude for Healthcare, Dragon Copilot, FDA-cleared modules) plus DeepRare, multimodal aging clocks.
+- [Spatial omics + multimodal biology](spatial-omics-and-multimodal.md) — SpatialData substrate, HEX, BioMedCLIP / PathChat-2 / LLaVA-Med, the modality bridges.
+- [Interpretability, mech-modeling, causal](interpretability-mech-causal.md) — the scientific-method tail: SAEs, probing, mechanistic priors, the correlational/causal mismatch.
+
+Also: [how a biological FM is built](how-to-build-a-biological-fm.md) (six-stage walkthrough) and [what small labs build](small-labs-what-to-build.md) (the small-team wedges).
+
 ## How to use this page
 
 - **Linked from individual conference vaults**: each dossier above sits in its host vault (AACR / ICLR / ISBI). This page is the cross-vault map.
