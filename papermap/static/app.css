@@ -645,9 +645,24 @@ a.card-link:hover h4 { color: #1a4480; }
 }
 .blog-grid.has-margin-comments .blog-margin aside.qa-reply { margin-left: 12px; }
 
-/* Zen mode: hide the margin column entirely, collapse the grid so body
-   reflows to single column. Asides themselves stay in the DOM; the JS pass
-   re-runs on the body.zen class change and moves them back inline. */
+/* Anchor mark — wraps the sentence a comment is attached to. Subtle by
+   default (just a dotted underline so the body reads cleanly); in zen mode
+   it strengthens so the reader can still find annotations after the
+   comment bodies have been hidden. */
+.blog-post mark.qa-anchor {
+  background: transparent;
+  color: inherit;
+  border-bottom: 1px dotted #d4a017;
+  padding-bottom: 1px;
+}
+body.zen .blog-post mark.qa-anchor {
+  background: rgba(255, 248, 225, 0.55);
+  border-bottom: 1px solid #d4a017;
+}
+
+/* Zen mode = Word's "No Markup" view: hide the comment bodies entirely
+   (margin column collapses, body widens) but keep the inline <mark>
+   anchors so the reader can still see which sentence is annotated. */
 body.zen .blog-post:has(.blog-grid.has-margin-comments) { max-width: 760px; }
 body.zen .blog-grid.has-margin-comments {
   display: block;
@@ -655,6 +670,8 @@ body.zen .blog-grid.has-margin-comments {
   column-gap: 0;
 }
 body.zen .blog-grid > .blog-margin { display: none; }
+body.zen .blog-post aside.qa,
+body.zen .blog-post aside.qa-reply { display: none; }
 
 /* Narrow viewport: same collapse as zen so the reader still sees comments
    inline rather than in a hidden column. */
