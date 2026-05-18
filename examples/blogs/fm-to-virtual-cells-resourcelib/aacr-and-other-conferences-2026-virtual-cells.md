@@ -38,6 +38,8 @@ The single most consequential JPM 2026 announcement for virtual cells was the **
 
 <aside class="qa" data-q="1"><b>Q on "NVIDIA BioNeMo":</b> We need to know more.</aside>
 
+<aside class="qa-reply" data-q="1"><b>A:</b> BioNeMo is NVIDIA's biomolecular FM stack: the open-source BioNeMo Framework (training + fine-tuning on NVIDIA GPUs) plus BioNeMo NIM microservices for deployment. Out of the box it bundles pretrained models across the virtual-cell-adjacent surface — ESM-family proteins, MolMIM / DiffDock-style small molecules, single-cell (Geneformer port), and genomic encoders. The Lilly significance: paired with Vera Rubin compute, it gives an in-house pharma team a turnkey path to retrain or distill these models on proprietary data, instead of waiting on Arc / EvolutionaryScale / academic releases or paying a model-as-a-service vendor per call.</aside>
+
 The second-most-consequential was **AstraZeneca's acquisition of Modella AI** (Day 2, Tue Jan 13) — described in trade press as the first big-pharma acquisition of an AI firm targeting multi-modal foundation models for oncology. The Day-2 framing was that AI is no longer something pharma *partners* on; it is something pharma *owns*.
 
 Three structural changes this implies for the virtual-cell programme:

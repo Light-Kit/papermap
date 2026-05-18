@@ -112,7 +112,7 @@ Owkin's distinctive 2026 move is **shipping a pathology-foundation-model-backed 
 
 <aside class="qa" data-q="1"><b>Q on "Owkin's distinctive 2026 move is shipping a pathology-foundation-model-backed agent inside Anthropic Claude":</b> Tell me more about the Owkin Pathology Explorer integration inside Claude — what does it actually do and who can use it?</aside>
 
-<aside class="qa-reply" data-q="1"><b>A:</b> Owkin Pathology Explorer is a Claude connector: Claude routes whole-slide-image questions to Owkin's pathology foundation model (publicly the Phikon family, ~1B params, trained federated across hospital partners) as a tool call. A user uploads a slide, asks "is there stromal invasion?" in natural language; the FM does inference, Claude composes the answer. Distribution-wise it puts a hospital-grade pathology FM in front of every Claude user instead of behind Owkin's own SaaS UI.</aside>
+<aside class="qa-reply" data-q="1"><b>A:</b> Pathology Explorer is an MCP-based agent in Owkin's "K Pro" line, shipped inside Anthropic's Claude for Healthcare and Life Sciences (launched Jan 12, 2026). Mechanically: Owkin built MCP encoding so Claude routes pathology questions to Owkin's agent, which returns spatially-aware analysis of patient tissue images — cell/tissue typing, tumor-microenvironment study, biomarker extraction, cohort survival analysis. The underlying models are trained on Owkin's 800-hospital / 104-center histopathology network; the launch material does not name a specific public FM (Phikon, OwkinZero), so the exact model wiring is undisclosed. Distribution puts hospital-grade pathology AI inside every Claude HCLS workflow rather than behind Owkin's own SaaS UI.</aside>
 
 ### Recursion Pharmaceuticals
 
