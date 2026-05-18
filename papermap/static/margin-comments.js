@@ -16,7 +16,7 @@
 //
 // On window resize / zen toggle we re-run the layout pass.
 
-const NARROW_BREAKPOINT = 1200;
+const NARROW_BREAKPOINT = 1500;
 const STACK_GAP = 10;
 const _registry = new WeakMap(); // wrap → { pairs, highlighted }
 
