@@ -137,25 +137,16 @@ def create_app(corpus_dir: Path) -> Flask:
         existing = [int(m.group(1)) for m in re.finditer(r'data-q="(\d+)"', text)
                     if m.group(1).isdigit()]
         q_id = (max(existing) + 1) if existing else 1
-        # Find the paragraph containing the anchor; pick first match.
-        pos = text.find(anchor)
-        if pos < 0:
-            # Try a whitespace-normalised match as a fallback.
-            norm = re.sub(r"\s+", " ", anchor)
-            flat = re.sub(r"\s+", " ", text)
-            if norm not in flat:
-                abort(404, "anchor text not found in source")
-            # Find anchor in original by walking forward; cheap fuzzy.
-            words = norm.split()
-            if not words:
-                abort(404, "anchor empty after normalisation")
-            pos = text.find(words[0])
-            if pos < 0:
-                abort(404, "anchor text not found in source")
-        # End of the paragraph = next blank line after pos.
-        end = text.find("\n\n", pos)
-        if end < 0:
-            end = len(text)
+        # The browser sends `sel.toString()` which strips inline markdown
+        # markup (bold/italic/code/link). Source still has the raw `**`,
+        # `_`, backticks, and `[text](url)`. Match the *rendered* form of
+        # each paragraph instead of doing a literal substring scan.
+        needle = _normalise_for_anchor_match(anchor)
+        if not needle:
+            abort(400, "anchor empty after normalisation")
+        end = _find_paragraph_end(text, needle)
+        if end is None:
+            abort(404, "anchor text not found in source")
         snippet = anchor[:120]
         aside = (
             f'\n\n<aside class="qa" data-q="{q_id}"><b>Q on '
@@ -226,6 +217,37 @@ def _escape_attr(s: str) -> str:
 
 def _escape_text(s: str) -> str:
     return (s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
+
+
+_INLINE_LINK_RE = re.compile(r"\[([^\]]+)\]\([^)]*\)")
+_INLINE_CODE_RE = re.compile(r"`+([^`]+)`+")
+_INLINE_EMPH_RE = re.compile(r"(\*\*|__|\*|_)")
+_WS_RE = re.compile(r"\s+")
+
+
+def _normalise_for_anchor_match(s: str) -> str:
+    """Reduce a markdown string to what the browser's `sel.toString()` sees."""
+    s = _INLINE_LINK_RE.sub(r"\1", s)
+    s = _INLINE_CODE_RE.sub(r"\1", s)
+    s = _INLINE_EMPH_RE.sub("", s)
+    return _WS_RE.sub(" ", s).strip()
+
+
+def _find_paragraph_end(text: str, needle: str) -> int | None:
+    """Return char offset of the end of the first paragraph whose rendered
+    form contains `needle`, or None. Paragraphs split on blank lines."""
+    cursor = 0
+    n = len(text)
+    while cursor < n:
+        nxt = text.find("\n\n", cursor)
+        block_end = nxt if nxt >= 0 else n
+        block = text[cursor:block_end]
+        if needle in _normalise_for_anchor_match(block):
+            return block_end
+        if nxt < 0:
+            return None
+        cursor = nxt + 2
+    return None
 
 
 def _scan(root: Path) -> list[dict]:

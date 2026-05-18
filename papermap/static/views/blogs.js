@@ -10,6 +10,7 @@
 import { getBlogs } from "../blogs-state.js";
 import { isStarred, toggleStar, getActiveCorpus } from "../stars-state.js";
 import { starButton, attachStarHandler } from "./browse.js";
+import { layoutMarginComments } from "../margin-comments.js";
 
 let _topicFilter = null;
 let _activeSlug = null;
@@ -119,10 +120,13 @@ function renderReader(post) {
     `<span class="chip">${escape(t)}</span>`).join(" ");
   const date = post.date ? `<span class="meta">${escape(post.date)}</span>` : "";
   wrap.innerHTML = `
-    <p class="blog-back"><a href="#" class="blog-index-link">← All blogs</a></p>
-    <h1>${escape(post.title)}</h1>
-    <p class="blog-post-meta">${date} ${topics}</p>
-    <div class="blog-body">${post.body_html}</div>
+    <div class="blog-grid">
+      <p class="blog-back"><a href="#" class="blog-index-link">← All blogs</a></p>
+      <h1>${escape(post.title)}</h1>
+      <p class="blog-post-meta">${date} ${topics}</p>
+      <div class="blog-body">${post.body_html}</div>
+      <div class="blog-margin" aria-label="Comments"></div>
+    </div>
   `;
   wrap.querySelector(".blog-index-link").addEventListener("click", ev => {
     ev.preventDefault();
@@ -150,6 +154,9 @@ function renderReader(post) {
       a.classList.add("blog-external-link");
     }
   });
+  // Margin-comments pass runs after the post lands in the DOM and the
+  // browser has done a layout pass, so getBoundingClientRect is accurate.
+  requestAnimationFrame(() => layoutMarginComments(wrap));
   return wrap;
 }
 

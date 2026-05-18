@@ -505,6 +505,26 @@ a.card-link:hover h4 { color: #1a4480; }
   line-height: 1.6;
   color: #2a2a2a;
 }
+/* Word-style side margin for comments. Grid expands to make room for the
+   margin column only when comments exist on this post (.has-margin-comments,
+   set by margin-comments.js). The blog-margin acts as the positioned
+   container for absolutely-placed asides. */
+.blog-grid { display: block; }
+.blog-grid > .blog-margin { display: none; }
+.blog-post:has(.blog-grid.has-margin-comments) { max-width: 1072px; }
+.blog-grid.has-margin-comments {
+  display: grid;
+  grid-template-columns: minmax(0, 760px) 280px;
+  column-gap: 32px;
+  position: relative;
+}
+.blog-grid.has-margin-comments > *:not(.blog-margin) { grid-column: 1; min-width: 0; }
+.blog-grid.has-margin-comments > .blog-margin {
+  display: block;
+  grid-column: 2;
+  grid-row: 1 / -1;
+  position: relative;
+}
 .blog-post .blog-back { margin: 0 0 16px; font-size: 12px; }
 .blog-post .blog-back a {
   color: #1a4480;
@@ -606,6 +626,46 @@ a.card-link:hover h4 { color: #1a4480; }
   font-size: 11px;
   opacity: 0.55;
   font-family: ui-monospace, monospace;
+}
+
+/* Asides while they live in .blog-margin (set absolute by margin-comments.js).
+   Tighter typography to fit the narrower column; subtle leader line on the
+   left edge so the eye can track from text to comment. */
+.blog-grid.has-margin-comments .blog-margin aside.qa,
+.blog-grid.has-margin-comments .blog-margin aside.qa-reply {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0;
+  font-size: 12.5px;
+  padding: 7px 11px;
+  line-height: 1.45;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition: top 0.2s ease;
+}
+.blog-grid.has-margin-comments .blog-margin aside.qa-reply { margin-left: 12px; }
+
+/* Zen mode: hide the margin column entirely, collapse the grid so body
+   reflows to single column. Asides themselves stay in the DOM; the JS pass
+   re-runs on the body.zen class change and moves them back inline. */
+body.zen .blog-post:has(.blog-grid.has-margin-comments) { max-width: 760px; }
+body.zen .blog-grid.has-margin-comments {
+  display: block;
+  grid-template-columns: none;
+  column-gap: 0;
+}
+body.zen .blog-grid > .blog-margin { display: none; }
+
+/* Narrow viewport: same collapse as zen so the reader still sees comments
+   inline rather than in a hidden column. */
+@media (max-width: 900px) {
+  .blog-post:has(.blog-grid.has-margin-comments) { max-width: 760px; }
+  .blog-grid.has-margin-comments {
+    display: block;
+    grid-template-columns: none;
+    column-gap: 0;
+  }
+  .blog-grid > .blog-margin { display: none; }
 }
 
 /* Selection-to-comment widget */

@@ -110,6 +110,10 @@ Paige received the **first FDA 510(k) clearance for a general-purpose pathology 
 
 Owkin's distinctive 2026 move is **shipping a pathology-foundation-model-backed agent inside Anthropic Claude** — the Owkin Pathology Explorer integration. This is the cleanest current example of the federated-data side of pathology AI productising into an LLM-tool layer, and it gives Owkin a different distribution surface than Paige or Mahmood. Paris/NYC dual-HQ; one of the most senior European pathology-AI teams.
 
+<aside class="qa" data-q="1"><b>Q on "Owkin's distinctive 2026 move is shipping a pathology-foundation-model-backed agent inside Anthropic Claude":</b> Tell me more about the Owkin Pathology Explorer integration inside Claude — what does it actually do and who can use it?</aside>
+
+<aside class="qa-reply" data-q="1"><b>A:</b> Owkin Pathology Explorer is a Claude connector: Claude routes whole-slide-image questions to Owkin's pathology foundation model (publicly the Phikon family, ~1B params, trained federated across hospital partners) as a tool call. A user uploads a slide, asks "is there stromal invasion?" in natural language; the FM does inference, Claude composes the answer. Distribution-wise it puts a hospital-grade pathology FM in front of every Claude user instead of behind Owkin's own SaaS UI.</aside>
+
 ### Recursion Pharmaceuticals
 
 The largest AI-native biotech by perturbation-imaging dataset size. **BioHive-2** cluster + NVIDIA partnership give Recursion among the better-compute-resourced industrial players. The data moat is the imaging side, not the model side. Watch as the post-merger phenomics platform (Recursion + Exscientia merged in 2024) starts shipping integrated readouts.
