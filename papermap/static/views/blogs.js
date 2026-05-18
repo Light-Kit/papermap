@@ -9,12 +9,14 @@
 
 import { getBlogs } from "../blogs-state.js";
 import { isStarred, toggleStar, getActiveCorpus } from "../stars-state.js";
+import { isArchived, toggleArchive, archivedCount } from "../archive-state.js";
 import { starButton, attachStarHandler } from "./browse.js";
 import { layoutMarginComments } from "../margin-comments.js";
 
 let _topicFilter = null;
 let _activeSlug = null;
 let _starOnly = false;
+let _archivedOnly = false;
 
 export function setTopicFilter(topic) {
   _topicFilter = topic || null;
@@ -42,26 +44,44 @@ export function render(_state, _filters, el) {
 
   const corpus = getActiveCorpus();
   const isBlogStarred = b => isStarred(corpus, "blogs", b.slug, !!b.starred);
+  const isBlogArchived = b => isArchived(corpus, b.slug);
   let visible = _topicFilter
     ? blogs.filter(b => (b.topics || []).includes(_topicFilter))
     : blogs;
+  // Archive toggle is exclusive: off → hide archived (default), on → show
+  // ONLY archived. Star filter stacks on top of either subset.
+  visible = _archivedOnly
+    ? visible.filter(isBlogArchived)
+    : visible.filter(b => !isBlogArchived(b));
   if (_starOnly) visible = visible.filter(isBlogStarred);
   const starredCount = blogs.filter(isBlogStarred).length;
+  const archCount = archivedCount(corpus);
 
   const header = document.createElement("header");
+  const tags = [];
+  if (_starOnly) tags.push("★ only");
+  if (_archivedOnly) tags.push("archived only");
+  const tagSuffix = tags.length ? ` · ${tags.join(" · ")}` : "";
   const headline = _topicFilter
-    ? `${visible.length} blogs tagged <em>${escape(_topicFilter)}</em>`
-    : `${visible.length} blogs${_starOnly ? " · ★ only" : ""}`;
+    ? `${visible.length} blogs tagged <em>${escape(_topicFilter)}</em>${tagSuffix}`
+    : `${visible.length} blogs${tagSuffix}`;
   const clearChip = _topicFilter
     ? ` <a href="#" class="blog-clear-filter">clear ×</a>`
     : "";
   header.innerHTML = `<h2>${headline}${clearChip}
     <small>long-form essays from the FM-to-virtual-cells corpus</small>
-    <a href="#" class="star-filter ${_starOnly ? "on" : ""}">${_starOnly ? "★" : "☆"} starred (${starredCount})</a></h2>`;
+    <a href="#" class="star-filter ${_starOnly ? "on" : ""}">${_starOnly ? "★" : "☆"} starred (${starredCount})</a>
+    <a href="#" class="archive-filter ${_archivedOnly ? "on" : ""}" title="${_archivedOnly ? "Showing only archived blogs — click to show live blogs again" : "Show only archived blogs"}">🗄 archived (${archCount})</a></h2>`;
   div.appendChild(header);
   header.querySelector(".star-filter").addEventListener("click", ev => {
     ev.preventDefault();
     _starOnly = !_starOnly;
+    el.innerHTML = "";
+    render(_state, _filters, el);
+  });
+  header.querySelector(".archive-filter").addEventListener("click", ev => {
+    ev.preventDefault();
+    _archivedOnly = !_archivedOnly;
     el.innerHTML = "";
     render(_state, _filters, el);
   });
@@ -90,21 +110,26 @@ export function render(_state, _filters, el) {
 
 function blogCard(post, el, state, filters) {
   const corpus = getActiveCorpus();
+  const archived = isArchived(corpus, post.slug);
   const c = document.createElement("article");
-  c.className = "card card-blog";
+  c.className = "card card-blog" + (archived ? " archived" : "");
   const topics = (post.topics || []).map(t =>
     `<span class="chip">${escape(t)}</span>`).join("");
   const date = post.date ? `<span class="meta">${escape(post.date)}</span>` : "";
   c.innerHTML = `
     <header class="blog-head">
-      <h4>${starButton(corpus, "blogs", post.slug, !!post.starred)} ${escape(post.title)}</h4>
+      <h4>${starButton(corpus, "blogs", post.slug, !!post.starred)} ${escape(post.title)} ${archiveButton(post.slug, archived)}</h4>
       ${date}
     </header>
     <p class="blog-summary">${escape(post.summary)}</p>
     <footer class="blog-foot">${topics}</footer>
   `;
   attachStarHandler(c, corpus, "blogs", post.slug, !!post.starred, state, filters, el);
-  c.addEventListener("click", () => {
+  attachArchiveHandler(c, corpus, post.slug);
+  c.addEventListener("click", ev => {
+    // Clicks on the archive button (or any in-card button) must not
+    // open the reader.
+    if (ev.target.closest(".archive-btn, .star-btn")) return;
     _activeSlug = post.slug;
     el.innerHTML = "";
     render(state, filters, el);
@@ -112,16 +137,40 @@ function blogCard(post, el, state, filters) {
   return c;
 }
 
+function archiveButton(slug, on) {
+  const title = on
+    ? "Archived — click to restore"
+    : "Archive (hide from default view)";
+  return `<button class="archive-btn ${on ? "on" : ""}" data-archive-slug="${escape(slug)}" title="${escape(title)}" aria-pressed="${on ? "true" : "false"}">🗄</button>`;
+}
+
+function attachArchiveHandler(root, corpus, slug) {
+  const btn = root.querySelector(`.archive-btn[data-archive-slug="${cssEscape(slug)}"]`);
+  if (!btn) return;
+  btn.addEventListener("click", ev => {
+    ev.preventDefault();
+    ev.stopPropagation();
+    toggleArchive(corpus, slug);
+    document.dispatchEvent(new CustomEvent("papermap:rerender-active-view"));
+  });
+}
+
+function cssEscape(s) {
+  return String(s).replace(/(["\\])/g, "\\$1");
+}
+
 function renderReader(post) {
+  const corpus = getActiveCorpus();
+  const archived = isArchived(corpus, post.slug);
   const wrap = document.createElement("article");
-  wrap.className = "blog-post";
+  wrap.className = "blog-post" + (archived ? " archived" : "");
   wrap.setAttribute("data-slug", post.slug);
   const topics = (post.topics || []).map(t =>
     `<span class="chip">${escape(t)}</span>`).join(" ");
   const date = post.date ? `<span class="meta">${escape(post.date)}</span>` : "";
   wrap.innerHTML = `
     <div class="blog-grid">
-      <p class="blog-back"><a href="#" class="blog-index-link">← All blogs</a></p>
+      <p class="blog-back"><a href="#" class="blog-index-link">← All blogs</a> ${archiveButton(post.slug, archived)}</p>
       <h1>${escape(post.title)}</h1>
       <p class="blog-post-meta">${date} ${topics}</p>
       <div class="blog-body">${post.body_html}</div>
@@ -133,6 +182,7 @@ function renderReader(post) {
     _activeSlug = null;
     document.dispatchEvent(new CustomEvent("papermap:rerender-active-view"));
   });
+  attachArchiveHandler(wrap, corpus, post.slug);
 
   // Intercept intra-corpus blog links (rewritten server-side to
   // `papermap-blog:<slug>`) so they open inline; mark external mkdocs

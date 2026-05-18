@@ -286,6 +286,37 @@ a.card-link:hover h4 { color: #1a4480; }
 .star-filter:hover { border-color: #d4a017; color: #d4a017; }
 .star-filter.on { background: #fef6e0; border-color: #d4a017; color: #b88800; }
 
+.archive-btn {
+  background: none;
+  border: 0;
+  padding: 0 2px;
+  font: inherit;
+  font-size: 12px;
+  line-height: 1;
+  color: #c0c0bc;
+  cursor: pointer;
+  filter: grayscale(1);
+  opacity: 0.6;
+}
+.archive-btn:hover { color: #5b6b7b; opacity: 1; filter: grayscale(0.3); }
+.archive-btn.on { color: #5b6b7b; opacity: 1; filter: grayscale(0); }
+.blog-head .archive-btn { font-size: 12px; margin-left: 6px; }
+.blog-back .archive-btn { font-size: 14px; margin-left: 10px; vertical-align: middle; }
+.archive-filter {
+  margin-left: 8px;
+  font-size: 12px;
+  text-decoration: none;
+  color: #888;
+  padding: 2px 8px;
+  border-radius: 12px;
+  border: 1px solid #d0d0cc;
+}
+.archive-filter:hover { border-color: #5b6b7b; color: #5b6b7b; }
+.archive-filter.on { background: #eef2f5; border-color: #5b6b7b; color: #3f4d5b; }
+.card-blog.archived { opacity: 0.62; background: #fafafa; }
+.card-blog.archived:hover { opacity: 0.92; }
+.blog-post.archived .blog-body { opacity: 0.85; }
+
 .item-detail {
   max-width: 760px;
   margin: 0 auto;
