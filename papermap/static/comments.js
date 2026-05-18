@@ -149,6 +149,16 @@ async function submit() {
     const slug = _pending.slug;
     const anchorPara = _pending.anchorPara;
     const anchorText = _pending.anchor;
+    // Snapshot scrollTop of every scrollable ancestor BEFORE mutating —
+    // defensive guard against any code path (ours or future) that resets
+    // scroll. The fresh .blog-post is wrapped by .view.blogs which has
+    // its own overflow, so window.scrollY misses it.
+    const scrollSnaps = [];
+    for (let el = anchorPara; el; el = el.parentElement) {
+      if (el.scrollHeight > el.clientHeight + 1) {
+        scrollSnaps.push({ el, top: el.scrollTop });
+      }
+    }
     closePopup();
     // Optimistic insert: drop the aside into the live DOM next to the
     // anchor paragraph and re-run the margin layout. No refetch, no
@@ -175,8 +185,19 @@ async function submit() {
       await loadBlogs(corpus);
       document.dispatchEvent(new CustomEvent("papermap:rerender-active-view"));
     }
+    // Restore the captured scrollTops. Sync restore catches immediate
+    // resets; rAF restore catches anything async (re-layout, fallback
+    // rerender) that may stomp scroll after the next frame.
+    restoreScroll(scrollSnaps);
+    requestAnimationFrame(() => restoreScroll(scrollSnaps));
   } catch (err) {
     status.textContent = `Save failed: ${err.message || err}`;
+  }
+}
+
+function restoreScroll(snaps) {
+  for (const { el, top } of snaps) {
+    if (el.isConnected && el.scrollTop !== top) el.scrollTop = top;
   }
 }
 
