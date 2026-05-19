@@ -149,7 +149,10 @@ def list_blogs(
     external_docs_base: str = "",
     source_subpath: str = "",
 ) -> list[Blog]:
-    """Return blogs in ``blogs_dir`` sorted by date desc, then title.
+    """Return blogs in ``blogs_dir`` sorted by date desc, then add-time desc.
+
+    Within a single date the most recently added/edited file wins, so the
+    newest post stays on top even when a whole essay arc shares one date.
 
     A missing directory returns an empty list so corpora without blogs
     stay valid — the Blogs tab just renders an empty-state.
@@ -161,16 +164,19 @@ def list_blogs(
     """
     if not blogs_dir.is_dir():
         return []
-    out: list[Blog] = []
+    loaded: list[tuple[float, Blog]] = []
     for path in sorted(blogs_dir.iterdir()):
         if path.suffix.lower() == ".md" and path.is_file():
             # Skip-and-log instead of abort-the-corpus: one broken
             # frontmatter shouldn't take the whole Blogs tab to 500.
             try:
-                out.append(load_blog(path))
+                loaded.append((path.stat().st_mtime, load_blog(path)))
             except Exception as exc:
                 _LOG.warning("blog load failed for %s: %s", path.name, exc)
-    out.sort(key=lambda b: (b.date or "", b.title), reverse=True)
+    # Date is primary; file mtime breaks ties so the newest-added post
+    # leads its date group instead of sorting by title alphabetically.
+    loaded.sort(key=lambda mb: (mb[1].date or "", mb[0]), reverse=True)
+    out: list[Blog] = [b for _, b in loaded]
     if asset_url_prefix or external_docs_base:
         slugs = {b.slug for b in out}
         out = [

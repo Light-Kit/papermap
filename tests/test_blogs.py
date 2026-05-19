@@ -50,6 +50,20 @@ def test_list_blogs_sorts_by_date_desc(tmp_path: Path):
     assert [b.slug for b in blogs] == ["b", "c", "a"]
 
 
+def test_list_blogs_same_date_breaks_ties_by_mtime_desc(tmp_path: Path):
+    """A whole essay arc shares one date — newest-added must lead the group."""
+    import os
+
+    (tmp_path / "older.md").write_text("---\ntitle: Zeta\ndate: 2026-05-19\n---\nx\n")
+    (tmp_path / "newer.md").write_text("---\ntitle: Alpha\ndate: 2026-05-19\n---\nx\n")
+    # Force mtimes: older file earlier, newer file later. Title order alone
+    # (reverse-alpha) would put Zeta first; mtime must override that.
+    os.utime(tmp_path / "older.md", (1_000_000, 1_000_000))
+    os.utime(tmp_path / "newer.md", (2_000_000, 2_000_000))
+    blogs = list_blogs(tmp_path)
+    assert [b.slug for b in blogs] == ["newer", "older"]
+
+
 def test_list_blogs_missing_dir_returns_empty(tmp_path: Path):
     assert list_blogs(tmp_path / "nope") == []
 
