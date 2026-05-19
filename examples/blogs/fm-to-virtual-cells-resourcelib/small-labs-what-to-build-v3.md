@@ -30,6 +30,21 @@ In 2026 the loop is commodity, the backbone is commodity, the architecture is mo
 
 This reframe is why the v2 agent-loop essay landed on "application + discipline, not methods" and why the adjacent-shapes audit concluded that **the moat in each adjacent shape lives upstream of the model**. The rest of this essay is the six-wedge consequence.
 
+## Resource floor by wedge
+
+The six wedges below are not peer-comparable at the resource level. Two are genuinely one-engineer-one-GPU moves; two are institutional moves wearing small-lab framing; one needs a clinical collaborator more than it needs a GPU. The table below names the resource gate per wedge *before* any of the substrate / skills detail in the per-wedge sections — read it first, then read the sections against it.
+
+| Wedge | Compute floor | Data | Other resource gate | Resource verdict |
+|---|---|---|---|---|
+| 1 — architectural inductive bias | ~$5–20K cloud + 1 A100/A6000 node | CELLxGENE Census + sc-Arena / PerturBench benchmarks (public) | 6–12 mo engineer-time | **Borderline.** Pre-print attainable; SOTA banner is not — iteration cycles to converge on a non-BERT architecture realistically need ~10× the headline compute. |
+| 2 — frozen-backbone adapters | $0–2K, one GPU-week on local hardware | Replogle, Tahoe-100M, GDSC, PRISM, CCLE — all public | one engineer × 6 mo | **Cleanest fit.** The only wedge whose headline number ("1–10 GPU-days") is honest. |
+| 3 — patient-anchored projection | ~1 GPU-day, trivial | Sade-Feldman / Jerby-Arnon / Bassez / Bi atlases are public; the within-patient validation sample is not | **IRB + clinical collaborator + biopsies + DUA, often a hospital affiliation** | Compute is small; **the clinical-collaborator slot is the entire moat**. Without it, this wedge is closed. |
+| 4 — privileged-corpus continual pretraining | $20–100K (Geneformer-CLcancer-scale) | **By definition exclusive** | Curation infrastructure + institutional affiliation | **Institutional, not small-lab.** "Privileged corpus" is institutional access by another name. |
+| 5 — permissive-license reimplementation | $5–20K (xVERSE-class) up to $50–200K (Hibou / TranscriptFormer / COMPASS-class) | Public, but harmonization is expensive | Release engineering + sustained maintenance | **Partial fit.** Only viable at the small-model end — most gated targets are gated because they're expensive to reproduce. |
+| 6 — interop infrastructure | ~$0, runs on a laptop | Often none needed | Multi-year sustained engineer-time + community / governance work | **Cleanest fit alongside W2.** The bottleneck is years, not money. |
+
+Read against this table, only **Wedge 2 and Wedge 6** are unambiguous small-lab fits at the resource level. **Wedge 1** clears the bar with one GPU node and a modest cloud budget. **Wedge 3** needs a clinical collaborator more than it needs compute — the v3 framing as a small-lab wedge is honest only conditional on that slot being filled. **Wedges 4 and 5** are institutional moves wearing small-lab framing, even though the per-wedge prose below makes them look peer-comparable to Wedges 1, 2, and 6. The substrate-as-moat reframe is what *names* this — the moats are upstream of the model, and most of the upstream resources (data, clinical access, sustained engineering) are not what a small lab buys with one GPU and a year.
+
 ## Wedge 1 — Architectural inductive bias
 
 **Substrate: your biological intuition.**
