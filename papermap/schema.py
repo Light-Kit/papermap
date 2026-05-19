@@ -78,6 +78,7 @@ class Item:
     url: str = ""
     description: str = ""
     starred: bool = False
+    qa: dict | None = None
 
 
 @dataclass

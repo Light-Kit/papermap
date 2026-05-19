@@ -40,6 +40,22 @@ def _category_from_raw(raw_cat, idx: int) -> Category:
     )
 
 
+_QA_KEYS = ("did", "purpose", "method", "result")
+
+
+def _normalize_qa(raw: object) -> dict | None:
+    """Return a {did, purpose, method, result} dict from raw YAML, or None.
+
+    Missing keys are dropped; any non-string value is coerced via str().
+    If no recognized keys are present the result is None so callers can
+    fall back to ``description``.
+    """
+    if not isinstance(raw, dict):
+        return None
+    out = {k: str(raw[k]).strip() for k in _QA_KEYS if k in raw and raw[k]}
+    return out or None
+
+
 def load_resourcelib(raw: dict, source: Path | None = None) -> Corpus:
     categories = [
         _category_from_raw(c, idx)
@@ -135,6 +151,7 @@ def load_resourcelib(raw: dict, source: Path | None = None) -> Corpus:
             url=str(it.get("url", "")),
             description=str(it.get("description", "")),
             starred=bool(it.get("starred", False)),
+            qa=_normalize_qa(it.get("qa")),
         ))
 
     corpus = Corpus(

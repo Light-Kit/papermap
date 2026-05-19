@@ -142,10 +142,23 @@ function detailView(it, state, filters, el) {
     `<span class="chip topic">${escape(t)}</span>`).join(" ");
   const people = (it.people || []).map(p =>
     `<span class="chip">${escape(p)}</span>`).join(" ");
-  const description = it.description
-    ? `<div class="item-description">${it.description.split(/\n\n+/).map(p =>
-        `<p>${escape(p)}</p>`).join("")}</div>`
-    : `<p class="item-no-desc">No long-form description yet — only the <code>why:</code> line above. Use <code>scripts/expand_descriptions.py</code> to generate one.</p>`;
+  const QA_LABELS = {
+    did:     "What did this paper do?",
+    purpose: "What is the purpose?",
+    method:  "What is the method?",
+    result:  "What is the result?",
+  };
+  const qa = it.qa && typeof it.qa === "object" ? it.qa : null;
+  const description = qa
+    ? `<div class="item-qa">${Object.entries(QA_LABELS)
+        .filter(([k]) => qa[k])
+        .map(([k, label]) =>
+          `<div class="qa-block"><h3>${label}</h3><p>${escape(qa[k])}</p></div>`)
+        .join("")}</div>`
+    : it.description
+      ? `<div class="item-description">${it.description.split(/\n\n+/).map(p =>
+          `<p>${escape(p)}</p>`).join("")}</div>`
+      : `<p class="item-no-desc">No long-form description yet — only the <code>why:</code> line above. Use <code>scripts/expand_descriptions.py</code> to generate one.</p>`;
   wrap.innerHTML = `
     <p class="item-back"><a href="#" class="item-back-link">← All items</a></p>
     <div class="item-head">

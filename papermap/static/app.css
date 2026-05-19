@@ -347,6 +347,17 @@ a.card-link:hover h4 { color: #1a4480; }
 }
 .item-description { margin: 16px 0; }
 .item-description p { margin: 0 0 10px; }
+.item-qa { margin: 16px 0; }
+.item-qa .qa-block { margin: 0 0 14px; }
+.item-qa .qa-block h3 {
+  margin: 0 0 4px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a4480;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.item-qa .qa-block p { margin: 0; line-height: 1.55; color: #222; }
 .item-no-desc {
   background: #fff8e1;
   border-left: 3px solid #f1c40f;
