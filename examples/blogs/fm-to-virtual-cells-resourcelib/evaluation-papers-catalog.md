@@ -115,7 +115,7 @@ This is the arc the talk's Act 1 walks through.
 ## Where to go next
 
 - **[Foundation models — state of play](foundation-models-state-of-play.md)** — the four-eras framing (paradigm → ambition → reckoning → response) lives here.
-- **[The paper map](paper-map.md)** — this catalog placed in the wider literature network, with a systematic reading order.
+- **[90-minute speed read](speed-read.md)** — this catalog placed in the wider literature network, with a curated reading order.
 - **[Why do linear baselines win?](why-linear-baselines-win.md)** — the mechanism behind the catalog.
 - **[How to read an FM paper critically](reading-an-fm-paper-critically.md)** — the 8-item checklist.
 - **[Supplementary §E — the full evaluation catalog with methodology details](../fm-to-virtual-cells-supplementary.md#e-20252026-evaluation-papers-catalog)** *(private notes)* — even more depth.

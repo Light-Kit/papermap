@@ -83,7 +83,7 @@ Models marked **★** are the talk's 11 anchor models and link to their full dos
 
 ## Where to go next
 
-- **[The paper map](paper-map.md)** — the interactive literature network + a systematic reading order for the papers behind these models.
+- **[90-minute speed read](speed-read.md)** — a curated reading order through the papers behind these models.
 - The full per-model dossiers (resources / framework / unique feature / gap-exposed) for the 11 anchor models live in the talk supplementary.
 - **[What is a foundation model?](what-is-a-foundation-model.md)** — the five-families taxonomy these models sort into.
 - **[What does each FM cost?](what-does-each-fm-cost.md)** — the compute-disclosure landscape.
