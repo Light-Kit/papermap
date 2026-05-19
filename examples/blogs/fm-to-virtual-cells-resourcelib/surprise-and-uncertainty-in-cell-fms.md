@@ -43,7 +43,7 @@ The 2023–2024 sc-FM wave does not continue it. scGPT ([Cui et al., *Nat Method
 
 STATE ([Arc Institute, 2025](https://arcinstitute.org/news/virtual-cell-model-state)) ships as a product with versioned releases and adapter APIs, and still has no published uncertainty layer. The 2025 reckoning literature ([Ahlmann-Eltze & Huber, *Nat Methods* 2025](https://www.nature.com/articles/s41592-025-02692-8); Wenkel et al; Csendes et al) shows that the *point estimates* on perturbation prediction collapse to linear-baseline levels — but the reckoning is about reliability of the mean, not calibration of the distribution around it. Those are different questions and only one has been asked.
 
-The closest published moves are auxiliary. Some recent zero-shot benchmarks ([Boiarsky et al; Kedzierska et al 2025](https://www.biorxiv.org/content/10.1101/2025.02.13.638126v1)) measure transfer error on held-out tissues, which is implicitly an OOD probe. Sparse-autoencoder interpretability work on scGPT ([Patel et al, 2025](https://arxiv.org/abs/2502.13608)) cracks open the per-feature representation, which is a precondition for token-level surprise but not yet the surprise itself.
+The closest published moves are auxiliary. Some recent zero-shot benchmarks ([Boiarsky et al; Kedzierska et al 2025](https://www.biorxiv.org/content/10.1101/2025.02.13.638126v1)) measure transfer error on held-out tissues, which is implicitly an OOD probe. Sparse-autoencoder interpretability work on scGPT and scFoundation ([Pedrocchi et al., bioRxiv Oct 2025](https://www.biorxiv.org/content/10.1101/2025.10.22.681631v2), accepted ICLR 2026) cracks open the per-feature representation, which is a precondition for token-level surprise but not yet the surprise itself.
 
 There is no scGPT pLDDT. No Geneformer confidence head. No STATE per-prediction calibration. The cell side of the biological-FM landscape is calibration-naive in 2026.
 
@@ -67,7 +67,7 @@ That move — naming τ_g as a calibrated surprise score rather than a regressio
 
 The architectural composition is published. Nothing in this essay is novel ML. The defensible novelty surface for VC FMs is application of mature uncertainty methods to a substrate where the field has been content with point estimates. Three concrete moves:
 
-**(a)** A pLDDT-style per-cell confidence head on a frozen scGPT or Geneformer. Train on held-out cell types; report calibration via reliability diagrams and expected calibration error. The plumbing exists — Patel-style SAEs expose the right intermediate features.
+**(a)** A pLDDT-style per-cell confidence head on a frozen scGPT or Geneformer. Train on held-out cell types; report calibration via reliability diagrams and expected calibration error. The plumbing exists — Pedrocchi-style SAEs expose the right intermediate features.
 
 **(b)** Conformal prediction over Perturb-seq response. Distribution-free coverage guarantees on the predicted transcriptional response to a held-out perturbation. Nobody has done this end-to-end on a Replogle-style benchmark.
 
