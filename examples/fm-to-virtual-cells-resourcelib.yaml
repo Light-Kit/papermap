@@ -84,6 +84,7 @@ papermap_categories:
 - contrarian_theory
 items:
 - id: bunne-2024
+  pinned: true
   kind: paper
   modality: other
   name: How to build the virtual cell with AI
@@ -133,6 +134,7 @@ items:
   papermap_category: position
   description: 'A 2026 forward-look from the Theis group arguing that the field should stop scaling monolithic single-cell foundation models and instead invest in modular, mechanism-aware components glued together by careful evaluation. It matters because Theis was an early sc-FM proponent, so the explicit pivot reads as an inside concession to the reckoning literature — and the piece offers a roadmap that decouples representation learning, perturbation prediction, and dynamics into separately benchmarkable pieces rather than asking one model to do all of them. The piece also reframes scale: bigger atlases and longer context windows are necessary but not the bottleneck; inductive bias and causal structure are. What remains contested is which modular substrate wins — signaling networks, gene-regulatory graphs, or mech-modeling backbones — and whether any composition recovers the integration story Bunne 2024 promised.'
 - id: vcc-2025
+  pinned: true
   kind: paper
   modality: single-cell-rna
   name: Virtual Cell Challenge — a Turing test for the virtual cell
@@ -348,6 +350,7 @@ items:
     method: 'Genes are treated as tokens with binned expression values, a transformer is pretrained with masked-gene-prediction on single-cell RNA-seq, and a classification head is fine-tuned for cell-type annotation. The corpus and parameter count are modest by contemporary standards but established the gene-as-token recipe later sc-FMs inherited wholesale.'
     result: 'scBERT reported competitive cell-type annotation across several reference datasets and demonstrated transferability of the pretrain-then-fine-tune paradigm to single-cell data. In post-reckoning evaluations it does not appear among the strongest performers, but the architectural lineage from scBERT to scGPT and Geneformer is the citation chain every history of sc-FMs draws.'
 - id: scgpt
+  pinned: true
   kind: tool
   modality: single-cell-rna
   name: scGPT
@@ -370,6 +373,7 @@ items:
     method: 'Genes within each cell are tokenized by binned expression and ordered by a learned attention mask; the model is trained with a masked-gene-prediction objective on roughly 33M cells. Downstream tasks plug a small head onto the cell-level embedding or fine-tune the backbone end-to-end.'
     result: 'scGPT reported state-of-the-art results across cell-type annotation, batch integration, and Perturb-seq response prediction at release. The 2025 reckoning literature (Ahlmann-Eltze and Huber, Csendes, Wenkel) later showed the perturbation gains shrink under leakage-controlled splits, often matching simple mean-of-perturbations linear baselines.'
 - id: geneformer
+  pinned: true
   kind: tool
   modality: single-cell-rna
   name: Geneformer / Geneformer V2
@@ -391,6 +395,7 @@ items:
     method: 'Each cell is tokenized as a rank-ordered sequence of expressed genes, sidestepping read-depth normalization. The model is pretrained with masked-gene-modeling on Genecorpus-30M. Zero-shot in-silico perturbation works by inserting or deleting genes from the rank sequence and reading off the changed network attention pattern.'
     result: 'Geneformer matched or beat task-specific baselines on cell-type annotation, dosage-sensitive gene detection, and cardiomyocyte network perturbation. The 2025 reckoning showed Geneformer wins where FMs are already strong (cell-typing) and matches simple linear baselines on the harder perturbation axis — the same pattern Wu et al. described.'
 - id: uce
+  pinned: true
   kind: tool
   modality: single-cell-rna
   name: Universal Cell Embedding (UCE)
@@ -412,6 +417,7 @@ items:
     method: 'Each gene is represented by its ESM2 protein embedding rather than by an arbitrary token, so orthologous genes across species share a common feature space. A transformer is pretrained over cells drawn from roughly eight species, producing embeddings that locate any cell against a shared cross-organism manifold instead of a species-specific one.'
     result: 'UCE reported strong cross-species cell-type transfer and embedding quality at release, establishing protein-embedding-as-translator as the cleanest example of composing FMs across the protein and single-cell families. Kedzierska et al. 2025 later extended the reckoning critique to UCE in zero-shot settings, leaving the cross-species value proposition open under leakage-controlled splits.'
 - id: scfoundation
+  pinned: true
   kind: tool
   modality: single-cell-rna
   name: scFoundation
@@ -455,6 +461,7 @@ items:
     method: 'Each cell is encoded as a single token built from its expression profile, and a transformer is pretrained over sequences of cells drawn from related tissue contexts. Pretraining objectives blend masked-cell prediction with reconstruction, and downstream cell-type classification heads attach to the cell-level embedding rather than to per-gene attention outputs.'
     result: 'CellPLM beat scGPT and Geneformer on cell-typing benchmarks at materially lower compute cost, validating the cell-as-token bet on the task sc-FMs were already strongest on. Whether the design holds up on the harder axes — perturbation, dynamics, multimodal integration — where the field''s headline failures sit is the open follow-up question.'
 - id: state
+  pinned: true
   kind: tool
   modality: single-cell-rna
   name: STATE (Arc Institute)
@@ -724,6 +731,7 @@ items:
     method: 'The original scGPT perturbation evaluation is replicated with attention paid to overlap between train and test perturbations, then re-run with leakage-controlled splits that exclude any perturbation appearing on both sides. Scoring is otherwise matched to the original protocol so the comparison isolates the leakage effect rather than confounding it with new metrics.'
     result: 'Under the leakage-controlled splits the scGPT perturbation-prediction advantage shrinks or disappears, supporting the reckoning case that the original headline numbers were inflated by train-test overlap. The result anchors the perturbation half of the 2025-2026 reckoning and shaped every downstream evaluation that took perturbation comparisons seriously, including Wenkel and Ahlmann-Eltze.'
 - id: ahlmann-eltze-2025
+  pinned: true
   kind: paper
   modality: single-cell-rna
   name: Deep-learning predictions of gene expression don't generalize
@@ -771,6 +779,7 @@ items:
     method: 'UCE is evaluated zero-shot on standard sc-FM downstream tasks — cell-typing, integration, transfer across organisms — against simple baselines and lightly tuned classical pipelines. Evaluation pays attention to dataset leakage and split construction along the lines Csendes 2024 had named, so that any zero-shot advantage cannot be attributed to train-test contamination.'
     result: 'UCE''s zero-shot advantages over simple baselines were modest, replicating the empirical pattern Ahlmann-Eltze documented for scGPT and others. The result extended the reckoning to cross-species sc-FMs and the zero-shot setting, leaving open whether UCE retains a value proposition invisible to single-species benchmarks — reasoning about non-model organisms — that the paper neither rescues nor forecloses.'
 - id: wenkel-2025
+  pinned: true
   kind: paper
   modality: single-cell-rna
   name: latent-additive is the new baseline floor
@@ -1156,6 +1165,7 @@ items:
     method: 'The architecture pairs an LLM-style agent for hypothesis proposal with a virtual-cell model acting as an in-silico oracle. The agent generates candidate hypotheses, queries the virtual cell for scores, then revises its proposals based on the returned signal across multiple reasoning rounds before any wet-lab step.'
     result: 'rBio stands as one of the cleanest demonstrations of an agent using a virtual cell as a verifier in its reasoning loop. The open concern is verifier reliability — given the perturbation and dynamics failures the reckoning literature documents, a miscalibrated oracle could send the agent searching confidently in the wrong direction.'
 - id: vcharness-2026
+  pinned: true
   kind: tool
   modality: single-cell-rna
   name: VCHarness — autonomous virtual-cell builder
@@ -1256,6 +1266,7 @@ items:
     method: 'The architecture is a transformer with long-range attention spanning roughly 100 kilobases of input DNA. The model is trained to predict cell-type-resolved expression and chromatin tracks, producing embeddings that subsequent groups repurposed for tasks far outside the original output set including downstream prediction pipelines.'
     result: 'Enformer set the bar on variant-effect tasks for several years and remained the natural baseline against which any new sequence-to-function model is measured. It has now been largely subsumed by AlphaGenome at 1-megabase context, but Enformer embeddings still ship as features in many downstream pipelines.'
 - id: alphagenome-2025
+  pinned: true
   kind: tool
   modality: dna-seq
   name: AlphaGenome
@@ -1409,6 +1420,7 @@ items:
     method: 'The model is a transformer encoder trained with a masked-language-model objective on a large protein-sequence corpus. The release ships a size ladder from a few million parameters up to 15B, letting groups pick the trade-off they can afford while keeping architectural and tokenisation choices consistent across the ladder.'
     result: 'ESM-2 produces residue-level embeddings widely adopted across structure prediction, function annotation, mutation-effect scoring, and cross-species alignment in single-cell models like UCE. ESM-3 has taken the SOTA crown for multimodal and generative tasks, but ESM-2 remains the default when a frozen embedding backbone with open weights is required.'
 - id: esm3
+  pinned: true
   kind: tool
   modality: other
   name: ESM-3
@@ -1513,6 +1525,7 @@ items:
     method: 'The architecture is a 681-million-parameter vision transformer trained with self-supervision on histopathology tiles, scaling the UNI recipe to the modern pathology-FM bracket alongside Virchow2. The encoder feeds the lab''s downstream slide-level TITAN and the PathChat assistant family, which both consume its frozen representations.'
     result: 'UNI2-h became the flagship encoder of the Mahmood pathology stack at 681M parameters, gated on Hugging Face since January 2025. Open questions are how much real-world clinical performance UNI2-h adds over UNI versus how much comes from downstream slide-level training, and how the gated-access policy will evolve.'
 - id: virchow2
+  pinned: true
   kind: tool
   modality: pathology
   name: Virchow2 / Virchow2G
@@ -1954,6 +1967,7 @@ items:
     method: 'The recipe introduces pretraining objectives that explicitly target causal structure in single-cell data, replacing the standard masked-language-model loss used in current sc-FMs with objectives that surface intervention-relevant signal. The training framework sits at the pretraining-objective level rather than at inference time where methods like CINEMA-OT operate.'
     result: 'The paper serves as the causal-rep exemplar cited in discussions of where single-cell FMs should go next. The open question is whether causal objectives at pretraining give downstream perturbation models a real advantage on harder out-of-distribution benchmarks, or whether the gains evaporate when the implicit assumptions are violated.'
 - id: replogle-2022
+  pinned: true
   kind: dataset
   modality: single-cell-rna
   size: '~2.5M cells, ~9,867 CRISPRi targets, K562 + RPE1'
@@ -2061,6 +2075,7 @@ items:
   why: First community virtual-cell benchmark, $50k prize.
   description: 'Portal for the Virtual Cell Challenge, a community competition framed as the first benchmark of its kind for virtual-cell models, run by the foundation backing the broader virtual-cell programme with a $50,000 prize. The competition matters as much for the social effect as for the metric: it gives the virtual-cell community a single public venue where models can be compared on a defined task with held-out evaluation, which is exactly the missing piece that has made it hard to talk about progress in this area without each lab citing its own internal benchmark. The prize is small relative to the compute many entrants will spend, but the leaderboard is the more durable artefact. Open questions are about how the task and the evaluation will evolve in future iterations and how representative the chosen benchmark is of what virtual cells are supposed to deliver.'
 - id: tahoe-100m
+  pinned: true
   kind: dataset
   modality: single-cell-rna
   size: '100M cells × 1,100 drugs × 50 cancer lines'
@@ -2095,6 +2110,7 @@ items:
   why: Multi-organ human single-cell reference atlas.
   description: 'Multi-organ human single-cell reference atlas published in 2022 by the Tabula consortium, providing harmonised single-cell transcriptomic profiles across a wide range of human tissues from a small number of well-characterised donors. Its enduring value is as a within-donor multi-tissue reference, which is rare in the public single-cell ecosystem and which makes it useful for benchmarking cross-tissue annotation, cell-type mapping, and integration methods. It is a routine reference dataset for single-cell foundation models, both as training material and as a validation substrate for cell-type-transfer evaluations. Open questions concern coverage: the donor count is small, the demographic representation is limited, and the field is now generating much larger atlases that may eventually displace Tabula Sapiens for primary use while keeping it as a reference for harmonisation experiments.'
 - id: cellxgene-census
+  pinned: true
   kind: dataset
   modality: single-cell-rna
   size: 'tens of millions of cells aggregated across hundreds of studies'
@@ -4902,6 +4918,7 @@ items:
   papermap_category: position
   description: 'An arXiv survey that takes a deliberately critical look at the state of virtual-cell research, weighing claimed progress against actual benchmark results and identifying where the agenda has overpromised. The framing — hype or hope — signals that the authors do not treat the scaling pitch of the AI Virtual Cell community as self-evidently correct, and they walk through the recurring failure modes: weak baselines, contamination between training and test perturbations, and metrics that flatter generative models. As such it functions as a useful counterweight to the more enthusiastic position papers from the AIVC and CZI camps, and pairs naturally with the 2025 Nature Methods linear-baseline critique. The open question the survey leaves explicit is which subset of the virtual-cell agenda has empirical backing strong enough to survive a decade rather than a hype cycle, and the authors decline to declare a winner.'
 - id: scvi
+  pinned: true
   kind: tool
   modality: single-cell-rna
   name: scVI
@@ -4921,6 +4938,7 @@ items:
     method: 'A variational autoencoder encodes scRNA-seq count vectors into a latent space and decodes them under a negative-binomial likelihood that captures count overdispersion. Batch covariates are injected as conditional inputs, and the same backbone supports CITE-seq through totalVI and label transfer through scANVI without architectural rewrites.'
     result: 'scVI became the practical workhorse for batch integration and the foundation of the scvi-tools ecosystem. Through 2024-2025, a non-trivial fraction of comparisons showed scVI or its variants holding their own on integration and label transfer, serving as the baseline transformer-based scLLMs must beat to justify their parameter counts.'
 - id: scimilarity
+  pinned: true
   kind: tool
   modality: single-cell-rna
   name: SCimilarity
