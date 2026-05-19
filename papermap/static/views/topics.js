@@ -113,7 +113,7 @@ function topicCard(topic, items, blogs, state, filters, el) {
     ${tldr}
     ${abstractBlock}
     <footer class="topic-cta">
-      <span>See all ${items.length} in Browse →</span>
+      <span>See all ${items.length} in Resources →</span>
       ${blogChip}
     </footer>
   `;
