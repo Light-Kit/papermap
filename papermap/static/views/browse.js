@@ -46,9 +46,42 @@ export function render(state, filters, el) {
     render(state, filters, el);
   });
 
+  // Starter Pack: pinned items get a dedicated section above the main
+  // grid, but only when no facet/search filter is active — clutter
+  // avoidance when the user is narrowing in on something specific.
+  const hasActiveFilter =
+    (filters.kinds && filters.kinds.size) ||
+    (filters.topics && filters.topics.size) ||
+    (filters.modalities && filters.modalities.size) ||
+    (filters.statuses && filters.statuses.size) ||
+    (filters.org_types && filters.org_types.size) ||
+    (filters.regions && filters.regions.size) ||
+    (filters.q && filters.q.trim()) ||
+    starOnly;
+  const pinned = !hasActiveFilter
+    ? items.filter(i => i.pinned)
+    : [];
+  const regular = pinned.length
+    ? items.filter(i => !i.pinned)
+    : items;
+
+  if (pinned.length) {
+    const pinnedSection = document.createElement("section");
+    pinnedSection.className = "starter-pack";
+    pinnedSection.innerHTML = `<h3 class="starter-pack-title">★ Starter pack
+      <small>(${pinned.length} curator-pinned)</small></h3>`;
+    const pinnedGrid = document.createElement("div");
+    pinnedGrid.className = "card-grid";
+    for (const it of sortItems(pinned)) {
+      pinnedGrid.appendChild(card(it, state, filters, el));
+    }
+    pinnedSection.appendChild(pinnedGrid);
+    div.appendChild(pinnedSection);
+  }
+
   const grid = document.createElement("div");
   grid.className = "card-grid";
-  for (const it of sortItems(items)) {
+  for (const it of sortItems(regular)) {
     grid.appendChild(card(it, state, filters, el));
   }
   if (!items.length) {
@@ -72,10 +105,22 @@ function card(it, state, filters, el) {
   const sourceBadge = it.url
     ? `<a class="card-source" href="${escape(it.url)}" target="_blank" rel="noopener noreferrer" title="Open source">↗ source</a>`
     : "";
+  // Dataset items get a richer card variant — surface size/license/access
+  // chips above the topic chips since they're what readers actually want
+  // when choosing a dataset.
+  const isDataset = it.kind === "dataset";
+  const datasetFacets = isDataset
+    ? [
+        it.size    ? `<span class="chip facet-size">${escape(it.size)}</span>` : "",
+        it.access  ? `<span class="chip facet-access">${escape(it.access)}</span>` : "",
+        it.license ? `<span class="chip facet-license">${escape(it.license)}</span>` : "",
+      ].join("")
+    : "";
   c.innerHTML = `
     <div class="card-head">
       <div class="card-head-left">
         ${it.kind ? `<span class="chip kind">${escape(it.kind)}</span>` : ""}
+        ${it.modality ? `<span class="chip modality">${escape(it.modality)}</span>` : ""}
         ${starButton(corpus, "items", it.id, !!it.starred)}
       </div>
       ${sourceBadge}
@@ -84,6 +129,7 @@ function card(it, state, filters, el) {
     ${it.title ? `<p class="title">${escape(it.title)}</p>` : ""}
     ${it.meta  ? `<p class="meta">${escape(it.meta)}</p>` : ""}
     ${it.why   ? `<p class="why"><em>${escape(it.why)}</em></p>` : ""}
+    ${datasetFacets}
     ${(it.topics || []).map(t =>
       `<span class="chip topic">${escape(t)}</span>`).join("")}
     ${it.description ? `<p class="card-cta">Read full description →</p>` : ""}
@@ -172,9 +218,13 @@ function detailView(it, state, filters, el) {
     ${it.why ? `<p class="item-why"><em>${escape(it.why)}</em></p>` : ""}
     ${description}
     <div class="item-facets">
+      ${facetRow("modality", it.modality)}
       ${facetRow("status", it.status)}
       ${facetRow("org type", it.org_type)}
       ${facetRow("region", it.region)}
+      ${facetRow("size", it.size)}
+      ${facetRow("license", it.license)}
+      ${facetRow("access", it.access)}
       ${facetRow("weight", it.weight ? String(it.weight) : "")}
     </div>
     ${topics ? `<div class="item-section"><h3>Topics</h3>${topics}</div>` : ""}

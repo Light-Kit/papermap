@@ -400,6 +400,31 @@ a.card-link:hover h4 { color: #1a4480; }
   margin: 1px 2px 1px 0;
 }
 .chip.kind { background: #e7f0fa; color: #1f77b4; }
+.chip.modality { background: #eef5e9; color: #2ca02c; }
+.chip.facet-size { background: #fff3e0; color: #d97706; }
+.chip.facet-access { background: #fef3f2; color: #b91c1c; }
+.chip.facet-license { background: #f3e8ff; color: #6d28d9; }
+
+.starter-pack {
+  margin: 0 0 28px;
+  padding: 12px 0 16px;
+  border-bottom: 1px solid #ebebe9;
+}
+.starter-pack-title {
+  margin: 0 0 12px;
+  font-size: 13px;
+  color: #1a4480;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+.starter-pack-title small {
+  color: #888;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  margin-left: 6px;
+}
 
 .data-table {
   width: 100%;

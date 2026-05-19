@@ -1956,6 +1956,9 @@ items:
 - id: replogle-2022
   kind: dataset
   modality: single-cell-rna
+  size: '~2.5M cells, ~9,867 CRISPRi targets, K562 + RPE1'
+  license: 'CC-BY-4.0'
+  access: 'open'
   name: Replogle whole-genome Perturb-seq
   authors: Replogle et al.
   venue: Cell
@@ -1971,6 +1974,9 @@ items:
 - id: norman-2019
   kind: dataset
   modality: single-cell-rna
+  size: '~84K cells, 287 perturbations (105 single + 131 double), K562'
+  license: 'CC-BY-4.0'
+  access: 'open'
   name: Norman combinatorial Perturb-seq
   authors: Norman et al.
   venue: Science
@@ -2057,6 +2063,9 @@ items:
 - id: tahoe-100m
   kind: dataset
   modality: single-cell-rna
+  size: '100M cells × 1,100 drugs × 50 cancer lines'
+  license: 'CC0-1.0'
+  access: 'open'
   name: Tahoe-100M
   authors: Roohani, Hsu et al.
   year: 2025
@@ -2072,6 +2081,9 @@ items:
 - id: tabula-sapiens
   kind: dataset
   modality: single-cell-rna
+  size: '1.1M cells × 28 organs × 24 donors'
+  license: 'CC-BY-4.0'
+  access: 'open'
   name: Tabula Sapiens
   venue: Science
   year: 2022
@@ -2085,6 +2097,9 @@ items:
 - id: cellxgene-census
   kind: dataset
   modality: single-cell-rna
+  size: 'tens of millions of cells aggregated across hundreds of studies'
+  license: 'CC-BY-4.0'
+  access: 'open'
   name: CELLxGENE Census
   topics:
   - single-cell
@@ -2097,6 +2112,9 @@ items:
 - id: hubmap
   kind: dataset
   modality: spatial
+  size: '4,221 datasets × 351 donors × 14+ organs'
+  license: 'CC-BY-4.0'
+  access: 'registered'
   name: HuBMAP
   venue: Nature
   year: 2023
@@ -2111,6 +2129,9 @@ items:
 - id: hest-1k
   kind: dataset
   modality: multimodal
+  size: '1,276 ST profiles + WSIs, 1.5M expression/morphology pairs'
+  license: 'custom'
+  access: 'open'
   name: HEST-1k
   topics:
   - spatial
@@ -5169,6 +5190,9 @@ items:
 - id: human-cell-atlas
   kind: dataset
   modality: single-cell-rna
+  size: '70.8M cells × 11.2K donors × 530 projects'
+  license: 'CC-BY-4.0'
+  access: 'open'
   name: Human Cell Atlas
   url: https://data.humancellatlas.org/
   topics:
@@ -5178,6 +5202,9 @@ items:
 - id: tisch2
   kind: dataset
   modality: single-cell-rna
+  size: '~6M cells, 190 datasets, 50+ cancer types'
+  license: 'CC-BY-NC'
+  access: 'open'
   name: TISCH2
   url: http://tisch.comp-genomics.org/
   topics:
@@ -5187,6 +5214,9 @@ items:
 - id: tcga
   kind: dataset
   modality: bulk-rna
+  size: '11,000+ patients × 33 cancer types (bulk RNA-seq + clinical)'
+  license: 'custom'
+  access: 'restricted'
   name: TCGA
   url: https://portal.gdc.cancer.gov/
   topics:
@@ -5196,6 +5226,9 @@ items:
 - id: depmap
   kind: dataset
   modality: multimodal
+  size: '1,000+ cancer cell lines, multi-omic + CRISPR + drug response'
+  license: 'CC-BY-4.0'
+  access: 'open'
   name: DepMap
   url: https://depmap.org/
   topics:
@@ -5205,6 +5238,9 @@ items:
 - id: sc-pert
   kind: dataset
   modality: single-cell-rna
+  size: 'curated Perturb-seq datasets in h5ad format'
+  license: 'unknown'
+  access: 'open'
   name: sc-pert
   url: https://github.com/theislab/sc-pert
   topics:
@@ -5214,6 +5250,9 @@ items:
 - id: l1000-cmap
   kind: dataset
   modality: bulk-rna
+  size: '1.3M L1000 transcriptional profiles, 978-gene panel'
+  license: 'custom'
+  access: 'open'
   name: L1000/CMap
   url: https://clue.io/
   topics:
@@ -5223,6 +5262,9 @@ items:
 - id: spatialdb
   kind: dataset
   modality: spatial
+  size: '24 datasets / 305 sub-datasets, 5 species, 8 ST platforms'
+  license: 'unknown'
+  access: 'open'
   name: SpatialDB
   url: https://www.spatialomics.org/SpatialDB/
   topics:
