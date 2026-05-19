@@ -5205,6 +5205,27 @@ items:
     purpose: 'The aim was to remove the most common confounds in cross-model comparisons — inconsistent preprocessing, tokenisation, and inference paths — and expose the underlying performance gaps. That matters most after the 2025 reckoning, since the post-reckoning conversation hinges on whether reported gains came from the models or from inconsistent evaluation pipelines.'
     method: 'Preprocessing, tokenisation, and inference are isolated behind a common API so each scLLM runs through an identical pipeline. The framework currently wraps scBERT, Geneformer, scGPT, and scFoundation, with the design intended to absorb new scLLMs as they appear and the evaluation protocols as they stabilise.'
     result: 'As an open release from BGI Research it is reusable and well-positioned to grow as new scLLMs appear. The open question is which evaluation protocols become the community defaults inside BioLLM, since the choice of held-out splits and metrics will largely determine which models look strong over the next benchmarking cycle.'
+- id: assaybench
+  kind: benchmark
+  modality: single-cell-rna
+  name: AssayBench
+  url: https://arxiv.org/abs/2605.10876
+  topics:
+  - eval
+  - benchmark
+  - foundation-model
+  - agents
+  why: 1,920 public CRISPR screens evaluated as gene-rank prediction with adjusted nDCG; zero-shot general LLMs outperform biology-specific scFMs and trainable baselines (arXiv, 2026).
+  papermap_category: reckoning
+  year: 2026
+  venue: arXiv preprint
+  status: preprint
+  description: 'AssayBench is an assay-level virtual-cell benchmark released in May 2026 by a Genentech / Mila team (De Brouwer, Edwards, Scalia and colleagues) that converts 1,920 publicly available CRISPR screens spanning five broad classes of cellular phenotypes into a single gene-rank prediction task with an adjusted nDCG metric. The headline empirical finding is striking: zero-shot general-purpose LLMs outperform biology-specific foundation models and trainable baselines on phenotypic screen prediction, and standard optimisation moves (fine-tuning, ensembling, prompt-optimisation) widen rather than close the gap. The contribution sits in the same reckoning lineage as the Virtual Cell Challenge and the perturbation-prediction-vs-baselines paper, but at a different layer of the stack — phenotype rather than transcriptome — and with a different verdict: not that the FMs are wrong, but that the LLMs are unexpectedly strong on the assay-prediction framing. The open question is whether assay-level benchmarks should now be the default first comparison every new scFM is asked to beat.'
+  qa:
+    did: 'AssayBench is an assay-level virtual-cell benchmark released in May 2026 by a Genentech / Mila team that converts 1,920 publicly available CRISPR screens spanning five broad classes of cellular phenotypes into a single gene-rank prediction task with an adjusted nDCG metric, and evaluates LLMs, agentic systems, and biology-specific foundation models against it.'
+    purpose: 'The aim was to fill a missing benchmark slot: existing evaluations of virtual-cell models focus on molecular-level prediction, leaving the phenotypic-screen layer — which is closer to what drug-discovery workflows actually consume — without a standardised comparison framework. AssayBench was designed to make heterogeneous CRISPR screen outcomes scoreable under a single metric.'
+    method: '1,920 public CRISPR screens were unified into a gene-rank prediction task, with adjusted nDCG introduced as a continuous evaluation metric that accommodates heterogeneous assays without forcing them into a single threshold. Zero-shot general LLMs, biology-specific foundation models, trainable baselines, and agentic systems were evaluated under identical splits, with downstream optimisation (fine-tuning, ensembling, prompt-optimisation) applied to the LLM track.'
+    result: 'Existing methods fall short of estimated performance ceilings, zero-shot general LLMs outperform biology-specific foundation models and trainable baselines on phenotypic screen prediction, and the optimisation moves widen rather than close the gap. The result became the 2026 anchor citation for the case that LLMs are unexpectedly strong at the assay-prediction framing, sitting alongside the Virtual Cell Challenge and perturbation-prediction-vs-baselines in the broader reckoning literature.'
 - id: human-cell-atlas
   kind: dataset
   modality: single-cell-rna
