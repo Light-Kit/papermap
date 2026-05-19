@@ -17,6 +17,9 @@ export function applyFilter(items, filters) {
   if (filters.regions && filters.regions.size) {
     out = out.filter(it => filters.regions.has(it.region));
   }
+  if (filters.modalities && filters.modalities.size) {
+    out = out.filter(it => filters.modalities.has(it.modality));
+  }
   if (filters.q && filters.q.trim()) {
     const q = filters.q.trim().toLowerCase();
     out = out.filter(it => [it.label, it.title, it.why, it.meta]

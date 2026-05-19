@@ -79,6 +79,11 @@ class Item:
     description: str = ""
     starred: bool = False
     qa: dict | None = None
+    modality: str | None = None
+    size: str | None = None
+    license: str | None = None
+    access: str | None = None
+    pinned: bool = False
 
 
 @dataclass

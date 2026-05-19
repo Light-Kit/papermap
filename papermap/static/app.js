@@ -21,7 +21,7 @@ const views = { browse, map: mapView, topics, blogs, timeline };
 // Filters are mutated in place by filterbar.js (Phase 7).
 const filters = {
   kinds: new Set(), topics: new Set(), statuses: new Set(),
-  org_types: new Set(), regions: new Set(), q: "",
+  org_types: new Set(), regions: new Set(), modalities: new Set(), q: "",
 };
 const filterableViews = new Set(["browse", "map"]);
 
@@ -123,6 +123,7 @@ function resetFilters() {
   filters.statuses.clear();
   filters.org_types.clear();
   filters.regions.clear();
+  filters.modalities.clear();
   filters.q = "";
 }
 

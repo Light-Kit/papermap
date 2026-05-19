@@ -23,6 +23,7 @@ def build_state(corpus: Corpus, *, name: str, format_label: str) -> dict[str, An
         "statuses":  _unique([i["status"] for i in items if i.get("status")]),
         "org_types": _unique([i["org_type"] for i in items if i.get("org_type")]),
         "regions":   _unique([i["region"] for i in items if i.get("region")]),
+        "modalities": _unique([i["modality"] for i in items if i.get("modality")]),
         "years":     sorted({int(i["year"]) for i in items if i.get("year") is not None}),
     }
 

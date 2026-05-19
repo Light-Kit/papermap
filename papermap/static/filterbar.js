@@ -1,11 +1,12 @@
 "use strict";
 
 const GROUPS = [
-  { key: "kinds",     label: "Kind",     facet: "kinds" },
-  { key: "topics",    label: "Topic",    facet: "topics" },
-  { key: "statuses",  label: "Status",   facet: "statuses" },
-  { key: "org_types", label: "Org",      facet: "org_types" },
-  { key: "regions",   label: "Region",   facet: "regions" },
+  { key: "kinds",      label: "Kind",     facet: "kinds" },
+  { key: "topics",     label: "Topic",    facet: "topics" },
+  { key: "modalities", label: "Modality", facet: "modalities" },
+  { key: "statuses",   label: "Status",   facet: "statuses" },
+  { key: "org_types",  label: "Org",      facet: "org_types" },
+  { key: "regions",    label: "Region",   facet: "regions" },
 ];
 
 export function mount(barEl, state, filters, onChange) {

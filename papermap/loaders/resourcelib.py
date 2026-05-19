@@ -152,6 +152,11 @@ def load_resourcelib(raw: dict, source: Path | None = None) -> Corpus:
             description=str(it.get("description", "")),
             starred=bool(it.get("starred", False)),
             qa=_normalize_qa(it.get("qa")),
+            modality=it.get("modality"),
+            size=it.get("size"),
+            license=it.get("license"),
+            access=it.get("access"),
+            pinned=bool(it.get("pinned", False)),
         ))
 
     corpus = Corpus(
