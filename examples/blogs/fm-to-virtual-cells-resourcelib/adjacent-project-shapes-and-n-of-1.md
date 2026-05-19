@@ -10,7 +10,7 @@ summary: A v2-style audit of three follow-up questions — can a virtual-cell FM
 starred: false
 ---
 
-> *Sibling to [agent-loop-for-drug-response v2](agent-loop-for-drug-response-v2.md) and the [101 tour of closed-loop virtual cells](closed-loop-virtual-cells-101.md). v2 evaluated the agent-loop-for-drug-response project shape; the 101 tour explained the field-level mental model. This essay evaluates three follow-up questions that came out of those — two "what about this adjacent shape?" and one "is the n=1 thing real?" Companion reading: [causal models, FMs and virtual cells](causal-models-fm-and-vc.md) for the rung-1/rung-2 framing; [why linear baselines win](why-linear-baselines-win.md) for the empirical reckoning; [small labs v2](small-labs-what-to-build-v2.md) for the wedge taxonomy; [clinical and agentic clinical](clinical-and-agentic-clinical.md) for the adjacent clinical-agent work.*
+> *Sibling to [agent-loop-for-drug-response v2](agent-loop-for-drug-response-v2.md) and the [101 tour of closed-loop virtual cells](closed-loop-virtual-cells-101.md). v2 evaluated the agent-loop-for-drug-response project shape; the 101 tour explained the field-level mental model. This essay evaluates three follow-up questions that came out of those — two "what about this adjacent shape?" and one "is the n=1 thing real?" Companion reading: [causal models, FMs and virtual cells](causal-models-fm-and-vc.md) for the rung-1/rung-2 framing; [why linear baselines win](why-linear-baselines-win.md) for the empirical reckoning; [small labs v3](small-labs-what-to-build-v3.md) for the wedge taxonomy; [clinical and agentic clinical](clinical-and-agentic-clinical.md) for the adjacent clinical-agent work.*
 
 ## The three questions
 

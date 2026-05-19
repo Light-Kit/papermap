@@ -1,5 +1,5 @@
 ---
-title: 'Small labs in the FM / VC era — the ML + infrastructure path (v2)'
+title: 'Small labs in the FM / VC era — the ML + infrastructure path (v2, superseded)'
 date: '2026-05-18'
 topics:
 - foundation-model
@@ -9,6 +9,8 @@ summary: A v2 narrowing of the six-wedge small-labs taxonomy down to the three w
 starred: false
 ---
 
+> *⚠ **Superseded by [v3](small-labs-what-to-build-v3.md).** After three follow-up audits (the [v2 agent-loop verdict](agent-loop-for-drug-response-v2.md), the [101 tour](closed-loop-virtual-cells-101.md), and the [adjacent-project-shapes + n=1 essay](adjacent-project-shapes-and-n-of-1.md)), the wedge taxonomy needed a substrate-as-moat reframe, a retired wedge (agent wrappers, now commodified by CellForge / VCHarness / BioLab / "Closing the loop"), and a new wedge (patient-anchored projection via scArches). v3 keeps this v2 three-wedge narrowing as one valid traversal of the wider taxonomy. Read v3 first; this v2 stays here for the record.*
+>
 > *This is v2 of [What can a small lab actually build in the VC / FM era?](small-labs-what-to-build.md). v1 maps all six wedge shapes (architecture, adapters, continual pretraining, permissive-licence alternatives, agentic wrappers, interop) and the three moats you can't cross. This v2 keeps only the three wedges that fit an **ML + software-engineering profile** — no privileged hospital corpus, no $10M continual-pretraining budget, no FDA submission machinery, no LLM-agent orchestration shop. The v1 framing is intact; this page just leans into the worked examples for wedges 1, 2, and 6. If v1 felt too rationale-heavy, treat this as the catalog version.*
 
 ## Why these three wedges fit together

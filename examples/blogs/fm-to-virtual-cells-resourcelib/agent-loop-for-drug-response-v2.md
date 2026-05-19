@@ -12,7 +12,7 @@ starred: true
 
 > *This is v2 of [the original agent-loop-for-drug-response essay](agent-loop-for-drug-response.md). v1 framed the project as "interesting and novel"; three rounds of search later, the architectural composition turned out to be already published several times. v2 keeps the design discipline from v1 but is honest about what's left as the contribution surface.*
 
-> *Companion reading: [causal models, FMs and virtual cells](causal-models-fm-and-vc.md) for the rung-1/rung-2 framing; [small labs v2](small-labs-what-to-build-v2.md) for why "adapter on a frozen backbone" is the right Wedge-2 starting point; [why linear baselines win](why-linear-baselines-win.md) for the empirical reckoning that makes the convergence question hard; [clinical and agentic](clinical-and-agentic-clinical.md) for adjacent agentic-clinical work.*
+> *Companion reading: [causal models, FMs and virtual cells](causal-models-fm-and-vc.md) for the rung-1/rung-2 framing; [small labs v3](small-labs-what-to-build-v3.md) for why "adapter on a frozen backbone" is the right Wedge-2 starting point; [why linear baselines win](why-linear-baselines-win.md) for the empirical reckoning that makes the convergence question hard; [clinical and agentic](clinical-and-agentic-clinical.md) for adjacent agentic-clinical work.*
 
 ## The question
 

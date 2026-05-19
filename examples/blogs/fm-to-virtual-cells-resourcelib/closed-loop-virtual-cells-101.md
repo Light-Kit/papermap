@@ -10,7 +10,7 @@ summary: A beginner's tour of the narrow domain the agent-loop-for-drug-response
 starred: false
 ---
 
-> *Sibling to [agent-loop-for-drug-response v2](agent-loop-for-drug-response-v2.md) — that essay says "the architecture you proposed is already published several times"; this one explains *what was already built and why* so the v2 conclusion makes sense. Companion reading: [causal models, FMs and virtual cells](causal-models-fm-and-vc.md) for the formal rung-1/rung-2 framing; [why linear baselines win](why-linear-baselines-win.md) for the 2025 empirical pressure; [small labs v2](small-labs-what-to-build-v2.md) for the Wedge-2 adapter pattern that the field landed on.*
+> *Sibling to [agent-loop-for-drug-response v2](agent-loop-for-drug-response-v2.md) — that essay says "the architecture you proposed is already published several times"; this one explains *what was already built and why* so the v2 conclusion makes sense. Companion reading: [causal models, FMs and virtual cells](causal-models-fm-and-vc.md) for the formal rung-1/rung-2 framing; [why linear baselines win](why-linear-baselines-win.md) for the 2025 empirical pressure; [small labs v3](small-labs-what-to-build-v3.md) for the Wedge-2 adapter pattern that the field landed on.*
 
 ## TL;DR
 
