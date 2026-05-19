@@ -12,6 +12,16 @@ jobs:
     concurrency: deploy-group    # optional: ensure only one action runs at a time
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0    # full history so commit-time mtimes can be derived
+      # actions/checkout stamps every file with the checkout time, which would
+      # flatten the blogs' add-order tiebreak. Restore each file's mtime from
+      # its last commit so the Docker build context (and the COPY into the
+      # image) preserves true authoring order for the Blogs date-tiebreak sort.
+      - name: Restore file mtimes from git history
+        run: |
+          sudo apt-get update && sudo apt-get install -y git-restore-mtime
+          git restore-mtime
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - run: flyctl deploy --remote-only
         env:
