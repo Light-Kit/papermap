@@ -4,21 +4,19 @@
 //
 // User selects text inside an open blog post → a floating "💬 comment"
 // button appears near the cursor → click opens a small inline popup
-// with a textarea → submit POSTs to /api/comments/<corpus>/<slug>,
-// which writes a <aside class="qa"> block into the markdown source on
-// the server. We then re-fetch /api/blogs/<corpus> and re-render the
-// active view so the new yellow callout shows immediately.
+// with a textarea → submit saves the comment to localStorage and drops
+// the <aside class="qa"> callout into the live DOM next to the anchor.
 //
-// Persistence note: writes hit the server's filesystem, which is
-// ephemeral on Fly without a volume. A comment added in-browser will
-// survive page reloads on the same machine but is wiped by the next
-// deploy. To persist permanently, the comment lives in the markdown
-// source — the user can pull the diff or commit it via the normal git
-// flow.
+// Persistence note: comments live in the browser (localStorage, via
+// comments-state.js), so they survive page reloads AND deploys — the
+// old version POSTed to the server's ephemeral filesystem, which every
+// Fly deploy silently wiped. To persist a comment permanently / share
+// it, use "Export Q&A" in the reader to copy the <aside> markup and
+// commit it into the .md source via the normal git flow.
 
-import { loadBlogs, getBlogs, updateBlogBody } from "./blogs-state.js";
 import { getActiveCorpus } from "./stars-state.js";
 import { refreshMarginComments } from "./margin-comments.js";
+import { addComment, makeAsideEl } from "./comments-state.js";
 
 const MIN_LEN = 8;
 const MAX_PREVIEW = 90;
@@ -120,7 +118,7 @@ function closePopup() {
   _pending = null;
 }
 
-async function submit() {
+function submit() {
   if (!_pending) return;
   const input = _popup.querySelector(".qa-popup-input");
   const status = _popup.querySelector(".qa-popup-status");
@@ -128,86 +126,44 @@ async function submit() {
   if (!question) { status.textContent = "Question is empty."; return; }
   const corpus = getActiveCorpus();
   if (!corpus) { status.textContent = "No active corpus."; return; }
-  status.textContent = "Saving…";
-  try {
-    const resp = await fetch(
-      `/api/comments/${encodeURIComponent(corpus)}/${encodeURIComponent(_pending.slug)}`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ anchor: _pending.anchor, question }),
-      },
-    );
-    if (!resp.ok) {
-      const msg = await resp.text();
-      status.textContent = `Save failed (${resp.status}): ${msg.slice(0, 120)}`;
-      return;
+  // Capture everything we need off _pending before closePopup nulls it.
+  const slug = _pending.slug;
+  const anchorPara = _pending.anchorPara;
+  const anchorText = _pending.anchor;
+  // Persist to localStorage (durable across deploys, unlike the old POST).
+  const entry = addComment(corpus, slug, anchorText, question);
+  // Snapshot scrollTop of every scrollable ancestor BEFORE mutating —
+  // defensive guard against any code path that resets scroll. The fresh
+  // .blog-post is wrapped by .view.blogs, which has its own overflow, so
+  // window.scrollY alone misses it.
+  const scrollSnaps = [];
+  for (let el = anchorPara; el; el = el.parentElement) {
+    if (el.scrollHeight > el.clientHeight + 1) {
+      scrollSnaps.push({ el, top: el.scrollTop });
     }
-    const data = await resp.json().catch(() => ({}));
-    const qId = data.q_id;
-    // Capture everything we need off _pending before closePopup nulls it.
-    const slug = _pending.slug;
-    const anchorPara = _pending.anchorPara;
-    const anchorText = _pending.anchor;
-    // Snapshot scrollTop of every scrollable ancestor BEFORE mutating —
-    // defensive guard against any code path (ours or future) that resets
-    // scroll. The fresh .blog-post is wrapped by .view.blogs which has
-    // its own overflow, so window.scrollY misses it.
-    const scrollSnaps = [];
-    for (let el = anchorPara; el; el = el.parentElement) {
-      if (el.scrollHeight > el.clientHeight + 1) {
-        scrollSnaps.push({ el, top: el.scrollTop });
-      }
-    }
-    closePopup();
-    // Optimistic insert: drop the aside into the live DOM next to the
-    // anchor paragraph and re-run the margin layout. No refetch, no
-    // rerender, so scroll position + iframes + selection are preserved
-    // and the user can keep commenting.
-    if (qId && anchorPara && anchorPara.isConnected) {
-      const aside = document.createElement("aside");
-      aside.className = "qa";
-      aside.setAttribute("data-q", String(qId));
-      // Mirror the server's snippet rule (anchor[:120]) so the rendered
-      // <b>Q on "…":</b> matches what disk would render on next reload.
-      const snippet = escapeHtml(anchorText.slice(0, 120));
-      aside.innerHTML = `<b>Q on "${snippet}":</b> ${escapeHtml(question)}`;
-      anchorPara.insertAdjacentElement("afterend", aside);
-      // Sync the in-memory cache so navigating away and back shows the
-      // new aside without a refetch round-trip.
-      const body = document.querySelector(`.blog-post[data-slug="${cssEsc(slug)}"] .blog-body`);
-      if (body) updateBlogBody(slug, body.innerHTML);
-      refreshMarginComments();
-    } else {
-      // Fall back to the old full-rerender path if we lost the anchor
-      // (rare — covers cases where the anchor paragraph was detached
-      // mid-flight, e.g. by a navigation).
-      await loadBlogs(corpus);
-      document.dispatchEvent(new CustomEvent("papermap:rerender-active-view"));
-    }
-    // Restore the captured scrollTops. Sync restore catches immediate
-    // resets; rAF restore catches anything async (re-layout, fallback
-    // rerender) that may stomp scroll after the next frame.
-    restoreScroll(scrollSnaps);
-    requestAnimationFrame(() => restoreScroll(scrollSnaps));
-  } catch (err) {
-    status.textContent = `Save failed: ${err.message || err}`;
   }
+  closePopup();
+  // Optimistic insert: drop the aside into the live DOM next to the anchor
+  // paragraph and re-run the margin layout. No rerender, so scroll position
+  // + iframes + selection are preserved and the user can keep commenting.
+  // (On the next reader render, blogs.js re-injects from localStorage, so
+  // this transient DOM node and the persisted entry stay in sync.)
+  if (anchorPara && anchorPara.isConnected) {
+    anchorPara.insertAdjacentElement("afterend", makeAsideEl(entry));
+    refreshMarginComments();
+  } else {
+    // Lost the anchor (rare — e.g. detached mid-flight by a navigation).
+    // A full rerender re-injects every stored comment from localStorage.
+    document.dispatchEvent(new CustomEvent("papermap:rerender-active-view"));
+  }
+  restoreScroll(scrollSnaps);
+  requestAnimationFrame(() => restoreScroll(scrollSnaps));
 }
 
 function restoreScroll(snaps) {
   for (const { el, top } of snaps) {
     if (el.isConnected && el.scrollTop !== top) el.scrollTop = top;
   }
-}
-
-function escapeHtml(s) {
-  return String(s ?? "").replace(/[<>&"]/g,
-    c => ({"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c]));
-}
-
-function cssEsc(s) {
-  return (window.CSS && CSS.escape) ? CSS.escape(s) : String(s).replace(/"/g, '\\"');
 }
 
 function init() {

@@ -694,6 +694,24 @@ a.card-link:hover h4 { color: #1a4480; }
   opacity: 0.55;
   font-family: ui-monospace, monospace;
 }
+/* localStorage comments (data-q="local-N") carry a delete button instead of
+   the source counter tag — suppress the "#local-N" badge for them. */
+.blog-post aside.qa[data-q^="local-"] { position: relative; }
+.blog-post aside.qa[data-q^="local-"]::before { content: none; }
+.blog-post aside.qa .qa-del {
+  position: absolute;
+  top: 3px;
+  right: 6px;
+  border: none;
+  background: transparent;
+  color: #b08968;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 2px;
+  opacity: 0.55;
+}
+.blog-post aside.qa .qa-del:hover { opacity: 1; color: #c0392b; }
 
 /* Asides while they live in .blog-margin (set absolute by margin-comments.js).
    Tighter typography to fit the narrower column; subtle leader line on the

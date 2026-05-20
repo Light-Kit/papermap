@@ -10,6 +10,7 @@
 import { getBlogs } from "../blogs-state.js";
 import { isStarred, toggleStar, getActiveCorpus } from "../stars-state.js";
 import { isArchived, toggleArchive, archivedCount } from "../archive-state.js";
+import { getComments, commentCount, makeAsideEl, exportMarkdown, removeComment } from "../comments-state.js";
 import { starButton, attachStarHandler } from "./browse.js";
 import { layoutMarginComments } from "../margin-comments.js";
 
@@ -168,9 +169,13 @@ function renderReader(post) {
   const topics = (post.topics || []).map(t =>
     `<span class="chip">${escape(t)}</span>`).join(" ");
   const date = post.date ? `<span class="meta">${escape(post.date)}</span>` : "";
+  const nComments = commentCount(corpus, post.slug);
+  const exportLink = nComments
+    ? ` <a href="#" class="blog-export-qa" title="Copy your ${nComments} comment(s) as &lt;aside class=&quot;qa&quot;&gt; markdown to commit into the source">⤓ Export Q&amp;A (${nComments})</a>`
+    : "";
   wrap.innerHTML = `
     <div class="blog-grid">
-      <p class="blog-back"><a href="#" class="blog-index-link">← All blogs</a> ${archiveButton(post.slug, archived)}</p>
+      <p class="blog-back"><a href="#" class="blog-index-link">← All blogs</a> ${archiveButton(post.slug, archived)}${exportLink}</p>
       <h1>${escape(post.title)}</h1>
       <p class="blog-post-meta">${date} ${topics}</p>
       <div class="blog-body">${post.body_html}</div>
@@ -183,6 +188,29 @@ function renderReader(post) {
     document.dispatchEvent(new CustomEvent("papermap:rerender-active-view"));
   });
   attachArchiveHandler(wrap, corpus, post.slug);
+  const exportEl = wrap.querySelector(".blog-export-qa");
+  if (exportEl) {
+    exportEl.addEventListener("click", ev => {
+      ev.preventDefault();
+      copyToClipboard(exportMarkdown(corpus, post.slug), exportEl);
+    });
+  }
+  // Delegated delete: the × on a localStorage comment removes it and re-renders
+  // (which re-injects the survivors and refreshes the export count). Bubbles up
+  // even after the aside is moved into the margin column.
+  wrap.addEventListener("click", ev => {
+    const del = ev.target.closest(".qa-del");
+    if (!del) return;
+    ev.preventDefault();
+    ev.stopPropagation();
+    const id = parseInt((del.getAttribute("data-q") || "").replace("local-", ""), 10);
+    if (!Number.isFinite(id)) return;
+    removeComment(corpus, post.slug, id);
+    document.dispatchEvent(new CustomEvent("papermap:rerender-active-view"));
+  });
+  // Re-inject this reader's localStorage comments into the body so they
+  // render identically to source-baked asides. Done before the margin pass.
+  injectStoredComments(wrap, corpus, post.slug);
 
   // Intercept intra-corpus blog links (rewritten server-side to
   // `papermap-blog:<slug>`) so they open inline; mark external mkdocs
@@ -208,6 +236,47 @@ function renderReader(post) {
   // browser has done a layout pass, so getBoundingClientRect is accurate.
   requestAnimationFrame(() => layoutMarginComments(wrap));
   return wrap;
+}
+
+// Drop each stored comment's <aside class="qa"> back into the body right
+// after the paragraph it anchors to, matching by the rendered anchor text
+// (sel.toString() vs. element.textContent — both whitespace-collapsed).
+// Idempotent per render: skips an aside already present by its data-q.
+function injectStoredComments(wrap, corpus, slug) {
+  const list = getComments(corpus, slug);
+  if (!list.length) return;
+  const body = wrap.querySelector(".blog-body");
+  if (!body) return;
+  const blocks = [...body.querySelectorAll("p, li, blockquote, h1, h2, h3, h4, h5, h6")]
+    .filter(el => !el.closest("aside"));
+  const norm = s => String(s || "").replace(/\s+/g, " ").trim();
+  const lastForPara = new Map();  // keep multiple comments on one para in order
+  for (const entry of list) {
+    if (body.querySelector(`aside.qa[data-q="local-${entry.id}"]`)) continue;
+    const needle = norm(entry.anchor);
+    if (!needle) continue;
+    const para = blocks.find(el => norm(el.textContent).includes(needle));
+    if (!para) continue;
+    const after = lastForPara.get(para) || para;
+    const aside = makeAsideEl(entry);
+    after.insertAdjacentElement("afterend", aside);
+    lastForPara.set(para, aside);
+  }
+}
+
+function copyToClipboard(text, linkEl) {
+  const flash = ok => {
+    if (!linkEl) return;
+    const orig = linkEl.textContent;
+    linkEl.textContent = ok ? "✓ Copied — paste into the .md & commit" : "⤓ Export Q&A";
+    setTimeout(() => { linkEl.textContent = orig; }, 2600);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(() => flash(true))
+      .catch(() => window.prompt("Copy the Q&A markdown:", text));
+  } else {
+    window.prompt("Copy the Q&A markdown:", text);
+  }
 }
 
 function escape(s) {
