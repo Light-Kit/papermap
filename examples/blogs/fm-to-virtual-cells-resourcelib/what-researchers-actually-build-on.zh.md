@@ -1,64 +1,64 @@
 ---
-title: "研究者究竟在什么之上做开发？后续研究如何复用细胞基础模型——以及复用的是哪些"
-summary: "对每个新人都会问的那个问题给出一个有据可依的回答：研究者究竟真正复用了哪些虚拟细胞 / 单细胞基础模型，又是怎么复用的？简短版本印证了这种直觉，但附带两点提醒。是的——scGPT 与 Geneformer 以巨大优势主导着后续工作（被引最多、工具最完善、是默认的基准对照目标），而 Nicheformer 是最有可能成为空间组学默认选择的空间组学新进者；UCE、scFoundation 与 CellPLM 被引用的程度远高于被真正用作开发基底的程度。但有两处纠正很重要。第一，被引不等于复用：大多数生产级单细胞分析仍然跑的是 scanpy / Seurat 搭配 scVI / Harmony，而 FM 即便被用到，多半也只是冻结的嵌入器或基准对照目标，而非分析流水线本身。第二，「Tahoe」不是一个模型——Tahoe-100M 是一个数据集（Vevo/Tahoe Therapeutics + Arc；1 亿细胞，1,100 种药物，50 个细胞系）；在它之上训练出的模型是 Tahoe-x1（3B 参数，开放权重，2025 年 10 月），与 Arc 的 STATE 并列。更新、更大的模型尚未在复用上取代这些早行者——部分是惯性与工具生态，部分则源于 2025 年的线性基线清算，那次清算让人怀疑规模究竟有没有帮助（同时还有一个仍在进行的逆向反赌：一旦数据达到 Tahoe 规模，规模确实有用）。本文铺陈了后续工作的六种模式（冻结嵌入 + 头部、微调/适配器、基准测试、FM 作为基线、可解释性探测、再预训练），为每一种点名代表性论文，并以这套采用模式对小实验室意味着什么作结：冻结嵌入器这一模式是已被验证、成本低廉的路径，而这恰恰正是我们的「生存场」赌注所在——冻结 Tahoe-x1 与 MoLFormer，接一个新的头部，以 Tahoe-100M 作为基底。"
+title: "大家到底在谁的基础上做研究？细胞基础模型的复用真相，以及用的到底是哪几个"
+summary: "新人最常问的一个问题，这里给一个有依据的回答：单细胞 / 虚拟细胞基础模型里，研究者真正会去复用的是哪几个，又是怎么用的？直觉大体没错，但要补两句。第一，scGPT 和 Geneformer 确实遥遥领先——起步最早、工具最全、是几乎所有新论文的默认对照；Nicheformer 则是空间组学这一支最有希望坐上默认位置的新面孔；至于 UCE、scFoundation、CellPLM，被引的热度远高于真正被人拿来当底座的热度。第二，也是更要紧的两个澄清：一是被引并不等于上手用，真正的日常分析仍然是 scanpy / Seurat 配 scVI / Harmony，FM 就算用上了，多半也只是个冻结的嵌入器或者一个用来比较的靶子；二是「Tahoe」根本不是一个模型——Tahoe-100M 是数据集（Vevo/Tahoe Therapeutics 与 Arc 联合发布，1 亿细胞、1,100 种药、50 个细胞系），真正的模型叫 Tahoe-x1（3B 参数、开放权重，2025 年 10 月），和 Arc 的 STATE 站在一起。更新更大的这批模型，目前还没能在复用上把早起的那几个挤下去——一半是惯性和生态的问题，一半是 2025 年那场线性基线清算让人开始怀疑「堆规模到底有没有用」（当然，也有人正反过来赌：等数据堆到 Tahoe 这个量级，规模就有用了）。文章把复用的六种常见姿势讲清楚（冻结嵌入加一个头、微调/适配器、做基准评测、拿 FM 当基线、可解释性探针、再预训练），各配一篇代表作，最后落到这套行情对小实验室的启示：冻结嵌入这条路最便宜、也最被验证过，而这正是我们「生存场」这套押注的落点——冻结 Tahoe-x1 和 MoLFormer，外接一个新的头，拿 Tahoe-100M 当底料。"
 ---
 
-> *这是[全景中枢](foundation-models-state-of-play.md)与[模型术语表](model-glossary.md)的一篇田野定位伴读。它解读的是采用全景，而[清算长文](why-linear-baselines-win.md)解释了这一全景的成因；它还把[五十个概念的赌注](fifty-concepts-one-bet-v2.md)与[生存场模型](what-disappears-conditional-viability-v3.md)中的设计选择落到实处：我们复用 FM 的方式与大多数人成功的方式一样，只是把它对准了一个不同的问题。*
+> *这篇可以和[全景中枢](foundation-models-state-of-play.md)、[模型术语表](model-glossary.md)对照着读：它讲的是「行情」，而[那场清算](why-linear-baselines-win.md)讲的是行情背后的成因。它也把[五十个概念那篇](fifty-concepts-one-bet-v2.md)和[生存场模型](what-disappears-conditional-viability-v3.md)里的取舍落到了实处——我们复用 FM 的方式，和大多数人成功的方式没两样，只是把它对准了一个不一样的问题。*
 
-## 这个问题里藏着两个陷阱
+## 这个问题里其实埋了两个坑
 
-「大多数研究者似乎都在用 scGPT、Geneformer、Nicheformer——这是真的吗？那像 Tahoe 这样更新的模型呢？」直觉是对的，但这个问题藏着两个值得在回答之前先拆除的陷阱。
+「大家好像都在用 scGPT、Geneformer、Nicheformer，是这样吗？那像 Tahoe 这种更新的呢？」直觉没错，但回答之前，得先把两个坑填上。
 
-第一个陷阱是 **被引与复用之分**。成为被引最多的模型，与成为被 *用作开发基底* 最多的模型不是一回事，而这两者又都不等于成为人们真正会在自己数据上跑起来的模型。这三类群体彼此重叠，却并不相同；把它们混为一谈，会得出一张失真的地图。
+第一个坑：**被引多，不等于被用得多。** 引用量最高的模型，未必就是大家最愿意拿来当底座往上搭的那个；而这两者，又都不等于研究者真会在自己数据上跑起来的那个。三拨人有交集，但绝不是同一拨。混为一谈，画出来的地图就是歪的。
 
-第二个陷阱是 **模型与数据集之分**。「Tahoe」是最咬新人的那个：Tahoe-100M 不是一个你能微调的模型——它是一个 *数据集*。模型是另外的东西（Tahoe-x1），而这一区分会彻底改变「Tahoe 是否正在被采用」这个问题的答案。请把这两个陷阱都记在心里；本文余下的篇幅大半都是在绕开它们。
+第二个坑：**别把数据集当成模型。** 「Tahoe」最容易把新人绊倒：Tahoe-100M 不是一个能拿去微调的模型，它是个**数据集**；真正的模型是另一个东西（Tahoe-x1）。这层区别一旦点破，「Tahoe 到底有没有被采用」这个问题的答案就完全不一样了。这两个坑先记着，下面基本都在绕开它们。
 
-## 究竟谁真正被复用
+## 真正被反复使用的，是哪几个
 
-直觉是对的：**scGPT**（[Cui et al., *Nat Methods* 2024](https://www.nature.com/articles/s41592-024-02201-0)）与 **Geneformer**（[Theodoris et al., *Nature* 2023](https://www.nature.com/articles/s41586-023-06139-9)）是后续单细胞 FM 工作的两大支柱。它们起步早，交付了可用的代码和权重（[scGPT 在 GitHub 上](https://github.com/bowang-lab/scGPT)约有 1.6k stars；[Geneformer 在 Hugging Face 上](https://huggingface.co/ctheodoris/Geneformer)有一族检查点），而且——这是自我强化的那一环——它们成了 *每篇新论文默认拿来对照基准的对象*，这就让它们无论是否胜出都持续被引用。**Nicheformer**（[Schaar et al., *Nat Methods* 2025](https://www.nature.com/articles/s41592-025-02814-z)；[代码](https://github.com/theislab/nicheformer)）是来自 Theis 实验室的空间组学新进者；它更新，采用度也更小，但它最有可能成为 *空间* 领域的默认选择，正如 scGPT 成了解离数据的默认选择那样。
+直觉确实对：**scGPT**（[Cui et al., *Nat Methods* 2024](https://www.nature.com/articles/s41592-024-02201-0)）和 **Geneformer**（[Theodoris et al., *Nature* 2023](https://www.nature.com/articles/s41586-023-06139-9)）是后续工作的两根顶梁柱。它们出道早，代码和权重都给得齐整（[scGPT 的 GitHub](https://github.com/bowang-lab/scGPT) 大约 1.6k star，[Geneformer 的 Hugging Face](https://huggingface.co/ctheodoris/Geneformer) 放了一整族 checkpoint），而且还有一层滚雪球效应：它们成了新论文「默认要拿来比一比」的对象，于是不管输赢，引用都一直在涨。**Nicheformer**（[Schaar et al., *Nat Methods* 2025](https://www.nature.com/articles/s41592-025-02814-z)；[代码](https://github.com/theislab/nicheformer)）来自 Theis 组，是空间组学这一支的新人——目前用的人还不算多，但它很可能像 scGPT 之于解离数据那样，坐上空间领域的默认位置。
 
-排在这三者之后的，是一些被引用程度远高于被用作开发基底程度的模型。**UCE**（[Rosen et al., bioRxiv 2023](https://www.biorxiv.org/content/10.1101/2023.11.28.568918)；[代码](https://github.com/snap-stanford/UCE)）几乎只被当作一个 *冻结的、零样本的嵌入器* 来用——按其设计，它根本没有微调路径。**scFoundation**（[Hao et al., *Nat Methods* 2024](https://www.nature.com/articles/s41592-024-02305-7)；[代码](https://github.com/biomap-research/scFoundation)）最常出现的场景是与 GEARS 搭配做扰动。**CellPLM**（[Wen et al., ICLR 2024](https://openreview.net/forum?id=BKXvPDekud)）出现在基准测试里的次数，多于被别人当作基底来开发的次数。
+再往后，是另一批「论文里常被提、真正被拿去搭东西却不多」的模型。**UCE**（[Rosen et al., bioRxiv 2023](https://www.biorxiv.org/content/10.1101/2023.11.28.568918)；[代码](https://github.com/snap-stanford/UCE)）几乎只当冻结的零样本嵌入器用——它的设计本来就没留微调的口子。**scFoundation**（[Hao et al., *Nat Methods* 2024](https://www.nature.com/articles/s41592-024-02305-7)；[代码](https://github.com/biomap-research/scFoundation)）最常见的用法是配 GEARS 做扰动。**CellPLM**（[Wen et al., ICLR 2024](https://openreview.net/forum?id=BKXvPDekud)）则更多是出现在别人的评测表里，而不是被当作底座。
 
-| 模型 | 角色 | 复用信号 | 主导的后续模式 |
+| 模型 | 定位 | 复用热度 | 最常见的用法 |
 |---|---|---|---|
-| **scGPT** | 解离 scRNA FM | 复用最多；约 1.6k GitHub stars；默认基准对照目标 | 冻结/零样本嵌入器，有时会微调 |
-| **Geneformer** | 解离 scRNA FM | 另一个默认选择；多检查点的 HF 家族 | 为分类微调 + 计算机模拟扰动 |
-| **Nicheformer** | 空间 + 解离 FM | 空间组学新进者，采用仍处早期 | 用于空间任务的线性探针 / 微调 |
-| **UCE** | 通用嵌入器 | 中等；仅作嵌入器 | 冻结的零样本嵌入 |
-| **scFoundation** | 感知测序深度的 FM | 中等；偏向扰动 | 嵌入 + GEARS 用于药物/扰动 |
-| **CellPLM** | 细胞作为 token 的 FM | 大多是一个基准测试条目 | 被引用多于被用作开发基底 |
+| **scGPT** | 解离 scRNA FM | 复用最多；约 1.6k star；默认对照对象 | 冻结/零样本嵌入器，偶尔微调 |
+| **Geneformer** | 解离 scRNA FM | 另一个默认；HF 上一族 checkpoint | 微调做分类 + 计算机模拟扰动 |
+| **Nicheformer** | 空间 + 解离 FM | 空间组学新人，采用尚早 | 空间任务上的线性探针 / 微调 |
+| **UCE** | 通用嵌入器 | 一般；只当嵌入器 | 冻结的零样本嵌入 |
+| **scFoundation** | 感知测序深度的 FM | 一般；偏扰动 | 嵌入 + GEARS 做药物/扰动 |
+| **CellPLM** | 细胞即 token 的 FM | 多半是评测表里的一行 | 被提及多，被搭建少 |
 
-## 人们如何复用它们——六种模式
+## 复用的六种姿势
 
-撇开模型的名字，后续工作大致可归为六种模式，按其常见程度大致排序：
+把模型名字撇开，后续工作其实就这六种姿势，大致按常见程度从高到低排：
 
-1. **冻结嵌入 + 一个轻量头部。** 把 FM 当作固定的编码器来跑，再训练一个线性或小型 MLP 头部，用于细胞类型注释或标签迁移。这是占绝对优势的最常见模式，也是最便宜的——UCE 和零样本 scGPT 就活在这里，而这也是一个小实验室能在「笔记本加一块 GPU」上跑起来的模式。
-2. **微调 / 适配器。** 让骨干网络针对某个任务专门化——扰动、疾病状态、空间生态位——通常借助 LoRA/FiLM 式的适配器，而非完整重训。Geneformer 是经典的微调目标；scFoundation+GEARS 是扰动的范式。
-3. **基准测试研究。** 这类论文的产出 *本身就是* 那场比较——FM 彼此之间、以及 FM 与线性 / HVG / scVI 基线之间的比较。[Kedzierska et al., *Genome Biology* 2025](https://link.springer.com/article/10.1186/s13059-025-03574-x) 和 [Ahlmann-Eltze & Huber, *Nat Methods* 2025](https://www.nature.com/articles/s41592-025-02772-6) 是参照点。
-4. **FM 作为基线。** 每一个新模型（STATE、Tahoe-x1、xVERSE、TxPert）都拿 scGPT/Geneformer/UCE 来作基准——于是早行者作为「要跨过的标杆」赚得了引用。
-5. **可解释性 / 探测。** 在 FM 的残差流上做稀疏自编码器和注意力探针（[SAE 工作, bioRxiv 2025](https://www.biorxiv.org/content/10.1101/2025.10.22.681631)）——[可解释性长文](interpretability-state-of-cell-fms.md)讨论了这暴露出的调控逻辑缺口。
-6. **再预训练 / 持续预训练。** 罕见，且大多由原始实验室来做（scGPT-spatial、Geneformer V2），因为它需要我们其余人并不具备的算力和基底。
+1. **冻结嵌入，外接一个轻量头。** 把 FM 当成固定编码器跑一遍，再训一个线性或小 MLP 的头，做细胞类型注释或标签迁移。这是占绝对多数、也最省钱的玩法——UCE 和零样本 scGPT 就活在这里，小实验室一台机器加一块卡就能跑起来。
+2. **微调 / 适配器。** 让骨干网络专门去啃某个任务——扰动、疾病状态、空间生态位——通常用 LoRA、FiLM 这类适配器，而不是整个重训。Geneformer 是最经典的微调对象，scFoundation 配 GEARS 是做扰动的套路。
+3. **基准评测。** 这类论文的成果本身就是「那张比较表」：FM 之间互比，再跟线性 / HVG / scVI 这些基线比。[Kedzierska et al., *Genome Biology* 2025](https://link.springer.com/article/10.1186/s13059-025-03574-x) 和 [Ahlmann-Eltze & Huber, *Nat Methods* 2025](https://www.nature.com/articles/s41592-025-02772-6) 是绕不开的两篇。
+4. **拿 FM 当基线。** 每个新模型（STATE、Tahoe-x1、xVERSE、TxPert）都要拿 scGPT/Geneformer/UCE 来垫底比一比——于是早起的那几个，靠「当标杆」又赚一波引用。
+5. **可解释性 / 探针。** 在 FM 的残差流上挂稀疏自编码器、做注意力探针（[SAE 那篇, bioRxiv 2025](https://www.biorxiv.org/content/10.1101/2025.10.22.681631)）——它暴露出的「调控逻辑缺口」，[可解释性那篇](interpretability-state-of-cell-fms.md)讲得更细。
+6. **再预训练 / 持续预训练。** 很少见，而且基本是原作者自己在做（scGPT-spatial、Geneformer V2），因为这要的算力和数据底料，我们其他人根本凑不齐。
 
-模式 1–2 是「在其之上做开发」。模式 3–5 是「围绕其做开发」——而在 2025 年之后，这个领域有惊人的一大块精力转向了模式 3。
+前两种是「在 FM 之上搭」，第三到第五种是「围着 FM 转」——而 2025 年之后，这个领域有相当大一块力气，是往第三种上挪的。
 
-## 诚实的缺口：被引不是流水线
+## 一个得说破的落差：被引，不等于真上手
 
-这就是那些抢眼数字所掩盖的纠正。scGPT 和 Geneformer 主导着 *文献*，但它们并不主导 *实验台*。大多数日常的单细胞分析仍跑的是经典栈——工作流用 scanpy / Seurat，整合用 **scVI**（[Lopez et al., *Nat Methods* 2018](https://doi.org/10.1038/s41592-018-0229-2)）/ scANVI / Harmony——而 scverse 的「最佳实践」推荐的默认路径仍是这些，而非某个 FM。当 FM 真的出现在一项真实分析里时，绝大多数情况下是处在模式 1（一个冻结的嵌入器）或模式 4（一个基准对照目标），而非作为生产流水线。
+抢眼的引用数字底下，藏着这么个事实：scGPT 和 Geneformer 称霸的是**文献**，不是**实验台**。绝大多数日常单细胞分析跑的还是那套老班底——流程用 scanpy / Seurat，整合用 **scVI**（[Lopez et al., *Nat Methods* 2018](https://doi.org/10.1038/s41592-018-0229-2)）/ scANVI / Harmony——scverse 那本「最佳实践」里推荐的默认路径，至今也是这些，而不是某个 FM。FM 真要出现在一项实打实的分析里，十有八九是在第一种姿势（一个冻结嵌入器）或第四种姿势（一个对照靶子）上，而不是当成生产流水线本身。
 
-而且，2025 年的清算可量度地把后续工作从「构建」掰向了「审计」。在 [Ahlmann-Eltze & Huber](https://www.nature.com/articles/s41592-025-02772-6) 表明没有任何 sc-FM 能在扰动预测上击败一个调好的线性基线、以及 [Kedzierska et al.](https://link.springer.com/article/10.1186/s13059-025-03574-x) 表明零样本的 scGPT/Geneformer 不如 HVG/scVI/Harmony 之后，「这个 FM 跨过线性标杆了吗」就成了一个标准的审稿人问题——完整的解剖见[为什么线性基线会赢](why-linear-baselines-win.md)。如今 2026 年的许多后续工作是带批判性的基准测试，而非不加批判的延伸。
+更关键的是，2025 年那场清算实打实地把后续工作从「往上搭」掰向了「挑毛病」。自从 [Ahlmann-Eltze & Huber](https://www.nature.com/articles/s41592-025-02772-6) 证明没有一个 sc-FM 能在扰动预测上赢过一个调好的线性基线、[Kedzierska et al.](https://link.springer.com/article/10.1186/s13059-025-03574-x) 又证明零样本的 scGPT/Geneformer 还不如 HVG/scVI/Harmony，「这个 FM 过没过线性这条线」就成了审稿人会随口一问的标准问题——来龙去脉见[为什么线性基线会赢](why-linear-baselines-win.md)。所以 2026 年的不少后续工作，是带着批判去做评测，而不是闷头往上接。
 
-## 那些更新的模型——以及 Tahoe 的混淆
+## 那些「更新」的模型，以及 Tahoe 这个误会
 
-现在说第二个陷阱。**Tahoe-100M**（[Vevo/Tahoe Therapeutics + Arc, 2025](https://www.biorxiv.org/content/10.1101/2025.02.20.639398)）是一个 **数据集**——约 1 亿条单细胞转录组，横跨 1,100 种小分子药物和 50 个癌症细胞系，是 Arc 虚拟细胞图谱的首发投放，下载量超过 250k+。你不会去微调 Tahoe-100M；你在 *它之上* 训练。它的采用度已经 **相当可观**——但那是作为 *基底与基准* 的角色，即图谱所扮演的角色，而非作为一个模型。
+现在轮到第二个坑。**Tahoe-100M**（[Vevo/Tahoe Therapeutics 与 Arc, 2025](https://www.biorxiv.org/content/10.1101/2025.02.20.639398)）是个**数据集**——约 1 亿条单细胞转录组，覆盖 1,100 种小分子药物、50 个癌症细胞系，是 Arc 虚拟细胞图谱的第一炮，下载量 25 万次以上。它不是拿来微调的，你是在**它之上**训练。所以它的采用度其实已经**相当高**了——但那是「底料 + 基准」这个角色，也就是图谱该扮演的角色，而不是一个模型。
 
-在它之上、或与它并行训练的那些模型则更新。**Tahoe-x1**（[Tahoe Bio, 2025 年 10 月](https://www.biorxiv.org/content/10.1101/2025.10.23.683759)；[权重在 HF 上](https://huggingface.co/tahoebio/Tahoe-x1)）是一个规模扩展到 3B 参数、开放权重的单细胞 FM——截至 2026 年中，它问世才几周到几个月，因此外部的后续工作仍很稀薄。**STATE**（[Arc Institute, 2025](https://www.biorxiv.org/content/10.1101/2025.06.26.661135)）是 Arc 的扰动专精 FM，被定位为一个 *可查询的产品*（带版本、有支持），而非一次性的基准——这是一项机构层面的赌注：驱动采用的是正常运行时间和支持，而不只是准确率。
+在它之上、或者跟它并行训出来的模型，才是真正更新的那批。**Tahoe-x1**（[Tahoe Bio, 2025 年 10 月](https://www.biorxiv.org/content/10.1101/2025.10.23.683759)；[权重在 HF](https://huggingface.co/tahoebio/Tahoe-x1)）是个把规模拉到 3B 参数、开放权重的单细胞 FM——到 2026 年中也才问世几周到几个月，外面跟进的工作还很少。**STATE**（[Arc Institute, 2025](https://www.biorxiv.org/content/10.1101/2025.06.26.661135)）是 Arc 主打扰动的 FM，定位成一个「可以被反复调用的产品」（有版本、有维护），而不是发一篇就完事的基准——这是一种机构层面的押注：真正驱动采用的，是稳定性和支持，不只是准确率。
 
-那么：更新/更大的模型在复用上取代 scGPT 和 Geneformer 了吗？**还没有。** 三个原因。惯性与工具生态——早行者有数年积累的教程、封装和 StackOverflow 答案。新近性——Tahoe-x1 和 STATE 太新，还来不及累积下游论文。以及清算本身——当抢眼的结论是「更大并没有击败一个线性基线」时，换用一个 3B 参数模型的动力就被钝化了。出于诚实，那个仍在进行的反赌值得标出来：一篇 [2026 年的逆向预印本](https://www.biorxiv.org/content/10.64898/2026.02.18.706454v1)（《Foundation Models Improve Perturbation Response Prediction》）主张，一旦数据达到 Tahoe 规模，FM *确实* 会改善扰动预测——所以「更新的模型没用」这一判决，在迈向 2027 年之际，是一个尚未盖棺的实证问题，而非已成定论的结论。
+那么，更新更大的模型，把 scGPT 和 Geneformer 在复用上挤下去了吗？**还没有。** 三个原因。一是惯性和生态——早起的那几个攒了好几年的教程、封装和 StackOverflow 上的现成答案。二是太新——Tahoe-x1 和 STATE 还没来得及攒下游论文。三是清算本身——当头条结论是「堆大了也没赢过线性基线」时，换去用一个 3B 模型的动力自然就弱了。出于公允，也得把另一边的赌注摆出来：[2026 年有一篇唱反调的预印本](https://www.biorxiv.org/content/10.64898/2026.02.18.706454v1)（《Foundation Models Improve Perturbation Response Prediction》）主张，只要数据堆到 Tahoe 这个量级，FM 在扰动预测上**确实**会变好——所以「更新的没用」这句话，在通往 2027 年的路上还是个没定论的实证问题，而不是盖棺定论。
 
-## 这对像我们这样的小实验室意味着什么
+## 这对我们这样的小实验室意味着什么
 
-这套采用模式，悄悄地，其实是一份配方。那个奏效的模式——大多数人凭它成功、成本也最低的那个——是模式 1：一个 **作为编码器的冻结 FM，加上一个新的、小型可训练头部**。这不是退而求其次；它是已被验证的路径，而且恰恰正是我们自己赌注的所在。[生存场模型](what-disappears-conditional-viability-v3.md)把 Tahoe-x1 冻结作为细胞编码器、把 MoLFormer 冻结作为药物编码器，只训练一个小型的「风险与输运」头部，并以 Tahoe-100M 作为基底——与这个领域已经验证过的复用模式相同，只是对准了一个那些拥挤的模型回答不了的问题（谁能在一种你从未试过的药物下存活）。我们对待那些更大的模型，正按数据所指示的方式来：把 Tahoe-x1 和 MoLFormer 当作 *冻结的编码器*，把 Waddington-OT 和 moscot 当作 *基线*，把 Tahoe-100M 当作 *基底*，并从第一天起就把[线性基线当作标杆](why-linear-baselines-win.md)来要求自己。采用全景给的教训不是「等那个胜出的模型」——而是：只要问题是新的，那个最便宜、最常被复用的模式就足够了。（[小实验室长文](small-labs-what-to-build-v3.md)把这笔经济账讲得很明白。）
+把这套行情倒过来看，其实就是一份现成的配方。真正奏效、大多数人靠它出活、又最省钱的，就是第一种姿势：**拿冻结的 FM 当编码器，再外接一个新的小头去训。** 这不是退而求其次，这是被反复验证过的正路，而且恰好就是我们这套押注的落点。[生存场模型](what-disappears-conditional-viability-v3.md)就是把 Tahoe-x1 冻起来当细胞编码器、把 MoLFormer 冻起来当药物编码器，只训一个小小的「风险 + 输运」头，再拿 Tahoe-100M 当底料——和这个领域早就验证过的复用方式如出一辙，只是对准了一个那些拥挤模型答不上来的问题：在一种你从没试过的药下，谁能活下来。对那些更大的模型，我们就照行情教的来用：Tahoe-x1 和 MoLFormer 当**冻结编码器**，Waddington-OT 和 moscot 当**基线**，Tahoe-100M 当**底料**，并且从第一天起就拿[线性基线当标杆](why-linear-baselines-win.md)来卡自己。这套行情真正的教训，不是「等那个会赢的模型出现」——而是：只要问题够新，那个最便宜、最多人用的姿势就够了。（这笔经济账，[小实验室那篇](small-labs-what-to-build-v3.md)算得很清楚。）
 
-## 一句话总结论点
+## 一句话结论
 
-是的——scGPT 和 Geneformer 是人们真正在其之上做开发的模型，Nicheformer 则是空间领域的继承者；但被引不是流水线（流水线仍是 scanpy + scVI），「Tahoe」是一个数据集，它的模型（Tahoe-x1）真实存在，却太新、还没取代任何人，而清算已把许多后续工作变成了审计——所以对一个小实验室来说，能持久的那一步是最寻常的那一步：一个冻结的编码器、一个新的头部、一个公开的基底，以及一条诚实的基线。
+是的——大家真正拿来搭东西的是 scGPT 和 Geneformer，空间这一支由 Nicheformer 接棒；但被引不等于上手用（真正的流水线还是 scanpy + scVI），「Tahoe」是个数据集、它的模型 Tahoe-x1 是真的、却新到还没挤下谁，而那场清算又把不少后续工作变成了挑毛病——所以对一个小实验室来说，能走得久的反倒是最朴素的那一步：一个冻结的编码器、一个新的头、一份公开的底料，再加一条诚实的基线。
