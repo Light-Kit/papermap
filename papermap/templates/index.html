@@ -24,7 +24,9 @@
       <p class="placeholder">Pick a corpus from the sidebar.</p>
     </main>
   </section>
+  <button id="lang-toggle" type="button" title="Switch language / 切换语言">中</button>
   <button id="zen-toggle" type="button" title="Zen mode (Esc to exit)">Z</button>
+  <script type="module" src="{{ url_for('static', filename='lang.js') }}"></script>
   <script type="module" src="{{ url_for('static', filename='zen.js') }}"></script>
   <script type="module" src="{{ url_for('static', filename='comments.js') }}"></script>
   <script type="module" src="{{ url_for('static', filename='app.js') }}"></script>

@@ -13,6 +13,17 @@ import { isArchived, toggleArchive, archivedCount } from "../archive-state.js";
 import { getComments, commentCount, makeAsideEl, exportMarkdown, removeComment } from "../comments-state.js";
 import { starButton, attachStarHandler } from "./browse.js";
 import { layoutMarginComments } from "../margin-comments.js";
+import { getLang } from "../lang.js";
+
+// Pick the Chinese field when the language toggle is on and a translation
+// exists; otherwise fall back to the English field.
+function L(post, field) {
+  if (getLang() === "zh") {
+    const zh = post[field + "_zh"];
+    if (zh) return zh;
+  }
+  return post[field];
+}
 
 let _topicFilter = null;
 let _activeSlug = null;
@@ -119,10 +130,10 @@ function blogCard(post, el, state, filters) {
   const date = post.date ? `<span class="meta">${escape(post.date)}</span>` : "";
   c.innerHTML = `
     <header class="blog-head">
-      <h4>${starButton(corpus, "blogs", post.slug, !!post.starred)} ${escape(post.title)} ${archiveButton(post.slug, archived)}</h4>
+      <h4>${starButton(corpus, "blogs", post.slug, !!post.starred)} ${escape(L(post, "title"))} ${archiveButton(post.slug, archived)}</h4>
       ${date}
     </header>
-    <p class="blog-summary">${escape(post.summary)}</p>
+    <p class="blog-summary">${escape(L(post, "summary"))}</p>
     <footer class="blog-foot">${topics}</footer>
   `;
   attachStarHandler(c, corpus, "blogs", post.slug, !!post.starred, state, filters, el);
@@ -176,9 +187,9 @@ function renderReader(post) {
   wrap.innerHTML = `
     <div class="blog-grid">
       <p class="blog-back"><a href="#" class="blog-index-link">← All blogs</a> ${archiveButton(post.slug, archived)}${exportLink}</p>
-      <h1>${escape(post.title)}</h1>
+      <h1>${escape(L(post, "title"))}</h1>
       <p class="blog-post-meta">${date} ${topics}</p>
-      <div class="blog-body">${post.body_html}</div>
+      <div class="blog-body">${L(post, "body_html")}</div>
       <div class="blog-margin" aria-label="Comments"></div>
     </div>
   `;

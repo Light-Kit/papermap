@@ -12,7 +12,7 @@ from __future__ import annotations
 import logging
 import posixpath
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
 from typing import Any
 
@@ -46,6 +46,12 @@ class Blog:
     body_html: str
     source: str
     starred: bool = False
+    # Chinese translation, attached from a sibling ``<slug>.zh.md`` file
+    # when present. Empty strings mean "no translation" — the frontend
+    # language toggle falls back to the English fields.
+    title_zh: str = ""
+    summary_zh: str = ""
+    body_html_zh: str = ""
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -57,6 +63,9 @@ class Blog:
             "body_html": self.body_html,
             "source": self.source,
             "starred": self.starred,
+            "title_zh": self.title_zh,
+            "summary_zh": self.summary_zh,
+            "body_html_zh": self.body_html_zh,
         }
 
 
@@ -165,31 +174,56 @@ def list_blogs(
     if not blogs_dir.is_dir():
         return []
     loaded: list[tuple[float, Blog]] = []
+    # Chinese translations live in sibling ``<slug>.zh.md`` files; they are
+    # not blogs of their own — they are folded into the English base blog.
+    translations: dict[str, Blog] = {}
     for path in sorted(blogs_dir.iterdir()):
-        if path.suffix.lower() == ".md" and path.is_file():
-            # Skip-and-log instead of abort-the-corpus: one broken
-            # frontmatter shouldn't take the whole Blogs tab to 500.
+        if path.suffix.lower() != ".md" or not path.is_file():
+            continue
+        # Skip-and-log instead of abort-the-corpus: one broken
+        # frontmatter shouldn't take the whole Blogs tab to 500.
+        if path.name.lower().endswith(".zh.md"):
+            base_slug = path.name[: -len(".zh.md")]
             try:
-                loaded.append((path.stat().st_mtime, load_blog(path)))
+                translations[base_slug] = load_blog(path)
             except Exception as exc:
-                _LOG.warning("blog load failed for %s: %s", path.name, exc)
+                _LOG.warning("blog translation load failed for %s: %s", path.name, exc)
+            continue
+        try:
+            loaded.append((path.stat().st_mtime, load_blog(path)))
+        except Exception as exc:
+            _LOG.warning("blog load failed for %s: %s", path.name, exc)
     # Date is primary; file mtime breaks ties so the newest-added post
     # leads its date group instead of sorting by title alphabetically.
     loaded.sort(key=lambda mb: (mb[1].date or "", mb[0]), reverse=True)
-    out: list[Blog] = [b for _, b in loaded]
+    out: list[Blog] = []
+    for _, b in loaded:
+        tr = translations.get(b.slug)
+        if tr:
+            b = replace(
+                b,
+                title_zh=tr.title,
+                summary_zh=tr.summary,
+                body_html_zh=tr.body_html,
+            )
+        out.append(b)
     if asset_url_prefix or external_docs_base:
         slugs = {b.slug for b in out}
+
+        def rewrite(html: str) -> str:
+            return _rewrite_html(
+                html,
+                asset_url_prefix=asset_url_prefix,
+                known_slugs=slugs,
+                external_docs_base=external_docs_base,
+                source_subpath=source_subpath,
+            )
+
         out = [
-            Blog(
-                slug=b.slug, title=b.title, date=b.date, topics=b.topics,
-                summary=b.summary, source=b.source, starred=b.starred,
-                body_html=_rewrite_html(
-                    b.body_html,
-                    asset_url_prefix=asset_url_prefix,
-                    known_slugs=slugs,
-                    external_docs_base=external_docs_base,
-                    source_subpath=source_subpath,
-                ),
+            replace(
+                b,
+                body_html=rewrite(b.body_html),
+                body_html_zh=rewrite(b.body_html_zh) if b.body_html_zh else "",
             )
             for b in out
         ]
