@@ -941,4 +941,15 @@ body.zen .blog-post aside.qa-reply { display: none; }
   letter-spacing: 0.05em;
   color: #6a3d9a;
 }
-.deck-notes-body { margin: 0; font-size: 14.5px; line-height: 1.55; color: #444; white-space: pre-wrap; }
+.deck-cheat {
+  margin: 0 0 10px;
+  padding: 7px 11px;
+  background: #fff3d6;
+  border: 1px solid #e7cf95;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.45;
+  color: #6b4e09;
+}
+.deck-notes-body { margin: 0; font-size: 14.5px; line-height: 1.6; color: #3a3a3a; white-space: pre-wrap; }

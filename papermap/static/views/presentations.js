@@ -81,9 +81,13 @@ function parseSlides(html) {
   tmp.innerHTML = html || "";
   const secs = [...tmp.querySelectorAll("section.slide")];
   if (secs.length) {
-    return secs.map(s => ({ html: s.innerHTML, notes: s.getAttribute("data-notes") || "" }));
+    return secs.map(s => ({
+      html: s.innerHTML,
+      notes: s.getAttribute("data-notes") || "",
+      cheat: s.getAttribute("data-cheat") || "",
+    }));
   }
-  return [{ html: html || "", notes: "" }];
+  return [{ html: html || "", notes: "", cheat: "" }];
 }
 
 function renderStage(deck, el, state, filters) {
@@ -104,15 +108,23 @@ function renderStage(deck, el, state, filters) {
       </span>
     </div>
     <div class="deck-screen"><div class="deck-slide"></div></div>
-    <div class="deck-notes"><h4>Presenter notes</h4><p class="deck-notes-body"></p></div>
+    <div class="deck-notes">
+      <p class="deck-cheat"></p>
+      <h4>Presenter script</h4>
+      <p class="deck-notes-body"></p>
+    </div>
   `;
   const screen = wrap.querySelector(".deck-slide");
   const notesBody = wrap.querySelector(".deck-notes-body");
+  const cheatEl = wrap.querySelector(".deck-cheat");
   const count = wrap.querySelector(".deck-count");
 
   function show() {
     _idx = Math.max(0, Math.min(_idx, slides.length - 1));
     screen.innerHTML = slides[_idx].html;
+    const cheat = slides[_idx].cheat || "";
+    cheatEl.textContent = cheat ? "★ " + cheat : "";
+    cheatEl.style.display = cheat ? "" : "none";
     notesBody.textContent = slides[_idx].notes || "—";
     count.textContent = `${_idx + 1} / ${slides.length}`;
     wrap.querySelector(".deck-prev").disabled = _idx === 0;
