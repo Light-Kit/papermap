@@ -23,85 +23,104 @@ topics:
 </svg>
 </section>
 
-<section class="slide" data-cheat="We built giants, but the linear-baseline reckoning says we&#x27;re near the bottom — and the top rung is empty." data-notes="Here&#x27;s the whole field on one slide, and here&#x27;s the uncomfortable headline. Every dot is a real model, dataset, or method, placed by when it appeared (left to right) and how high a causal question it answers (bottom to top). We&#x27;ve poured enormous compute into foundation models down at the bottom — describe and correlate. But in 2024 a plain linear baseline matched or beat all of them on the question that actually matters. So honestly, the field still sits near rung one or two. And the very top rung — knowing which cells live or die under a drug — is still empty. That gap is what this talk is about. We&#x27;ll climb the ladder one rung at a time and come back to this picture at the end.">
-<svg viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg" class="slide-svg" role="img">
-  <defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5b5b5b"/></marker><marker id="arg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b8860b"/></marker></defs>
+<section class="slide" data-cheat="We built giants, but the linear-baseline reckoning says the field still sits near the bottom of the ladder." data-notes="Here&#x27;s the whole field on one slide, and here&#x27;s the uncomfortable headline. Every dot is a real model, dataset, or method, placed by when it appeared (left to right) and how high a causal question it answers (bottom to top). We&#x27;ve poured enormous compute into foundation models down at the bottom — describe and correlate. But in 2024 a plain linear baseline matched or beat all of them on the question that actually matters. So honestly, the field still sits near rung one or two. And the very top rung — knowing which cells live or die under a drug — is still empty. That gap is what this talk is about. We&#x27;ll climb the ladder one rung at a time and come back to this picture at the end.">
+<svg viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg" class="slide-svg" role="img" aria-label="Field map: products by time and causal rung">
   <rect x="0" y="0" width="1280" height="720" fill="#f7f7ef"/>
   <rect x="0" y="0" width="1280" height="92" fill="#dfe9d2"/><rect x="0" y="92" width="1280" height="4" fill="#c0392b"/>
   <text x="44" y="56" font-family="Helvetica,Arial,sans-serif" font-size="40" font-weight="700" fill="#1d2a17">The ladder of causality</text>
-  <text x="46" y="80" font-family="Helvetica,Arial,sans-serif" font-size="17" fill="#566b46">Ten years of climbing — and the top rung is still empty</text>
+  <text x="46" y="80" font-family="Helvetica,Arial,sans-serif" font-size="16" fill="#566b46">Every product, placed by time (→) and the causal rung it reaches (↑)</text>
   <g font-family="Helvetica,Arial,sans-serif" font-size="14.5" fill="#333">
-    <circle cx="770" cy="26" r="8" fill="#4e79a7"/><text x="785" y="31">Foundation model</text>
-    <circle cx="1005" cy="26" r="8" fill="#59a14f"/><text x="1020" y="31">Virtual cell / challenge</text>
-    <circle cx="770" cy="52" r="8" fill="#e8924a"/><text x="785" y="57">Dataset</text>
-    <circle cx="1005" cy="52" r="8" fill="#9c6bab"/><text x="1020" y="57">Other tool / method</text>
-    <polygon points="770.0,70.0 772.0,75.2 777.6,75.5 773.2,79.1 774.7,84.5 770.0,81.4 765.3,84.5 766.8,79.1 762.4,75.5 768.0,75.2" fill="#fff3d6" stroke="#b8860b" stroke-width="1.6"/><text x="785" y="83">the open prize (unbuilt)</text></g>
-  <line x1="196" y1="178" x2="196" y2="572" stroke="#b9b9ad" stroke-width="1.5"/>
-  <text x="46" y="170" font-family="Helvetica,Arial,sans-serif" font-size="13" fill="#999" font-style="italic">causal rung ↑</text>
+    <circle cx="812" cy="30" r="8" fill="#4e79a7"/><text x="827" y="35">Foundation model</text>
+    <circle cx="1032" cy="30" r="8" fill="#e8924a"/><text x="1047" y="35">Dataset</text>
+    <circle cx="812" cy="58" r="8" fill="#9c6bab"/><text x="827" y="63">Other tool / method</text>
+    <circle cx="1032" cy="58" r="8" fill="#2a9d8f"/><text x="1047" y="63">Event</text>
+  </g>
+  <line x1="196" y1="158" x2="196" y2="572" stroke="#b9b9ad" stroke-width="1.5"/>
+  <text x="46" y="152" font-family="Helvetica,Arial,sans-serif" font-size="13" fill="#999" font-style="italic">causal rung ↑</text>
     <text x="182" y="562" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="14" font-weight="600" fill="#5b5b5b">1</text>
     <text x="182" y="578" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#8a8a8a">Describe</text>
-    <text x="182" y="470" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="14" font-weight="600" fill="#5b5b5b">2</text>
-    <text x="182" y="486" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#8a8a8a">Correlate</text>
-    <text x="182" y="377" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="14" font-weight="600" fill="#5b5b5b">3</text>
-    <text x="182" y="393" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#8a8a8a">Intervene</text>
-    <text x="182" y="284" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="14" font-weight="600" fill="#5b5b5b">4</text>
-    <text x="182" y="300" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#8a8a8a">Predict</text>
-    <text x="182" y="192" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="14" font-weight="600" fill="#5b5b5b">5</text>
-    <text x="182" y="208" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#8a8a8a">Counterfactual</text>
-  <rect x="196" y="441" width="972" height="162" fill="#e7c2bb" opacity="0.30"/>
-  <text x="212" y="465" font-family="Helvetica,Arial,sans-serif" font-size="14.5" fill="#a23b2d" font-style="italic">where the field really is (≈ rung 1–2) — the linear-baseline reckoning</text>
+    <text x="182" y="464" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="14" font-weight="600" fill="#5b5b5b">2</text>
+    <text x="182" y="480" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#8a8a8a">Correlate</text>
+    <text x="182" y="367" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="14" font-weight="600" fill="#5b5b5b">3</text>
+    <text x="182" y="383" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#8a8a8a">Intervene</text>
+    <text x="182" y="270" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="14" font-weight="600" fill="#5b5b5b">4</text>
+    <text x="182" y="286" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#8a8a8a">Predict</text>
+    <text x="182" y="172" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="14" font-weight="600" fill="#5b5b5b">5</text>
+    <text x="182" y="188" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#8a8a8a">Counterfactual</text>
+  <rect x="196" y="430" width="972" height="176" fill="#dfe7ef" opacity="0.5"/>
+  <text x="212" y="593" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b7a93" font-style="italic">the field clusters here (≈ rung 1–2)</text>
+  <defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5b5b5b"/></marker></defs>
   <line x1="196" y1="596" x2="1174" y2="596" stroke="#5b5b5b" stroke-width="2" marker-end="url(#ar)"/>
+    <line x1="196" y1="592" x2="196" y2="600" stroke="#5b5b5b"/>
     <text x="196" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2015</text>
-    <text x="368" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2017</text>
-    <text x="540" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2019</text>
-    <text x="712" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2021</text>
-    <text x="884" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2023</text>
-    <text x="1056" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2025</text>
+    <line x1="365" y1="592" x2="365" y2="600" stroke="#5b5b5b"/>
+    <text x="365" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2017</text>
+    <line x1="534" y1="592" x2="534" y2="600" stroke="#5b5b5b"/>
+    <text x="534" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2019</text>
+    <line x1="703" y1="592" x2="703" y2="600" stroke="#5b5b5b"/>
+    <text x="703" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2021</text>
+    <line x1="872" y1="592" x2="872" y2="600" stroke="#5b5b5b"/>
+    <text x="872" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2023</text>
+    <line x1="1041" y1="592" x2="1041" y2="600" stroke="#5b5b5b"/>
+    <text x="1041" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2025</text>
   <text x="1170" y="616" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="13" fill="#999" font-style="italic">Timeline →</text>
-  <path d="M239,196 Q334,170 428,196" fill="none" stroke="#8a8a8a" stroke-width="1.6" opacity="0.7" marker-end="url(#ar)"/>
-  <path d="M428,196 Q678,170 927,196" fill="none" stroke="#8a8a8a" stroke-width="1.6" opacity="0.7" marker-end="url(#ar)"/>
-  <path d="M669,288 Q876,262 1082,288" fill="none" stroke="#8a8a8a" stroke-width="1.6" opacity="0.7" marker-end="url(#ar)"/>
-  <path d="M841,196 Q972,216 1103,288" fill="none" stroke="#8a8a8a" stroke-width="1.6" opacity="0.7" marker-end="url(#ar)"/>
-  <path d="M617,381 Q706,355 794,381" fill="none" stroke="#8a8a8a" stroke-width="1.6" opacity="0.7" marker-end="url(#ar)"/>
-  <path d="M1103,288 Q1125,216 1146,196" fill="none" stroke="#b8860b" stroke-width="1.6" opacity="0.7" stroke-dasharray="5 5" marker-end="url(#arg)"/>
-  <circle cx="239" cy="196" r="11" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="239" y="178" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#2b2b2b">Chizat unbalanced OT</text>
-  <circle cx="428" cy="196" r="11" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="428" y="178" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#2b2b2b">Waddington-OT</text>
-  <circle cx="497" cy="288" r="11" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="497" y="270" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#2b2b2b">RNA velocity</text>
-  <circle cx="531" cy="566" r="11" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
-  <text x="531" y="592" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#2b2b2b">scVI</text>
-  <circle cx="617" cy="381" r="11" fill="#e8924a" stroke="#fff" stroke-width="2"/>
-  <text x="617" y="363" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#2b2b2b">sci-Plex</text>
-  <circle cx="669" cy="288" r="11" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="669" y="314" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#2b2b2b">DDPM (diffusion)</text>
-  <circle cx="738" cy="196" r="11" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="738" y="178" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#2b2b2b">CPA</text>
-  <circle cx="794" cy="381" r="11" fill="#e8924a" stroke="#fff" stroke-width="2"/>
-  <text x="794" y="407" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#2b2b2b">Perturb-seq</text>
-  <circle cx="794" cy="566" r="11" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
-  <text x="794" y="592" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#2b2b2b">scBERT</text>
-  <circle cx="841" cy="196" r="11" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="841" y="178" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#2b2b2b">GEARS</text>
-  <circle cx="919" cy="566" r="11" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
-  <text x="919" y="592" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#2b2b2b">scGPT / Geneformer</text>
-  <circle cx="927" cy="196" r="11" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="927" y="178" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#2b2b2b">moscot</text>
-  <circle cx="1030" cy="381" r="11" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="1030" y="363" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#2b2b2b">the reckoning</text>
-  <circle cx="1069" cy="381" r="11" fill="#e8924a" stroke="#fff" stroke-width="2"/>
-  <text x="1069" y="407" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#2b2b2b">Tahoe-100M</text>
-  <circle cx="1082" cy="288" r="11" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="1082" y="270" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#2b2b2b">CellFlow</text>
-  <circle cx="1103" cy="288" r="11" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
-  <text x="1119" y="294" text-anchor="start" font-family="Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#2b2b2b">STATE</text>
-  <circle cx="1103" cy="381" r="11" fill="#59a14f" stroke="#fff" stroke-width="2"/>
-  <line x1="1103" y1="394" x2="1103" y2="415" stroke="#bbb" stroke-width="1"/>
-  <text x="1103" y="427" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#2b2b2b">VC Challenge</text>
-  <polygon points="1146.5,181.0 1150.3,190.7 1160.8,191.4 1152.7,198.0 1155.3,208.1 1146.5,202.5 1137.7,208.1 1140.3,198.0 1132.2,191.4 1142.7,190.7" fill="#fff3d6" stroke="#b8860b" stroke-width="2.2"/>
-  <text x="1146" y="172" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#9a6a06">the open prize</text>
-  <text x="1142" y="226" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#9a6a06">survival field  π(x | drug, dose)</text>
+  <circle cx="526" cy="546" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="526" y="572" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">scVI</text>
+  <circle cx="745" cy="527" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="745" y="552" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">scBERT</text>
+  <circle cx="872" cy="571" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="872" y="596" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Geneformer</text>
+  <circle cx="893" cy="508" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="878" y="512" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">scGPT</text>
+  <circle cx="914" cy="449" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="914" y="432" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">scFoundation</text>
+  <circle cx="940" cy="546" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="940" y="572" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">UCE</text>
+  <circle cx="961" cy="478" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="961" y="503" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">CellPLM</text>
+  <circle cx="991" cy="566" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="991" y="591" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Nicheformer</text>
+  <circle cx="1029" cy="459" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="1014" y="463" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">C2S-Scale</text>
+  <circle cx="1062" cy="532" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="1062" y="557" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">TranscriptFormer</text>
+  <circle cx="1138" cy="498" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="1123" y="502" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">xVERSE</text>
+  <circle cx="610" cy="371" r="10" fill="#e8924a" stroke="#fff" stroke-width="2"/>
+  <text x="610" y="396" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">sci-Plex</text>
+  <circle cx="779" cy="371" r="10" fill="#e8924a" stroke="#fff" stroke-width="2"/>
+  <text x="779" y="396" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Perturb-seq</text>
+  <circle cx="1041" cy="371" r="10" fill="#e8924a" stroke="#fff" stroke-width="2"/>
+  <text x="1041" y="396" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Tahoe-100M</text>
+  <circle cx="1083" cy="371" r="10" fill="#e8924a" stroke="#fff" stroke-width="2"/>
+  <line x1="1083" y1="359" x2="1083" y2="341" stroke="#bbb" stroke-width="1"/>
+  <text x="1083" y="333" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">X-Atlas</text>
+  <circle cx="1100" cy="288" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="1115" y="292" text-anchor="start" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">STATE</text>
+  <circle cx="1130" cy="332" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="1145" y="336" text-anchor="start" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Tahoe-x1</text>
+  <circle cx="999" cy="322" r="10" fill="#2a9d8f" stroke="#fff" stroke-width="2"/>
+  <text x="999" y="305" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">the reckoning</text>
+  <circle cx="1071" cy="430" r="10" fill="#2a9d8f" stroke="#fff" stroke-width="2"/>
+  <text x="1071" y="454" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">VC Challenge</text>
+  <circle cx="492" cy="274" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="492" y="256" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">RNA velocity</text>
+  <circle cx="652" cy="269" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="652" y="294" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">DDPM (diffusion)</text>
+  <circle cx="1050" cy="239" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="1050" y="222" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">CellFlow</text>
+  <circle cx="238" cy="176" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="238" y="159" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Chizat unbalanced OT</text>
+  <circle cx="424" cy="176" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="424" y="159" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Waddington-OT</text>
+  <circle cx="720" cy="176" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="720" y="159" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">CPA</text>
+  <circle cx="830" cy="210" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="830" y="235" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">GEARS</text>
+  <circle cx="914" cy="176" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="914" y="159" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">moscot</text>
+  <circle cx="957" cy="215" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="957" y="240" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">TIGON</text>
 </svg>
 </section>
 
@@ -1080,85 +1099,104 @@ topics:
 </svg>
 </section>
 
-<section class="slide" data-cheat="Recap: the field climbed to rung 4 and has a hand on rung 5; the bet is that the next rung isn&#x27;t a bigger FM." data-notes="Let&#x27;s come back to where we started. On this ladder, the field has climbed solidly through rung four — we can draw the cell forward — and it&#x27;s just setting a hand on rung five. We have powerful models like STATE, giant interventional atlases like Tahoe-100M, standard pipelines like Pertpy. So here&#x27;s the bet this whole map argues for, and it is a bet, not consensus. The next breakthrough is probably not a bigger foundation model. Scaling still pays, and reasonable people disagree. But the most under-worked axis isn&#x27;t a better generator — it&#x27;s a change in the object we model. And the top rung, that empty star, is still empty.">
-<svg viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg" class="slide-svg" role="img">
-  <defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5b5b5b"/></marker><marker id="arg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b8860b"/></marker></defs>
+<section class="slide" data-cheat="Recap: the field climbed to rung 4 and has a hand on rung 5; the bet is that the next rung isn&#x27;t a bigger FM." data-notes="Let&#x27;s come back to where we started. On this ladder, the field has climbed solidly through rung four — we can draw the cell forward — and it&#x27;s just setting a hand on rung five. We have powerful models like STATE, giant interventional atlases like Tahoe-100M, standard pipelines like Pertpy. So here&#x27;s the bet this whole map argues for, and it is a bet, not consensus. The next breakthrough is probably not a bigger foundation model. Scaling still pays, and reasonable people disagree. But the most under-worked axis isn&#x27;t a better generator — it&#x27;s a change in the object we model. And the survival field — knowing which cells live or die — is the one object still missing from this map.">
+<svg viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg" class="slide-svg" role="img" aria-label="Field map: products by time and causal rung">
   <rect x="0" y="0" width="1280" height="720" fill="#f7f7ef"/>
   <rect x="0" y="0" width="1280" height="92" fill="#dfe9d2"/><rect x="0" y="92" width="1280" height="4" fill="#c0392b"/>
   <text x="44" y="56" font-family="Helvetica,Arial,sans-serif" font-size="40" font-weight="700" fill="#1d2a17">The ladder of causality</text>
-  <text x="46" y="80" font-family="Helvetica,Arial,sans-serif" font-size="17" fill="#566b46">Ten years of climbing — and the top rung is still empty</text>
+  <text x="46" y="80" font-family="Helvetica,Arial,sans-serif" font-size="16" fill="#566b46">Every product, placed by time (→) and the causal rung it reaches (↑)</text>
   <g font-family="Helvetica,Arial,sans-serif" font-size="14.5" fill="#333">
-    <circle cx="770" cy="26" r="8" fill="#4e79a7"/><text x="785" y="31">Foundation model</text>
-    <circle cx="1005" cy="26" r="8" fill="#59a14f"/><text x="1020" y="31">Virtual cell / challenge</text>
-    <circle cx="770" cy="52" r="8" fill="#e8924a"/><text x="785" y="57">Dataset</text>
-    <circle cx="1005" cy="52" r="8" fill="#9c6bab"/><text x="1020" y="57">Other tool / method</text>
-    <polygon points="770.0,70.0 772.0,75.2 777.6,75.5 773.2,79.1 774.7,84.5 770.0,81.4 765.3,84.5 766.8,79.1 762.4,75.5 768.0,75.2" fill="#fff3d6" stroke="#b8860b" stroke-width="1.6"/><text x="785" y="83">the open prize (unbuilt)</text></g>
-  <line x1="196" y1="178" x2="196" y2="572" stroke="#b9b9ad" stroke-width="1.5"/>
-  <text x="46" y="170" font-family="Helvetica,Arial,sans-serif" font-size="13" fill="#999" font-style="italic">causal rung ↑</text>
+    <circle cx="812" cy="30" r="8" fill="#4e79a7"/><text x="827" y="35">Foundation model</text>
+    <circle cx="1032" cy="30" r="8" fill="#e8924a"/><text x="1047" y="35">Dataset</text>
+    <circle cx="812" cy="58" r="8" fill="#9c6bab"/><text x="827" y="63">Other tool / method</text>
+    <circle cx="1032" cy="58" r="8" fill="#2a9d8f"/><text x="1047" y="63">Event</text>
+  </g>
+  <line x1="196" y1="158" x2="196" y2="572" stroke="#b9b9ad" stroke-width="1.5"/>
+  <text x="46" y="152" font-family="Helvetica,Arial,sans-serif" font-size="13" fill="#999" font-style="italic">causal rung ↑</text>
     <text x="182" y="562" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="14" font-weight="600" fill="#5b5b5b">1</text>
     <text x="182" y="578" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#8a8a8a">Describe</text>
-    <text x="182" y="470" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="14" font-weight="600" fill="#5b5b5b">2</text>
-    <text x="182" y="486" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#8a8a8a">Correlate</text>
-    <text x="182" y="377" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="14" font-weight="600" fill="#5b5b5b">3</text>
-    <text x="182" y="393" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#8a8a8a">Intervene</text>
-    <text x="182" y="284" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="14" font-weight="600" fill="#5b5b5b">4</text>
-    <text x="182" y="300" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#8a8a8a">Predict</text>
-    <text x="182" y="192" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="14" font-weight="600" fill="#5b5b5b">5</text>
-    <text x="182" y="208" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#8a8a8a">Counterfactual</text>
-  <rect x="196" y="441" width="972" height="162" fill="#e7c2bb" opacity="0.30"/>
-  <text x="212" y="465" font-family="Helvetica,Arial,sans-serif" font-size="14.5" fill="#a23b2d" font-style="italic">where the field really is (≈ rung 1–2) — the linear-baseline reckoning</text>
+    <text x="182" y="464" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="14" font-weight="600" fill="#5b5b5b">2</text>
+    <text x="182" y="480" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#8a8a8a">Correlate</text>
+    <text x="182" y="367" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="14" font-weight="600" fill="#5b5b5b">3</text>
+    <text x="182" y="383" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#8a8a8a">Intervene</text>
+    <text x="182" y="270" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="14" font-weight="600" fill="#5b5b5b">4</text>
+    <text x="182" y="286" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#8a8a8a">Predict</text>
+    <text x="182" y="172" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="14" font-weight="600" fill="#5b5b5b">5</text>
+    <text x="182" y="188" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#8a8a8a">Counterfactual</text>
+  <rect x="196" y="430" width="972" height="176" fill="#dfe7ef" opacity="0.5"/>
+  <text x="212" y="593" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b7a93" font-style="italic">the field clusters here (≈ rung 1–2)</text>
+  <defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5b5b5b"/></marker></defs>
   <line x1="196" y1="596" x2="1174" y2="596" stroke="#5b5b5b" stroke-width="2" marker-end="url(#ar)"/>
+    <line x1="196" y1="592" x2="196" y2="600" stroke="#5b5b5b"/>
     <text x="196" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2015</text>
-    <text x="368" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2017</text>
-    <text x="540" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2019</text>
-    <text x="712" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2021</text>
-    <text x="884" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2023</text>
-    <text x="1056" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2025</text>
+    <line x1="365" y1="592" x2="365" y2="600" stroke="#5b5b5b"/>
+    <text x="365" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2017</text>
+    <line x1="534" y1="592" x2="534" y2="600" stroke="#5b5b5b"/>
+    <text x="534" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2019</text>
+    <line x1="703" y1="592" x2="703" y2="600" stroke="#5b5b5b"/>
+    <text x="703" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2021</text>
+    <line x1="872" y1="592" x2="872" y2="600" stroke="#5b5b5b"/>
+    <text x="872" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2023</text>
+    <line x1="1041" y1="592" x2="1041" y2="600" stroke="#5b5b5b"/>
+    <text x="1041" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2025</text>
   <text x="1170" y="616" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="13" fill="#999" font-style="italic">Timeline →</text>
-  <path d="M239,196 Q334,170 428,196" fill="none" stroke="#8a8a8a" stroke-width="1.6" opacity="0.7" marker-end="url(#ar)"/>
-  <path d="M428,196 Q678,170 927,196" fill="none" stroke="#8a8a8a" stroke-width="1.6" opacity="0.7" marker-end="url(#ar)"/>
-  <path d="M669,288 Q876,262 1082,288" fill="none" stroke="#8a8a8a" stroke-width="1.6" opacity="0.7" marker-end="url(#ar)"/>
-  <path d="M841,196 Q972,216 1103,288" fill="none" stroke="#8a8a8a" stroke-width="1.6" opacity="0.7" marker-end="url(#ar)"/>
-  <path d="M617,381 Q706,355 794,381" fill="none" stroke="#8a8a8a" stroke-width="1.6" opacity="0.7" marker-end="url(#ar)"/>
-  <path d="M1103,288 Q1125,216 1146,196" fill="none" stroke="#b8860b" stroke-width="1.6" opacity="0.7" stroke-dasharray="5 5" marker-end="url(#arg)"/>
-  <circle cx="239" cy="196" r="11" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="239" y="178" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#2b2b2b">Chizat unbalanced OT</text>
-  <circle cx="428" cy="196" r="11" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="428" y="178" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#2b2b2b">Waddington-OT</text>
-  <circle cx="497" cy="288" r="11" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="497" y="270" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#2b2b2b">RNA velocity</text>
-  <circle cx="531" cy="566" r="11" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
-  <text x="531" y="592" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#2b2b2b">scVI</text>
-  <circle cx="617" cy="381" r="11" fill="#e8924a" stroke="#fff" stroke-width="2"/>
-  <text x="617" y="363" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#2b2b2b">sci-Plex</text>
-  <circle cx="669" cy="288" r="11" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="669" y="314" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#2b2b2b">DDPM (diffusion)</text>
-  <circle cx="738" cy="196" r="11" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="738" y="178" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#2b2b2b">CPA</text>
-  <circle cx="794" cy="381" r="11" fill="#e8924a" stroke="#fff" stroke-width="2"/>
-  <text x="794" y="407" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#2b2b2b">Perturb-seq</text>
-  <circle cx="794" cy="566" r="11" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
-  <text x="794" y="592" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#2b2b2b">scBERT</text>
-  <circle cx="841" cy="196" r="11" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="841" y="178" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#2b2b2b">GEARS</text>
-  <circle cx="919" cy="566" r="11" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
-  <text x="919" y="592" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#2b2b2b">scGPT / Geneformer</text>
-  <circle cx="927" cy="196" r="11" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="927" y="178" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#2b2b2b">moscot</text>
-  <circle cx="1030" cy="381" r="11" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="1030" y="363" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#2b2b2b">the reckoning</text>
-  <circle cx="1069" cy="381" r="11" fill="#e8924a" stroke="#fff" stroke-width="2"/>
-  <text x="1069" y="407" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#2b2b2b">Tahoe-100M</text>
-  <circle cx="1082" cy="288" r="11" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="1082" y="270" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#2b2b2b">CellFlow</text>
-  <circle cx="1103" cy="288" r="11" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
-  <text x="1119" y="294" text-anchor="start" font-family="Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#2b2b2b">STATE</text>
-  <circle cx="1103" cy="381" r="11" fill="#59a14f" stroke="#fff" stroke-width="2"/>
-  <line x1="1103" y1="394" x2="1103" y2="415" stroke="#bbb" stroke-width="1"/>
-  <text x="1103" y="427" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#2b2b2b">VC Challenge</text>
-  <polygon points="1146.5,181.0 1150.3,190.7 1160.8,191.4 1152.7,198.0 1155.3,208.1 1146.5,202.5 1137.7,208.1 1140.3,198.0 1132.2,191.4 1142.7,190.7" fill="#fff3d6" stroke="#b8860b" stroke-width="2.2"/>
-  <text x="1146" y="172" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#9a6a06">the open prize</text>
-  <text x="1142" y="226" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#9a6a06">survival field  π(x | drug, dose)</text>
+  <circle cx="526" cy="546" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="526" y="572" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">scVI</text>
+  <circle cx="745" cy="527" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="745" y="552" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">scBERT</text>
+  <circle cx="872" cy="571" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="872" y="596" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Geneformer</text>
+  <circle cx="893" cy="508" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="878" y="512" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">scGPT</text>
+  <circle cx="914" cy="449" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="914" y="432" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">scFoundation</text>
+  <circle cx="940" cy="546" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="940" y="572" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">UCE</text>
+  <circle cx="961" cy="478" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="961" y="503" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">CellPLM</text>
+  <circle cx="991" cy="566" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="991" y="591" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Nicheformer</text>
+  <circle cx="1029" cy="459" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="1014" y="463" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">C2S-Scale</text>
+  <circle cx="1062" cy="532" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="1062" y="557" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">TranscriptFormer</text>
+  <circle cx="1138" cy="498" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="1123" y="502" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">xVERSE</text>
+  <circle cx="610" cy="371" r="10" fill="#e8924a" stroke="#fff" stroke-width="2"/>
+  <text x="610" y="396" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">sci-Plex</text>
+  <circle cx="779" cy="371" r="10" fill="#e8924a" stroke="#fff" stroke-width="2"/>
+  <text x="779" y="396" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Perturb-seq</text>
+  <circle cx="1041" cy="371" r="10" fill="#e8924a" stroke="#fff" stroke-width="2"/>
+  <text x="1041" y="396" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Tahoe-100M</text>
+  <circle cx="1083" cy="371" r="10" fill="#e8924a" stroke="#fff" stroke-width="2"/>
+  <line x1="1083" y1="359" x2="1083" y2="341" stroke="#bbb" stroke-width="1"/>
+  <text x="1083" y="333" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">X-Atlas</text>
+  <circle cx="1100" cy="288" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="1115" y="292" text-anchor="start" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">STATE</text>
+  <circle cx="1130" cy="332" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="1145" y="336" text-anchor="start" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Tahoe-x1</text>
+  <circle cx="999" cy="322" r="10" fill="#2a9d8f" stroke="#fff" stroke-width="2"/>
+  <text x="999" y="305" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">the reckoning</text>
+  <circle cx="1071" cy="430" r="10" fill="#2a9d8f" stroke="#fff" stroke-width="2"/>
+  <text x="1071" y="454" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">VC Challenge</text>
+  <circle cx="492" cy="274" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="492" y="256" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">RNA velocity</text>
+  <circle cx="652" cy="269" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="652" y="294" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">DDPM (diffusion)</text>
+  <circle cx="1050" cy="239" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="1050" y="222" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">CellFlow</text>
+  <circle cx="238" cy="176" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="238" y="159" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Chizat unbalanced OT</text>
+  <circle cx="424" cy="176" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="424" y="159" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Waddington-OT</text>
+  <circle cx="720" cy="176" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="720" y="159" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">CPA</text>
+  <circle cx="830" cy="210" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="830" y="235" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">GEARS</text>
+  <circle cx="914" cy="176" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="914" y="159" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">moscot</text>
+  <circle cx="957" cy="215" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="957" y="240" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">TIGON</text>
 </svg>
 </section>
 
