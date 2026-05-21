@@ -75,7 +75,7 @@ topics:
   <circle cx="914" cy="449" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
   <text x="914" y="432" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">scFoundation</text>
   <circle cx="940" cy="546" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
-  <text x="940" y="572" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">UCE</text>
+  <text x="940" y="572" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">UCE†</text>
   <circle cx="961" cy="478" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
   <text x="961" y="503" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">CellPLM</text>
   <circle cx="991" cy="566" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
@@ -121,6 +121,7 @@ topics:
   <text x="914" y="159" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">moscot</text>
   <circle cx="957" cy="215" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
   <text x="957" y="240" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">TIGON</text>
+  <text x="196" y="658" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#999">† UCE — first posted 2023, revised through v3 (2026); dots mark each work’s first appearance.</text>
 </svg>
 </section>
 
@@ -1151,7 +1152,7 @@ topics:
   <circle cx="914" cy="449" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
   <text x="914" y="432" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">scFoundation</text>
   <circle cx="940" cy="546" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
-  <text x="940" y="572" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">UCE</text>
+  <text x="940" y="572" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">UCE†</text>
   <circle cx="961" cy="478" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
   <text x="961" y="503" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">CellPLM</text>
   <circle cx="991" cy="566" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
@@ -1197,6 +1198,7 @@ topics:
   <text x="914" y="159" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">moscot</text>
   <circle cx="957" cy="215" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
   <text x="957" y="240" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">TIGON</text>
+  <text x="196" y="658" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#999">† UCE — first posted 2023, revised through v3 (2026); dots mark each work’s first appearance.</text>
 </svg>
 </section>
 
