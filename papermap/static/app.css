@@ -864,3 +864,77 @@ body.zen .blog-post aside.qa-reply { display: none; }
   color: #c62828;
   min-height: 14px;
 }
+
+/* ---- Presentations (slide decks) ---- */
+.card-deck .blog-head h4 { color: #6a3d9a; }
+.card-deck:hover .blog-head h4 { color: #4a148c; }
+
+.deck-stage {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 6px 16px 60px;
+}
+.deck-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+.deck-bar .deck-back { color: #1a4480; text-decoration: none; white-space: nowrap; }
+.deck-bar .deck-back:hover { text-decoration: underline; }
+.deck-bar .deck-title {
+  font-weight: 600;
+  color: #333;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.deck-nav { display: flex; align-items: center; gap: 6px; }
+.deck-nav button {
+  border: 1px solid #d8d8d2;
+  background: #fff;
+  border-radius: 5px;
+  width: 30px;
+  height: 28px;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  color: #444;
+}
+.deck-nav button:hover:not(:disabled) { border-color: #999; background: #fafafa; }
+.deck-nav button:disabled { opacity: 0.35; cursor: default; }
+.deck-count { font-variant-numeric: tabular-nums; color: #777; min-width: 52px; text-align: center; }
+
+.deck-screen {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #fff;
+  border: 1px solid #e2e2dc;
+  border-radius: 6px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  overflow: hidden;
+  display: flex;
+}
+.deck-screen:fullscreen { border: 0; border-radius: 0; box-shadow: none; align-items: center; justify-content: center; background: #111; }
+.deck-slide { width: 100%; height: 100%; }
+.deck-slide svg, .deck-slide .slide-svg { width: 100%; height: 100%; display: block; }
+.deck-screen:fullscreen .deck-slide { max-width: 100vw; max-height: 100vh; aspect-ratio: 16 / 9; width: auto; height: 100%; }
+
+.deck-notes {
+  margin-top: 14px;
+  padding: 10px 14px;
+  background: #faf9f3;
+  border: 1px solid #ecebe2;
+  border-left: 3px solid #6a3d9a;
+  border-radius: 4px;
+}
+.deck-notes h4 {
+  margin: 0 0 4px;
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6a3d9a;
+}
+.deck-notes-body { margin: 0; font-size: 14.5px; line-height: 1.55; color: #444; white-space: pre-wrap; }

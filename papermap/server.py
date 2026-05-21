@@ -111,6 +111,21 @@ def create_app(corpus_dir: Path) -> Flask:
             )
         ])
 
+    @app.get("/api/presentations/<path:name>")
+    def presentations_for(name: str):
+        # Slide decks reuse the blog markdown loader (frontmatter + raw
+        # HTML/SVG passthrough) but live in their own dir so they don't
+        # leak into the Blogs index. Each deck's body is one or more
+        # ``<section class="slide" data-notes="…">`` blocks.
+        path = _resolve(app.config["CORPUS_DIR"], name)
+        pres_dir = app.config["CORPUS_DIR"] / "presentations" / path.stem
+        return jsonify([
+            b.to_dict() for b in list_blogs(
+                pres_dir,
+                external_docs_base=app.config.get("EXTERNAL_DOCS_BASE_URL", ""),
+            )
+        ])
+
     @app.get("/api/blogs/<path:name>/assets/<asset>")
     def blog_asset(name: str, asset: str):
         # `_resolve` validates the corpus path; assets live under

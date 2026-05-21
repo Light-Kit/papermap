@@ -2,21 +2,23 @@
 
 import { loadState, getState } from "./state.js";
 import { loadBlogs } from "./blogs-state.js";
+import { loadPresentations } from "./presentations-state.js";
 import { loadTopicAbstracts } from "./topics-state.js";
 import { setActiveCorpus } from "./stars-state.js";
 import { mount as mountFilterBar } from "./filterbar.js";
-import * as browse   from "./views/browse.js";
-import * as mapView  from "./views/map.js";
-import * as topics   from "./views/topics.js";
-import * as blogs    from "./views/blogs.js";
-import * as timeline from "./views/timeline.js";
+import * as browse        from "./views/browse.js";
+import * as mapView       from "./views/map.js";
+import * as topics        from "./views/topics.js";
+import * as blogs         from "./views/blogs.js";
+import * as presentations from "./views/presentations.js";
+import * as timeline      from "./views/timeline.js";
 
 const sidebar  = document.getElementById("corpora");
 const tabsBar  = document.getElementById("viewtabs");
 const filterBar = document.getElementById("filterbar");
 const main     = document.getElementById("main");
 
-const views = { browse, map: mapView, topics, blogs, timeline };
+const views = { browse, map: mapView, topics, blogs, presentations, timeline };
 
 // Filters are mutated in place by filterbar.js (Phase 7).
 const filters = {
@@ -68,6 +70,7 @@ async function init() {
       return;
     }
     await loadBlogs("__static__");
+    await loadPresentations("__static__");
     setActiveCorpus("__static__");
     activeCorpus = "__static__";
     tabsBar.hidden = false;
@@ -107,6 +110,7 @@ async function pickCorpus(li, item) {
     return;
   }
   await loadBlogs(item.name);
+  await loadPresentations(item.name);
   await loadTopicAbstracts(item.name);
   setActiveCorpus(item.name);
   activeCorpus = item.name;
