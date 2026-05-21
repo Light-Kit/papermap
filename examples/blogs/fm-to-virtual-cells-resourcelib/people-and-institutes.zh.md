@@ -1,95 +1,95 @@
 ---
-title: "究竟是谁在构建虚拟细胞——2026 年值得关注的人与机构"
-summary: "一张领域地图，标出那些 2025–2026 年产出为虚拟细胞设定议程的实验室、研究所与公司——按它们实际交付的东西来组织，而非按声望。"
+title: "虚拟细胞到底是谁在做：2026 年值得追的人与机构"
+summary: "一张实战地图，盘点 2025–2026 年真正在给虚拟细胞定调的实验室、研究所和公司——分类的依据是各家实际拿得出手的东西，而不是名气。"
 ---
 
-> *与[基础模型全景现状](foundation-models-state-of-play.md)以及[评估论文目录](evaluation-papers-catalog.md)互为伴篇。同一语料，不同切法：这一篇讲的是"谁"，而非"什么"。如果你想知道该关注哪些 Twitter 账号、实验室主页和 substack，先读这一篇；如果你想要方法层面的综述，去读另外两篇。*
+> *这篇可以和[基础模型全景](foundation-models-state-of-play.md)、[评测论文目录](evaluation-papers-catalog.md)对照着看。同一批语料，换个切法：这篇讲的是「谁」，不是「什么」。想知道该关注哪些 Twitter 账号、实验室主页和 substack，先读这篇；想要方法层面的梳理，去看另外两篇。*
 
-## 这份名单是怎么组织的
+## 这份名单是怎么排的
 
-按各方所 *交付* 的东西分为三类——而不是按它们如何宣传自己。
+按各家「拿得出什么」来分，分三类——看的是真东西，不是宣传口径。
 
-1. **学术锚点** —— 那些用论文与基准来构筑该领域对话结构的实验室。读它们是为了知道下一个基准、批评或类别会是什么。
-2. **交付 FM 的研究所** —— 主要产物不是学术发表、而是一个模型检查点、一个数据集或一场竞赛的非学术团体。读它们是为了知道下一个默认底料会是什么。
-3. **产业玩家** —— 主要产物是商业产品、监管申报或战略动作的公司。读它们是为了知道 2027 年什么东西会守得住。
+1. **学术锚点**——那些靠论文和基准给整个领域定话题的实验室。读他们，是为了知道下一个基准、下一篇批评、下一个新品类会从哪冒出来。
+2. **出模型的研究所**——主要产出不是学术论文，而是模型 checkpoint、数据集或者一场竞赛的那些机构。读他们，是为了知道下一个默认底料会是什么。
+3. **产业玩家**——主要产出是商业产品、监管文件或者一步战略动作的公司。读他们，是为了知道 2027 年什么东西能站得住脚。
 
-每个条目都以一句话开头，说明 *它在 2026 年 5 月为何承重* ——而不是简历式的总结。凡 resourcelib 中存在对应档案的条目，都会链接到该实体的专属档案。
+每一条都先用一句话点明**它在 2026 年 5 月为什么是承重的**——不是简历摘要。凡是 resourcelib 里有专门档案的条目，都会给出链接。
 
 ---
 
 ## 学术锚点
 
-### Charlotte Bunne —— EPFL → 洛桑 / 日内瓦大学医院合作
+### Charlotte Bunne —— EPFL → 洛桑 / 日内瓦大学医院合作体
 
-Bunne 是当前该领域关于 **虚拟患者** 作为操作性目标的最清晰声音——而不是抽象意义上的虚拟细胞。她[与一个大型多机构团队合作的 Cell 2024 视角文章](https://doi.org/10.1016/j.cell.2024.11.015)是被引最多的 AI 虚拟细胞北极星定义，而 AACR 2026 ED03 全会（在[AACR-2026 综述博客](aacr-2026-digest.md)中有报道）实际上就是她当前研究计划的现场呈现：多模态 H&E + 空间蛋白组学基础模型、在瑞士超算上的硅内扰动，再叠加上主动获取（"EchoK"）。当你想知道 *集成的* 虚拟细胞技术栈端到端应该长什么样时，去读她的团队。
+谈到把**虚拟病人**当成可操作目标（而不是抽象意义上的虚拟细胞），Bunne 是当下最清晰的那个声音。她那篇[联合多家机构发表的 Cell 2024 视角文章](https://doi.org/10.1016/j.cell.2024.11.015)，是被引最多、最具北极星意义的「AI 虚拟细胞」定义；而 AACR 2026 ED03 全会报告（[AACR-2026 综述博客](aacr-2026-digest.md)里有覆盖）几乎就是她当下的研究纲领现场直播：多模态 H&E + 空间蛋白质组学的基础模型、在瑞士超算上做计算机模拟扰动、再叠一层主动采集（「EchoK」）。想知道一个**整合式**的虚拟细胞栈端到端该长什么样，就看她的组。
 
-### Aviv Regev 团队 —— Genentech（前 Broad）
+### Aviv Regev 的组 —— Genentech（原 Broad）
 
-Regev 一侧的框架是参考映射，而非从头模拟：构建足够稠密的图谱，使得任何新的查询细胞或扰动都能与之定位（[Rood, Regev 等 2024](https://doi.org/10.1016/j.cell.2024.07.035)）。Regev 在操作层面也很重要，因为她身处 Genentech、手握预算——她团队的押注塑造了制药行业实际上如何把图谱式思维落地，而这比公开预印本所呈现的姿态更受约束。把她与 Bunne 配对来看，就能见到 2024 年那两份其余领域至今仍在与之争论的经典论纲。
+Regev 这一边的思路是参照映射，而不是从零模拟：把图谱建得足够密，密到任何一个新查询细胞、任何一次新扰动都能在图谱里被定位（[Rood, Regev et al. 2024](https://doi.org/10.1016/j.cell.2024.07.035)）。Regev 在操作层面也很关键，因为她身处 Genentech、手里有预算——她这组的押注，影响着药企究竟怎么把图谱式思路落到实处，而这比公开预印本里那副姿态要受限得多。和 Bunne 配着看，就是 2024 年那两份至今还被全行业拿来争论的经典立论。
 
 ### Fabian Theis —— Helmholtz Munich + TUM
 
-Theis 是最有意思的"帐篷里"声音，因为他 2026 年的 Cell Systems 视角文章（[Theis 等 2026](https://doi.org/10.1016/j.cels.2026.101534)）是一次明确的转向——从扩展单体式 sc-FM，转向 **模块化、机制感知的组件**。他曾是早期的 sc-FM 倡导者（scVI、scANVI、scArches 都出自或伴随他的生态系统），这使得他对清算文献的让步更有分量。如果你想知道欧洲 sc-FM 共识正往哪个方向移动，Theis 实验室主页是信噪比最高的订阅之一。
+Theis 是「圈内人」里最有意思的声音，因为他 2026 年那篇 Cell Systems 视角文章（[Theis et al. 2026](https://doi.org/10.1016/j.cels.2026.101534)）摆明了是一次转向：从堆规模、做单体式 sc-FM，掉头走向**模块化、懂机制的组件**。他早年是 sc-FM 的拥趸（scVI、scANVI、scArches 都出自或伴生于他的生态），正因如此，这次向清算文献低头才显得更有分量。如果你想知道欧洲 sc-FM 共识往哪边偏，Theis 实验室主页是信噪比最高的订阅之一。
 
 ### Mahmood Lab —— Harvard / BWH / MGB
 
-Faisal Mahmood 的团队是 **病理基础模型** 的重心所在：UNI、UNI2-h、CONCH、TITAN、PathChat、PathChat-DX（FDA 突破性器械，2025 年 1 月）。该实验室的鲜明特征是覆盖面之广——模型发布、临床基准论文、监管工作全部出自同一个团队，且以稳定的节奏产出 Nature 系列成果。专门盯着病理这一纵向，去关注他们；他们的工作是学术文献里最接近"完整的 FM-到-临床流水线"的东西。
+Faisal Mahmood 的组是**病理基础模型**的重心所在：UNI、UNI2-h、CONCH、TITAN、PathChat、PathChat-DX（FDA 突破性器械认定，2025 年 1 月）。这个实验室最鲜明的特点是跨度大——模型发布、临床基准论文、监管工作，全出自同一支团队，而且 Nature 系刊的产出节奏很稳。专盯病理这个垂直方向的话就跟他们；在学术文献里，他们的工作最接近一条「从 FM 到临床的完整流水线」。
 
 ### Bo Wang Lab —— Vector Institute / 多伦多大学
 
-Wang 的团队以 scGPT 定义了 sc-FM 这一类别，此后一直是核心参照点。2026 年有意思的动作是 X-Cell——一个围绕 sc-FM 技术栈的智能体外壳——这是一个押注：下一次增益来自工具使用型智能体端到端地编排分析，而不是继续扩展 scGPT。盯着这个团队，看看"FM 之后接智能体"的模式在那些 2025 年清算中裸 sc-FM 表现不佳的任务上是否真的奏效。
+Wang 这组用 scGPT 定义了 sc-FM 这个品类，从那以后一直是核心参照点。2026 年值得注意的一步是 X-Cell——给 sc-FM 栈套了个智能体外壳，赌的是：下一波收益来自会用工具的智能体端到端编排分析，而不是把 scGPT 继续往大里堆。盯着这组，看看「FM 之后接智能体」这套路子，在那些 2025 年清算里 sc-FM 裸跑表现不佳的任务上，到底能不能兑现。
 
-### Constantin Ahlmann-Eltze + Wolfgang Huber —— 前 EMBL Heidelberg
+### Constantin Ahlmann-Eltze + Wolfgang Huber —— 原 EMBL Heidelberg
 
-这二人是 **该领域近期历史上影响最深远的单篇评估论文** 的作者——2025 年那项结果显示，简单的线性基线在扰动预测上追平或击败了 scGPT 和 Geneformer。Ahlmann-Eltze 此后转去了 **Isomorphic Labs**，这本身就是一个承重信号：该领域最尖锐的 sc-FM 批评者如今身处 DeepMind 的商业药物发现部门内部。关注他们接下来发表什么，因为那会告诉你后清算时代的文献将向哪些基准收敛。
+他们写出了**这个领域近期史上最具分量的那篇评测论文**——2025 年那个结果：在扰动预测上，简单的线性基线打平甚至打赢了 scGPT 和 Geneformer。Ahlmann-Eltze 此后去了 **Isomorphic Labs**，这件事本身就是个承重信号：这个领域最犀利的 sc-FM 批评者，如今进了 DeepMind 的商业制药部门。盯着他们接下来发什么，因为那会告诉你后清算时代的文献将朝哪些基准收敛。
 
 ### Serena Yeung-Levy —— Stanford 生物医学数据科学
 
-Yeung-Levy 的团队目前是关于 **流匹配（flow matching）作为基元** 用于分布到分布扰动建模的最有意思的押注（CellFlux、CellFlux V2，达 1160 万张图像）。她也是生物学中 **基于 VLM 的科学推理基准** 的主要声音（MicroVQA、BioMedICA），而这是与 FM 训练瓶颈不同的另一个瓶颈，且是其余领域大多忽视的一个。两个截然不同的研究计划，皆承重。
+Yeung-Levy 这组目前是把**流匹配（flow matching）当作建模基元**、用来做分布到分布扰动建模的最有意思的一注（CellFlux、CellFlux V2，1160 万张图像）。她同时也是生物领域**基于 VLM 的科学推理基准**最主要的代言人（MicroVQA、BioMedICA）——这跟「训 FM」那个瓶颈是两回事，而且是整个领域大多在忽视的一个。两条独立的研究纲领，都是承重的。
 
 ### Michael Moor —— ETH Zurich
 
-Moor 的实验室是学术版图里最清晰的 **医学智能体 AI** 声音，以 MYRIAD（600 万条目的结构化医学问答图谱）和逐步验证每一步推理的过程奖励模型为支柱。他的框架——医学智能体因两个截然不同的原因而失败，无结构的依据 *以及* 未经验证的推理——是当前流通中对智能体 AI 问题最明确的分解。当 LLM 智能体浪潮冲击诊断时，去关注他。
+在学术圈里，Moor 实验室是**医学智能体 AI** 最清晰的那个声音，主心骨是 MYRIAD（600 万条结构化医学问答图谱）和会逐步核验每一步推理的过程奖励模型。他的提法——医学智能体出错有两类截然不同的原因，一是缺乏结构化的事实根基，二是推理没被核验——是当前关于智能体 AI 问题最明晰的一次拆解。等 LLM 智能体浪潮打到诊断领域时，就该关注他了。
 
 ### Leskovec + Quake —— Stanford / SNAP
 
-Jure Leskovec 与 Steve Quake 的联合产出是学术界产量最高的图与物理感知单细胞计划。它们对虚拟细胞议程的相关性在于结构先验这一侧：Bunne 和 Yeung-Levy 推动的是表征学习的规模，而这个团队把机制先验与图结构推入底料。Quake 的湿实验与仪器视角与 Leskovec 的图机器学习一侧相结合，给了他们一个独特的切入角度。
+Jure Leskovec 和 Steve Quake 的联合产出，是学术界里产量最高的「懂图、懂物理」的单细胞纲领。他们之于虚拟细胞议程的意义在结构先验这一侧：当 Bunne 和 Yeung-Levy 在推表征学习的规模时，这组是在往底料里塞机制先验和图结构。Quake 的湿实验与仪器视角，叠上 Leskovec 的图机器学习视角，给了他们一个独特的切入角度。
 
 ---
 
-## 交付 FM 的研究所
+## 出模型的研究所
 
 ### CZI / CZ Biohub / Virtual Biology Initiative
 
-Chan Zuckerberg 这套基础设施——CZI 作为出资方、[CZ Biohub Network](https://www.czbiohub.org/) 作为干湿与计算的一臂、[CZI Virtual Cell Models](https://virtualcellmodels.cziscience.com/) 作为统领框架——是 **该领域最重要的单一非学术机构**，因为它控制着底料。CELLxGENE 是默认的细胞图谱数据层；Virtual Cell Challenge（[VCC 2025 启动](https://virtualcellchallenge.org/)，Cell 论文）是该领域第一个带留出评估的社区基准。Biohub 也交付自己的模型（TranscriptFormer、rBio），这意味着同一个机构同时运行基准、底料和一个内部参赛者——这种双重角色值得追踪。值得关注的关键人物：Priscilla Chan（CZI）、Theofanis Karaletsos、Steve Quake、Angela Pisco（Biohub）。
+Chan Zuckerberg 这套基础设施——CZI 是出资方，[CZ Biohub Network](https://www.czbiohub.org/) 是干湿与计算的执行臂，[CZI Virtual Cell Models](https://virtualcellmodels.cziscience.com/) 是统领的伞——是**这个领域里最重要的非学术机构**，因为它掌着底料。CELLxGENE 是默认的细胞图谱数据层；Virtual Cell Challenge（[VCC 2025 启动](https://virtualcellchallenge.org/)，配 Cell 论文）则是这个领域第一个带留出集评测的社区基准。Biohub 自己也出模型（TranscriptFormer、rBio），这意味着同一家机构既办基准、又供底料、还派了支自家选手下场——这种双重身份值得盯紧。值得关注的关键人物：Priscilla Chan（CZI）、Theofanis Karaletsos、Steve Quake、Angela Pisco（Biohub）。
 
 ### Arc Institute
 
-Arc 是生物 FM 领域里最大的非 DeepMind 的学术风格算力平台——大约 2,048 块 H100——并交付大学团体根本无法匹敌的开放权重模型：**STATE**（扰动）、**Evo / Evo 2**（基因组 FM，70 亿+ 参数，约 6×10²³ FLOPs），以及与 Tahoe Therapeutics 和 CZ Biohub 合作的 **Tahoe-100M** 数据集。Patrick Hsu 和 Hani Goodarzi 是要知道的名字。Arc 重塑了该领域，因为它是唯一一个在营利性 AI 实验室之外、以超大规模算力运作、同时又以超大规模厂商所不为的方式交付开放权重的可信团体。
+Arc 是生物 FM 领域里除 DeepMind 之外最大的学术式算力平台——大约 2,048 块 H100——而且出的是开放权重模型，其规模高校组根本比不了：**STATE**（扰动）、**Evo / Evo 2**（基因组 FM，7B+ 参数，约 6×10²³ FLOPs），以及和 Tahoe Therapeutics、CZ Biohub 合作的 **Tahoe-100M** 数据集。要记住的名字是 Patrick Hsu 和 Hani Goodarzi。Arc 重塑了这个领域：它是唯一一个在营利 AI 实验室之外、能以超算厂商级别的算力运转、同时还以那些厂商不会采取的方式开放权重的可信团队。
 
 ### EvolutionaryScale
 
-这是从 Meta 蛋白语言模型分拆出来的公司，交付 **ESM-3**（Science 2025，980 亿参数，披露约 10²⁴ FLOPs）。在算力上的透明度很罕见——DeepMind、Recursion 以及大多数病理厂商都不披露训练成本——这使得 ESM-3 成为校准点，其他蛋白 FM 的算力主张都可以据此做合理性核查。处在该领域开放对封闭分裂的开放权重一侧。
+这家是 Meta 蛋白质语言模型那支的分拆公司，主打 **ESM-3**（Science 2025，98B 参数，披露约 10²⁴ FLOPs）。它在算力上的透明度很罕见——DeepMind、Recursion 以及大多数病理厂商都不披露训练成本——这让 ESM-3 成了一个校准锚点，别家的蛋白质 FM 算力说法都能拿它来对一对真假。它站在这个领域「开放对封闭」之争的开放权重那一边。
 
 ### Isomorphic Labs
 
-DeepMind 的药物发现分拆公司，继承了 AlphaFold / AlphaProteo / AlphaMissense 以及全新的 **AlphaGenome**（Nature 2026，变异效应 25/26 项胜出）。封闭权重、托管 API 姿态——与 Arc 在结构上正相反。最近招募 Ahlmann-Eltze（见上文）这一动作表明，Isomorphic 意在以该领域最尖锐批评者的水准建立内部评估能力。
+DeepMind 的制药分拆公司，继承了 AlphaFold / AlphaProteo / AlphaMissense 以及全新的 **AlphaGenome**（Nature 2026，26 项变异效应任务里赢了 25 项）。封闭权重、托管 API 的姿态——和 Arc 在结构上正好相反。前面提到他们最近招了 Ahlmann-Eltze，这信号是说 Isomorphic 打算把内部评测能力建到这个领域最犀利批评者的水准。
 
 ### Calico
 
-Calico 的 Borzoi 是后 Enformer 文献中被引最多的基因组 FM 贡献，即便头条已经转向 AlphaGenome 和 Evo 2，该团队仍以稳定节奏持续交付。Calico 这个机构也很重要，因为它是少数明确以衰老/长寿为使命的实验室之一——这是虚拟细胞方法长周期的下游消费者，而非方法贡献者——出于这个理由值得追踪。
+在后 Enformer 时代的文献里，Calico 的 Borzoi 是被引最多的那份基因组 FM 贡献；即便头条早已被 AlphaGenome 和 Evo 2 抢走，这组依旧在以稳定节奏出活。Calico 这家机构本身也值得留意，因为它是少数明确以衰老/长寿为使命的实验室之一——这是虚拟细胞方法在远端的下游消费者，而不是方法贡献者，正因如此值得追踪。
 
 ### CellxGene / Human Cell Atlas
 
-两个相互重叠、值得合在一起关注的联盟：**Human Cell Atlas**（Sarah Teichmann、Aviv Regev、John Marioni 等）提供多组织参考数据；**CELLxGENE**（CZI）是把它落地的底料。HCA 产出经典图谱；CZI 负责工程实现。每一个 Tahoe-100M、每一个 SC-Arena、每一次 Virtual Cell Challenge 的运行，都依赖于流经其中之一或两者的数据。
+两个有交叠的联盟，值得当成一个来追：**Human Cell Atlas**（Sarah Teichmann、Aviv Regev、John Marioni 等）提供多组织的参照数据；**CELLxGENE**（CZI）则是把它落地运转的底料。HCA 产出那些经典图谱，CZI 负责工程实现。每一次 Tahoe-100M、每一次 SC-Arena、每一次 Virtual Cell Challenge 跑动，依赖的数据都流经其中之一或二者。
 
 ### Microsoft Research + Providence（Prov-GigaPath）
 
-微软-Providence 合作产出了 Prov-GigaPath（Nature，2024 年 7 月）——截至 2024 年中公开披露的最大病理 FM 训练集，其不寻常之处在于它是医院-医疗系统的直接合作，而非厂商/学术的组合。可作为一个模板，看超大规模厂商加付费方的协作如何交付临床 FM 工作。
+微软与 Providence 的合作产出了 Prov-GigaPath（Nature，2024 年 7 月）——截至 2024 年中是公开披露过的最大病理 FM 训练集，特别之处在于它是医院—医疗系统的直接合作，而非「厂商 / 学术」那种组合。它有用，是因为它给出了一个模板：一家超算厂商加一家付费方该怎么合作出临床 FM 工作。
 
 ### BioMap Research + MBZUAI
 
-虚拟细胞领域最值得追踪的中国/阿联酋一轴玩家：**xVERSE** 是一个背后有相当算力的转录组原生 sc-FM，**VCHarness**（自主虚拟细胞构建器）是 2025-2026 年发表的较有雄心的智能体生物条目之一。BioMap 也是少数以此规模交付的非西方团体之一；想要一个非 CZI / 非 Arc 的视角，去关注它。
+虚拟细胞领域里，最值得追的「中国 / 阿联酋一轴」玩家：**xVERSE** 是一个原生做转录组的 sc-FM，背后算力相当扎实；**VCHarness**（自主搭虚拟细胞的构建器）则是 2025–2026 年发表的智能体生物里更有野心的几个之一。BioMap 也是少数能在这个规模上出活的非西方团队之一；想要一个非 CZI、非 Arc 的视角，就追它。
 
 ---
 
@@ -97,65 +97,65 @@ Calico 的 Borzoi 是后 Enformer 文献中被引最多的基因组 FM 贡献，
 
 ### Paige.AI + MSK（Thomas Fuchs）
 
-Paige 于 2025 年 1 月获得了 **首个针对通用病理基础模型的 FDA 510(k) 许可**，技术骨干是 Virchow 模型家族。这次许可在任何学术 FM 团体之前就跨过了监管边界——连 Mahmood 的 PathChat-DX 至今仍处于突破性器械状态。盯着看这个 510(k) 先例将如何塑造对后续病理 FM 的处理（每个新模型都需要自己的一份许可吗？）。
+Paige 在 2025 年 1 月拿下了**通用病理基础模型的首张 FDA 510(k) 许可**，技术骨干是 Virchow 模型家族。它越过监管那道线，比任何学术 FM 组都早——连 Mahmood 的 PathChat-DX 都还停在突破性器械阶段。盯着这个 510(k) 先例怎么去塑造后续病理 FM 的待遇（每个新模型都得自己单独再过一遍许可吗？）。
 
 ### Owkin
 
-Owkin 在 2026 年的鲜明动作是 **在 Anthropic Claude 内部交付一个以病理基础模型为后端的智能体** —— Owkin Pathology Explorer 集成。这是当前病理 AI 联邦数据一侧产品化为 LLM 工具层的最清晰例子，并赋予 Owkin 一个不同于 Paige 或 Mahmood 的分发界面。巴黎/纽约双总部；欧洲最资深的病理 AI 团队之一。
+Owkin 2026 年最鲜明的一步，是**把一个由病理基础模型驱动的智能体塞进了 Anthropic 的 Claude**——也就是 Owkin Pathology Explorer 集成。这是当下最干净的一个例子，展示了病理 AI 联邦数据这一侧如何产品化成一个 LLM 工具层，也让 Owkin 拿到了一个不同于 Paige 或 Mahmood 的分发界面。巴黎 / 纽约双总部；欧洲最资深的病理 AI 团队之一。
 
-<aside class="qa" data-q="1"><b>关于"Owkin 在 2026 年的鲜明动作是在 Anthropic Claude 内部交付一个以病理基础模型为后端的智能体"的问题：</b> 多讲讲 Claude 内部的 Owkin Pathology Explorer 集成——它实际上做什么，谁能用？</aside>
+<aside class="qa" data-q="1"><b>就「Owkin 2026 年最鲜明的一步，是把一个由病理基础模型驱动的智能体塞进了 Anthropic 的 Claude」一句的提问：</b>多说说 Claude 里的 Owkin Pathology Explorer 集成——它到底干什么，谁能用？</aside>
 
-<aside class="qa-reply" data-q="1"><b>答：</b> Pathology Explorer 是 Owkin "K Pro" 产品线中一个基于 MCP 的智能体，交付于 Anthropic 的 Claude for Healthcare and Life Sciences 内部（2026 年 1 月 12 日发布）。机制上：Owkin 构建了 MCP 编码，使 Claude 把病理问题路由给 Owkin 的智能体，后者返回对患者组织图像的空间感知分析——细胞/组织分型、肿瘤微环境研究、生物标志物提取、队列生存分析。底层模型在 Owkin 的 800 家医院 / 104 个中心的组织病理网络上训练；发布材料未点名某个特定的公开 FM（Phikon、OwkinZero），因此确切的模型接线未披露。这种分发把医院级病理 AI 放进了每一个 Claude HCLS 工作流中，而不是藏在 Owkin 自家的 SaaS 界面之后。</aside>
+<aside class="qa-reply" data-q="1"><b>答：</b>Pathology Explorer 是 Owkin「K Pro」系列里一个基于 MCP 的智能体，搭载在 Anthropic 的 Claude for Healthcare and Life Sciences 里（2026 年 1 月 12 日上线）。机制上：Owkin 做了 MCP 编码，让 Claude 把病理问题路由给 Owkin 的智能体，后者返回对患者组织图像的空间感知分析——细胞 / 组织分型、肿瘤微环境研究、生物标志物提取、队列生存分析。底层模型训练自 Owkin 那张 800 家医院 / 104 个中心的组织病理网络；上线材料没点名某个具体的公开 FM（Phikon、OwkinZero），所以确切的模型接线方式未披露。这种分发方式，把医院级病理 AI 直接塞进了每一条 Claude HCLS 工作流，而不是藏在 Owkin 自家的 SaaS 界面后面。</aside>
 
 ### Recursion Pharmaceuticals
 
-按扰动成像数据集规模计，最大的 AI 原生生物科技公司。**BioHive-2** 集群 + NVIDIA 合作让 Recursion 跻身算力资源较好的产业玩家之列。其数据护城河在成像一侧，而非模型一侧。盯着看合并后的表型组学平台（Recursion + Exscientia 于 2024 年合并）开始交付集成读出。
+按扰动成像数据集规模算，是最大的 AI 原生生物科技公司。**BioHive-2** 集群 + NVIDIA 合作，让 Recursion 跻身算力配置较好的工业玩家之列。它的数据护城河在成像那一侧，不在模型那一侧。盯着合并后的表型组学平台（Recursion + Exscientia 于 2024 年合并）何时开始交付整合读出。
 
 ### Insitro
 
-Daphne Koller 的公司。是由一位资深 ML 学者运营、与虚拟细胞相邻的生物科技公司的最清晰例子，其模型交付节奏比 Recursion 更保守，但与制药合作管线的整合更深。要关注的是临床阶段候选物，而非头条式的模型发布。
+Daphne Koller 的公司。一个由资深 ML 学者掌舵、与虚拟细胞相邻的生物科技公司里最干净的例子；它出模型的节奏比 Recursion 保守，但与药企合作管线的整合更深。要盯的是临床阶段的候选药物，而不是头条式的模型发布。
 
 ### Cellarity
 
-由 Flagship 孵化的公司，专门押注 **以细胞状态表征作为药物发现底料**。算力不及 Recursion，学术曝光度不及 Insitro，但其概念框架——对细胞状态建模、找到能把状态朝理想方向推动的化合物——是风险投资支持的生物科技中与虚拟细胞议程最契合的。
+Flagship 孵化的公司，专门押注**把细胞状态表征当作药物发现的底料**。算力不如 Recursion，学术能见度不如 Insitro，但它的概念框架——给细胞状态建模、找能把状态往理想方向推的化合物——在风投支持的生物科技里，是与虚拟细胞议程契合得最干净的一个。
 
 ### Latent Labs
 
-由 DeepMind 校友创立的英国生物科技公司，正在构建虚拟细胞 FM。处于早期；公开细节稀薄。值得关注，因为它是最早可识别的、把 DeepMind 蛋白 FM 打法拿到细胞尺度上应用的分拆公司之一，并带有 Arc（非营利）和 Isomorphic（聚焦药物）所不具备的创业商业化向量。
+英国生物科技公司，由 DeepMind 校友创立，在做虚拟细胞 FM。还很早，公开细节不多。值得关注，因为它是最早一批能叫得出名的分拆公司之一：把 DeepMind 的蛋白质 FM 打法搬到细胞尺度来用，还带着一个 Arc（非营利）和 Isomorphic（专注制药）都没有的创业商业化向量。
 
 ### Tahoe Therapeutics + Vevo
 
-这两家与 Arc 相邻 / 由 Arc 资助的初创公司，交付的是 Arc-CZ Biohub 虚拟细胞联盟的湿实验一侧。Tahoe 是 Tahoe-100M 扰动数据集背后的运营方；Vevo 则是"我们拿这底料做什么"的第二步戏。关注 Arc 的 GitHub，看这两家配合着交付什么。
+两家与 Arc 相邻 / 由 Arc 资助的初创，负责 Arc–CZ Biohub 虚拟细胞联盟里的湿实验那一侧。Tahoe 是 Tahoe-100M 扰动数据集背后的操盘手；Vevo 则是「拿到底料之后干什么」的第二步玩法。追 Arc 的 GitHub，就能看到这两家是怎么配合着出活的。
 
 ### Roche Tissue Diagnostics / NavigatorAI
 
-在位的内部制药病理 AI 玩法，在此作为反例收入：Paige、Owkin 和 Mahmood 是由风投或资助支持的，而 Roche 拥有已部署的临床病理足迹和一套诊断业务模式。随着病理纵向的整合（Modella → AstraZeneca，PathChat-Dx → FDA 突破性认定），Roche 内部就是衡量一个完全集成、由制药公司拥有的病理 AI 能力长什么样的基准。
+药企内部自研病理 AI 的那位在位者，放在这里当反例：Paige、Owkin、Mahmood 靠的是风投或经费，而 Roche 有一片已部署的临床病理足迹，还有一套诊断业务模式。随着病理这个垂直方向不断整合（Modella → AstraZeneca，PathChat-Dx → FDA 突破性认定），Roche 内部自研就是一个标尺：一套完全整合、由药企自有的病理 AI 能力，应该长成什么样。
 
 ### NVIDIA BioNeMo
 
-并非通常意义上交付模型的机构，而是越来越多的生物 FM 训练运行所经由的 **基础设施层** ——包括[JPM 2026 礼来–NVIDIA 10 亿美元 AI 共创实验室](aacr-and-other-conferences-2026-virtual-cells.md)。追踪 BioNeMo 的更新，就能知道 18 个月后默认训练栈会长什么样。
+通常意义上它不算一个出模型的机构，但它是越来越多生物 FM 训练流程要经过的**基础设施层**——包括 [JPM 2026 上礼来与 NVIDIA 的 10 亿美元 AI 协同创新实验室](aacr-and-other-conferences-2026-virtual-cells.md)。追 BioNeMo 的更新，就能知道 18 个月后默认的训练栈会长什么样。
 
 ---
 
-## 值得单独一提的生态与元组织
+## 还值得单列一笔的生态与元组织
 
-- **scverse**（Fabian Theis 等）—— Scanpy / AnnData / squidpy / scvi-tools。任何新 sc-FM 都得对照它来证明自己价值的经典工具底料。即便在 FM 浪潮之后，在评估论文里击败 sc-FM 的，仍是以 scverse 为根基的基线。
-- **Mostly AI / Open Problems 社区**（Daniel Burkhardt、Smita Krishnaswamy 等）—— Open Problems for Single Cell 联盟与 SC-Arena 并肩运行着最受尊重的社区基准。"Open Problems v2"框架已成为评估论文里的默认引用。
-- **Pertpy 维护者**（Lukas Heumos、Theis 团队）—— 这个扰动分析的 Python 框架已成为扰动预测评估工具的默认底料。Nature Methods 2025 的发表把它从"有用的库"提升为"标准参照"。
-- **awesome-virtual-cell**（Liudeng Zhang，本语料的源作者）—— 社区维护的虚拟细胞论文/工具索引。作为一个追踪源很有用，尤其在 AACR / JPM / ICLR 周期前后。
-- **Owl Posting + Eric Topol 的 substack** —— 关于制药 AI 商业化正在发生什么的有观点的追踪层，与实验室一侧的报道互补。读它是为了交易流以及 FDA / 监管的角度。
+- **scverse**（Fabian Theis 等）—— Scanpy / AnnData / squidpy / scvi-tools。任何新 sc-FM 都得拿它这套经典工具底料来证明自己。即便 FM 浪潮过后，在评测论文里打赢 sc-FM 的，依旧是这些扎根 scverse 的基线。
+- **Mostly AI / Open Problems 社区**（Daniel Burkhardt、Smita Krishnaswamy 等）—— Open Problems for Single Cell 联盟和 SC-Arena 一起，办着最受认可的社区基准。「Open Problems v2」这个提法，已经成了评测论文里的默认引用。
+- **Pertpy 维护者**（Lukas Heumos，Theis 组）—— 这个扰动分析的 Python 框架，已经成了扰动预测评测工具的默认底料。2025 年的 Nature Methods 论文，把它从「好用的库」抬升到了「标准参照」。
+- **awesome-virtual-cell**（Liudeng Zhang，本语料的源头作者）—— 社区维护的虚拟细胞论文 / 工具索引。当追踪源用很合适，尤其是在 AACR / JPM / ICLR 那几个节点前后。
+- **Owl Posting + Eric Topol 的 substack** —— 追踪药企 AI 商业化动向的一个有观点的层，正好补上实验室那一侧的覆盖。看交易流和 FDA / 监管角度，就读它们。
 
 ---
 
-## 怎样实际使用这份名单
+## 这份名单到底该怎么用
 
-一名在职研究者应当挑选 **3-5 个关注目标**，而不是 25 个。按你在意的东西，建议如下组合：
+一个干活的研究者应该挑 **3–5 个追踪对象**，而不是 25 个。按你在乎什么，给几组建议搭配：
 
-- **你在意作为研究计划的虚拟细胞** → Bunne、Theis、Regev、Arc、CZ Biohub。
-- **你在意 sc-FM 到底管不管用** → Ahlmann-Eltze（Isomorphic）、Open Problems 联盟、Bo Wang、Yeung-Levy、scverse。
-- **你在意病理 FM 与临床部署** → Mahmood、Paige.AI、Owkin、Microsoft-Providence、Roche。
-- **你在意与虚拟细胞相邻的蛋白 / 基因组 FM** → EvolutionaryScale、Isomorphic、Arc、Calico。
-- **你在意应用于生物学的智能体 AI** → Moor（MYRIAD）、Bo Wang（X-Cell）、BioMap（VCHarness）、Owkin（Claude 集成）。
-- **你在意制药 AI 的交易流而非方法** → Lilly + NVIDIA、AstraZeneca + Modella、Insitro、Recursion，外加 Owl Posting / Endpoints 作为追踪层。
+- **你在乎把虚拟细胞当成一项研究纲领** → Bunne、Theis、Regev、Arc、CZ Biohub。
+- **你在乎 sc-FM 到底好不好使** → Ahlmann-Eltze（Isomorphic）、Open Problems 联盟、Bo Wang、Yeung-Levy、scverse。
+- **你在乎病理 FM 与临床部署** → Mahmood、Paige.AI、Owkin、Microsoft-Providence、Roche。
+- **你在乎与虚拟细胞相邻的蛋白质 / 基因组 FM** → EvolutionaryScale、Isomorphic、Arc、Calico。
+- **你在乎应用于生物的智能体 AI** → Moor（MYRIAD）、Bo Wang（X-Cell）、BioMap（VCHarness）、Owkin（Claude 集成）。
+- **你在乎药企 AI 的交易流而非方法** → 礼来 + NVIDIA、AstraZeneca + Modella、Insitro、Recursion，再加上 Owl Posting / Endpoints 这个追踪层。
 
-贯穿这六种组合的模式：**学术锚点 + 交付 FM 的研究所 + 产业对应者**。这种三角定位——一个论文声音、一个交付模型的声音、一个产品/监管的声音——正是在虚拟细胞地图的任何子领域里能让你看到全貌的东西。
+六组搭配里都有一个共同的套路：**学术锚点 + 出模型的研究所 + 产业对应方**。这种三角定位——一个论文声音、一个出模型的声音、一个产品 / 监管的声音——才是让你在虚拟细胞地图任何一个子领域都看到全貌的关键。

@@ -1,161 +1,161 @@
 ---
-title: "AACR 之外——其余 2026 年会议为虚拟细胞故事添了什么"
-summary: "2026 年的虚拟细胞并非仅由 AACR 一家交付。JPM 给出了资金信号，AGBT 奠定了底料，ICLR 确立了方法，ISBI/ASCO 锚定了临床。一份关于七场最重要会议的综述。"
+title: "AACR 之外：2026 年其余几场会议，给虚拟细胞这条故事各添了什么"
+summary: "2026 年的虚拟细胞，不是 AACR 一家撑起来的。JPM 给的是钱的信号，AGBT 铺的是底料，ICLR 立的是方法，ISBI/ASCO 锚的是临床。这是对七场最要紧会议的一次盘点。"
 ---
 
-> *与 [AACR 2026 综述](aacr-2026-digest.md) 及 [人物与机构博客](people-and-institutes.md) 配套。AACR 综述讲的是 AACR 做了什么。本页讲的是其余各处：JPM、AGBT、ICLR、ISBI、scverse、single-cell-genomics，以及 AACR 之后的 ASCO 集群，添上了 AACR 没有的东西。*
+> *这一篇是[AACR 2026 摘要](aacr-2026-digest.md)和[人物与机构那篇](people-and-institutes.md)的配套。AACR 摘要讲的是 AACR 做了什么；这一页讲的是其它所有地方：JPM、AGBT、ICLR、ISBI、scverse、single-cell-genomics，以及 AACR 之后那一串 ASCO 会议，各自补上了 AACR 没顾上的那些。*
 
-## 对虚拟细胞至关重要的七场 2026 年会议
+## 2026 年对虚拟细胞要紧的七场会
 
-每场会议扮演的结构性角色都不同。读懂 2026 年最干净的方式，是并行追踪全部七场，而不是把任何一场当作权威。
+每场会扮演的结构性角色都不一样。读懂 2026 年最干净的办法，是把这七场并排着追，而不是把哪一场当成唯一权威。
 
-| # | 会议 | 日期 | 它确立了什么 | 关键头条 |
+| # | 会议 | 时间 | 它定下了什么 | 头条 |
 |---|---|---|---|---|
-| 1 | **JPM 2026** | 1 月 12–15 日，SF | 资金信号 | Lilly + NVIDIA 10 亿美元；AstraZeneca 收购 Modella AI |
-| 2 | **AGBT 2026** | 2 月 22–25 日，Marco Island | 数据底料 | 10x Atera, Roche Axelios, Element Vitari, Ultima UG200 |
-| 3 | **ICLR 2026** | 4 月 23–27 日，Rio | 方法 | LMRL + MLGenX + Gen² + GEM workshop；AlphaGenome、Evo 2、Generative VC 论文 |
-| 4 | **ISBI 2026** | 4 月 8–11 日，Athens | 影像底料 | 病理 + 空间 FM 基准 |
-| 5 | **scverse 2025** | 8 月 25–28 日，Heidelberg | 生态系统 | Pertpy, scvi-tools v2, AnnData v0.11 |
-| 6 | **Single Cell Genomics 2026** | 5 月 10–15 日 GRC + 6 月 10–12 日 Wellcome | 社区 | CZI VCC 首批结果初窥；CELLxGENE v3 |
-| 7 | **ASCO GI / GU 2026** | 1 月 8–10 日 / 2 月 26–28 日 | 临床信号 | 试验读出中首批 FM 衍生的生物标志物 |
+| 1 | **JPM 2026** | 1 月 12–15 日，旧金山 | 钱的信号 | Lilly + NVIDIA 10 亿美元；AstraZeneca 收购 Modella AI |
+| 2 | **AGBT 2026** | 2 月 22–25 日，Marco Island | 数据底料 | 10x Atera、Roche Axelios、Element Vitari、Ultima UG200 |
+| 3 | **ICLR 2026** | 4 月 23–27 日，里约 | 方法 | LMRL + MLGenX + Gen² + GEM 工作坊；AlphaGenome、Evo 2、Generative VC 论文 |
+| 4 | **ISBI 2026** | 4 月 8–11 日，雅典 | 影像底料 | 病理 + 空间 FM 基准 |
+| 5 | **scverse 2025** | 8 月 25–28 日，海德堡 | 生态系统 | Pertpy、scvi-tools v2、AnnData v0.11 |
+| 6 | **Single Cell Genomics 2026** | 5 月 10–15 日 GRC + 6 月 10–12 日 Wellcome | 社区 | CZI VCC 的初看结果；CELLxGENE v3 |
+| 7 | **ASCO GI / GU 2026** | 1 月 8–10 日 / 2 月 26–28 日 | 临床信号 | 试验读出里首批 FM 衍生生物标志物 |
 
-模式是：AACR 是 2026 年虚拟细胞的**舞台**，但**底料**（AGBT）、**方法**（ICLR）、**资金**（JPM）和**临床证据点**（ASCO）全都流经其他场所。把 AACR 当作故事的全部，就会错过为它供料的上游管线，以及评判它的下游漏斗。
-
----
-
-## 1. JPM 2026——虚拟细胞成了一道药企资本配置的问题
-
-JPM 2026 上对虚拟细胞最具后果的单一公告，是 **[Lilly + NVIDIA 10 亿美元 AI 协同创新实验室](https://investor.lilly.com/news-releases/news-release-details/nvidia-and-lilly-announce-co-innovation-ai-lab-reinvent-drug)**（第 1 天，1 月 12 日周一）——它被明确定位为 JPM 上有史以来宣布的规模最大的药企–AI 基础设施承诺，以 **NVIDIA BioNeMo + Vera Rubin 算力** 为底料。信号的重点不在头条上的美元数字，而在于 *钱花到哪里*：在一家前三大药企内部为自研 FM 开发配置专用 GPU 容量，而不再继续依赖学界发布或模型即服务的供应商。
-
-<aside class="qa" data-q="1"><b>关于"NVIDIA BioNeMo"的提问：</b> 我们需要了解更多。</aside>
-
-<aside class="qa-reply" data-q="1"><b>答：</b> BioNeMo 是 NVIDIA 的生物分子 FM 技术栈：开源的 BioNeMo Framework（在 NVIDIA GPU 上训练 + 微调）外加用于部署的 BioNeMo NIM 微服务。开箱即用，它打包了一批覆盖虚拟细胞相邻面的预训练模型——ESM 家族蛋白、MolMIM / DiffDock 风格的小分子、单细胞（Geneformer 移植版）以及基因组编码器。对 Lilly 的意义在于：搭配 Vera Rubin 算力，它给一支药企内部团队提供了一条交钥匙路径，可在专有数据上重训或蒸馏这些模型，而不必苦等 Arc / EvolutionaryScale / 学界发布，也不必按调用次数向模型即服务的供应商付费。</aside>
-
-次具后果的，是 **AstraZeneca 对 Modella AI 的收购**（第 2 天，1 月 13 日周二）——业内媒体将其描述为大型药企首次收购一家以肿瘤学多模态基础模型为目标的 AI 公司。第 2 天的定调是：AI 不再是药企去 *合作* 的东西；它成了药企 *拥有* 的东西。
-
-这对虚拟细胞计划意味着三个结构性变化：
-
-- **"FM 出品机构"层级如今正与药企内部团队竞争。** Arc、CZ Biohub、EvolutionaryScale、BioMap——它们每一家如今都得论证：为什么自己的开放权重发布会比 Lilly 在 BioNeMo + Vera Rubin 技术栈上内部所能造出来的更好。
-- **病理垂直领域正在整合。** Modella → AstraZeneca，再加上 2025 年早些时候的 [PathChat-DX FDA 突破性器械](https://paige.ai/) 认定，意味着独立的病理 FM 初创公司如今面对一个明确的并购参考价。
-- **合规与 ROI 才是当下鲜活的话题。** Alex Hogan 的 STATus Report，以及 Hogan Lovells 关于 AI 合规 + BIOSECURE 的论述，全都汇聚到同一种定调：AI 是"入场底牌"，话题已从 *你会不会做 AI* 转向 *给我们看 ROI 和合规故事*。
-
-值得一提的反向信号是：**Regeneron 的 George Yancopoulos** 在第 4 天公开质疑当前 AI 在医学中的应用——这是会上最显赫的科学声音对 AI 极端主义的反击。把 Yancopoulos 的审慎与 Ahlmann-Eltze 的批评路线并置：这个领域两位最善于表达的怀疑者，如今分别身处美国最大的生物技术公司和 DeepMind 的商业分拆机构。这场清算既有论文背书，也有机构背书。
-
-具体到虚拟细胞议程：JPM 2026 *并没有* 交付任何一笔贴着虚拟细胞标签的交易。没有 Cellarity 收购，没有 Recursion 巨额交易，没有 Insitro IPO。其含义是，这个领域尚未进入交易阶段——它仍处于 *基础设施* 与 *人才收购* 的阶段。JPM 2027 才是值得关注首笔以虚拟细胞为锚的并购或许可事件的那个周期。
+规律是这样：2026 年 AACR 是虚拟细胞的**舞台**，但**底料**（AGBT）、**方法**（ICLR）、**钱**（JPM）、以及**临床证明点**（ASCO），全都是从别的场子里流出来的。把 AACR 当成故事全貌，就漏掉了喂养它的上游管线，也漏掉了评判它的下游漏斗。
 
 ---
 
-## 2. AGBT 2026——其余一切赖以运行的底料刷新
+## 1. JPM 2026——虚拟细胞成了一道药企的资本配置题
 
-AGBT（Marco Island，2 月 22–25 日）是测序平台与空间基因组学的展示场，而 2026 年是个异常密集的发布大年。在 AGBT 下游出货的平台直接决定了虚拟细胞社区能拿到什么数据来建模。
+JPM 2026 对虚拟细胞最有分量的一条公告，是 **[Lilly + NVIDIA 10 亿美元 AI 协同创新实验室](https://investor.lilly.com/news-releases/news-release-details/nvidia-and-lilly-announce-co-innovation-ai-lab-reinvent-drug)**（第一天，1 月 12 日周一）——它被明确框定为 JPM 上有史以来宣布的最大一笔药企-AI 基础设施承诺，底座是 **NVIDIA BioNeMo + Vera Rubin 算力**。这个信号的要害不在那个抢眼的金额，而在*钱往哪儿花*：是在一家排名前三的药企内部，给自研 FM 拨出专用 GPU 产能，而不是继续仰仗学界的开源发布或者按调用收费的模型即服务厂商。
 
-对虚拟细胞最重要的 2026 年发布：
+<aside class="qa" data-q="1"><b>关于「NVIDIA BioNeMo」的提问：</b>这块我们得再多了解些。</aside>
 
-- **10x Genomics Atera**——单一平台上的 18k 基因全转录组扩增 + 可叠加的 1k 基因 panel；仪器 49.5 万美元，试剂约 2,200 美元/样本。AGBT 上做了路线图预览；*2026 年 4 月 AACR 正式发布*。这是 10x 首个把 Visium-HD 式的 WTA 广度与 Xenium 式的靶向 panel 分辨率合并进单一工作流的平台——它直接支撑了 Bunne / Yeung-Levy 在 AACR ED03 演讲中论证该领域所需的那种多模态 H&E + 空间转录组数据。
-- **Roche Axelios 1**——150 美元的 30× 人类基因组（duplex），仪器 75 万美元，2026 年夏季正式发布。Element 与 Complete Genomics 一直在推的每基因组成本下限，终于触及了让扰动实验的图谱级重测序成为常规操作的水平。
-- **Element Biosciences VITARI**——100 美元基因组，每次运行 100 亿读段，3 TB 产出，标价 68.9 万美元。这是让单一实验室建图谱在经济上变得可行的价位点。
-- **Ultima Genomics UG200 / UG200 Ultra**——Q60 ppmSeq duplex；Ultra 上每周 162 Tb，125 万美元。这是超大规模式图谱运作所需的吞吐层级。
-- **Singular G4X Spatial Sequencer**——500-plex RNA + 18-plex 蛋白 + H&E 等价物，每样本约数百美元。这个平台以学界社区真正负担得起的价位点，把 Bunne 的"空间蛋白质组学作为 FM 底料"论点付诸实施。
-- **Bruker CellScape（空间蛋白质组学）+ PaintScape（3D）+ CosMx mouse WT**——在空间蛋白质组学层级上的直接竞争回应；CosMx 小鼠全转录组 + 64 种蛋白，是首台让小鼠扰动社区能规模化构建空间多模态数据集的仪器。
-- **Stellaromics Pyxa**——首台 3D 空间成像仪；AGBT 首秀。下一代虚拟细胞底料将需要建模的那个新维度。
+<aside class="qa-reply" data-q="1"><b>答：</b>BioNeMo 是 NVIDIA 的生物分子 FM 技术栈：开源的 BioNeMo Framework（在 NVIDIA GPU 上做训练 + 微调），加上用于部署的 BioNeMo NIM 微服务。开箱即用地打包了一批覆盖虚拟细胞周边的预训练模型——ESM 一族的蛋白、MolMIM / DiffDock 那一路的小分子、单细胞（Geneformer 移植版），还有基因组编码器。它对 Lilly 的意义在于：配上 Vera Rubin 算力，就给一支药企内部团队一条「拿专有数据把这些模型重训或蒸馏」的开箱即用路径，不必再等 Arc / EvolutionaryScale / 学界发布，也不必按次给模型即服务厂商付钱。</aside>
 
-这对虚拟细胞意味着：**底料不再是瓶颈**。这个领域在 2024 年告诉自己所需要的数据（细胞图谱级的多模态空间数据、配对的影像 + 转录组、扰动级重测序），正于 2026 年在商业平台上、以学界实验室负担得起的价位点出货。瓶颈从"我们有没有数据"转移到"我们有没有真正能利用它的模型"——这正是 AACR ED03 全体大会所确立的定调。
+第二有分量的，是 **AstraZeneca 收购 Modella AI**（第二天，1 月 13 日周二）——业内媒体形容它是大药企首次收购一家专攻肿瘤学多模态基础模型的 AI 公司。第二天的定调是：AI 不再是药企去*合作*的东西，而是药企要*拥有*的东西。
+
+这对虚拟细胞计划意味着三处结构性变化：
+
+- **「发 FM 的研究所」这一档，如今要和药企的内部团队正面竞争了。** Arc、CZ Biohub、EvolutionaryScale、BioMap——它们现在每一家都得论证：为什么自家这个开放权重的发布，会比 Lilly 在 BioNeMo + Vera Rubin 栈上内部能造出来的更好。
+- **病理这条垂直线在整合。** Modella 归了 AstraZeneca，再加上 2025 年早些时候 [PathChat-DX 的 FDA 突破性器械](https://paige.ai/)认定，意味着独立的病理-FM 创业公司，如今要面对一个明摆着的并购参考价了。
+- **合规和 ROI 成了当下的活话题。** Alex Hogan 的 STATus Report、Hogan Lovells 谈 AI 合规 + BIOSECURE，统统收敛到同一个定调上：AI 已是「入场底牌」，对话从*你会不会做 AI*，转成了*把 ROI 和合规的故事拿给我们看*。
+
+值得一记的反向信号：**Regeneron 的 George Yancopoulos** 在第四天公开质疑当前 AI 在医学里的应用——是这场会上最有分量的、对 AI 至上论唱反调的科学声音。把 Yancopoulos 的审慎和 Ahlmann-Eltze 那条批评线放在一起看：这个领域两位最能言善辩的怀疑者，如今分别身处美国最大的生物技术公司、和 DeepMind 的商业衍生公司内部。这场清算既有论文撑腰，也有了机构撑腰。
+
+具体到虚拟细胞议程：JPM 2026 *并没有*交出哪怕一桩贴着「虚拟细胞」标签的交易。没有 Cellarity 被收购，没有 Recursion 的巨额交易，没有 Insitro 上市。言下之意是：这个领域还没走到「成交」的阶段——它还停在*基础设施*和*抢人*的阶段。JPM 2027 才是那个该盯着的周期，看会不会出现首桩以虚拟细胞为锚的并购或授权事件。
 
 ---
 
-## 3. ICLR 2026——方法真正所在之处
+## 2. AGBT 2026——其它一切都跑在上面的那次底料刷新
 
-ICLR（Rio，4 月 23–27 日）是 AACR 海报厅下游所对应的方法场所。ICLR 2026 的生物足迹比 ICML 2026 更密集——四个明确的生物 workshop，外加第五个含大量生物子集的科学 FM workshop：
+AGBT（Marco Island，2 月 22–25 日）是测序平台和空间基因组学的橱窗，而 2026 年是个发布异常密集的年份。在 AGBT 下游出货的那些平台，直接决定了虚拟细胞社区能拿到什么数据去建模。
 
-- **LMRL**（Learning Meaningful Representations of Life）——面向基因组学、单细胞、空间的基础模型；虚拟细胞作为头条定调。在 ICLR 与 NeurIPS 反复举办。
-- **MLGenX**（第 3 届）——"From Reasoning to Experimentation: Closing the Loop Between AI Agents and the Biological Lab"——靶点鉴定、扰动推理、BRChallenge 智能体基准。
-- **Gen² / Gen2**——蛋白质科学中的定向进化；细胞与组织状态的工程化。首届。
-- **GEM**——蛋白、配体、核酸、细胞；连接计算生物学与实验生物学。
-- **FM4Science**——面向气候、材料、生物学的问题驱动型 FM；生物子集在范围内。
+2026 年对虚拟细胞最要紧的几次发布：
 
-ICLR 2026 中三个承重的虚拟细胞结果：
+- **10x Genomics Atera**——单一平台上同时做 1.8 万基因的全转录组扩增 + 可叠加的 1,000 基因 panel；仪器 49.5 万美元，试剂约 2,200 美元/样本。AGBT 上做了路线图预览，*正式发布在 2026 年 4 月的 AACR*。这是 10x 头一个把 Visium-HD 式的全转录组广度和 Xenium 式的靶向 panel 分辨率合进一条工作流的平台——它直接成全了 Bunne / Yeung-Levy 在 AACR ED03 演讲里所说、领域所需的那种「H&E + 空间转录组」多模态数据。
+- **Roche Axelios 1**——150 美元跑一份 30× 人类基因组（duplex），仪器 75 万美元，2026 年夏正式发布。Element 和 Complete Genomics 一直在压的每基因组成本下限，终于压到了「图谱尺度地把扰动实验重测序」成为常规操作的水平。
+- **Element Biosciences VITARI**——100 美元一份基因组，每次运行 100 亿读长，3 TB 产出，标价 68.9 万美元。这是让「单实验室建图谱」在经济上可行的那个价位。
+- **Ultima Genomics UG200 / UG200 Ultra**——Q60 ppmSeq duplex；Ultra 版每周 162 Tb，125 万美元。这是超大规模式图谱运营所需的那一档吞吐。
+- **Singular G4X Spatial Sequencer**——500 重 RNA + 18 重蛋白 + 等效 H&E，约几百美元/样本。这是把 Bunne「空间蛋白组学即 FM 底料」论点落地的平台，价位还落在学术社区真掏得起的区间。
+- **Bruker CellScape（空间蛋白组学）+ PaintScape（3D）+ CosMx 小鼠 WT**——空间蛋白组学这一档里的正面竞争回应；CosMx 小鼠全转录组 + 64 种蛋白，是头一台让小鼠扰动社区能规模化构建空间多模态数据集的仪器。
+- **Stellaromics Pyxa**——首台 3D 空间成像仪；AGBT 首秀。这是下一代虚拟细胞底料将要去建模的那个新维度。
+
+这对虚拟细胞意味着什么：**底料不再是瓶颈了。** 这个领域 2024 年告诉自己所需的那些数据（细胞图谱尺度的多模态空间、配对的影像 + 转录组、扰动尺度的重测序），到 2026 年都在商业平台上出货了，价位还落在学术实验室掏得起的区间。瓶颈就此从「我们有没有数据」挪到了「我们有没有真能用上这些数据的模型」——而这恰恰是 AACR ED03 全体大会定下的那个框。
+
+---
+
+## 3. ICLR 2026——方法真正栖身的地方
+
+ICLR（里约，4 月 23–27 日）是 AACR 海报厅的上游、那个方法的场子。ICLR 2026 的生物足迹比 ICML 2026 还密——四个明确的生物工作坊，外加第五个带相当大一块生物子集的科学-FM 工作坊：
+
+- **LMRL**（Learning Meaningful Representations of Life）——面向基因组、单细胞、空间的基础模型；以虚拟细胞为头条定调。在 ICLR 和 NeurIPS 上循环出现。
+- **MLGenX**（第 3 届）——「从推理到实验：闭合 AI agent 与生物实验室之间的环路」——靶点识别、扰动推理、BRChallenge agent 基准。
+- **Gen² / Gen2**——蛋白科学里的定向进化；工程化细胞与组织状态。首届。
+- **GEM**——蛋白、配体、核酸、细胞；架起计算与实验生物学之间的桥。
+- **FM4Science**——面向气候、材料、生物的问题驱动型 FM；生物子集在范围内。
+
+ICLR 2026 三个承重的虚拟细胞结果：
 
 ### AlphaGenome（Nature 2026，在 ICLR + LMRL 上展示）
 
-Isomorphic / DeepMind 的基因组 FM，在标准基准套件上取得 **25/26 项变异效应胜出**。LMRL 会场上的头条定调是：AlphaGenome 在轨迹预测上的胜出，实际上终结了 Evo 2 重新挑起的"上下文学习对基因组 FM 是否仍可行"之争——至少在下一个 Evo 发布之前如此。与 Calico 的 Borzoi 工作并看，可得 2026 年基因组 FM 的全貌。
+Isomorphic / DeepMind 的基因组 FM，在标准基准套件上**赢下 26 项里的 25 项变异效应**。LMRL 会场上的头条定调是：AlphaGenome 在轨道预测上的胜出，等于给 Evo 2 重新挑起的那场「上下文学习对基因组 FM 还行不行得通」的争论画上了句号——至少撑到下一个 Evo 版本之前。再配上 Calico 的 Borzoi 工作，2026 年基因组-FM 的全貌就齐了。
 
-### Evo 2（Arc Institute，ICLR + 多个 workshop）
+### Evo 2（Arc Institute，ICLR + 多个工作坊）
 
-Arc Institute 的 70 亿以上参数的基因组 FM，训练算力约为 6×10²³ FLOPs，开放权重。它是最可信的非 DeepMind 基因组 FM，也是后 AlphaGenome 文献将要拿来对比的对象。ICLR 会场上有趣的争论是：如果 Isomorphic 以每次查询显著更低的成本推出 AlphaGenome 即服务，开放权重的姿态是否还能存续。
+Arc Institute 那个 70 亿参数以上的基因组 FM，训练算力在 6×10²³ FLOPs 量级，开放权重。它是最有分量的非-DeepMind 基因组 FM，也是后-AlphaGenome 文献将要拿来对照的那个。ICLR 会场上有意思的争论是：要是 Isomorphic 把 AlphaGenome 做成「服务」、每次查询成本明显更低，那 Evo 2 的开放权重姿态还撑不撑得住。
 
-### Generative Virtual Cells（Lewis & Zueco，Gen² workshop）
+### Generative Virtual Cells（Lewis & Zueco，Gen² 工作坊）
 
-一篇立场加概念验证的论文，提出一个 **协同进化框架**：虚拟细胞世界模型与扰动规划器在内外两个时间尺度上联合适配，并以验证门控的架构搜索为基础。相对 Arc 的 STATE（生产规模上最接近的对照）的区分点在于 *验证门控下的联合适配*，而非在冻结的 Tahoe-100M 快照上离线训练。
+一篇立场加概念验证的论文，提出一个**协同演化框架**：一个虚拟细胞世界模型和一个扰动规划器，在内、外两套时标上联合自适应，并以验证为闸门来做架构搜索。它和 Arc 的 STATE（最接近的产线级类比）的区别在于*验证闸门下的联合自适应*，而不是在一份冻结的 Tahoe-100M 快照上做离线训练。
 
-Lewis & Zueco 的定调——"世界模型 + 规划器，在验证门控下联合适配"——正是 AACR-2027 虚拟细胞库应当预期在 6–12 个月内开始从 Cradle、Recursion、Insitro 涌现出来的架构模式。这是关于下一代虚拟细胞系统去向的、当前最明确的一张地图。
+Lewis & Zueco 的那套定调——「世界模型 + 规划器，在验证闸门下联合自适应」——正是那种架构范式：AACR-2027 虚拟细胞库应当预期，它会在 6–12 个月内开始从 Cradle、Recursion 和 Insitro 里冒出来。这是当下对下一代虚拟细胞系统去向的、最明确的一张地图。
 
-外加一长串横跨 MLGenX、GEM、LMRL 的生物 FM workshop 论文——具体到面向空间 / 单细胞 / 病理子集的 **多模态基础模型**，NeurIPS 2025 LMRL 更丰富；ICLR 2026 则在 **智能体回路与生成式虚拟细胞** 这条轴上更强。
+此外还有一长尾的生物-FM 工作坊论文，散在 MLGenX、GEM 和 LMRL 里——具体到面向空间 / 单细胞 / 病理的那个**多模态基础模型**子集，NeurIPS 2025 的 LMRL 更丰富；ICLR 2026 则在 **agent 环路与生成式虚拟细胞**这条轴上更强。
 
 ---
 
 ## 4. ISBI 2026——病理 FM 的影像底料
 
-ISBI（Athens，4 月 8–11 日）是锚定病理 FM 子领域的影像方法场所。ISBI 2026 贡献了：
+ISBI（雅典，4 月 8–11 日）是锚住病理-FM 子领域的那个影像方法场子。ISBI 2026 贡献了：
 
-- 关于 **Virchow2 / Virchow2G**（现已达 18.5 亿参数；当前病理 FM 的上限）以及作为开放权重基准竞争者的 **UNI2-h** 的工具线论文。
-- 在罕见病与儿科病理数据集上对病理 FM 的直接评估——这是大队列学界 FM 系统性表现欠佳的那一片领域。
-- 一年一度的 MICCAI 相邻基准刷新——2026 年余下时间里每一篇病理 FM 论文都要据以评估的对象。
+- 围绕 **Virchow2 / Virchow2G**（现已到 18.5 亿参数；当前病理-FM 的天花板）和 **UNI2-h**（开放权重的基准竞争者）的工具线论文。
+- 在罕见病和儿科病理数据集上对病理 FM 的直接评估——这正是大队列学术 FM 系统性表现不佳的那一块。
+- 一年一度、与 MICCAI 相邻的基准刷新——2026 年余下时间里每一篇病理-FM 论文都要拿它来评。
 
-具体就病理 FM 而言，ISBI 是仅次于 Mahmood 实验室自身 Nature 出版物的第二重要会议。对虚拟细胞议程而言，ISBI 之所以重要，是因为 **Bunne 正在推动的多模态 H&E + 空间蛋白质组学方向** 取决于病理 FM 技术栈是否足够成熟、能充当骨干——而 ISBI 正是评判这种成熟度的场所。
-
----
-
-## 5. scverse 2025——生态系统层
-
-scverse（Heidelberg，2025 年 8 月下旬；**正是 2025 年这一届锚定了 2026 年的底料故事**）是 Scanpy / AnnData / squidpy / scvi-tools 生态系统的社区会议。2025 年这批发布——包括从有用的库跃升为 Nature-Methods 发表标准的 **pertpy**、**scvi-tools v2**、以及 **AnnData v0.11**——成了 2026 年每一篇单细胞 FM 论文借以评估的底料。
-
-scverse 2025 对虚拟细胞而言有趣的叙事，是那条在多场主旨演讲中反复出现的明确定调：**下一阶段不是更大的 FM，而是把 FM 更好地集成进既有的 scverse 管线**。这是 Theis 2026 年 Cell Systems 论点的操作版本：不要用一个庞然一体的 sc-FM 去替换 scvi-tools，而要把 FM 当作管线其余部分可以使用的一个组件。
-
-2026 年的 scverse 会议（8 月 25–28 日，地点待定）将是首波"FM 作为组件"集成工具落地之处。值得在日历上标记。
+具体到病理 FM，ISBI 是第二重要的会议（仅次于 Mahmood 组自己那些 Nature 论文）。对虚拟细胞议程而言，ISBI 之所以要紧，是因为 **Bunne 在推的那个「H&E + 空间蛋白组学」多模态方向**，要靠病理-FM 栈成熟到能当骨干才行——而 ISBI 正是评判这份成熟度的场子。
 
 ---
 
-## 6. Single Cell Genomics 2026——首批 VCC 结果走入现实
+## 5. scverse 2025——生态系统这一层
 
-单细胞社区在 2026 年有两场并行的"Single Cell Genomics"会议：**GRC**（5 月 10–15 日）与 **Wellcome / Sanger** 版（6 月 10–12 日）。两者都以相对封闭、重演讲的形式举办，没有海报的批量发表，这意味着本综述的底料是后续的业内媒体报道而非一手记录。
+scverse（海德堡，2025 年 8 月底；**正是 2025 这一届，锚住了 2026 年的底料故事**）是 Scanpy / AnnData / squidpy / scvi-tools 生态的社区会议。2025 那一批发布——包括 **pertpy** 从一个好用的库升格成发了 Nature Methods 的标准、**scvi-tools v2**、以及 **AnnData v0.11**——成了 2026 年每一篇单细胞-FM 论文据以被评判的那块底料。
 
-三件值得关注的事：
+scverse 2025 对虚拟细胞有意思的那条叙事，是一个被多场主旨演讲反复点出的明确定调：**下一阶段不是更大的 FM，而是把 FM 更好地整合进现有的 scverse 流水线。** 这是 Theis 2026 那篇 Cell Systems 论点的操作版：与其拿一个庞然大物式的 sc-FM 去替掉 scvi-tools，不如把 FM 当成流水线其余部分能调用的一个组件。
 
-- **Virtual Cell Challenge（VCC）首批结果初窥**，来自 CZI 竞赛——超出最初 Cell 论文公告之外的排行榜条目。VCC 在启动时被定调为该领域首个带留出评估的基准；GRC 与 Wellcome 活动是首波竞争者交流情报之处。
-- **CELLxGENE v3** 更新与 HCA 图谱发布——下一代 sc-FM 借以训练的底料刷新。
-- **Bo Wang 的 X-Cell** 与 BioMap 的 **VCHarness** 正面对决——这两个领先的"围绕 sc-FM 的智能体封装"系统，都在 AACR 2026 上被预告过，但都还没有一篇完整的正面对决论文。SCG 会议是首次对比最可能出现的场所。
+2026 年的 scverse 会议（8 月 25–28 日，地点待定）将是头一波「FM 即组件」整合工具落地的地方。值得在日历上记一笔。
 
 ---
 
-## 7. ASCO GI / GU 2026——临床信号漏斗
+## 6. Single Cell Genomics 2026——首批 VCC 结果出现在野外
 
-两场年初的 ASCO 子会议——**ASCO GI**（1 月 8–10 日）与 **ASCO GU**（2 月 26–28 日）——是 AI 衍生的生物标志物工作必须从"漂亮的多模态模型"走向"有区分度的试验读出"的场所。2026 年这两届都有明显增多的 *FM 衍生生物标志物* 海报足迹——并不抢头条，但与病理 FM 衍生的分层评分开始作为探索性终点出现在试验队列中的轨迹相符。
+单细胞社区 2026 年有两场并行的「Single Cell Genomics」会议：**GRC**（5 月 10–15 日）和 **Wellcome / Sanger** 那一届（6 月 10–12 日）。两场都办成相对封闭、以演讲为主、不批量发表海报的会，这意味着这份摘要的底料是事后的业内媒体写稿，而非一手记录。
 
-具体需要关注的模式：在那些用 **病理 FM**（UNI、Virchow2、CHIEF）对回顾性队列做分层、并把 AI 衍生评分与主要终点一同报告的试验。ASCO GI 2026 有 2-3 项这样的读出；ASCO GU 2026 有 4-5 项。ASCO 2026 主会（5 月 29 日–6 月 2 日）预计会有显著更多。
+三件值得盯着的事：
 
-更宏观的信号是：AI 生物标志物正成为肿瘤学试验中的一项 *标准探索性分析*，而不仅是方法学故事。这种扩散从首批 PathChat / UNI 出版物算起花了约 4 年，这与 AlphaFold 衍生的靶点类别出现在临床管线披露中所花的扩散时间线相同。对细胞 FM 一侧也要为同样的扩散滞后做规划：首批细胞 FM 衍生的分层评分进入注册性试验，大约在 2030 年前后。
-
----
-
-## 把这七场串起来的是什么——2026 年虚拟细胞的成熟度曲线
-
-并行通读全部七场 2026 年场所，提示该领域正处于其成熟度曲线上的一个特定点：
-
-- **底料已解决。** AGBT 2026 出货了平台；除空间蛋白质组学外（AGBT 也在平台层级上有所应对），数据可获得性瓶颈大体已过。
-- **方法正在多样化。** ICLR 2026 主办了四个生物 workshop；后 AACR 清算的文献已从"把 sc-FM 做大"转向一组方法的组合——flow matching、智能体封装、协同进化回路、模块化组合、机制感知组件。
-- **资金正在整合。** JPM 2026 标志着从合作到收购的转变；药企–AI 能力正在最大的公司内部化。
-- **社区仍处于基准收敛之前。** scverse 与 SCG 2026 揭示，该领域有多个相互竞争的基准（VCC、SC-Arena、scPerturBench、Open Problems v2、PertEval-scFM），对哪个才是正典尚无共识。
-- **临床读出尚早但已起步。** ASCO GI / GU 2026 有了首波探索性 FM 衍生生物标志物报告；ASCO 2026 主会与 ESMO 2026 将是更大队列的检验。
-- **舞台与海报在评估上的落差是悬而未决的问题。** AACR 全体大会讲者把约 40% 的舞台时间花在评估上；AACR 海报厅几乎没出货任何与之相关的东西。SCG / scverse 上是同样的模式——操作型社区在出货能力；学界社区在出货批评；二者的整合是 2027 年的工作。
-
-诚实的总结是：2026 年是 **虚拟细胞计划不再是单一研究社区**、转而成为一个 **多场所、多底料、多利益相关方的计划** 的一年——你已无法靠读一本期刊或参加一场会议来追踪它。故而有了这份 paper map。
+- **虚拟细胞挑战赛（VCC）的初看结果**，来自 CZI 那场竞赛——超出最初那篇 Cell 论文公告的排行榜条目。VCC 在发布时被定调为该领域首个带留出评估的基准；GRC 和 Wellcome 这两场，就是头一波参赛者互相对底的地方。
+- **CELLxGENE v3** 更新与 HCA 图谱发布——下一代 sc-FM 据以训练的那次底料刷新。
+- **Bo Wang 的 X-Cell** 和 BioMap 的 **VCHarness** 正面对垒——这是两个领跑的「围着 sc-FM 套 agent 壳子」的系统，两者都在 AACR 2026 上吊足了胃口，却都还没有一篇完整的正面对比论文。SCG 这两场会，是首次对比最可能出现的场子。
 
 ---
 
-## 接下来读什么（本语料内）
+## 7. ASCO GI / GU 2026——临床信号的漏斗
 
-- **[AACR 2026 综述](aacr-2026-digest.md)**——同一故事中专属 AACR 的切面。
-- **[值得关注的人物与机构](people-and-institutes.md)**——谁在这些场所出货的领域地图。
-- **[基础模型全景现状](foundation-models-state-of-play.md)**——2026 年各场所要么基于、要么评估的那 27 份 FM 卷宗。
-- **[为什么线性基线会赢](why-linear-baselines-win.md)**——清算正典的方法学背景。
-- **[评估论文目录](evaluation-papers-catalog.md)**——为舞台-海报落差供料的 11+1 篇评估论文。
+两场年初的 ASCO 子会议——**ASCO GI**（1 月 8–10 日）和 **ASCO GU**（2 月 26–28 日）——是 AI 衍生生物标志物工作必须从「一个不错的多模态模型」走向「一个有区分度的试验读出」的场子。两场 2026 届都明显多出了一批 *FM 衍生生物标志物*的海报——不算抢眼，但和「病理-FM 衍生的分层评分开始作为探索性终点出现在试验队列里」这条轨迹是吻合的。
+
+具体要盯的范式是：那些用一个**病理 FM**（UNI、Virchow2、CHIEF）去对回顾性队列做分层、并把 AI 衍生评分和主要终点一并报出的试验。ASCO GI 2026 有 2–3 个这样的读出；ASCO GU 2026 有 4–5 个。ASCO 2026 主会（5 月 29 日–6 月 2 日）预计会多得多。
+
+更大的信号是：AI 生物标志物正在成为肿瘤学试验里的一种*标准探索性分析*，而不只是一个方法学故事。这种扩散从首批 PathChat / UNI 论文算起花了约 4 年——和 AlphaFold 衍生靶点类别出现在临床管线披露里的扩散时程一样长。在细胞-FM 这一侧，也该按同样的扩散滞后来规划：首批细胞-FM 衍生的分层评分出现在注册性试验里，大约要到 2030 年前后。
+
+---
+
+## 把这七场串起来的，是什么——2026 年虚拟细胞的成熟度曲线
+
+把七场 2026 年的会并排着读一遍，提示这个领域正落在它成熟度曲线上的一个具体位置：
+
+- **底料已解决。** AGBT 2026 把平台出货了；除了空间蛋白组学（AGBT 也在平台一档上处理了），数据可得性这道瓶颈基本算过去了。
+- **方法在分化。** ICLR 2026 办了四个生物工作坊；后-AACR-清算的文献已从「把 sc-FM 堆大」转向一组打法的组合——流匹配、agent 壳子、协同演化环路、模块化组合、机理感知组件。
+- **钱在整合。** JPM 2026 标记了从合作到收购的转向；药企的 AI 能力正在最大的几家公司里往内部收。
+- **社区还没到基准收敛。** scverse 和 SCG 2026 暴露出，这个领域有多个互相竞争的基准（VCC、SC-Arena、scPerturBench、Open Problems v2、PertEval-scFM），对哪个才是正典还没有共识。
+- **临床读出虽早，但已经开始。** ASCO GI / GU 2026 出了头一波探索性的 FM 衍生生物标志物报告；ASCO 2026 主会和 ESMO 2026 将是更大队列的检验。
+- **评估上的「舞台 vs 海报」落差，是那个待解难题。** AACR 的全体大会讲者把约 40% 的台上时间花在评估上；AACR 海报厅在这件事上几乎什么都没出。SCG / scverse 也是同一个模式——操作型社区在出能力，学术型社区在出批评，把两者整合到一起，是 2027 年的活儿。
+
+老实总结一句：2026 年是**虚拟细胞计划不再是一个单一研究社区**、变成一个**多场子、多底料、多利益方的计划**的那一年——你再没法靠读一份期刊或赴一场会就把它追全了。这张纸质地图，正是为此而存在。
+
+---
+
+## 接下来读什么（在本语料内）
+
+- **[AACR 2026 摘要](aacr-2026-digest.md)**——同一个故事里专属 AACR 的那一刀。
+- **[值得追的人物与机构](people-and-institutes.md)**——谁在这每一个场子上出货的那张领域地图。
+- **[基础模型全景](foundation-models-state-of-play.md)**——2026 年这些场子或建于其上、或拿来评估的那 27 份 FM 档案。
+- **[为什么线性基线会赢](why-linear-baselines-win.md)**——那段清算正典的方法学背景。
+- **[评估论文目录](evaluation-papers-catalog.md)**——喂养「舞台 vs 海报」落差的那 11+1 篇评估论文。
