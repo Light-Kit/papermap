@@ -137,6 +137,10 @@ body.zen #zen-toggle { top: 10px; right: 10px; }
   align-items: center;
   font-size: 12px;
 }
+/* `display:flex` above out-specifies the UA [hidden] rule, so the bar
+   leaked onto non-resource tabs (Blogs/Topics/Presentations/Timeline);
+   restore hiding when app.js sets the hidden attribute. */
+#filterbar[hidden] { display: none; }
 
 #filterbar .group {
   display: flex;
