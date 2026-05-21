@@ -12,7 +12,7 @@ summary: "A methods explainer for the generative turn in virtual cells. Why the 
 starred: false
 ---
 
-> *A methods companion to the reachability program. The [cell-state reachability essay](cell-state-reachability-as-viability-theory.md) proposes a model built on a diffusion / flow-matching backbone; this essay explains what that backbone is, why generative models took over virtual cells, and how the named systems work. Cross-cuts to [reachability and forbidden states](reachability-and-forbidden-states-in-cell-fms.md) on what generation cannot yet do, [stability](cell-stability-and-niche-dependence-in-vc-fms.md) on the dynamical-systems framing, and the [fifty-concepts essay](fifty-concepts-one-essay.md) for the surrounding vocabulary.*
+> *A methods companion to the reachability program. The [cell-state reachability essay](cell-state-reachability-as-viability-theory.md) proposes a model built on a diffusion / flow-matching backbone; this essay explains what that backbone is, why generative models took over virtual cells, and how the named systems work. Cross-cuts to [reachability and forbidden states](reachability-and-forbidden-states-in-cell-fms.md) on what generation cannot yet do, [stability](cell-stability-and-niche-dependence-in-vc-fms.md) on the dynamical-systems framing, and the [fifty-concepts essay](fifty-concepts-one-bet-v2.md) for the surrounding vocabulary.*
 
 ## Why generative models at all
 

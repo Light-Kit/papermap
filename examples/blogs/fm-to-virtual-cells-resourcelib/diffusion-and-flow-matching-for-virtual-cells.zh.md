@@ -3,7 +3,7 @@ title: "面向虚拟细胞的扩散与流匹配：为什么要用生成模型，
 summary: "一篇关于虚拟细胞生成式转向的方法学科普。为什么该领域从嵌入-并-分类的基础模型转向了生成式的；扩散（前向加噪 + 学得的反向去噪，分数即对数密度的梯度）和流匹配（一个学得的速度场，沿一条概率路径把噪声输运为数据）以朴素的话讲究竟在做什么；以及它们如何通过 scDiffusion、CFGen、CellFlow 和 scDiffEq 落到单细胞上，并附带最优传输的表亲（Waddington-OT、CellOT、Schrödinger 桥）。这一契合是自然的，因为学得的密度就是已实现状态的流形，无分类器引导是按细胞类型或扰动做条件化的旋钮，而扩散桥能插值发育与重编程的路径。诚实的局限——密度不是因果性、样本质量不是生物学正确性，而且这里还没有任何东西能说出哪些状态是被禁止的——正是那篇可生存性理论文章所接续的。"
 ---
 
-> *可达性研究计划的方法学伴读篇。[细胞状态可达性那篇文章](cell-state-reachability-as-viability-theory.md) 提出了一个建立在扩散 / 流匹配骨干上的模型；本文解释那个骨干是什么、为什么生成模型接管了虚拟细胞，以及那些被点名的系统如何运作。横向贯通到 [可达性与被禁状态](reachability-and-forbidden-states-in-cell-fms.md)（讲生成尚不能做什么）、[稳定性](cell-stability-and-niche-dependence-in-vc-fms.md)（讲动力系统的框定），以及 [五十个概念一篇文章](fifty-concepts-one-essay.md)（讲周边词汇）。*
+> *可达性研究计划的方法学伴读篇。[细胞状态可达性那篇文章](cell-state-reachability-as-viability-theory.md) 提出了一个建立在扩散 / 流匹配骨干上的模型；本文解释那个骨干是什么、为什么生成模型接管了虚拟细胞，以及那些被点名的系统如何运作。横向贯通到 [可达性与被禁状态](reachability-and-forbidden-states-in-cell-fms.md)（讲生成尚不能做什么）、[稳定性](cell-stability-and-niche-dependence-in-vc-fms.md)（讲动力系统的框定），以及 [五十个概念一篇文章](fifty-concepts-one-bet-v2.md)（讲周边词汇）。*
 
 ## 为什么要用生成模型
 

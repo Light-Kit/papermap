@@ -3,7 +3,7 @@ title: "细胞状态可达性作为生存力理论：一个分层流形框架，
 summary: "认知诚实弧线中的第八篇文章，也是首篇停止诊断、转而提出模型的文章。前面几篇姊妹篇追问当前细胞 FM 做不到什么（surprise、可达性、可翻译性、稳定性、多模态稳定性、可解释性），并交付了一份为 λ 头服务的、可证伪的两周预备实验。本文为那份预备实验所朝向的更大模型命名——一个锚定于 Aubin 生存力理论（viability theory）的可达性基础模型。细胞状态流形成为一个分层空间：一个已实现的内部（沿发育或演化轨迹出现的状态）、一个可工程化的边界（可由 iPSC 式重编程、TF 鸡尾酒、转分化抵达的状态）、以及一个被禁止的外部（物理或化学约束排除的状态）。模型是一个 diffusion / flow-matching 骨干（CFGen、CellFlow）加上三个新头：一个层位分类器、一个推广 scDiffEq 的谱系图连通性先验、以及一个把 SCENIC+ 调控拮抗、调控 FBA 通量不可行性与布尔调控逻辑相容性相加的禁止能量项。新意在于组合——而生存力理论正是那条让它能抵御不可避免的『这不过是 OOD 检测』审稿意见的引用。"
 ---
 
-> *认知诚实弧线中的第八篇文章，也是首篇停止追问现有 FM 做不到什么、转而开始提出能够做到的模型的文章。前面七篇——[surprise](surprise-and-uncertainty-in-cell-fms.md)、[可达性](reachability-and-forbidden-states-in-cell-fms.md)、[可翻译性](translatability-dual-latent-vc-fm.md)、[稳定性](cell-stability-and-niche-dependence-in-vc-fms.md)、[多模态稳定性](multimodal-stability-and-failure-modes-in-vc-fms.md)、[可解释性领域现状](interpretability-state-of-cell-fms.md)，以及[生态位依赖预备实验](reading-niche-dependence-off-frozen-cell-fms.md)——诊断出缺口，并交付填补其中一块的最小实验。[五十个概念一篇文章](fifty-concepts-one-essay.md) 整合了词汇。本文把这些碎片组装成一个研究计划：一个关于什么能存在、什么能被造出、什么不能的分层流形基础模型。*
+> *认知诚实弧线中的第八篇文章，也是首篇停止追问现有 FM 做不到什么、转而开始提出能够做到的模型的文章。前面七篇——[surprise](surprise-and-uncertainty-in-cell-fms.md)、[可达性](reachability-and-forbidden-states-in-cell-fms.md)、[可翻译性](translatability-dual-latent-vc-fm.md)、[稳定性](cell-stability-and-niche-dependence-in-vc-fms.md)、[多模态稳定性](multimodal-stability-and-failure-modes-in-vc-fms.md)、[可解释性领域现状](interpretability-state-of-cell-fms.md)，以及[生态位依赖预备实验](reading-niche-dependence-off-frozen-cell-fms.md)——诊断出缺口，并交付填补其中一块的最小实验。[五十个概念一篇文章](fifty-concepts-one-bet-v2.md) 整合了词汇。本文把这些碎片组装成一个研究计划：一个关于什么能存在、什么能被造出、什么不能的分层流形基础模型。*
 
 ## 问题
 
