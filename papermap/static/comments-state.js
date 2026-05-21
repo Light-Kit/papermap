@@ -76,10 +76,14 @@ function escapeText(s) {
 }
 
 export function asideHtml(entry) {
-  const snippet = escapeAttr(String(entry.anchor).slice(0, 120));
+  const full = String(entry.anchor);
+  // 120-char preview for the margin label, but the *full* anchor rides along on
+  // data-anchor so margin-comments.js can highlight the whole selected sentence
+  // rather than just this preview (a long sentence would otherwise mark short).
+  const snippet = escapeAttr(full.slice(0, 120));
   // The delete button lives only in the rendered DOM, not in exportMarkdown()
   // (which builds its own clean string), so committed source asides stay tidy.
-  return `<aside class="qa" data-q="local-${entry.id}"><b>Q on `
+  return `<aside class="qa" data-q="local-${entry.id}" data-anchor="${escapeAttr(full)}"><b>Q on `
     + `"${snippet}":</b> ${escapeText(entry.question)}`
     + `<button type="button" class="qa-del" data-q="local-${entry.id}" `
     + `title="Delete this comment" aria-label="Delete comment">×</button></aside>`;

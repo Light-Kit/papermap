@@ -128,13 +128,27 @@ function highlightAnchor(aside, paragraph) {
   if (aside.classList.contains("qa-reply")) return;
   const qid = aside.getAttribute("data-q") || "";
   if (qid && paragraph.querySelector(`mark.qa-anchor[data-q="${cssEsc(qid)}"]`)) return;
+
+  // Candidate spans to highlight, widest first. The full stored anchor (stashed
+  // on data-anchor by localStorage comments) wins so the WHOLE selected sentence
+  // is marked — not just the 120-char preview shown in the label, which is what
+  // truncated long sentences before. Committed source asides carry no
+  // data-anchor, so we fall back to the quoted preview; that preview is also the
+  // fallback when the full anchor isn't found in this one paragraph (e.g. a
+  // selection that spanned a paragraph break).
+  const candidates = [];
+  const fullAnchor = (aside.dataset.anchor || "").trim();
+  if (fullAnchor.length >= 6) candidates.push(fullAnchor);
   const bold = aside.querySelector("b");
-  if (!bold) return;
-  const m = bold.textContent.match(/^Q on\s+"([^"]+?)["…]/);
-  if (!m) return;
-  let snippet = m[1].trim();
-  if (snippet.endsWith("…")) snippet = snippet.slice(0, -1).trim();
-  if (snippet.length < 6) return;
+  if (bold) {
+    const m = bold.textContent.match(/^Q on\s+"([^"]+?)["…]/);
+    if (m) {
+      let s = m[1].trim();
+      if (s.endsWith("…")) s = s.slice(0, -1).trim();
+      if (s.length >= 6) candidates.push(s);
+    }
+  }
+  if (!candidates.length) return;
 
   // Walk text nodes inside the paragraph, recording the running offset of
   // each so we can map a substring index back to (node, offset).
@@ -148,7 +162,11 @@ function highlightAnchor(aside, paragraph) {
     nodes.push({ node: cur, start: full.length });
     full += cur.nodeValue;
   }
-  const idx = full.indexOf(snippet);
+  let idx = -1, snippet = "";
+  for (const cand of candidates) {
+    idx = full.indexOf(cand);
+    if (idx >= 0) { snippet = cand; break; }
+  }
   if (idx < 0) return;
   const endIdx = idx + snippet.length;
   const startNode = nodeAt(nodes, idx);
