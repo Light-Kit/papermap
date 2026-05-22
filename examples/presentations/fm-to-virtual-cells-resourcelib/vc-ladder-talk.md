@@ -1,5 +1,5 @@
 ---
-title: 'Virtual cells: a ladder of what we dare to ask (talk)'
+title: 'Virtual Cell: A Perspective from the Causal Ladder (talk)'
 date: '2026-05-21'
 summary: "The full ~30-slide talk built on the five-questions essay: the virtual-cell field read as a ladder (describe → correlate → reckon → intervene → predict → counterfactual), every concept named, climbing to the survival-field frontier. Each slide carries a presenter script and a one-line cheat-sheet (open the slide and read below the stage). Batch 1 = slides 1–7."
 topics:
@@ -16,8 +16,8 @@ topics:
   <rect x="0" y="0" width="1280" height="720" fill="#1d2a17"/>
   <rect x="0" y="250" width="1280" height="6" fill="#c0392b"/>
   <text x="640" y="220" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="22" fill="#a9c08f" letter-spacing="3">VIRTUAL CELL GROUP MEETING</text>
-  <text x="640" y="330" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="52" font-weight="700" fill="#f7f7ef">Virtual cells: a ladder of</text>
-  <text x="640" y="392" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="52" font-weight="700" fill="#f7f7ef">what we dare to ask</text>
+  <text x="640" y="330" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="50" font-weight="700" fill="#f7f7ef">Virtual Cell: A Perspective</text>
+  <text x="640" y="390" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="50" font-weight="700" fill="#f7f7ef">from the Causal Ladder</text>
   <text x="640" y="460" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="22" fill="#cdd9bf">Foundation models, perturbation, and the five questions we put to a cell</text>
   <text x="640" y="560" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="16" fill="#7e8f6b">describe → correlate → intervene → predict → counterfactual</text>
 </svg>
