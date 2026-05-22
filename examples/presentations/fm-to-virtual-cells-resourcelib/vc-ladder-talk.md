@@ -49,6 +49,8 @@ topics:
     <text x="182" y="188" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#8a8a8a">Counterfactual</text>
   <rect x="196" y="430" width="972" height="176" fill="#dfe7ef" opacity="0.5"/>
   <text x="212" y="593" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b7a93" font-style="italic">the field clusters here (≈ rung 1–2)</text>
+  <line x1="196" y1="191" x2="1168" y2="191" stroke="#c9b3b0" stroke-width="1.3" stroke-dasharray="6 5"/>
+  <text x="1162" y="183" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="13.5" fill="#a23b2d" font-style="italic">true counterfactual — still unclimbed ↑</text>
   <defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5b5b5b"/></marker></defs>
   <line x1="196" y1="596" x2="1174" y2="596" stroke="#5b5b5b" stroke-width="2" marker-end="url(#ar)"/>
     <line x1="196" y1="592" x2="196" y2="600" stroke="#5b5b5b"/>
@@ -101,8 +103,6 @@ topics:
   <text x="1099" y="357" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Tahoe-x1</text>
   <circle cx="1131" cy="303" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
   <text x="1131" y="286" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">X-Cell</text>
-  <circle cx="1143" cy="220" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
-  <text x="1143" y="203" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Lingshu-Cell</text>
   <circle cx="972" cy="322" r="10" fill="#2a9d8f" stroke="#fff" stroke-width="2"/>
   <text x="972" y="305" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">the reckoning</text>
   <circle cx="1041" cy="430" r="10" fill="#2a9d8f" stroke="#fff" stroke-width="2"/>
@@ -113,18 +113,18 @@ topics:
   <text x="637" y="294" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">DDPM (diffusion)</text>
   <circle cx="1021" cy="239" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
   <text x="1021" y="222" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">CellFlow</text>
-  <circle cx="237" cy="176" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="237" y="159" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Chizat unbalanced OT</text>
-  <circle cx="417" cy="176" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="417" y="159" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Waddington-OT</text>
-  <circle cx="702" cy="176" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="702" y="159" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">CPA</text>
-  <circle cx="809" cy="210" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="809" y="235" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">GEARS</text>
-  <circle cx="890" cy="176" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="890" y="159" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">moscot</text>
-  <circle cx="931" cy="215" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="931" y="240" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">TIGON</text>
+  <circle cx="237" cy="210" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="237" y="235" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Chizat unbalanced OT</text>
+  <circle cx="417" cy="220" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="417" y="245" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Waddington-OT</text>
+  <circle cx="702" cy="215" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="702" y="240" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">CPA</text>
+  <circle cx="809" cy="234" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="809" y="259" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">GEARS</text>
+  <circle cx="890" cy="220" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="890" y="245" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">moscot</text>
+  <circle cx="931" cy="234" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="931" y="259" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">TIGON</text>
   <text x="196" y="658" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#999">† UCE — first posted 2023, revised through v3 (2026); dots mark each work’s first appearance.</text>
 </svg>
 </section>
@@ -1130,6 +1130,8 @@ topics:
     <text x="182" y="188" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#8a8a8a">Counterfactual</text>
   <rect x="196" y="430" width="972" height="176" fill="#dfe7ef" opacity="0.5"/>
   <text x="212" y="593" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b7a93" font-style="italic">the field clusters here (≈ rung 1–2)</text>
+  <line x1="196" y1="191" x2="1168" y2="191" stroke="#c9b3b0" stroke-width="1.3" stroke-dasharray="6 5"/>
+  <text x="1162" y="183" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="13.5" fill="#a23b2d" font-style="italic">true counterfactual — still unclimbed ↑</text>
   <defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5b5b5b"/></marker></defs>
   <line x1="196" y1="596" x2="1174" y2="596" stroke="#5b5b5b" stroke-width="2" marker-end="url(#ar)"/>
     <line x1="196" y1="592" x2="196" y2="600" stroke="#5b5b5b"/>
@@ -1182,8 +1184,6 @@ topics:
   <text x="1099" y="357" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Tahoe-x1</text>
   <circle cx="1131" cy="303" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
   <text x="1131" y="286" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">X-Cell</text>
-  <circle cx="1143" cy="220" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
-  <text x="1143" y="203" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Lingshu-Cell</text>
   <circle cx="972" cy="322" r="10" fill="#2a9d8f" stroke="#fff" stroke-width="2"/>
   <text x="972" y="305" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">the reckoning</text>
   <circle cx="1041" cy="430" r="10" fill="#2a9d8f" stroke="#fff" stroke-width="2"/>
@@ -1194,18 +1194,18 @@ topics:
   <text x="637" y="294" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">DDPM (diffusion)</text>
   <circle cx="1021" cy="239" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
   <text x="1021" y="222" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">CellFlow</text>
-  <circle cx="237" cy="176" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="237" y="159" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Chizat unbalanced OT</text>
-  <circle cx="417" cy="176" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="417" y="159" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Waddington-OT</text>
-  <circle cx="702" cy="176" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="702" y="159" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">CPA</text>
-  <circle cx="809" cy="210" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="809" y="235" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">GEARS</text>
-  <circle cx="890" cy="176" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="890" y="159" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">moscot</text>
-  <circle cx="931" cy="215" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="931" y="240" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">TIGON</text>
+  <circle cx="237" cy="210" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="237" y="235" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Chizat unbalanced OT</text>
+  <circle cx="417" cy="220" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="417" y="245" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Waddington-OT</text>
+  <circle cx="702" cy="215" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="702" y="240" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">CPA</text>
+  <circle cx="809" cy="234" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="809" y="259" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">GEARS</text>
+  <circle cx="890" cy="220" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="890" y="245" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">moscot</text>
+  <circle cx="931" cy="234" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="931" y="259" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">TIGON</text>
   <text x="196" y="658" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#999">† UCE — first posted 2023, revised through v3 (2026); dots mark each work’s first appearance.</text>
 </svg>
 </section>
