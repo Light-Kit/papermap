@@ -11,7 +11,7 @@ topics:
 
 > *One-slide scaling map of the cell foundation models. Companion to the [ladder talk](vc-ladder-talk.md) and the [timeline & lineage map](five-questions-timeline-and-lineage.md).*
 
-<section class="slide" data-cheat="Two axes of scale: model size (params) and data size (cells). The field grew in BOTH over time — but C2S-Scale (27B, LLM-style) is a parameter outlier, and the cell axis only exploded once Tahoe-100M / spatial corpora arrived." data-notes="This is the scaling picture. Each dot is a single-cell foundation model: x is its parameter count (log scale, from scBERT&#x27;s ~5M to C2S-Scale&#x27;s 27B), y is the number of cells it was pretrained on (log scale, ~1M to ~266M), and colour is the year it first went online — cool blue is older, warm red is 2025. Three things to point at. One: the field scaled on BOTH axes over time — the 2025 models (Tahoe-x1, STATE, TranscriptFormer) sit up and to the right. Two: C2S-Scale is the parameter outlier at 27B, because it&#x27;s an LLM trained on text-encoded cells, not raw expression — huge model, moderate cell count. Three: the data axis only really jumped once the giant atlases arrived — Nicheformer&#x27;s 110M spatial cells, then Tahoe-x1&#x27;s 266M. UCE is the early-param-heavy point: 650M params back in 2023, but only ~36M cells. The honest takeaway: scaling has been the dominant move — which is exactly the move the linear-baseline reckoning called into question.">
+<section class="slide" data-cheat="Two axes of scale: model size (params) and data size (cells). The field grew in BOTH over time — but C2S-Scale (27B, LLM-style) is a parameter outlier, and the cell axis only exploded once Tahoe-100M / spatial corpora arrived." data-notes="This is the scaling picture. Each dot is a single-cell foundation model: x is its parameter count (log scale, from scBERT&#x27;s ~5M to C2S-Scale&#x27;s 27B), y is the number of cells it was pretrained on (log scale, ~1M to ~266M), and colour is the year it first went online — cool blue is older, warm red is 2025. Three things to point at. One: the field scaled on BOTH axes over time — the 2025 models (Tahoe-x1, STATE, TranscriptFormer) sit up and to the right. Two: C2S-Scale is the parameter outlier at 27B, because it&#x27;s an LLM trained on text-encoded cells, not raw expression — huge model, moderate cell count. Three: the data axis only really jumped once the giant atlases arrived — Nicheformer&#x27;s 110M spatial cells, then Tahoe-x1&#x27;s 266M. UCE is the early-param-heavy point: 650M params back in 2023, but only ~36M cells. The 2026 wave keeps pushing right — X-Cell (Xaira) hits 4.9 billion params on 25M CRISPRi-perturbed cells. The honest takeaway: scaling has been the dominant move — which is exactly the move the linear-baseline reckoning called into question.">
 <svg viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg" class="slide-svg" role="img" aria-label="Foundation models: parameters vs training cells">
   <rect x="0" y="0" width="1280" height="720" fill="#f7f7ef"/>
   <rect x="0" y="0" width="1280" height="92" fill="#dfe9d2"/><rect x="0" y="92" width="1280" height="4" fill="#c0392b"/>
@@ -22,6 +22,7 @@ topics:
     <circle cx="1110" cy="30" r="8" fill="#74add1"/><text x="1124" y="35">2023</text>
     <circle cx="980" cy="58" r="8" fill="#fdae61"/><text x="994" y="63">2024</text>
     <circle cx="1110" cy="58" r="8" fill="#d73027"/><text x="1124" y="63">2025</text>
+    <circle cx="980" cy="86" r="8" fill="#7f0000"/><text x="994" y="91">2026</text>
   </g>
   <line x1="196" y1="182" x2="196" y2="600" stroke="#b9b9ad" stroke-width="1.5"/>
   <line x1="196" y1="600" x2="1158" y2="600" stroke="#b9b9ad" stroke-width="1.5"/>
@@ -65,6 +66,8 @@ topics:
   <text x="902" y="195" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#2b2b2b">Tahoe-x1</text>
   <circle cx="1095" cy="327" r="9" fill="#d73027" stroke="#fff" stroke-width="1.8"/>
   <text x="1081" y="331" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#2b2b2b">C2S-Scale</text>
-  <text x="196" y="658" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#999">Flagship sizes (largest reported); trainable params where models bolt on frozen gene embeddings (TranscriptFormer, STATE). scVI &amp; xVERSE omitted — sizes not reported as a pretrain-once FM.</text>
+  <circle cx="945" cy="374" r="9" fill="#7f0000" stroke="#fff" stroke-width="1.8"/>
+  <text x="959" y="378" text-anchor="start" font-family="Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#2b2b2b">X-Cell</text>
+  <text x="196" y="658" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#999">Flagship sizes; trainable params where a frozen gene-embedding is added (TranscriptFormer, STATE). Omitted: scVI, xVERSE, Lingshu-Cell — sizes not reported.</text>
 </svg>
 </section>
