@@ -53,74 +53,78 @@ topics:
   <line x1="196" y1="596" x2="1174" y2="596" stroke="#5b5b5b" stroke-width="2" marker-end="url(#ar)"/>
     <line x1="196" y1="592" x2="196" y2="600" stroke="#5b5b5b"/>
     <text x="196" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2015</text>
-    <line x1="365" y1="592" x2="365" y2="600" stroke="#5b5b5b"/>
-    <text x="365" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2017</text>
-    <line x1="534" y1="592" x2="534" y2="600" stroke="#5b5b5b"/>
-    <text x="534" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2019</text>
-    <line x1="703" y1="592" x2="703" y2="600" stroke="#5b5b5b"/>
-    <text x="703" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2021</text>
-    <line x1="872" y1="592" x2="872" y2="600" stroke="#5b5b5b"/>
-    <text x="872" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2023</text>
-    <line x1="1041" y1="592" x2="1041" y2="600" stroke="#5b5b5b"/>
-    <text x="1041" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2025</text>
+    <line x1="359" y1="592" x2="359" y2="600" stroke="#5b5b5b"/>
+    <text x="359" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2017</text>
+    <line x1="523" y1="592" x2="523" y2="600" stroke="#5b5b5b"/>
+    <text x="523" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2019</text>
+    <line x1="686" y1="592" x2="686" y2="600" stroke="#5b5b5b"/>
+    <text x="686" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2021</text>
+    <line x1="849" y1="592" x2="849" y2="600" stroke="#5b5b5b"/>
+    <text x="849" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2023</text>
+    <line x1="1013" y1="592" x2="1013" y2="600" stroke="#5b5b5b"/>
+    <text x="1013" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2025</text>
   <text x="1170" y="616" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="13" fill="#999" font-style="italic">Timeline →</text>
-  <circle cx="526" cy="546" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
-  <text x="526" y="572" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">scVI</text>
-  <circle cx="745" cy="527" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
-  <text x="745" y="552" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">scBERT</text>
-  <circle cx="872" cy="571" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
-  <text x="872" y="596" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Geneformer</text>
-  <circle cx="893" cy="508" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
-  <text x="878" y="512" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">scGPT</text>
-  <circle cx="914" cy="449" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
-  <text x="914" y="432" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">scFoundation</text>
-  <circle cx="940" cy="546" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
-  <text x="940" y="572" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">UCE†</text>
-  <circle cx="961" cy="478" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
-  <text x="961" y="503" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">CellPLM</text>
-  <circle cx="991" cy="566" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
-  <text x="991" y="591" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Nicheformer</text>
-  <circle cx="1029" cy="459" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
-  <text x="1014" y="463" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">C2S-Scale</text>
-  <circle cx="1062" cy="532" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
-  <text x="1062" y="557" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">TranscriptFormer</text>
-  <circle cx="1138" cy="498" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
-  <text x="1123" y="502" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">xVERSE</text>
-  <circle cx="610" cy="371" r="10" fill="#e8924a" stroke="#fff" stroke-width="2"/>
-  <text x="610" y="396" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">sci-Plex</text>
-  <circle cx="779" cy="371" r="10" fill="#e8924a" stroke="#fff" stroke-width="2"/>
-  <text x="779" y="396" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Perturb-seq</text>
-  <circle cx="1041" cy="371" r="10" fill="#e8924a" stroke="#fff" stroke-width="2"/>
-  <text x="1041" y="396" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Tahoe-100M</text>
-  <circle cx="1083" cy="371" r="10" fill="#e8924a" stroke="#fff" stroke-width="2"/>
-  <line x1="1083" y1="359" x2="1083" y2="341" stroke="#bbb" stroke-width="1"/>
-  <text x="1083" y="333" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">X-Atlas</text>
-  <circle cx="1100" cy="288" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
-  <text x="1115" y="292" text-anchor="start" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">STATE</text>
-  <circle cx="1130" cy="332" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
-  <text x="1145" y="336" text-anchor="start" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Tahoe-x1</text>
-  <circle cx="999" cy="322" r="10" fill="#2a9d8f" stroke="#fff" stroke-width="2"/>
-  <text x="999" y="305" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">the reckoning</text>
-  <circle cx="1071" cy="430" r="10" fill="#2a9d8f" stroke="#fff" stroke-width="2"/>
-  <text x="1071" y="454" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">VC Challenge</text>
-  <circle cx="492" cy="274" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="492" y="256" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">RNA velocity</text>
-  <circle cx="652" cy="269" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="652" y="294" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">DDPM (diffusion)</text>
-  <circle cx="1050" cy="239" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="1050" y="222" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">CellFlow</text>
-  <circle cx="238" cy="176" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="238" y="159" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Chizat unbalanced OT</text>
-  <circle cx="424" cy="176" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="424" y="159" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Waddington-OT</text>
-  <circle cx="720" cy="176" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="720" y="159" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">CPA</text>
-  <circle cx="830" cy="210" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="830" y="235" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">GEARS</text>
-  <circle cx="914" cy="176" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="914" y="159" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">moscot</text>
-  <circle cx="957" cy="215" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="957" y="240" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">TIGON</text>
+  <circle cx="515" cy="546" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="515" y="572" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">scVI</text>
+  <circle cx="727" cy="527" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="727" y="552" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">scBERT</text>
+  <circle cx="849" cy="571" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="849" y="596" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Geneformer</text>
+  <circle cx="870" cy="508" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="855" y="512" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">scGPT</text>
+  <circle cx="890" cy="449" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="890" y="432" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">scFoundation</text>
+  <circle cx="915" cy="546" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="915" y="572" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">UCE†</text>
+  <circle cx="935" cy="478" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="935" y="503" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">CellPLM</text>
+  <circle cx="964" cy="566" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="964" y="591" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Nicheformer</text>
+  <circle cx="1001" cy="459" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="986" y="463" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">C2S-Scale</text>
+  <circle cx="1033" cy="532" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="1033" y="557" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">TranscriptFormer</text>
+  <circle cx="1111" cy="498" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="1096" y="502" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">xVERSE</text>
+  <circle cx="596" cy="371" r="10" fill="#e8924a" stroke="#fff" stroke-width="2"/>
+  <text x="596" y="396" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">sci-Plex</text>
+  <circle cx="760" cy="371" r="10" fill="#e8924a" stroke="#fff" stroke-width="2"/>
+  <text x="760" y="396" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Perturb-seq</text>
+  <circle cx="1013" cy="371" r="10" fill="#e8924a" stroke="#fff" stroke-width="2"/>
+  <text x="1013" y="396" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Tahoe-100M</text>
+  <circle cx="1054" cy="371" r="10" fill="#e8924a" stroke="#fff" stroke-width="2"/>
+  <line x1="1054" y1="359" x2="1054" y2="341" stroke="#bbb" stroke-width="1"/>
+  <text x="1054" y="333" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">X-Atlas</text>
+  <circle cx="1070" cy="288" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="1055" y="292" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">STATE</text>
+  <circle cx="1099" cy="332" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="1099" y="357" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Tahoe-x1</text>
+  <circle cx="1131" cy="303" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="1131" y="286" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">X-Cell</text>
+  <circle cx="1143" cy="220" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="1143" y="203" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Lingshu-Cell</text>
+  <circle cx="972" cy="322" r="10" fill="#2a9d8f" stroke="#fff" stroke-width="2"/>
+  <text x="972" y="305" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">the reckoning</text>
+  <circle cx="1041" cy="430" r="10" fill="#2a9d8f" stroke="#fff" stroke-width="2"/>
+  <text x="1041" y="454" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">VC Challenge</text>
+  <circle cx="482" cy="274" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="482" y="256" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">RNA velocity</text>
+  <circle cx="637" cy="269" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="637" y="294" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">DDPM (diffusion)</text>
+  <circle cx="1021" cy="239" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="1021" y="222" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">CellFlow</text>
+  <circle cx="237" cy="176" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="237" y="159" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Chizat unbalanced OT</text>
+  <circle cx="417" cy="176" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="417" y="159" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Waddington-OT</text>
+  <circle cx="702" cy="176" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="702" y="159" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">CPA</text>
+  <circle cx="809" cy="210" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="809" y="235" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">GEARS</text>
+  <circle cx="890" cy="176" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="890" y="159" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">moscot</text>
+  <circle cx="931" cy="215" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="931" y="240" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">TIGON</text>
   <text x="196" y="658" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#999">† UCE — first posted 2023, revised through v3 (2026); dots mark each work’s first appearance.</text>
 </svg>
 </section>
@@ -1130,74 +1134,78 @@ topics:
   <line x1="196" y1="596" x2="1174" y2="596" stroke="#5b5b5b" stroke-width="2" marker-end="url(#ar)"/>
     <line x1="196" y1="592" x2="196" y2="600" stroke="#5b5b5b"/>
     <text x="196" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2015</text>
-    <line x1="365" y1="592" x2="365" y2="600" stroke="#5b5b5b"/>
-    <text x="365" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2017</text>
-    <line x1="534" y1="592" x2="534" y2="600" stroke="#5b5b5b"/>
-    <text x="534" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2019</text>
-    <line x1="703" y1="592" x2="703" y2="600" stroke="#5b5b5b"/>
-    <text x="703" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2021</text>
-    <line x1="872" y1="592" x2="872" y2="600" stroke="#5b5b5b"/>
-    <text x="872" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2023</text>
-    <line x1="1041" y1="592" x2="1041" y2="600" stroke="#5b5b5b"/>
-    <text x="1041" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2025</text>
+    <line x1="359" y1="592" x2="359" y2="600" stroke="#5b5b5b"/>
+    <text x="359" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2017</text>
+    <line x1="523" y1="592" x2="523" y2="600" stroke="#5b5b5b"/>
+    <text x="523" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2019</text>
+    <line x1="686" y1="592" x2="686" y2="600" stroke="#5b5b5b"/>
+    <text x="686" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2021</text>
+    <line x1="849" y1="592" x2="849" y2="600" stroke="#5b5b5b"/>
+    <text x="849" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2023</text>
+    <line x1="1013" y1="592" x2="1013" y2="600" stroke="#5b5b5b"/>
+    <text x="1013" y="616" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="14" fill="#5b5b5b">2025</text>
   <text x="1170" y="616" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="13" fill="#999" font-style="italic">Timeline →</text>
-  <circle cx="526" cy="546" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
-  <text x="526" y="572" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">scVI</text>
-  <circle cx="745" cy="527" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
-  <text x="745" y="552" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">scBERT</text>
-  <circle cx="872" cy="571" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
-  <text x="872" y="596" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Geneformer</text>
-  <circle cx="893" cy="508" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
-  <text x="878" y="512" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">scGPT</text>
-  <circle cx="914" cy="449" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
-  <text x="914" y="432" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">scFoundation</text>
-  <circle cx="940" cy="546" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
-  <text x="940" y="572" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">UCE†</text>
-  <circle cx="961" cy="478" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
-  <text x="961" y="503" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">CellPLM</text>
-  <circle cx="991" cy="566" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
-  <text x="991" y="591" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Nicheformer</text>
-  <circle cx="1029" cy="459" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
-  <text x="1014" y="463" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">C2S-Scale</text>
-  <circle cx="1062" cy="532" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
-  <text x="1062" y="557" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">TranscriptFormer</text>
-  <circle cx="1138" cy="498" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
-  <text x="1123" y="502" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">xVERSE</text>
-  <circle cx="610" cy="371" r="10" fill="#e8924a" stroke="#fff" stroke-width="2"/>
-  <text x="610" y="396" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">sci-Plex</text>
-  <circle cx="779" cy="371" r="10" fill="#e8924a" stroke="#fff" stroke-width="2"/>
-  <text x="779" y="396" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Perturb-seq</text>
-  <circle cx="1041" cy="371" r="10" fill="#e8924a" stroke="#fff" stroke-width="2"/>
-  <text x="1041" y="396" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Tahoe-100M</text>
-  <circle cx="1083" cy="371" r="10" fill="#e8924a" stroke="#fff" stroke-width="2"/>
-  <line x1="1083" y1="359" x2="1083" y2="341" stroke="#bbb" stroke-width="1"/>
-  <text x="1083" y="333" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">X-Atlas</text>
-  <circle cx="1100" cy="288" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
-  <text x="1115" y="292" text-anchor="start" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">STATE</text>
-  <circle cx="1130" cy="332" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
-  <text x="1145" y="336" text-anchor="start" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Tahoe-x1</text>
-  <circle cx="999" cy="322" r="10" fill="#2a9d8f" stroke="#fff" stroke-width="2"/>
-  <text x="999" y="305" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">the reckoning</text>
-  <circle cx="1071" cy="430" r="10" fill="#2a9d8f" stroke="#fff" stroke-width="2"/>
-  <text x="1071" y="454" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">VC Challenge</text>
-  <circle cx="492" cy="274" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="492" y="256" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">RNA velocity</text>
-  <circle cx="652" cy="269" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="652" y="294" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">DDPM (diffusion)</text>
-  <circle cx="1050" cy="239" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="1050" y="222" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">CellFlow</text>
-  <circle cx="238" cy="176" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="238" y="159" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Chizat unbalanced OT</text>
-  <circle cx="424" cy="176" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="424" y="159" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Waddington-OT</text>
-  <circle cx="720" cy="176" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="720" y="159" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">CPA</text>
-  <circle cx="830" cy="210" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="830" y="235" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">GEARS</text>
-  <circle cx="914" cy="176" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="914" y="159" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">moscot</text>
-  <circle cx="957" cy="215" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
-  <text x="957" y="240" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">TIGON</text>
+  <circle cx="515" cy="546" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="515" y="572" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">scVI</text>
+  <circle cx="727" cy="527" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="727" y="552" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">scBERT</text>
+  <circle cx="849" cy="571" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="849" y="596" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Geneformer</text>
+  <circle cx="870" cy="508" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="855" y="512" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">scGPT</text>
+  <circle cx="890" cy="449" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="890" y="432" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">scFoundation</text>
+  <circle cx="915" cy="546" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="915" y="572" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">UCE†</text>
+  <circle cx="935" cy="478" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="935" y="503" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">CellPLM</text>
+  <circle cx="964" cy="566" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="964" y="591" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Nicheformer</text>
+  <circle cx="1001" cy="459" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="986" y="463" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">C2S-Scale</text>
+  <circle cx="1033" cy="532" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="1033" y="557" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">TranscriptFormer</text>
+  <circle cx="1111" cy="498" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="1096" y="502" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">xVERSE</text>
+  <circle cx="596" cy="371" r="10" fill="#e8924a" stroke="#fff" stroke-width="2"/>
+  <text x="596" y="396" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">sci-Plex</text>
+  <circle cx="760" cy="371" r="10" fill="#e8924a" stroke="#fff" stroke-width="2"/>
+  <text x="760" y="396" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Perturb-seq</text>
+  <circle cx="1013" cy="371" r="10" fill="#e8924a" stroke="#fff" stroke-width="2"/>
+  <text x="1013" y="396" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Tahoe-100M</text>
+  <circle cx="1054" cy="371" r="10" fill="#e8924a" stroke="#fff" stroke-width="2"/>
+  <line x1="1054" y1="359" x2="1054" y2="341" stroke="#bbb" stroke-width="1"/>
+  <text x="1054" y="333" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">X-Atlas</text>
+  <circle cx="1070" cy="288" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="1055" y="292" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">STATE</text>
+  <circle cx="1099" cy="332" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="1099" y="357" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Tahoe-x1</text>
+  <circle cx="1131" cy="303" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="1131" y="286" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">X-Cell</text>
+  <circle cx="1143" cy="220" r="10" fill="#4e79a7" stroke="#fff" stroke-width="2"/>
+  <text x="1143" y="203" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Lingshu-Cell</text>
+  <circle cx="972" cy="322" r="10" fill="#2a9d8f" stroke="#fff" stroke-width="2"/>
+  <text x="972" y="305" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">the reckoning</text>
+  <circle cx="1041" cy="430" r="10" fill="#2a9d8f" stroke="#fff" stroke-width="2"/>
+  <text x="1041" y="454" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">VC Challenge</text>
+  <circle cx="482" cy="274" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="482" y="256" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">RNA velocity</text>
+  <circle cx="637" cy="269" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="637" y="294" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">DDPM (diffusion)</text>
+  <circle cx="1021" cy="239" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="1021" y="222" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">CellFlow</text>
+  <circle cx="237" cy="176" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="237" y="159" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Chizat unbalanced OT</text>
+  <circle cx="417" cy="176" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="417" y="159" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">Waddington-OT</text>
+  <circle cx="702" cy="176" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="702" y="159" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">CPA</text>
+  <circle cx="809" cy="210" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="809" y="235" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">GEARS</text>
+  <circle cx="890" cy="176" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="890" y="159" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">moscot</text>
+  <circle cx="931" cy="215" r="10" fill="#9c6bab" stroke="#fff" stroke-width="2"/>
+  <text x="931" y="240" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#2b2b2b">TIGON</text>
   <text x="196" y="658" font-family="Helvetica,Arial,sans-serif" font-size="12.5" fill="#999">† UCE — first posted 2023, revised through v3 (2026); dots mark each work’s first appearance.</text>
 </svg>
 </section>
