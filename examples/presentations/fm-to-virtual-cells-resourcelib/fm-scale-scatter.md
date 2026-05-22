@@ -68,6 +68,6 @@ topics:
   <text x="1081" y="331" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#2b2b2b">C2S-Scale</text>
   <circle cx="945" cy="374" r="9" fill="#7f0000" stroke="#fff" stroke-width="1.8"/>
   <text x="959" y="378" text-anchor="start" font-family="Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#2b2b2b">X-Cell</text>
-  <text x="196" y="658" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#999">Flagship sizes; trainable params where a frozen gene-embedding is added (TranscriptFormer, STATE). Omitted: scVI, xVERSE, Lingshu-Cell — sizes not reported.</text>
+  <text x="196" y="658" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#999">Flagship sizes (largest reported); trainable params where a frozen gene-embedding is added (TranscriptFormer, STATE).</text>
 </svg>
 </section>
