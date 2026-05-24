@@ -188,6 +188,46 @@ function detailView(it, state, filters, el) {
     `<span class="chip topic">${escape(t)}</span>`).join(" ");
   const people = (it.people || []).map(p =>
     `<span class="chip">${escape(p)}</span>`).join(" ");
+  // Model-card structured fields (kind: "model"). Each renders only if present.
+  const modelFacet = (label, value) => value
+    ? `<div class="facet"><span class="facet-label">${label}</span><span class="facet-value">${escape(value)}</span></div>`
+    : "";
+  const modelCard = it.kind === "model"
+    ? `<div class="item-section model-facets"><h3>Model card</h3><div class="item-facets">
+        ${modelFacet("params", it.params)}
+        ${modelFacet("architecture", it.architecture)}
+        ${modelFacet("objective", it.objective)}
+        ${modelFacet("pretrain data", it.pretrain_data)}
+        ${modelFacet("context", it.context)}
+        ${modelFacet("released", it.released)}
+        ${it.weights ? `<div class="facet"><span class="facet-label">weights</span>
+          <span class="facet-value"><a href="${escape(it.weights)}" target="_blank" rel="noopener noreferrer">${escape(it.weights)}</a></span></div>` : ""}
+      </div></div>`
+    : "";
+  // Benchmarks table (model cards). it.benchmarks is [{name, score}].
+  const benchmarks = Array.isArray(it.benchmarks) && it.benchmarks.length
+    ? `<div class="item-section item-benchmarks"><h3>Benchmarks</h3>
+        <table><thead><tr><th>Benchmark</th><th>Score</th></tr></thead><tbody>
+        ${it.benchmarks.map(b =>
+          `<tr><td>${escape(b.name || "")}</td><td>${escape(b.score || "")}</td></tr>`).join("")}
+        </tbody></table></div>`
+    : "";
+  // Relations block — edges where this item is source or target. state.edges
+  // is [[source, target, relation], ...]; state.relations defines labels.
+  const byId = new Map(state.items.map(i => [i.id, i]));
+  const relLabel = new Map((state.relations || []).map(r => [r.id, r.label || r.id]));
+  const relRows = [];
+  for (const [s, t, rel] of (state.edges || [])) {
+    if (s === it.id && byId.has(t)) relRows.push([relLabel.get(rel) || rel, byId.get(t)]);
+    else if (t === it.id && byId.has(s)) relRows.push([`${relLabel.get(rel) || rel} (from)`, byId.get(s)]);
+  }
+  const relations = relRows.length
+    ? `<div class="item-section item-relations"><h3>Relations</h3>
+        ${relRows.map(([label, other]) =>
+          `<div class="rel-row"><span class="rel-label">${escape(label)}</span>
+            <a href="#" class="rel-link" data-rel-id="${escape(other.id)}">${escape(other.label || other.id)}</a></div>`).join("")}
+      </div>`
+    : "";
   const QA_LABELS = {
     did:     "What did this paper do?",
     purpose: "What is the purpose?",
@@ -227,6 +267,9 @@ function detailView(it, state, filters, el) {
       ${facetRow("access", it.access)}
       ${facetRow("weight", it.weight ? String(it.weight) : "")}
     </div>
+    ${modelCard}
+    ${benchmarks}
+    ${relations}
     ${topics ? `<div class="item-section"><h3>Topics</h3>${topics}</div>` : ""}
     ${people ? `<div class="item-section"><h3>People</h3>${people}</div>` : ""}
     <p class="item-footer">${sourceLink}</p>
@@ -237,6 +280,14 @@ function detailView(it, state, filters, el) {
     el.innerHTML = "";
     render(state, filters, el);
   });
+  for (const link of wrap.querySelectorAll(".rel-link")) {
+    link.addEventListener("click", ev => {
+      ev.preventDefault();
+      _activeId = link.dataset.relId;
+      el.innerHTML = "";
+      render(state, filters, el);
+    });
+  }
   attachStarHandler(wrap, corpus, "items", it.id, !!it.starred, state, filters, el);
   return wrap;
 }
