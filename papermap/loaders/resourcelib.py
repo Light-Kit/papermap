@@ -157,6 +157,16 @@ def load_resourcelib(raw: dict, source: Path | None = None) -> Corpus:
             license=it.get("license"),
             access=it.get("access"),
             pinned=bool(it.get("pinned", False)),
+            params=it.get("params"),
+            architecture=it.get("architecture"),
+            objective=it.get("objective"),
+            pretrain_data=it.get("pretrain_data"),
+            context=it.get("context"),
+            weights=it.get("weights"),
+            released=it.get("released"),
+            benchmarks=tuple(
+                b for b in (it.get("benchmarks") or []) if isinstance(b, dict)
+            ),
         ))
 
     corpus = Corpus(
