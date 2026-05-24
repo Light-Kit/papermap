@@ -12,20 +12,21 @@ import * as topics        from "./views/topics.js";
 import * as blogs         from "./views/blogs.js";
 import * as presentations from "./views/presentations.js";
 import * as timeline      from "./views/timeline.js";
+import * as compare       from "./views/compare.js";
 
 const sidebar  = document.getElementById("corpora");
 const tabsBar  = document.getElementById("viewtabs");
 const filterBar = document.getElementById("filterbar");
 const main     = document.getElementById("main");
 
-const views = { browse, map: mapView, topics, blogs, presentations, timeline };
+const views = { browse, map: mapView, topics, blogs, presentations, timeline, compare };
 
 // Filters are mutated in place by filterbar.js (Phase 7).
 const filters = {
   kinds: new Set(), topics: new Set(), statuses: new Set(),
   org_types: new Set(), regions: new Set(), modalities: new Set(), q: "",
 };
-const filterableViews = new Set(["browse", "map"]);
+const filterableViews = new Set(["browse", "map", "compare"]);
 
 let activeCorpus = null;
 let activeView = "browse";
@@ -59,6 +60,13 @@ async function init() {
 
   document.addEventListener("papermap:rerender-active-view", () => {
     setView(activeView);
+  });
+
+  // Compare view asks app.js to switch to Browse after setting the active
+  // item (so the detail page opens for the clicked model).
+  document.addEventListener("papermap:show-view", (ev) => {
+    const { view } = ev.detail || {};
+    if (view) setView(view);
   });
 
   if (sidebar.parentElement.hidden) {
