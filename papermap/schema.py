@@ -84,6 +84,16 @@ class Item:
     license: str | None = None
     access: str | None = None
     pinned: bool = False
+    # model-card fields (kind: "model") — see
+    # docs/superpowers/specs/2026-05-23-biomedical-fm-vault-design.md
+    params: str | None = None
+    architecture: str | None = None
+    objective: str | None = None
+    pretrain_data: str | None = None
+    context: str | None = None
+    weights: str | None = None
+    released: str | None = None
+    benchmarks: tuple = ()
 
 
 @dataclass

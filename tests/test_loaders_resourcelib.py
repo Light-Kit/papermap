@@ -78,3 +78,39 @@ items:
     by_id = {i.id: i for i in corpus.items}
     assert by_id["with-url"].url == "https://example.org/a"
     assert by_id["no-url"].url == ""
+
+
+def test_resourcelib_propagates_model_card_fields(tmp_path):
+    """kind: model items carry the structured comparison fields + benchmarks."""
+    raw = """
+title: "Model card test"
+vocab: {kinds: [{id: model, label: Model}]}
+items:
+  - id: esm2
+    kind: model
+    label: ESM-2
+    modality: protein
+    params: "15B"
+    architecture: "transformer (encoder)"
+    objective: "masked-residue"
+    pretrain_data: "~65M sequences (UniRef)"
+    context: "1024 aa"
+    weights: "https://github.com/facebookresearch/esm"
+    released: "2022-08"
+    benchmarks:
+      - {name: "CASP14", score: "see ESMFold"}
+      - {name: "CAMEO", score: "0.83"}
+"""
+    p = tmp_path / "model.yaml"
+    p.write_text(raw)
+    corpus = load_corpus(p)
+    it = {i.id: i for i in corpus.items}["esm2"]
+    assert it.params == "15B"
+    assert it.architecture == "transformer (encoder)"
+    assert it.objective == "masked-residue"
+    assert it.pretrain_data == "~65M sequences (UniRef)"
+    assert it.context == "1024 aa"
+    assert it.weights == "https://github.com/facebookresearch/esm"
+    assert it.released == "2022-08"
+    assert len(it.benchmarks) == 2
+    assert it.benchmarks[0] == {"name": "CASP14", "score": "see ESMFold"}
