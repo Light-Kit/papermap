@@ -1,0 +1,195 @@
+title: All FM in Biomedical Science
+subtitle: A model-first vault of foundation models across biomedicine — single-cell, genomic, protein, pathology, radiology, clinical language, chemistry, and physiological signals — with the datasets, benchmarks, and labs each one depends on. Use Compare to line them up; open any card for its lineage.
+vocab:
+  kind:
+    model: A biomedical foundation model (pretrained, general-purpose backbone)
+    dataset: A data resource — atlas, screen, corpus
+    benchmark: A leaderboard / evaluation suite
+    org: Lab, institute, company, or consortium
+    paper: Paper, preprint, or report
+  modality:
+    - single-cell-rna
+    - genomic
+    - protein
+    - pathology
+    - radiology
+    - clinical-language
+    - chemistry
+    - physiological-signal
+    - multimodal
+    - spatial
+  topics:
+    - foundation-model
+    - single-cell
+    - genomic
+    - protein
+    - pathology
+    - radiology
+    - clinical
+    - chemistry
+    - signals
+    - multimodal
+    - spatial
+    - generative
+    - diffusion
+    - structure-prediction
+    - segmentation
+papermap_relations:
+  - {id: trained-on, label: Trained on, color: "#4e79a7"}
+  - {id: evaluated-on, label: Evaluated on, color: "#59a14f"}
+  - {id: derived-from, label: Derived from, color: "#e8924a"}
+  - {id: from-org, label: From, color: "#9c6bab"}
+papermap_edges:
+  - [scgpt, cellxgene-census, trained-on]
+  - [esm2, uniref, trained-on]
+  - [nucleotide-transformer, multispecies-genomes, trained-on]
+  - [biomedclip, pmc-15m, trained-on]
+  - [molformer, pubchem, trained-on]
+items:
+  # ── anchor models (one per family) ───────────────────────────────
+  - id: scgpt
+    kind: model
+    label: scGPT
+    modality: single-cell-rna
+    params: "~50M"
+    architecture: "transformer (generative)"
+    objective: "masked + generative gene/cell tokens"
+    pretrain_data: "~33M cells (CELLxGENE)"
+    context: "≤2048 genes"
+    year: 2024
+    released: "2023-05"
+    license: "MIT"
+    access: open-weights
+    org_type: academic
+    region: Canada
+    url: "https://www.nature.com/articles/s41592-024-02201-0"
+    weights: "https://github.com/bowang-lab/scGPT"
+    topics: [single-cell, foundation-model]
+    why: "Category-defining single-cell FM — genes and cells as tokens; the reckoning's main benchmark target."
+  - id: esm2
+    kind: model
+    label: ESM-2
+    modality: protein
+    params: "15B (8M–15B family)"
+    architecture: "transformer (encoder, BERT-style)"
+    objective: "masked-residue"
+    pretrain_data: "~65M sequences (UniRef50/90)"
+    context: "1024 aa"
+    year: 2022
+    released: "2022-08"
+    license: "MIT"
+    access: open-weights
+    org_type: industry
+    region: US
+    url: "https://www.science.org/doi/10.1126/science.ade2574"
+    weights: "https://github.com/facebookresearch/esm"
+    topics: [protein, foundation-model, structure-prediction]
+    why: "Defined the protein-language-model category; backbone for ESMFold and most downstream protein tools."
+  - id: nucleotide-transformer
+    kind: model
+    label: Nucleotide Transformer
+    modality: genomic
+    params: "2.5B (50M–2.5B family)"
+    architecture: "transformer (encoder)"
+    objective: "masked-language (k-mer tokens)"
+    pretrain_data: "3,202 human genomes + 850 species"
+    context: "~6 kb"
+    year: 2024
+    license: "CC-BY-NC-SA-4.0"
+    access: open-weights
+    org_type: industry
+    region: UK
+    url: "https://huggingface.co/InstaDeepAI/nucleotide-transformer-2.5b-multi-species"
+    weights: "https://huggingface.co/InstaDeepAI"
+    topics: [genomic, foundation-model]
+    why: "One of the first large multispecies DNA language models; a standard genomic-FM baseline."
+  - id: uni
+    kind: model
+    label: UNI
+    modality: pathology
+    params: "~307M (ViT-L/16)"
+    architecture: "ViT-L (DINOv2 self-supervised)"
+    objective: "self-distillation (DINOv2)"
+    pretrain_data: "~100M tiles / 100k WSIs (Mass-100K)"
+    context: "224px tiles"
+    year: 2024
+    license: "CC-BY-NC-ND-4.0"
+    access: open-weights
+    org_type: academic
+    region: US
+    url: "https://www.nature.com/articles/s41591-024-02857-3"
+    weights: "https://huggingface.co/MahmoodLab/UNI"
+    topics: [pathology, foundation-model]
+    why: "Widely-adopted histopathology tile encoder; strong general-purpose pathology backbone."
+  - id: medsam
+    kind: model
+    label: MedSAM
+    modality: radiology
+    architecture: "ViT (SAM-based)"
+    objective: "promptable segmentation"
+    pretrain_data: "~1.5M image-mask pairs (10 modalities)"
+    year: 2024
+    license: "Apache-2.0"
+    access: open-weights
+    org_type: academic
+    region: Canada
+    url: "https://www.nature.com/articles/s41467-024-44824-z"
+    weights: "https://github.com/bowang-lab/MedSAM"
+    topics: [radiology, foundation-model, segmentation]
+    why: "Segment-Anything adapted to medical imaging across modalities; a default promptable medical segmenter."
+  - id: gatortron
+    kind: model
+    label: GatorTron
+    modality: clinical-language
+    params: "8.9B"
+    architecture: "transformer (BERT-style, Megatron)"
+    objective: "masked-language"
+    pretrain_data: ">90B words clinical + biomedical (UF Health)"
+    year: 2022
+    released: "2022-02"
+    access: open-weights
+    org_type: academic
+    region: US
+    url: "https://www.nature.com/articles/s41746-022-00742-2"
+    weights: "https://huggingface.co/UFNLP/gatortron-base"
+    topics: [clinical, foundation-model]
+    why: "Large clinical-text encoder trained on real EHR notes; a reference clinical-language FM."
+  - id: molformer
+    kind: model
+    label: MoLFormer-XL
+    modality: chemistry
+    params: "~47M"
+    architecture: "transformer (linear attention, rotary)"
+    objective: "masked-language (SMILES)"
+    pretrain_data: "~1.1B molecules (PubChem + ZINC)"
+    year: 2022
+    license: "Apache-2.0"
+    access: open-weights
+    org_type: industry
+    region: US
+    url: "https://www.nature.com/articles/s42256-022-00580-7"
+    weights: "https://github.com/IBM/molformer"
+    topics: [chemistry, foundation-model]
+    why: "Large-scale SMILES language model for molecular property prediction; a chemistry-FM reference."
+  - id: biomedclip
+    kind: model
+    label: BiomedCLIP
+    modality: multimodal
+    architecture: "CLIP (ViT-B/16 + PubMedBERT)"
+    objective: "contrastive (image–text)"
+    pretrain_data: "PMC-15M (15M figure–caption pairs)"
+    year: 2023
+    license: "MIT"
+    access: open-weights
+    org_type: industry
+    region: US
+    url: "https://huggingface.co/microsoft/BiomedCLIP-PubMedBERT_256-vit_base_patch16_224"
+    weights: "https://huggingface.co/microsoft/BiomedCLIP-PubMedBERT_256-vit_base_patch16_224"
+    topics: [multimodal, radiology, foundation-model]
+    why: "Biomedical vision–language model trained on PMC figures; a default biomedical image–text encoder."
+  # ── ecosystem (datasets the anchors train on) ────────────────────
+  - {id: cellxgene-census, kind: dataset, label: CELLxGENE Census, modality: single-cell-rna, org_type: nonprofit, region: US, year: 2023, url: "https://chanzuckerberg.github.io/cellxgene-census/", topics: [single-cell], why: "CZI's harmonised single-cell atlas — the de facto pretraining corpus for sc-FMs."}
+  - {id: uniref, kind: dataset, label: UniRef, modality: protein, year: 2007, url: "https://www.uniprot.org/help/uniref", topics: [protein], why: "Clustered UniProt sequences — the standard protein-LM pretraining source."}
+  - {id: multispecies-genomes, kind: dataset, label: Multispecies genomes (NT corpus), modality: genomic, year: 2023, url: "https://huggingface.co/InstaDeepAI", topics: [genomic], why: "3,202 human genomes + 850 species assembled for Nucleotide Transformer."}
+  - {id: pmc-15m, kind: dataset, label: PMC-15M, modality: multimodal, year: 2023, url: "https://arxiv.org/abs/2303.00915", topics: [multimodal], why: "15M biomedical figure–caption pairs mined from PubMed Central; BiomedCLIP's pretraining set."}
+  - {id: pubchem, kind: dataset, label: PubChem, modality: chemistry, org_type: government, region: US, year: 2004, url: "https://pubchem.ncbi.nlm.nih.gov/", topics: [chemistry], why: "NIH chemical database; a primary molecular-FM pretraining source."}
