@@ -8,188 +8,5483 @@ vocab:
     org: Lab, institute, company, or consortium
     paper: Paper, preprint, or report
   modality:
-    - single-cell-rna
-    - genomic
-    - protein
-    - pathology
-    - radiology
-    - clinical-language
-    - chemistry
-    - physiological-signal
-    - multimodal
-    - spatial
+  - single-cell-rna
+  - genomic
+  - protein
+  - pathology
+  - radiology
+  - clinical-language
+  - chemistry
+  - physiological-signal
+  - multimodal
+  - spatial
   topics:
-    - foundation-model
-    - single-cell
-    - genomic
-    - protein
-    - pathology
-    - radiology
-    - clinical
-    - chemistry
-    - signals
-    - multimodal
-    - spatial
-    - generative
-    - diffusion
-    - structure-prediction
-    - segmentation
+  - foundation-model
+  - single-cell
+  - genomic
+  - protein
+  - pathology
+  - radiology
+  - clinical
+  - chemistry
+  - signals
+  - multimodal
+  - spatial
+  - generative
+  - diffusion
+  - structure-prediction
+  - segmentation
 papermap_relations:
-  - {id: trained-on, label: Trained on, color: "#4e79a7"}
-  - {id: evaluated-on, label: Evaluated on, color: "#59a14f"}
-  - {id: derived-from, label: Derived from, color: "#e8924a"}
-  - {id: from-org, label: From, color: "#9c6bab"}
+- id: trained-on
+  label: Trained on
+  color: '#4e79a7'
+- id: evaluated-on
+  label: Evaluated on
+  color: '#59a14f'
+- id: derived-from
+  label: Derived from
+  color: '#e8924a'
+- id: from-org
+  label: From
+  color: '#9c6bab'
 papermap_edges:
-  - [scgpt, cellxgene-census, trained-on]
-  - [esm2, uniref, trained-on]
-  - [nucleotide-transformer, multispecies-genomes, trained-on]
-  - [biomedclip, pmc-15m, trained-on]
-  - [molformer, pubchem, trained-on]
+- - scgpt
+  - cellxgene-census
+  - trained-on
+- - esm2
+  - uniref
+  - trained-on
+- - nucleotide-transformer
+  - multispecies-genomes
+  - trained-on
+- - biomedclip
+  - pmc-15m
+  - trained-on
+- - molformer
+  - pubchem
+  - trained-on
+- - geneformer
+  - genecorpus-30m
+  - trained-on
+- - geneformer-v2
+  - genecorpus-30m
+  - trained-on
+- - scfoundation
+  - geo
+  - trained-on
+- - uce
+  - cellxgene-census
+  - trained-on
+- - scbert
+  - panglaodb
+  - trained-on
+- - transcriptformer
+  - cellxgene-census
+  - trained-on
+- - state
+  - tahoe-100m
+  - trained-on
+- - tahoe-x1
+  - tahoe-100m
+  - trained-on
+- - cellfm
+  - cellxgene-census
+  - trained-on
+- - sctab
+  - cellxgene-census
+  - trained-on
+- - scprint
+  - cellxgene-census
+  - trained-on
+- - scgpt-spatial
+  - human-cell-atlas
+  - trained-on
+- - genept
+  - geo
+  - trained-on
+- - geneformer-v2
+  - geneformer
+  - derived-from
+- - scanvi
+  - scvi
+  - derived-from
+- - c2s-scale
+  - scmulan
+  - derived-from
+- - sc-mamba2
+  - scmamba
+  - derived-from
+- - geneformer
+  - sceval
+  - evaluated-on
+- - cellplm
+  - sceval
+  - evaluated-on
+- - scbert
+  - sceval
+  - evaluated-on
+- - state
+  - arc-virtual-cell-challenge
+  - evaluated-on
+- - tahoe-x1
+  - arc-virtual-cell-challenge
+  - evaluated-on
+- - state
+  - arc-institute
+  - from-org
+- - transcriptformer
+  - czi
+  - from-org
+- - sctab
+  - theislab
+  - from-org
+- - nicheformer
+  - theislab
+  - from-org
+- - c2s-scale
+  - vandijk-lab
+  - from-org
+- - scelmo
+  - vandijk-lab
+  - from-org
+- - tahoe-x1
+  - tahoe-bio
+  - from-org
+- - dnabert
+  - human-reference-genome
+  - trained-on
+- - dnabert-2
+  - multispecies-genomes
+  - trained-on
+- - dnabert-s
+  - multispecies-genomes
+  - trained-on
+- - hyenadna
+  - human-reference-genome
+  - trained-on
+- - caduceus
+  - human-reference-genome
+  - trained-on
+- - gena-lm
+  - human-reference-genome
+  - trained-on
+- - gena-lm
+  - 1000-genomes
+  - trained-on
+- - grover
+  - human-reference-genome
+  - trained-on
+- - enformer
+  - encode
+  - trained-on
+- - enformer
+  - gtex
+  - trained-on
+- - borzoi
+  - encode
+  - trained-on
+- - borzoi
+  - gtex
+  - trained-on
+- - glm-genomic
+  - mgnify
+  - trained-on
+- - orthrus
+  - zoonomia
+  - trained-on
+- - evo
+  - opengenome
+  - trained-on
+- - get-gene-expression-transformer
+  - encode
+  - trained-on
+- - alphagenome
+  - encode
+  - trained-on
+- - alphagenome
+  - gtex
+  - trained-on
+- - dnabert-2
+  - gue-benchmark
+  - evaluated-on
+- - dnabert
+  - gue-benchmark
+  - evaluated-on
+- - hyenadna
+  - genomic-benchmarks
+  - evaluated-on
+- - caduceus
+  - genomic-benchmarks
+  - evaluated-on
+- - gena-lm
+  - bend-benchmark
+  - evaluated-on
+- - dnabert-2
+  - dnabert
+  - derived-from
+- - dnabert-s
+  - dnabert-2
+  - derived-from
+- - borzoi
+  - enformer
+  - derived-from
+- - segment-nt
+  - multispecies-genomes
+  - derived-from
+- - evo2
+  - evo
+  - derived-from
+- - segment-nt
+  - instadeep
+  - from-org
+- - agro-nucleotide-transformer
+  - instadeep
+  - from-org
+- - evo
+  - arc-institute
+  - from-org
+- - evo2
+  - arc-institute
+  - from-org
+- - borzoi
+  - calico
+  - from-org
+- - enformer
+  - calico
+  - from-org
+- - esm-1b
+  - uniref
+  - trained-on
+- - esm3
+  - uniref
+  - trained-on
+- - esm-c
+  - uniref
+  - trained-on
+- - protbert
+  - uniref
+  - trained-on
+- - prott5
+  - uniref
+  - trained-on
+- - protgpt2
+  - uniref
+  - trained-on
+- - progen2
+  - uniref
+  - trained-on
+- - proteinbert
+  - uniref
+  - trained-on
+- - ankh
+  - uniref
+  - trained-on
+- - amplify
+  - uniref
+  - trained-on
+- - carp
+  - uniref
+  - trained-on
+- - saprot
+  - alphafold-db
+  - trained-on
+- - prostt5
+  - alphafold-db
+  - trained-on
+- - alphafold2
+  - pdb
+  - trained-on
+- - alphafold3
+  - pdb
+  - trained-on
+- - esmfold
+  - pdb
+  - trained-on
+- - openfold
+  - pdb
+  - trained-on
+- - rosettafold
+  - pdb
+  - trained-on
+- - rosettafold-all-atom
+  - pdb
+  - trained-on
+- - omegafold
+  - pdb
+  - trained-on
+- - esm-1b
+  - proteingym
+  - evaluated-on
+- - alphafold2
+  - casp
+  - evaluated-on
+- - esmfold
+  - cameo
+  - evaluated-on
+- - esmfold
+  - casp
+  - evaluated-on
+- - openfold
+  - cameo
+  - evaluated-on
+- - omegafold
+  - casp
+  - evaluated-on
+- - esm-c
+  - esm-1b
+  - derived-from
+- - prostt5
+  - prott5
+  - derived-from
+- - amplify
+  - esm-1b
+  - derived-from
+- - esmfold
+  - esm3
+  - derived-from
+- - openfold
+  - alphafold2
+  - derived-from
+- - rosettafold-all-atom
+  - rosettafold
+  - derived-from
+- - esm3
+  - evolutionaryscale
+  - from-org
+- - esm-c
+  - evolutionaryscale
+  - from-org
+- - alphafold2
+  - deepmind
+  - from-org
+- - alphafold3
+  - deepmind
+  - from-org
+- - rosettafold
+  - baker-lab
+  - from-org
+- - rosettafold-all-atom
+  - baker-lab
+  - from-org
+- - protbert
+  - rostlab
+  - from-org
+- - prott5
+  - rostlab
+  - from-org
+- - prostt5
+  - rostlab
+  - from-org
+- - virchow
+  - tcga
+  - evaluated-on
+- - virchow2
+  - tcga
+  - evaluated-on
+- - conch
+  - tcga
+  - evaluated-on
+- - prov-gigapath
+  - tcga
+  - evaluated-on
+- - phikon
+  - tcga
+  - trained-on
+- - phikon-v2
+  - tcga
+  - evaluated-on
+- - ctranspath
+  - tcga
+  - trained-on
+- - uni2
+  - cptac
+  - evaluated-on
+- - uni2
+  - panda
+  - evaluated-on
+- - lunit-dino
+  - tcga
+  - trained-on
+- - kaiko-midnight
+  - tcga
+  - trained-on
+- - gpfm
+  - tcga
+  - trained-on
+- - plip
+  - openpath
+  - trained-on
+- - virchow
+  - gtex
+  - evaluated-on
+- - virchow2
+  - eva-benchmark
+  - evaluated-on
+- - uni2
+  - eva-benchmark
+  - evaluated-on
+- - kaiko-midnight
+  - eva-benchmark
+  - evaluated-on
+- - virchow2
+  - camelyon
+  - evaluated-on
+- - conch
+  - camelyon
+  - evaluated-on
+- - prov-gigapath
+  - panda
+  - evaluated-on
+- - gpfm
+  - hest
+  - evaluated-on
+- - virchow2
+  - hest
+  - evaluated-on
+- - virchow2
+  - virchow
+  - derived-from
+- - phikon-v2
+  - phikon
+  - derived-from
+- - h-optimus-1
+  - h-optimus-0
+  - derived-from
+- - prism
+  - virchow
+  - derived-from
+- - titan
+  - conch
+  - derived-from
+- - madeleine
+  - conch
+  - derived-from
+- - chief
+  - ctranspath
+  - derived-from
+- - virchow
+  - paige-ai
+  - from-org
+- - virchow2
+  - paige-ai
+  - from-org
+- - prism
+  - paige-ai
+  - from-org
+- - conch
+  - mahmood-lab
+  - from-org
+- - uni2
+  - mahmood-lab
+  - from-org
+- - titan
+  - mahmood-lab
+  - from-org
+- - madeleine
+  - mahmood-lab
+  - from-org
+- - h-optimus-0
+  - bioptimus
+  - from-org
+- - h-optimus-1
+  - bioptimus
+  - from-org
+- - phikon
+  - owkin
+  - from-org
+- - phikon-v2
+  - owkin
+  - from-org
+- - kaiko-midnight
+  - kaiko-ai
+  - from-org
+- - rad-dino
+  - mimic-cxr
+  - trained-on
+- - rad-dino
+  - chexpert
+  - trained-on
+- - rad-dino
+  - nih-chestxray
+  - trained-on
+- - rad-dino
+  - padchest
+  - trained-on
+- - ct-fm
+  - imaging-data-commons
+  - trained-on
+- - sam-med2d
+  - sa-med2d-20m
+  - trained-on
+- - radfm
+  - medmd
+  - trained-on
+- - eva-x
+  - nih-chestxray
+  - trained-on
+- - eva-x
+  - chexpert
+  - trained-on
+- - eva-x
+  - mimic-cxr
+  - trained-on
+- - cxr-foundation
+  - mimic-cxr
+  - trained-on
+- - rad-dino
+  - chexpert
+  - evaluated-on
+- - chexagent
+  - chexbench
+  - evaluated-on
+- - radfm
+  - radbench
+  - evaluated-on
+- - cxr-foundation
+  - mimic-cxr
+  - evaluated-on
+- - cxr-foundation
+  - nih-chestxray
+  - evaluated-on
+- - vista3d
+  - totalsegmentator
+  - evaluated-on
+- - rad-dino
+  - microsoft-health
+  - from-org
+- - medimageinsight
+  - microsoft-health
+  - from-org
+- - biomedparse
+  - microsoft-health
+  - from-org
+- - chexagent
+  - stanford-aimi
+  - from-org
+- - merlin
+  - stanford-aimi
+  - from-org
+- - medsam-2
+  - sam-med3d
+  - derived-from
+- - chemberta
+  - pubchem
+  - trained-on
+- - chemberta
+  - moleculenet
+  - evaluated-on
+- - chemberta-2
+  - pubchem
+  - trained-on
+- - chemberta-2
+  - moleculenet
+  - evaluated-on
+- - chemberta-2
+  - chemberta
+  - derived-from
+- - uni-mol
+  - moleculenet
+  - evaluated-on
+- - uni-mol
+  - deepmodeling
+  - from-org
+- - uni-mol2
+  - uni-mol
+  - derived-from
+- - uni-mol2
+  - deepmodeling
+  - from-org
+- - molgpt
+  - moses
+  - trained-on
+- - molgpt
+  - guacamol
+  - trained-on
+- - smiles-bert
+  - moleculenet
+  - evaluated-on
+- - molclr
+  - pubchem
+  - trained-on
+- - molclr
+  - moleculenet
+  - evaluated-on
+- - grover
+  - moleculenet
+  - evaluated-on
+- - chemgpt
+  - pubchem
+  - trained-on
+- - selformer
+  - chembl
+  - trained-on
+- - selformer
+  - moleculenet
+  - evaluated-on
+- - chemformer
+  - zinc
+  - trained-on
+- - chemformer
+  - molecularai
+  - from-org
+- - x-mol
+  - zinc
+  - trained-on
+- - smiles-transformer
+  - chembl
+  - trained-on
+- - smiles-transformer
+  - moleculenet
+  - evaluated-on
+- - mol-bert
+  - moleculenet
+  - evaluated-on
+- - graphormer-molecular
+  - ogb-lsc
+  - evaluated-on
+- - ecg-fm
+  - mimic-iv-ecg
+  - trained-on
+- - ecgfounder
+  - harvard-emory-ecg-db
+  - trained-on
+- - hubert-ecg
+  - mimic-iv-ecg
+  - trained-on
+- - merl
+  - mimic-iv-ecg
+  - trained-on
+- - labram
+  - tuh-eeg
+  - trained-on
+- - biot
+  - tuh-eeg
+  - trained-on
+- - bendr
+  - tuh-eeg
+  - trained-on
+- - eegformer
+  - tuh-eeg
+  - trained-on
+- - neuro-gpt
+  - tuh-eeg
+  - trained-on
+- - ecg-fm
+  - mimic-iv-ecg
+  - evaluated-on
+- - ecg-fm
+  - ptb-xl
+  - evaluated-on
+- - ecg-fm
+  - chapman-shaoxing
+  - evaluated-on
+- - st-mem
+  - ptb-xl
+  - evaluated-on
+- - st-mem
+  - chapman-shaoxing
+  - evaluated-on
+- - hubert-ecg
+  - ptb-xl
+  - evaluated-on
+- - merl
+  - ptb-xl
+  - evaluated-on
+- - labram
+  - tuh-eeg-tuab-tuev
+  - evaluated-on
+- - eegpt
+  - tuh-eeg-tuab-tuev
+  - evaluated-on
+- - biot
+  - tuh-eeg-tuab-tuev
+  - evaluated-on
+- - eegformer
+  - tuh-eeg-tuab-tuev
+  - evaluated-on
+- - ecg-fm
+  - bowang-lab
+  - from-org
+- - papagei
+  - nokia-bell-labs
+  - from-org
+- - biomedgpt-pharmolix
+  - pharmolix
+  - from-org
+- - pmc-clip
+  - pmc-oa
+  - trained-on
+- - med-flamingo
+  - pmc-15m
+  - trained-on
+- - prism-paige
+  - paige
+  - from-org
+- - prism-paige
+  - virchow
+  - derived-from
+- - biomedgpt-stanford
+  - biomedgpt-pharmolix
+  - derived-from
+- - nicheformer
+  - spatialcorpus-110m
+  - trained-on
+- - scgpt-spatial
+  - spatialhuman30m
+  - trained-on
+- - scgpt-spatial
+  - scgpt
+  - derived-from
+- - stformer
+  - scfoundation
+  - derived-from
+- - musk
+  - cellxgene-census
+  - evaluated-on
+- - grover-molecular
+  - moleculenet
+  - evaluated-on
 items:
-  # ── anchor models (one per family) ───────────────────────────────
-  - id: scgpt
-    kind: model
-    label: scGPT
-    modality: single-cell-rna
-    params: "~50M"
-    architecture: "transformer (generative)"
-    objective: "masked + generative gene/cell tokens"
-    pretrain_data: "~33M cells (CELLxGENE)"
-    context: "≤2048 genes"
-    year: 2024
-    released: "2023-05"
-    license: "MIT"
-    access: open-weights
-    org_type: academic
-    region: Canada
-    url: "https://www.nature.com/articles/s41592-024-02201-0"
-    weights: "https://github.com/bowang-lab/scGPT"
-    topics: [single-cell, foundation-model]
-    why: "Category-defining single-cell FM — genes and cells as tokens; the reckoning's main benchmark target."
-  - id: esm2
-    kind: model
-    label: ESM-2
-    modality: protein
-    params: "15B (8M–15B family)"
-    architecture: "transformer (encoder, BERT-style)"
-    objective: "masked-residue"
-    pretrain_data: "~65M sequences (UniRef50/90)"
-    context: "1024 aa"
-    year: 2022
-    released: "2022-08"
-    license: "MIT"
-    access: open-weights
-    org_type: industry
-    region: US
-    url: "https://www.science.org/doi/10.1126/science.ade2574"
-    weights: "https://github.com/facebookresearch/esm"
-    topics: [protein, foundation-model, structure-prediction]
-    why: "Defined the protein-language-model category; backbone for ESMFold and most downstream protein tools."
-  - id: nucleotide-transformer
-    kind: model
-    label: Nucleotide Transformer
-    modality: genomic
-    params: "2.5B (50M–2.5B family)"
-    architecture: "transformer (encoder)"
-    objective: "masked-language (k-mer tokens)"
-    pretrain_data: "3,202 human genomes + 850 species"
-    context: "~6 kb"
-    year: 2024
-    license: "CC-BY-NC-SA-4.0"
-    access: open-weights
-    org_type: industry
-    region: UK
-    url: "https://huggingface.co/InstaDeepAI/nucleotide-transformer-2.5b-multi-species"
-    weights: "https://huggingface.co/InstaDeepAI"
-    topics: [genomic, foundation-model]
-    why: "One of the first large multispecies DNA language models; a standard genomic-FM baseline."
-  - id: uni
-    kind: model
-    label: UNI
-    modality: pathology
-    params: "~307M (ViT-L/16)"
-    architecture: "ViT-L (DINOv2 self-supervised)"
-    objective: "self-distillation (DINOv2)"
-    pretrain_data: "~100M tiles / 100k WSIs (Mass-100K)"
-    context: "224px tiles"
-    year: 2024
-    license: "CC-BY-NC-ND-4.0"
-    access: open-weights
-    org_type: academic
-    region: US
-    url: "https://www.nature.com/articles/s41591-024-02857-3"
-    weights: "https://huggingface.co/MahmoodLab/UNI"
-    topics: [pathology, foundation-model]
-    why: "Widely-adopted histopathology tile encoder; strong general-purpose pathology backbone."
-  - id: medsam
-    kind: model
-    label: MedSAM
-    modality: radiology
-    architecture: "ViT (SAM-based)"
-    objective: "promptable segmentation"
-    pretrain_data: "~1.5M image-mask pairs (10 modalities)"
-    year: 2024
-    license: "Apache-2.0"
-    access: open-weights
-    org_type: academic
-    region: Canada
-    url: "https://www.nature.com/articles/s41467-024-44824-z"
-    weights: "https://github.com/bowang-lab/MedSAM"
-    topics: [radiology, foundation-model, segmentation]
-    why: "Segment-Anything adapted to medical imaging across modalities; a default promptable medical segmenter."
-  - id: gatortron
-    kind: model
-    label: GatorTron
-    modality: clinical-language
-    params: "8.9B"
-    architecture: "transformer (BERT-style, Megatron)"
-    objective: "masked-language"
-    pretrain_data: ">90B words clinical + biomedical (UF Health)"
-    year: 2022
-    released: "2022-02"
-    access: open-weights
-    org_type: academic
-    region: US
-    url: "https://www.nature.com/articles/s41746-022-00742-2"
-    weights: "https://huggingface.co/UFNLP/gatortron-base"
-    topics: [clinical, foundation-model]
-    why: "Large clinical-text encoder trained on real EHR notes; a reference clinical-language FM."
-  - id: molformer
-    kind: model
-    label: MoLFormer-XL
-    modality: chemistry
-    params: "~47M"
-    architecture: "transformer (linear attention, rotary)"
-    objective: "masked-language (SMILES)"
-    pretrain_data: "~1.1B molecules (PubChem + ZINC)"
-    year: 2022
-    license: "Apache-2.0"
-    access: open-weights
-    org_type: industry
-    region: US
-    url: "https://www.nature.com/articles/s42256-022-00580-7"
-    weights: "https://github.com/IBM/molformer"
-    topics: [chemistry, foundation-model]
-    why: "Large-scale SMILES language model for molecular property prediction; a chemistry-FM reference."
-  - id: biomedclip
-    kind: model
-    label: BiomedCLIP
-    modality: multimodal
-    architecture: "CLIP (ViT-B/16 + PubMedBERT)"
-    objective: "contrastive (image–text)"
-    pretrain_data: "PMC-15M (15M figure–caption pairs)"
-    year: 2023
-    license: "MIT"
-    access: open-weights
-    org_type: industry
-    region: US
-    url: "https://huggingface.co/microsoft/BiomedCLIP-PubMedBERT_256-vit_base_patch16_224"
-    weights: "https://huggingface.co/microsoft/BiomedCLIP-PubMedBERT_256-vit_base_patch16_224"
-    topics: [multimodal, radiology, foundation-model]
-    why: "Biomedical vision–language model trained on PMC figures; a default biomedical image–text encoder."
-  # ── ecosystem (datasets the anchors train on) ────────────────────
-  - {id: cellxgene-census, kind: dataset, label: CELLxGENE Census, modality: single-cell-rna, org_type: nonprofit, region: US, year: 2023, url: "https://chanzuckerberg.github.io/cellxgene-census/", topics: [single-cell], why: "CZI's harmonised single-cell atlas — the de facto pretraining corpus for sc-FMs."}
-  - {id: uniref, kind: dataset, label: UniRef, modality: protein, year: 2007, url: "https://www.uniprot.org/help/uniref", topics: [protein], why: "Clustered UniProt sequences — the standard protein-LM pretraining source."}
-  - {id: multispecies-genomes, kind: dataset, label: Multispecies genomes (NT corpus), modality: genomic, year: 2023, url: "https://huggingface.co/InstaDeepAI", topics: [genomic], why: "3,202 human genomes + 850 species assembled for Nucleotide Transformer."}
-  - {id: pmc-15m, kind: dataset, label: PMC-15M, modality: multimodal, year: 2023, url: "https://arxiv.org/abs/2303.00915", topics: [multimodal], why: "15M biomedical figure–caption pairs mined from PubMed Central; BiomedCLIP's pretraining set."}
-  - {id: pubchem, kind: dataset, label: PubChem, modality: chemistry, org_type: government, region: US, year: 2004, url: "https://pubchem.ncbi.nlm.nih.gov/", topics: [chemistry], why: "NIH chemical database; a primary molecular-FM pretraining source."}
+- id: scgpt
+  kind: model
+  label: scGPT
+  modality: single-cell-rna
+  params: ~50M
+  architecture: transformer (generative)
+  objective: masked + generative gene/cell tokens
+  pretrain_data: ~33M cells (CELLxGENE)
+  context: ≤2048 genes
+  year: 2024
+  released: 2023-05
+  license: MIT
+  access: open-weights
+  org_type: academic
+  region: Canada
+  url: https://www.nature.com/articles/s41592-024-02201-0
+  weights: https://github.com/bowang-lab/scGPT
+  topics:
+  - single-cell
+  - foundation-model
+  why: Category-defining single-cell FM — genes and cells as tokens; the reckoning's main benchmark target.
+- id: esm2
+  kind: model
+  label: ESM-2
+  modality: protein
+  params: 15B (8M–15B family)
+  architecture: transformer (encoder, BERT-style)
+  objective: masked-residue
+  pretrain_data: ~65M sequences (UniRef50/90)
+  context: 1024 aa
+  year: 2022
+  released: 2022-08
+  license: MIT
+  access: open-weights
+  org_type: industry
+  region: US
+  url: https://www.science.org/doi/10.1126/science.ade2574
+  weights: https://github.com/facebookresearch/esm
+  topics:
+  - protein
+  - foundation-model
+  - structure-prediction
+  why: Defined the protein-language-model category; backbone for ESMFold and most downstream protein tools.
+- id: nucleotide-transformer
+  kind: model
+  label: Nucleotide Transformer
+  modality: genomic
+  params: 2.5B (50M–2.5B family)
+  architecture: transformer (encoder)
+  objective: masked-language (k-mer tokens)
+  pretrain_data: 3,202 human genomes + 850 species
+  context: ~6 kb
+  year: 2024
+  license: CC-BY-NC-SA-4.0
+  access: open-weights
+  org_type: industry
+  region: UK
+  url: https://huggingface.co/InstaDeepAI/nucleotide-transformer-2.5b-multi-species
+  weights: https://huggingface.co/InstaDeepAI
+  topics:
+  - genomic
+  - foundation-model
+  why: One of the first large multispecies DNA language models; a standard genomic-FM baseline.
+- id: uni
+  kind: model
+  label: UNI
+  modality: pathology
+  params: ~307M (ViT-L/16)
+  architecture: ViT-L (DINOv2 self-supervised)
+  objective: self-distillation (DINOv2)
+  pretrain_data: ~100M tiles / 100k WSIs (Mass-100K)
+  context: 224px tiles
+  year: 2024
+  license: CC-BY-NC-ND-4.0
+  access: open-weights
+  org_type: academic
+  region: US
+  url: https://www.nature.com/articles/s41591-024-02857-3
+  weights: https://huggingface.co/MahmoodLab/UNI
+  topics:
+  - pathology
+  - foundation-model
+  why: Widely-adopted histopathology tile encoder; strong general-purpose pathology backbone.
+- id: medsam
+  kind: model
+  label: MedSAM
+  modality: radiology
+  architecture: ViT (SAM-based)
+  objective: promptable segmentation
+  pretrain_data: ~1.5M image-mask pairs (10 modalities)
+  year: 2024
+  license: Apache-2.0
+  access: open-weights
+  org_type: academic
+  region: Canada
+  url: https://www.nature.com/articles/s41467-024-44824-z
+  weights: https://github.com/bowang-lab/MedSAM
+  topics:
+  - radiology
+  - foundation-model
+  - segmentation
+  why: Segment-Anything adapted to medical imaging across modalities; a default promptable medical segmenter.
+- id: gatortron
+  kind: model
+  label: GatorTron
+  modality: clinical-language
+  params: 8.9B
+  architecture: transformer (BERT-style, Megatron)
+  objective: masked-language
+  pretrain_data: '>90B words clinical + biomedical (UF Health)'
+  year: 2022
+  released: 2022-02
+  access: open-weights
+  org_type: academic
+  region: US
+  url: https://www.nature.com/articles/s41746-022-00742-2
+  weights: https://huggingface.co/UFNLP/gatortron-base
+  topics:
+  - clinical
+  - foundation-model
+  why: Large clinical-text encoder trained on real EHR notes; a reference clinical-language FM.
+- id: molformer
+  kind: model
+  label: MoLFormer-XL
+  modality: chemistry
+  params: ~47M
+  architecture: transformer (linear attention, rotary)
+  objective: masked-language (SMILES)
+  pretrain_data: ~1.1B molecules (PubChem + ZINC)
+  year: 2022
+  license: Apache-2.0
+  access: open-weights
+  org_type: industry
+  region: US
+  url: https://www.nature.com/articles/s42256-022-00580-7
+  weights: https://github.com/IBM/molformer
+  topics:
+  - chemistry
+  - foundation-model
+  why: Large-scale SMILES language model for molecular property prediction; a chemistry-FM reference.
+- id: biomedclip
+  kind: model
+  label: BiomedCLIP
+  modality: multimodal
+  architecture: CLIP (ViT-B/16 + PubMedBERT)
+  objective: contrastive (image–text)
+  pretrain_data: PMC-15M (15M figure–caption pairs)
+  year: 2023
+  license: MIT
+  access: open-weights
+  org_type: industry
+  region: US
+  url: https://huggingface.co/microsoft/BiomedCLIP-PubMedBERT_256-vit_base_patch16_224
+  weights: https://huggingface.co/microsoft/BiomedCLIP-PubMedBERT_256-vit_base_patch16_224
+  topics:
+  - multimodal
+  - radiology
+  - foundation-model
+  why: Biomedical vision–language model trained on PMC figures; a default biomedical image–text encoder.
+- id: cellxgene-census
+  kind: dataset
+  label: CELLxGENE Census
+  modality: single-cell-rna
+  org_type: nonprofit
+  region: US
+  year: 2023
+  url: https://chanzuckerberg.github.io/cellxgene-census/
+  topics:
+  - single-cell
+  why: CZI's harmonised single-cell atlas — the de facto pretraining corpus for sc-FMs.
+- id: uniref
+  kind: dataset
+  label: UniRef
+  modality: protein
+  year: 2007
+  url: https://www.uniprot.org/help/uniref
+  topics:
+  - protein
+  why: Clustered UniProt sequences — the standard protein-LM pretraining source.
+- id: multispecies-genomes
+  kind: dataset
+  label: Multispecies genomes (NT corpus)
+  modality: genomic
+  year: 2023
+  url: https://huggingface.co/InstaDeepAI
+  topics:
+  - genomic
+  why: 3,202 human genomes + 850 species assembled for Nucleotide Transformer.
+- id: pmc-15m
+  kind: dataset
+  label: PMC-15M
+  modality: multimodal
+  year: 2023
+  url: https://arxiv.org/abs/2303.00915
+  topics:
+  - multimodal
+  why: 15M biomedical figure–caption pairs mined from PubMed Central; BiomedCLIP's pretraining set.
+- id: pubchem
+  kind: dataset
+  label: PubChem
+  modality: chemistry
+  org_type: government
+  region: US
+  year: 2004
+  url: https://pubchem.ncbi.nlm.nih.gov/
+  topics:
+  - chemistry
+  why: NIH chemical database; a primary molecular-FM pretraining source.
+- id: geneformer
+  kind: model
+  label: Geneformer
+  modality: single-cell-rna
+  params: ~10M (6-layer)
+  architecture: transformer (encoder, BERT-style)
+  objective: masked-gene (rank-value encoding, 15% masked)
+  pretrain_data: ~30M cells (Genecorpus-30M)
+  context: 2048 genes
+  year: 2023
+  released: 2023-05
+  license: Apache-2.0
+  access: open-weights
+  org_type: academic
+  region: US
+  url: https://doi.org/10.1038/s41586-023-06139-9
+  weights: https://huggingface.co/ctheodoris/Geneformer
+  topics:
+  - single-cell
+  - foundation-model
+  why: First widely-used scRNA transformer; rank-value encoding enabled zero-shot network-biology and in-silico perturbation.
+- id: geneformer-v2
+  kind: model
+  label: Geneformer-V2
+  modality: single-cell-rna
+  params: 10M–100M family (12/20-layer)
+  architecture: transformer (encoder); quantized multi-task variant
+  objective: masked-gene (rank-value); multi-task heads
+  pretrain_data: ~95M cells (Genecorpus-103M, malignant cells excluded)
+  context: 4096 genes
+  year: 2024
+  released: 2024-08
+  license: Apache-2.0
+  access: open-weights
+  org_type: academic
+  region: US
+  url: https://doi.org/10.1101/2024.08.16.608180
+  weights: https://huggingface.co/ctheodoris/Geneformer
+  topics:
+  - single-cell
+  - foundation-model
+  why: 3x larger corpus and 4096 context; adds cancer-tuned and quantized multi-task variants.
+- id: scfoundation
+  kind: model
+  label: scFoundation (xTrimoscFoundationα)
+  modality: single-cell-rna
+  params: 100M
+  architecture: transformer (asymmetric encoder–decoder, xTrimoGene)
+  objective: read-depth-aware masked expression (RDA)
+  pretrain_data: '>50M human cells'
+  context: ~20,000 genes
+  year: 2024
+  released: 2024-06
+  license: Apache-2.0
+  access: open-weights
+  org_type: industry
+  region: China
+  url: https://doi.org/10.1038/s41592-024-02305-7
+  weights: https://github.com/biomap-research/scFoundation
+  topics:
+  - single-cell
+  - foundation-model
+  - perturbation-prediction
+  why: Models all ~20k genes with read-depth-aware pretraining; strong on expression enhancement and drug-response prediction.
+- id: uce
+  kind: model
+  label: UCE (Universal Cell Embeddings)
+  modality: single-cell-rna
+  params: 650M (33-layer)
+  architecture: transformer; ESM2 protein-embedding gene tokens
+  objective: masked self-supervision over gene sets (zero-shot embedding)
+  pretrain_data: ~36M cells, 300+ datasets, 8 species (CELLxGENE)
+  context: sampled gene set per cell
+  year: 2023
+  released: 2023-11
+  license: MIT
+  access: open-weights
+  org_type: academic
+  region: US
+  url: https://doi.org/10.1101/2023.11.28.568918
+  weights: https://github.com/snap-stanford/UCE
+  topics:
+  - single-cell
+  - foundation-model
+  why: Cross-species universal latent space; embeds new datasets and species zero-shot with no fine-tuning.
+- id: cellplm
+  kind: model
+  label: CellPLM
+  modality: single-cell-rna
+  architecture: transformer encoder with Gaussian-mixture latent prior
+  objective: masked-cell modeling (cells as tokens)
+  pretrain_data: scRNA-seq + spatial transcriptomic cells
+  year: 2024
+  released: 2023-10
+  license: MIT
+  access: open-weights
+  org_type: academic
+  region: US
+  url: https://openreview.net/forum?id=BKZHBwBgQ4
+  weights: https://github.com/OmicsML/CellPLM
+  topics:
+  - single-cell
+  - foundation-model
+  - spatial
+  why: First cell-as-token PLM that encodes inter-cell relations and integrates spatial data with a justified latent prior.
+- id: scvi
+  kind: model
+  label: scVI
+  modality: single-cell-rna
+  architecture: VAE (deep generative)
+  objective: variational ELBO (negative-binomial likelihood)
+  pretrain_data: per-dataset / CELLxGENE Census reference models
+  year: 2018
+  released: 2018-11
+  license: BSD-3-Clause
+  access: open-weights
+  org_type: academic
+  region: US
+  url: https://doi.org/10.1038/s41592-018-0229-2
+  weights: https://github.com/scverse/scvi-tools
+  topics:
+  - single-cell
+  - foundation-model
+  - generative
+  why: Foundational probabilistic VAE for scRNA-seq; the standard baseline for batch correction, integration and DE.
+- id: scanvi
+  kind: model
+  label: scANVI
+  modality: single-cell-rna
+  architecture: semi-supervised VAE (scVI + classifier head)
+  objective: variational ELBO + cell-type classification
+  pretrain_data: semi-labeled scRNA-seq references
+  year: 2021
+  released: 2021-01
+  license: BSD-3-Clause
+  access: open-weights
+  org_type: academic
+  region: US
+  url: https://doi.org/10.15252/msb.20209620
+  weights: https://github.com/scverse/scvi-tools
+  topics:
+  - single-cell
+  - foundation-model
+  - generative
+  why: Semi-supervised extension of scVI for label transfer and annotation; widely used reference-mapping baseline.
+- id: scbert
+  kind: model
+  label: scBERT
+  modality: single-cell-rna
+  architecture: Performer (linear-attention BERT)
+  objective: masked-gene-expression modeling
+  pretrain_data: unlabeled scRNA-seq (PanglaoDB)
+  context: '>16,000 genes'
+  year: 2022
+  released: 2022-09
+  license: MIT
+  access: open-weights
+  org_type: industry
+  region: China
+  url: https://doi.org/10.1038/s42256-022-00534-z
+  weights: https://github.com/TencentAILabHealthcare/scBERT
+  topics:
+  - single-cell
+  - foundation-model
+  why: Early BERT-for-cells using Performer to handle full gene vocabulary; strong cell-type annotation and novel-type discovery.
+- id: nicheformer
+  kind: model
+  label: Nicheformer
+  modality: spatial
+  architecture: transformer (encoder)
+  objective: masked modeling across dissociated + spatial modalities
+  pretrain_data: SpatialCorpus-110M (~57M dissociated + ~53M spatial cells)
+  year: 2025
+  released: 2024-04
+  license: BSD-3-Clause
+  access: open-weights
+  org_type: academic
+  region: EU
+  url: https://doi.org/10.1038/s41592-025-02814-z
+  weights: https://github.com/theislab/nicheformer
+  topics:
+  - single-cell
+  - foundation-model
+  - spatial
+  why: Joint single-cell + spatial pretraining; recovers spatial microenvironment composition that dissociated-only models miss.
+- id: transcriptformer
+  kind: model
+  label: TranscriptFormer
+  modality: single-cell-rna
+  architecture: transformer (generative)
+  objective: autoregressive generative modeling of cell transcriptomes
+  pretrain_data: 112M cells across 12 species (1.5B yr evolution)
+  year: 2025
+  released: 2025-04
+  license: MIT
+  access: open-weights
+  org_type: nonprofit
+  region: US
+  url: https://doi.org/10.1101/2025.04.25.650731
+  weights: https://github.com/czi-ai/transcriptformer
+  topics:
+  - single-cell
+  - foundation-model
+  - generative
+  why: Generative cross-species cell atlas; robust zero-shot cell-type classification even for distant species.
+  benchmarks:
+  - name: cross-species cell-type F1 (stony coral)
+    score: '>0.65'
+- id: c2s-scale
+  kind: model
+  label: C2S-Scale (Cell2Sentence)
+  modality: single-cell-rna
+  params: 410M–27B (Gemma-2 family)
+  architecture: transformer (generative LLM, Gemma-2 backbone)
+  objective: autoregressive language modeling over cell sentences
+  pretrain_data: '>1B tokens of cell sentences + biomedical text + metadata'
+  year: 2025
+  released: 2025-10
+  license: Gemma
+  access: open-weights
+  org_type: industry
+  region: US
+  url: https://doi.org/10.1101/2025.04.14.648850
+  weights: https://huggingface.co/vandijklab/C2S-Scale-Gemma-2-27B
+  topics:
+  - single-cell
+  - foundation-model
+  - generative
+  why: Scales LLMs to 27B on cell sentences; nominated a CK2-inhibitor + interferon combo later validated in vitro.
+- id: state
+  kind: model
+  label: STATE
+  modality: single-cell-rna
+  architecture: transformer (State Transition ST + State Embedding SE)
+  objective: perturbation-response prediction over cell sets + embedding pretraining
+  pretrain_data: 167M observational + >100M perturbational cells, 70 contexts
+  year: 2025
+  released: 2025-06
+  license: noncommercial (research)
+  access: open-weights
+  org_type: nonprofit
+  region: US
+  url: https://doi.org/10.1101/2025.06.26.661135
+  weights: https://github.com/ArcInstitute/state
+  topics:
+  - single-cell
+  - foundation-model
+  - perturbation-prediction
+  why: Arc's first virtual-cell model; improved perturbation-effect discrimination >50% over prior cell-state models.
+  benchmarks:
+  - name: perturbation-effect discrimination gain
+    score: '>50%'
+- id: tahoe-x1
+  kind: model
+  label: Tahoe-x1
+  modality: single-cell-rna
+  params: up to 3B
+  architecture: transformer (scGPT-style encoder, FlashAttention v2)
+  objective: masked language modeling (perturbation-trained)
+  pretrain_data: 266M cells incl. Tahoe-100M perturbation compendium
+  year: 2025
+  released: 2025-10
+  license: Apache-2.0
+  access: open-weights
+  org_type: industry
+  region: US
+  url: https://doi.org/10.1101/2025.10.23.683759
+  weights: https://huggingface.co/tahoebio/Tahoe-x1
+  topics:
+  - single-cell
+  - foundation-model
+  - perturbation-prediction
+  why: Perturbation-trained 3B model; cancer-task SOTA at 3–30x higher compute efficiency, fully open weights + code.
+  benchmarks:
+  - name: MSigDB Hallmark pathway (AUPRC)
+    score: reported SOTA
+- id: cellfm
+  kind: model
+  label: CellFM
+  modality: single-cell-rna
+  params: 800M
+  architecture: ERetNet (modified RetNet, linear complexity)
+  objective: masked gene-expression modeling
+  pretrain_data: 100M human cells
+  year: 2025
+  released: 2024-06
+  license: Apache-2.0
+  access: open-weights
+  org_type: academic
+  region: China
+  url: https://doi.org/10.1038/s41467-025-59926-5
+  weights: https://github.com/biomed-AI/CellFM
+  topics:
+  - single-cell
+  - foundation-model
+  - perturbation-prediction
+  why: Largest single-species cell model at release (800M); RetNet backbone trained on Huawei Ascend NPUs.
+- id: genept
+  kind: model
+  label: GenePT
+  modality: single-cell-rna
+  architecture: LLM text embeddings (GPT-3.5) of gene descriptions
+  objective: no gene-expression pretraining; expression-weighted text embeddings
+  pretrain_data: NCBI gene text summaries (embedded with GPT-3.5)
+  year: 2024
+  released: 2023-10
+  license: MIT
+  access: open-weights
+  org_type: academic
+  region: US
+  url: https://doi.org/10.1101/2023.10.16.562533
+  weights: https://github.com/yiqunchen/GenePT
+  topics:
+  - single-cell
+  - foundation-model
+  why: 'Hard-to-beat baseline: literature-text LLM embeddings match models trained on millions of cells, near-zero cost.'
+- id: scmulan
+  kind: model
+  label: scMulan
+  modality: single-cell-rna
+  params: 368M
+  architecture: transformer (generative)
+  objective: autoregressive over cell sentences (c-sentence) with metadata
+  pretrain_data: 10M cells + metadata
+  year: 2024
+  released: 2024-01
+  license: MIT
+  access: open-weights
+  org_type: academic
+  region: China
+  url: https://doi.org/10.1101/2024.01.25.577152
+  weights: https://github.com/SuperBianC/scMulan
+  topics:
+  - single-cell
+  - foundation-model
+  - generative
+  why: 'Multitask generative model: zero-shot annotation, batch integration and conditional cell generation via task prompts.'
+- id: sctab
+  kind: model
+  label: scTab
+  modality: single-cell-rna
+  architecture: TabNet (feature-attention tabular net)
+  objective: supervised cell-type classification with augmentation + deep ensembles
+  pretrain_data: 22.2M human cells (CELLxGENE census), 19,331 genes
+  year: 2024
+  released: 2024-08
+  license: MIT
+  access: open-weights
+  org_type: academic
+  region: EU
+  url: https://doi.org/10.1038/s41467-024-51059-5
+  weights: https://github.com/theislab/scTab
+  topics:
+  - single-cell
+  - foundation-model
+  why: Scalable cross-tissue annotation showing nonlinear tabular models scale with data + model size; strong FM baseline.
+- id: langcell
+  kind: model
+  label: LangCell
+  modality: single-cell-rna
+  architecture: language–cell dual-encoder (cell PLM + text encoder)
+  objective: cell-text contrastive + masked-gene + cell-cell contrastive
+  pretrain_data: 'scLibrary: 27.5M scRNA-seq entries with text descriptions'
+  year: 2024
+  released: 2024-05
+  license: Apache-2.0
+  access: open-weights
+  org_type: academic
+  region: China
+  url: https://arxiv.org/abs/2405.06708
+  weights: https://github.com/PharMolix/LangCell
+  topics:
+  - single-cell
+  - foundation-model
+  why: First language-cell pretraining; only single-cell PLM effective at zero-shot cell-identity understanding.
+- id: scprint
+  kind: model
+  label: scPRINT
+  modality: single-cell-rna
+  architecture: transformer (encoder)
+  objective: denoising + bottleneck + label pretraining for gene-network inference
+  pretrain_data: '>50M cells (CELLxGENE)'
+  year: 2025
+  released: 2024-07
+  license: MIT
+  access: open-weights
+  org_type: academic
+  region: EU
+  url: https://doi.org/10.1038/s41467-025-58699-1
+  weights: https://github.com/cantinilab/scPRINT
+  topics:
+  - single-cell
+  - foundation-model
+  why: Specialized for zero-shot gene-network inference; also denoises, batch-corrects and predicts labels.
+- id: genecompass
+  kind: model
+  label: GeneCompass
+  modality: single-cell-rna
+  architecture: transformer (encoder, knowledge-informed)
+  objective: masked modeling with 4 priors (promoters, co-expression, gene family, TF–target)
+  pretrain_data: scCompass-126M (~101M human + mouse cells used)
+  year: 2024
+  released: 2023-09
+  license: Apache-2.0
+  access: open-weights
+  org_type: academic
+  region: China
+  url: https://doi.org/10.1038/s41422-024-01034-y
+  weights: https://github.com/xCompass-AI/GeneCompass
+  topics:
+  - single-cell
+  - foundation-model
+  why: Knowledge-informed cross-species model integrating four biological priors over ~100M human + mouse cells.
+- id: scgpt-spatial
+  kind: model
+  label: scGPT-spatial
+  modality: spatial
+  architecture: transformer with Mixture-of-Experts decoder (continual from scGPT)
+  objective: masked modeling + neighborhood-based spatial objective
+  pretrain_data: SpatialHuman30M (~30M cells/spots; Visium, Visium HD, MERFISH, Xenium)
+  year: 2025
+  released: 2025-02
+  license: MIT
+  access: open-weights
+  org_type: academic
+  region: Canada
+  url: https://doi.org/10.1101/2025.02.05.636714
+  weights: https://github.com/bowang-lab/scGPT-spatial
+  topics:
+  - single-cell
+  - foundation-model
+  - spatial
+  why: Continually pretrains scGPT on spatial data with protocol-aware MoE decoder; strong deconvolution and imputation.
+- id: cellwhisperer
+  kind: model
+  label: CellWhisperer
+  modality: single-cell-rna
+  architecture: CLIP-style transcriptome–text contrastive + LLM chat head
+  objective: contrastive transcriptome-text alignment, then LLM dialogue
+  pretrain_data: '>650K RNA-seq samples with AI-curated text annotations'
+  year: 2025
+  released: 2024-10
+  license: MIT
+  access: open-weights
+  org_type: academic
+  region: EU
+  url: https://doi.org/10.1038/s41587-025-02857-9
+  weights: https://github.com/epigen/cellwhisperer
+  topics:
+  - single-cell
+  - foundation-model
+  why: Multimodal transcriptome-text embedding enabling free-text search and natural-language chat over scRNA-seq data.
+- id: scelmo
+  kind: model
+  label: scELMo
+  modality: single-cell-rna
+  architecture: LLM embeddings of gene/metadata text (GPT-3.5), no new pretraining
+  objective: 'training-free: aggregate text embeddings with expression profiles'
+  pretrain_data: LLM-generated text descriptions of genes + metadata
+  year: 2024
+  released: 2023-12
+  license: MIT
+  access: open-weights
+  org_type: academic
+  region: US
+  url: https://doi.org/10.1101/2023.12.07.569910
+  weights: https://github.com/HelloWorldLTY/scELMo
+  topics:
+  - single-cell
+  - foundation-model
+  why: Training-free LLM-embedding pipeline doing clustering, batch correction and annotation without a new cell model.
+- id: scmamba
+  kind: model
+  label: scMamba
+  modality: single-cell-rna
+  architecture: state-space model (Mamba / state-space duality)
+  objective: patch-based tokenization, multi-omics integration
+  pretrain_data: single-cell multi-omics
+  year: 2025
+  released: 2025-06
+  license: MIT
+  access: open-weights
+  org_type: academic
+  region: China
+  url: https://arxiv.org/abs/2506.20697
+  topics:
+  - single-cell
+  - foundation-model
+  why: State-space FM for single-cell multi-omics integration without highly-variable-feature selection; linear-time scaling.
+- id: sc-mamba2
+  kind: model
+  label: SC-MAMBA2
+  modality: single-cell-rna
+  params: '>625M'
+  architecture: state-space model (Mamba2)
+  objective: generative modeling of ultra-long transcriptomes
+  pretrain_data: ~57M cells
+  year: 2024
+  released: 2024-09
+  access: open-weights
+  org_type: academic
+  region: China
+  url: https://doi.org/10.1101/2024.09.30.615775
+  topics:
+  - single-cell
+  - foundation-model
+  - generative
+  why: First Mamba2-based single-cell FM; linear feature scaling enables ultra-long transcriptome modeling at 625M params.
+- id: genemamba
+  kind: model
+  label: GeneMamba
+  modality: single-cell-rna
+  architecture: Bi-Mamba (bidirectional state-space)
+  objective: pathway-aware contrastive + rank-based gene encoding
+  pretrain_data: ~30M cells
+  year: 2025
+  released: 2025-04
+  license: MIT
+  access: open-weights
+  org_type: academic
+  region: US
+  url: https://arxiv.org/abs/2504.16956
+  topics:
+  - single-cell
+  - foundation-model
+  why: Bidirectional Mamba FM with biologically-informed objectives; linear-time alternative to transformer cell models.
+- id: tahoe-100m
+  kind: dataset
+  label: Tahoe-100M
+  modality: single-cell-rna
+  url: https://huggingface.co/datasets/tahoebio/Tahoe-100M
+  why: 'World''s largest single-cell drug-perturbation atlas: 100M cells, 1,200 drugs, 50 tumor models; CC0 public domain.'
+- id: human-cell-atlas
+  kind: dataset
+  label: Human Cell Atlas
+  modality: single-cell-rna
+  url: https://www.humancellatlas.org/
+  why: Reference atlas effort mapping all human cell types; upstream source for many cell-FM training corpora.
+- id: geo
+  kind: dataset
+  label: NCBI GEO
+  modality: single-cell-rna
+  url: https://www.ncbi.nlm.nih.gov/geo/
+  why: Primary public repository of functional genomics / RNA-seq data feeding single-cell corpus assembly.
+- id: genecorpus-30m
+  kind: dataset
+  label: Genecorpus-30M
+  modality: single-cell-rna
+  url: https://huggingface.co/datasets/ctheodoris/Genecorpus-30M
+  why: ~30M-cell pretraining corpus assembled for Geneformer; canonical early cell-FM training set.
+- id: panglaodb
+  kind: dataset
+  label: PanglaoDB
+  modality: single-cell-rna
+  url: https://panglaodb.se/
+  why: Curated scRNA-seq sample collection used to pretrain scBERT and to build marker references.
+- id: sceval
+  kind: benchmark
+  label: scEval
+  modality: single-cell-rna
+  url: https://github.com/HelloWorldLTY/scEval
+  why: Task-level framework benchmarking single-cell FMs across eight core analytical tasks vs task-specific methods.
+- id: arc-virtual-cell-challenge
+  kind: benchmark
+  label: Arc Virtual Cell Challenge
+  modality: single-cell-rna
+  url: https://arcinstitute.org/virtual-cell-initiative
+  why: Community benchmark for perturbation-response prediction driving virtual-cell model development.
+- id: arc-institute
+  kind: org
+  label: Arc Institute
+  modality: single-cell-rna
+  url: https://arcinstitute.org/
+  why: Nonprofit research institute behind STATE and the Virtual Cell Atlas / Challenge.
+- id: czi
+  kind: org
+  label: Chan Zuckerberg Initiative
+  modality: single-cell-rna
+  url: https://chanzuckerberg.com/
+  why: Builds CELLxGENE, the Virtual Cells Platform and TranscriptFormer; major cell-FM infrastructure funder.
+- id: theislab
+  kind: org
+  label: Theis Lab (Helmholtz Munich)
+  modality: single-cell-rna
+  url: https://www.helmholtz-munich.de/en/icb
+  why: Lab behind scVI ecosystem contributions, scTab and Nicheformer; core single-cell ML group.
+- id: vandijk-lab
+  kind: org
+  label: van Dijk Lab (Yale)
+  modality: single-cell-rna
+  url: https://www.vandijklab.org/
+  why: Developed Cell2Sentence / C2S-Scale; bridges LLMs and single-cell analysis.
+- id: tahoe-bio
+  kind: org
+  label: Tahoe Therapeutics
+  modality: single-cell-rna
+  url: https://www.tahoebio.ai/
+  why: Industry lab (ex-Vevo) that released Tahoe-100M and the Tahoe-x1 model family.
+- id: dnabert
+  kind: model
+  label: DNABERT
+  modality: genomic
+  params: ~110M (BERT-base)
+  architecture: transformer (encoder, BERT-base)
+  objective: masked-language (overlapping k-mer tokens)
+  pretrain_data: human reference genome
+  context: 512 tokens
+  year: 2021
+  released: 2021-02
+  license: Apache-2.0
+  access: open-weights
+  org_type: academic
+  region: US
+  url: https://doi.org/10.1093/bioinformatics/btab083
+  weights: https://github.com/jerryji1993/DNABERT
+  topics:
+  - genomic
+  - foundation-model
+  - regulatory
+  why: First BERT-style DNA language model; established k-mer masked-LM pretraining for genomics.
+- id: dnabert-2
+  kind: model
+  label: DNABERT-2
+  modality: genomic
+  params: ~117M
+  architecture: transformer (encoder) with ALiBi + BPE
+  objective: masked-language (BPE tokens)
+  pretrain_data: multispecies genomes (135 species)
+  context: BPE tokens (no fixed k-mer limit)
+  year: 2023
+  released: 2023-06
+  license: Apache-2.0
+  access: open-weights
+  org_type: academic
+  region: US
+  url: https://arxiv.org/abs/2306.15006
+  weights: https://huggingface.co/zhihan1996/DNABERT-2-117M
+  topics:
+  - genomic
+  - foundation-model
+  - regulatory
+  why: BPE tokenizer cuts FLOPs vs k-mer DNABERT; introduced the GUE multi-species benchmark.
+  benchmarks:
+  - name: GUE benchmark
+    score: SOTA on 28/36 tasks
+- id: dnabert-s
+  kind: model
+  label: DNABERT-S
+  modality: genomic
+  params: ~117M
+  architecture: transformer (encoder, DNABERT-2 backbone)
+  objective: contrastive (MI-Mix + curriculum C2LR) for species-aware embeddings
+  pretrain_data: multispecies genomes
+  context: BPE tokens
+  year: 2024
+  released: 2024-02
+  license: Apache-2.0
+  access: open-weights
+  org_type: academic
+  region: US
+  url: https://arxiv.org/abs/2402.08777
+  weights: https://github.com/MAGICS-LAB/DNABERT_S
+  topics:
+  - genomic
+  - foundation-model
+  why: Species-aware DNA embeddings for metagenomic binning and species clustering; DNABERT-2 fine-tuned contrastively.
+- id: hyenadna
+  kind: model
+  label: HyenaDNA
+  modality: genomic
+  params: ~0.4M–6.6M family
+  architecture: SSM (Hyena implicit long convolutions)
+  objective: autoregressive (next-nucleotide)
+  pretrain_data: human reference genome
+  context: up to 1 Mbp (single-nucleotide tokens)
+  year: 2023
+  released: 2023-06
+  license: Apache-2.0
+  access: open-weights
+  org_type: academic
+  region: US
+  url: https://arxiv.org/abs/2306.15794
+  weights: https://huggingface.co/LongSafari
+  topics:
+  - genomic
+  - foundation-model
+  why: First single-nucleotide DNA model to reach 1 Mbp context via Hyena; sub-quadratic, attention-free.
+  benchmarks:
+  - name: Genomic Benchmarks
+    score: SOTA on multiple tasks
+- id: caduceus
+  kind: model
+  label: Caduceus
+  modality: genomic
+  params: ~0.5M–7.7M family
+  architecture: SSM (BiMamba / MambaDNA, RC-equivariant)
+  objective: masked-language (single-nucleotide tokens)
+  pretrain_data: human reference genome
+  context: up to 131 kbp
+  year: 2024
+  released: 2024-03
+  license: Apache-2.0
+  access: open-weights
+  org_type: academic
+  region: US
+  url: https://arxiv.org/abs/2403.03234
+  weights: https://github.com/kuleshov-group/caduceus
+  topics:
+  - genomic
+  - foundation-model
+  why: Bi-directional Mamba DNA model with built-in reverse-complement equivariance for long-range modeling.
+- id: gena-lm
+  kind: model
+  label: GENA-LM
+  modality: genomic
+  params: transformer family (BERT/BigBird-style)
+  architecture: transformer (encoder; sparse-attention variants)
+  objective: masked-language (BPE tokens)
+  pretrain_data: human genome (T2T + 1000 Genomes); multispecies variants
+  context: up to ~36 kbp
+  year: 2025
+  released: 2025-01
+  license: Apache-2.0
+  access: open-weights
+  org_type: academic
+  region: Russia
+  url: https://doi.org/10.1093/nar/gkae1310
+  weights: https://github.com/AIRI-Institute/GENA_LM
+  topics:
+  - genomic
+  - foundation-model
+  - regulatory
+  why: Open family of long-context DNA transformers (to ~36 kb) using BPE; strong on regulatory element tasks.
+- id: grover
+  kind: model
+  label: GROVER
+  modality: genomic
+  params: ~90M (BERT-style)
+  architecture: transformer (encoder, BERT-style)
+  objective: masked-language (BPE vocabulary, next-k-mer-tuned)
+  pretrain_data: human reference genome
+  context: transformer (BPE tokens)
+  year: 2024
+  released: 2024-07
+  license: Apache-2.0
+  access: open-weights
+  org_type: academic
+  region: Germany
+  url: https://doi.org/10.1038/s42256-024-00872-0
+  weights: https://huggingface.co/PoetschLab/GROVER
+  topics:
+  - genomic
+  - foundation-model
+  - regulatory
+  why: Learns a frequency-balanced BPE vocabulary for the human genome; analyzes sequence-context representations.
+- id: enformer
+  kind: model
+  label: Enformer
+  modality: genomic
+  params: ~250M
+  architecture: CNN + transformer (attention over 128 bp bins)
+  objective: supervised track prediction (gene expression, chromatin)
+  pretrain_data: human + mouse genomic tracks (ENCODE, FANTOM5, GTEx)
+  context: ~196 kb input
+  year: 2021
+  released: 2021-10
+  license: Apache-2.0
+  access: open-weights
+  org_type: industry
+  region: UK
+  url: https://doi.org/10.1038/s41592-021-01252-x
+  weights: https://github.com/google-deepmind/deepmind-research/tree/master/enformer
+  topics:
+  - genomic
+  - foundation-model
+  - regulatory
+  why: Long-range CNN+transformer that predicts expression and chromatin from 200 kb; the standard sequence-to-function backbone.
+- id: borzoi
+  kind: model
+  label: Borzoi
+  modality: genomic
+  architecture: CNN + transformer (Enformer-derived, U-net upsampling)
+  objective: supervised RNA-seq coverage track prediction
+  pretrain_data: ENCODE + GTEx RNA-seq, ChIP/DNase/ATAC/CAGE tracks
+  context: ~524 kb input (32 bp output resolution)
+  year: 2024
+  released: 2024-08
+  license: Apache-2.0
+  access: open-weights
+  org_type: industry
+  region: US
+  url: https://doi.org/10.1038/s41588-024-02053-6
+  weights: https://github.com/calico/borzoi
+  topics:
+  - genomic
+  - foundation-model
+  - regulatory
+  why: Extends Enformer to predict RNA-seq coverage, unifying transcription, splicing and polyadenylation variant scoring.
+- id: segment-nt
+  kind: model
+  label: SegmentNT
+  modality: genomic
+  architecture: Nucleotide Transformer encoder + 1D U-Net head
+  objective: supervised segmentation (14 genomic element classes)
+  pretrain_data: human genome annotations (NT backbone pretrained on multispecies)
+  context: up to 30 kb (generalizes to ~50 kb)
+  year: 2024
+  released: 2024-03
+  license: CC-BY-NC-SA-4.0
+  access: open-weights
+  org_type: industry
+  region: UK
+  url: https://doi.org/10.1038/s41592-025-02881-2
+  weights: https://huggingface.co/InstaDeepAI/segment_nt
+  topics:
+  - genomic
+  - foundation-model
+  - regulatory
+  - segmentation
+  why: Annotates genes and regulatory elements at single-nucleotide resolution by adding a U-Net head to a DNA FM.
+- id: glm-genomic
+  kind: model
+  label: gLM (genomic language model)
+  modality: genomic
+  params: ~1B (19-layer transformer)
+  architecture: transformer (encoder over gene/protein-embedding tokens)
+  objective: masked-language over genomic context (protein embeddings as tokens)
+  pretrain_data: ~7M metagenomic contigs (MGnify)
+  context: 15–30 genes per contig
+  year: 2024
+  released: 2024-04
+  license: MIT
+  access: open-weights
+  org_type: academic
+  region: US
+  url: https://doi.org/10.1038/s41467-024-46947-9
+  weights: https://github.com/y-hwang/gLM
+  topics:
+  - genomic
+  - foundation-model
+  why: Models genes-in-context rather than nucleotides; learns operons and protein co-regulation from metagenomes.
+- id: prokbert
+  kind: model
+  label: ProkBERT
+  modality: genomic
+  architecture: transformer (encoder, BERT-style)
+  objective: masked-language (Local Context-Aware overlapping k-mer tokens)
+  pretrain_data: NCBI RefSeq bacteria/virus/archaea/fungi (~207B tokens)
+  context: BERT-style (LCA tokenization)
+  year: 2024
+  released: 2024-01
+  license: MIT
+  access: open-weights
+  org_type: academic
+  region: Hungary
+  url: https://doi.org/10.3389/fmicb.2023.1331233
+  weights: https://github.com/nbrg-ppcu/prokbert
+  topics:
+  - genomic
+  - foundation-model
+  why: Prokaryotic/microbiome DNA LM with LCA tokenization; strong on promoter and phage identification.
+- id: genslm
+  kind: model
+  label: GenSLM
+  modality: genomic
+  params: 25M–25B family
+  architecture: transformer (autoregressive, GPT-style) + diffusion variant
+  objective: autoregressive (codon tokens)
+  pretrain_data: ~110M prokaryotic genes; fine-tuned on 1.5M SARS-CoV-2 genomes
+  context: full SARS-CoV-2 genome scale
+  year: 2022
+  released: 2022-10
+  license: MIT
+  access: open-weights
+  org_type: government
+  region: US
+  url: https://doi.org/10.1177/10943420231201154
+  weights: https://github.com/ramanathanlab/genslm
+  topics:
+  - genomic
+  - foundation-model
+  - generative
+  why: Genome-scale LM tracking SARS-CoV-2 evolution; 2022 Gordon Bell Special Prize for HPC COVID research.
+- id: orthrus
+  kind: model
+  label: Orthrus
+  modality: genomic
+  architecture: SSM (Mamba)
+  objective: self-supervised contrastive (splice-isoform + ortholog pairs)
+  pretrain_data: splice isoforms (10 organisms) + orthologs (400+ mammals, Zoonomia)
+  context: mature-RNA transcript
+  year: 2024
+  released: 2024-10
+  license: MIT
+  access: open-weights
+  org_type: academic
+  region: Canada
+  url: https://www.biorxiv.org/content/10.1101/2024.10.10.617658v1
+  weights: https://github.com/bowang-lab/Orthrus
+  topics:
+  - genomic
+  - foundation-model
+  why: Mature-RNA FM trained by contrasting isoforms and orthologs; strong mRNA property prediction with little fine-tuning.
+- id: evo
+  kind: model
+  label: Evo
+  modality: genomic
+  params: 7B
+  architecture: 'SSM (StripedHyena: hyena + attention hybrid)'
+  objective: autoregressive (single-nucleotide, byte-level)
+  pretrain_data: OpenGenome — 2.7M prokaryotic + phage genomes (~300B tokens)
+  context: up to 131 kbp
+  year: 2024
+  released: 2024-11
+  license: Apache-2.0
+  access: open-weights
+  org_type: nonprofit
+  region: US
+  url: https://doi.org/10.1126/science.ado9336
+  weights: https://huggingface.co/togethercomputer/evo-1-131k-base
+  topics:
+  - genomic
+  - foundation-model
+  - generative
+  why: DNA/RNA/protein FM from molecular to genome scale; StripedHyena enables long-context generative design.
+- id: evo2
+  kind: model
+  label: Evo 2
+  modality: genomic
+  params: 40B (1B/7B/40B family)
+  architecture: SSM (StripedHyena 2)
+  objective: autoregressive (single-nucleotide)
+  pretrain_data: ~9.3T DNA tokens across all domains of life (100k+ species)
+  context: up to 1 Mbp
+  year: 2025
+  released: 2025-02
+  license: Apache-2.0
+  access: open-weights
+  org_type: nonprofit
+  region: US
+  url: https://www.biorxiv.org/content/10.1101/2025.02.18.638918v1
+  weights: https://huggingface.co/arcinstitute/evo2_40b
+  topics:
+  - genomic
+  - foundation-model
+  - generative
+  why: Largest genome FM; 1 Mbp single-nucleotide context across all domains of life; zero-shot variant effect prediction.
+- id: get-gene-expression-transformer
+  kind: model
+  label: GET (Gene Expression Transformer)
+  modality: genomic
+  architecture: 'transformer (multi-modal: chromatin accessibility + sequence)'
+  objective: supervised gene-expression prediction (regulatory grammar)
+  pretrain_data: chromatin accessibility across 213 human fetal + adult cell types
+  context: regulatory-region inputs per gene
+  year: 2025
+  released: 2025-01
+  license: CC-BY-4.0
+  access: open-weights
+  org_type: academic
+  region: US
+  url: https://doi.org/10.1038/s41586-024-08391-z
+  weights: https://github.com/GET-Foundation/get_model
+  topics:
+  - genomic
+  - foundation-model
+  - regulatory
+  why: Predicts transcription across 213 cell types from chromatin accessibility; recovers TF interaction networks.
+- id: alphagenome
+  kind: model
+  label: AlphaGenome
+  modality: genomic
+  architecture: CNN + transformer (unified multi-modal sequence model)
+  objective: supervised multi-track prediction (11 modalities, ~6000 human + 1000+ mouse tracks)
+  pretrain_data: human + mouse functional genomic tracks (ENCODE, GTEx, FANTOM5)
+  context: up to 1 Mbp (single-base outputs)
+  year: 2025
+  released: 2025-06
+  license: proprietary (non-commercial API/terms)
+  access: api-only
+  org_type: industry
+  region: UK
+  url: https://doi.org/10.1038/s41586-025-10014-0
+  topics:
+  - genomic
+  - foundation-model
+  - regulatory
+  why: Unified DNA model predicting 11 regulatory modalities at base resolution over 1 Mbp; strong non-coding variant scoring.
+- id: agro-nucleotide-transformer
+  kind: model
+  label: AgroNT (Agronomic Nucleotide Transformer)
+  modality: genomic
+  params: 1B
+  architecture: transformer (encoder, NT-style)
+  objective: masked-language (non-overlapping 6-mer tokens)
+  pretrain_data: reference genomes of 48 edible plant species
+  context: 1024 tokens (~6 kb)
+  year: 2024
+  released: 2023-10
+  license: CC-BY-NC-SA-4.0
+  access: open-weights
+  org_type: industry
+  region: UK
+  url: https://doi.org/10.1038/s42003-024-06465-2
+  weights: https://huggingface.co/InstaDeepAI/agro-nucleotide-transformer-1b
+  topics:
+  - genomic
+  - foundation-model
+  - regulatory
+  why: Plant-genome DNA LM (NT architecture) for regulatory annotation, expression and variant prioritization in crops.
+- id: human-reference-genome
+  kind: dataset
+  label: Human reference genome (GRCh38/T2T)
+  modality: genomic
+  org_type: nonprofit
+  region: International
+  year: 2013
+  url: https://www.ncbi.nlm.nih.gov/grc/human
+  topics:
+  - genomic
+  why: The canonical human assembly; pretraining corpus for most single-species DNA language models.
+- id: encode
+  kind: dataset
+  label: ENCODE
+  modality: genomic
+  org_type: government
+  region: US
+  year: 2012
+  url: https://www.encodeproject.org/
+  topics:
+  - genomic
+  - regulatory
+  why: Encyclopedia of functional DNA elements; supplies the regulatory tracks Enformer/Borzoi/AlphaGenome predict.
+- id: gtex
+  kind: dataset
+  label: GTEx
+  modality: genomic
+  org_type: government
+  region: US
+  year: 2013
+  url: https://gtexportal.org/
+  topics:
+  - genomic
+  - regulatory
+  why: Tissue-specific expression and eQTLs; training/eval source for expression-prediction models.
+- id: 1000-genomes
+  kind: dataset
+  label: 1000 Genomes Project
+  modality: genomic
+  org_type: nonprofit
+  region: International
+  year: 2015
+  url: https://www.internationalgenome.org/
+  topics:
+  - genomic
+  why: Human genetic-variation reference; used to build variation-aware DNA-LM pretraining corpora.
+- id: opengenome
+  kind: dataset
+  label: OpenGenome
+  modality: genomic
+  org_type: nonprofit
+  region: US
+  year: 2024
+  url: https://huggingface.co/datasets/LongSafari/open-genome
+  topics:
+  - genomic
+  why: 2.7M prokaryotic + phage genomes (~300B tokens) assembled by Arc Institute to pretrain Evo.
+- id: mgnify
+  kind: dataset
+  label: MGnify
+  modality: genomic
+  org_type: nonprofit
+  region: UK
+  year: 2020
+  url: https://www.ebi.ac.uk/metagenomics
+  topics:
+  - genomic
+  why: EBI metagenomics resource; source of the metagenomic contigs gLM is trained on.
+- id: zoonomia
+  kind: dataset
+  label: Zoonomia (240 mammals)
+  modality: genomic
+  org_type: academic
+  region: International
+  year: 2023
+  url: https://zoonomiaproject.org/
+  topics:
+  - genomic
+  why: Comparative mammalian genome alignment; supplies ortholog pairs for Orthrus contrastive training.
+- id: gue-benchmark
+  kind: benchmark
+  label: GUE (Genome Understanding Evaluation)
+  modality: genomic
+  year: 2023
+  url: https://github.com/MAGICS-LAB/DNABERT_2
+  topics:
+  - genomic
+  why: 36-dataset multi-species genome classification suite introduced with DNABERT-2.
+- id: bend-benchmark
+  kind: benchmark
+  label: BEND
+  modality: genomic
+  org_type: academic
+  region: Denmark
+  year: 2024
+  url: https://arxiv.org/abs/2311.12570
+  topics:
+  - genomic
+  why: Benchmarks DNA LMs on biologically meaningful human-genome tasks at realistic length and scale.
+- id: genomic-benchmarks
+  kind: benchmark
+  label: Genomic Benchmarks
+  modality: genomic
+  org_type: academic
+  region: Czechia
+  year: 2023
+  url: https://github.com/ML-Bioinfo-CEITEC/genomic_benchmarks
+  topics:
+  - genomic
+  - regulatory
+  why: Collection of regulatory-element classification datasets used to evaluate genomic sequence models.
+- id: instadeep
+  kind: org
+  label: InstaDeep
+  modality: genomic
+  org_type: industry
+  region: UK
+  year: 2014
+  url: https://www.instadeep.com/
+  topics:
+  - genomic
+  why: Builder of Nucleotide Transformer and SegmentNT; major industry genomics-FM lab (BioNTech group).
+- id: calico
+  kind: org
+  label: Calico Life Sciences
+  modality: genomic
+  org_type: industry
+  region: US
+  year: 2013
+  url: https://www.calicolabs.com/
+  topics:
+  - genomic
+  why: Developed Borzoi and co-developed Enformer; sequence-to-function regulatory modeling.
+- id: esm-1b
+  kind: model
+  label: ESM-1b
+  modality: protein
+  params: 650M
+  architecture: transformer (encoder, BERT-style)
+  objective: masked-residue
+  pretrain_data: UniRef50 (~27M sequences)
+  context: 1024 aa
+  year: 2021
+  license: MIT
+  access: open-weights
+  org_type: industry
+  region: US
+  url: https://www.pnas.org/doi/10.1073/pnas.2016239118
+  weights: https://github.com/facebookresearch/esm
+  topics:
+  - protein
+  - foundation-model
+  why: Landmark single-model protein LM; showed unsupervised transformers learn structure and function from sequence alone.
+  benchmarks:
+  - name: ProteinGym (zero-shot)
+    score: reported
+- id: esm3
+  kind: model
+  label: ESM3
+  modality: protein
+  params: 98B (1.4B–98B family)
+  architecture: transformer (multitrack, bidirectional)
+  objective: multitrack masked (sequence + structure + function)
+  pretrain_data: ~2.78B proteins, 771B tokens (UniRef, MGnify, PDB-derived)
+  year: 2024
+  released: 2024-06
+  license: 'Cambrian non-commercial (open weights: 1.4B)'
+  access: gated-weights
+  org_type: industry
+  region: US
+  url: https://www.biorxiv.org/content/10.1101/2024.07.01.600583v1
+  weights: https://github.com/evolutionaryscale/esm
+  topics:
+  - protein
+  - foundation-model
+  - generative
+  - structure-prediction
+  why: Generative multitrack model reasoning jointly over sequence, structure, and function; prompt-driven protein design.
+- id: esm-c
+  kind: model
+  label: ESM Cambrian (ESM C)
+  modality: protein
+  params: 6B (300M–6B family)
+  architecture: transformer (encoder)
+  objective: masked-residue
+  pretrain_data: UniRef, MGnify, JGI sequences
+  year: 2024
+  released: 2024-12
+  license: mixed (non-commercial + commercial); 300M/600M open
+  access: gated-weights
+  org_type: industry
+  region: US
+  url: https://www.evolutionaryscale.ai/blog/esm-cambrian
+  weights: https://huggingface.co/EvolutionaryScale/esmc-600m-2024-12
+  topics:
+  - protein
+  - foundation-model
+  why: Representation-focused successor to ESM-2; matches larger prior models with strong inference-time efficiency.
+- id: protbert
+  kind: model
+  label: ProtBERT
+  modality: protein
+  params: 420M
+  architecture: transformer (encoder, BERT-style)
+  objective: masked-residue
+  pretrain_data: BFD (2.1B sequences) and UniRef100
+  context: 512 aa
+  year: 2021
+  license: academic (ProtTrans)
+  access: open-weights
+  org_type: academic
+  region: Germany
+  url: https://ieeexplore.ieee.org/document/9477085
+  weights: https://huggingface.co/Rostlab/prot_bert
+  topics:
+  - protein
+  - foundation-model
+  why: Part of ProtTrans; widely used BERT-style protein encoder for downstream feature extraction.
+- id: prott5
+  kind: model
+  label: ProtT5-XL
+  modality: protein
+  params: 3B
+  architecture: transformer (encoder-decoder, T5)
+  objective: span denoising (BART-like MLM)
+  pretrain_data: BFD then UniRef50
+  year: 2021
+  license: academic (ProtTrans)
+  access: open-weights
+  org_type: academic
+  region: Germany
+  url: https://ieeexplore.ieee.org/document/9477085
+  weights: https://huggingface.co/Rostlab/prot_t5_xl_uniref50
+  topics:
+  - protein
+  - foundation-model
+  why: T5-based protein LM whose per-residue embeddings remain a strong default for protein property prediction.
+- id: protgpt2
+  kind: model
+  label: ProtGPT2
+  modality: protein
+  params: 738M
+  architecture: transformer (decoder, GPT-2)
+  objective: autoregressive
+  pretrain_data: UniRef50
+  year: 2022
+  released: 2022-07
+  license: Apache-2.0
+  access: open-weights
+  org_type: academic
+  region: Germany
+  url: https://www.nature.com/articles/s41467-022-32007-7
+  weights: https://huggingface.co/nferruz/ProtGPT2
+  topics:
+  - protein
+  - foundation-model
+  - generative
+  why: Autoregressive GPT-2-style model generating de novo protein sequences with natural amino-acid statistics.
+- id: progen
+  kind: model
+  label: ProGen
+  modality: protein
+  params: 1.2B
+  architecture: transformer (decoder, conditional)
+  objective: autoregressive (control-tag conditioned)
+  pretrain_data: ~280M sequences, 19k Pfam families
+  year: 2023
+  license: BSD-3-Clause
+  access: open-weights
+  org_type: industry
+  region: US
+  url: https://www.nature.com/articles/s41587-022-01618-2
+  weights: https://github.com/salesforce/progen
+  topics:
+  - protein
+  - foundation-model
+  - generative
+  why: Controllable protein generator using property tags to produce functional sequences across diverse families.
+- id: progen2
+  kind: model
+  label: ProGen2
+  modality: protein
+  params: 6.4B (151M–6.4B family)
+  architecture: transformer (decoder)
+  objective: autoregressive
+  pretrain_data: '>1B proteins (UniRef90, BFD30, metagenomic, antibody)'
+  year: 2023
+  license: Apache-2.0
+  access: open-weights
+  org_type: industry
+  region: US
+  url: https://www.cell.com/cell-systems/fulltext/S2405-4712(23)00272-7
+  weights: https://github.com/salesforce/progen
+  topics:
+  - protein
+  - foundation-model
+  - generative
+  why: Scaled autoregressive family for sequence generation and zero-shot fitness prediction across protein space.
+- id: proteinbert
+  kind: model
+  label: ProteinBERT
+  modality: protein
+  params: ~16M
+  architecture: transformer (local + global tracks)
+  objective: masked-residue + GO-annotation prediction
+  pretrain_data: ~106M proteins (UniRef90) with GO terms
+  year: 2022
+  license: MIT
+  access: open-weights
+  org_type: academic
+  region: Israel
+  url: https://academic.oup.com/bioinformatics/article/38/8/2102/6502274
+  weights: https://github.com/nadavbra/protein_bert
+  topics:
+  - protein
+  - foundation-model
+  why: Compact dual-track model jointly pretrained on sequence MLM and Gene Ontology annotation.
+- id: ankh
+  kind: model
+  label: Ankh
+  modality: protein
+  params: 1.5B (450M base)
+  architecture: transformer (encoder-decoder, T5)
+  objective: 1-gram token masking (denoising)
+  pretrain_data: UniRef50
+  year: 2023
+  license: CC-BY-NC-SA-4.0
+  access: open-weights
+  org_type: academic
+  region: Germany
+  url: https://arxiv.org/abs/2301.06568
+  weights: https://github.com/agemagician/Ankh
+  topics:
+  - protein
+  - foundation-model
+  why: Compute-optimized T5 protein LM matching larger models with far fewer parameters via masking/architecture search.
+- id: amplify
+  kind: model
+  label: AMPLIFY
+  modality: protein
+  params: 350M (120M variant)
+  architecture: transformer (encoder, ESM-2-style)
+  objective: masked-residue
+  pretrain_data: UniRef100, OAS, SCOP
+  year: 2024
+  released: 2024-09
+  license: MIT
+  access: open-weights
+  org_type: academic
+  region: Canada
+  url: https://www.biorxiv.org/content/10.1101/2024.09.23.614603v1
+  weights: https://huggingface.co/chandar-lab/AMPLIFY_350M
+  topics:
+  - protein
+  - foundation-model
+  why: Data-quality-focused efficient protein LM rivaling ESM-2 with far fewer parameters and less compute.
+- id: carp
+  kind: model
+  label: CARP
+  modality: protein
+  params: 640M
+  architecture: convolutional (dilated CNN)
+  objective: masked-residue
+  pretrain_data: UniRef50
+  year: 2024
+  license: MIT
+  access: open-weights
+  org_type: industry
+  region: US
+  url: https://www.nature.com/articles/s41592-024-02252-3
+  weights: https://github.com/microsoft/protein-sequence-models
+  topics:
+  - protein
+  - foundation-model
+  why: Shows masked-pretrained CNNs are competitive with transformers for protein representation learning.
+- id: xtrimopglm
+  kind: model
+  label: xTrimoPGLM
+  modality: protein
+  params: 100B
+  architecture: transformer (GLM; bidirectional + autoregressive)
+  objective: unified MLM + span generation
+  pretrain_data: ~1T tokens (UniRef90, ColabFoldDB)
+  year: 2025
+  license: non-commercial (smaller variants open)
+  access: gated-weights
+  org_type: industry
+  region: China
+  url: https://www.nature.com/articles/s41592-025-02636-z
+  weights: https://github.com/biomap-research/xTrimoPGLM
+  topics:
+  - protein
+  - foundation-model
+  - generative
+  why: 100B-scale unified model handling both protein understanding and generation under a GLM backbone.
+- id: saprot
+  kind: model
+  label: SaProt
+  modality: protein
+  params: 650M
+  architecture: transformer (encoder, structure-aware vocabulary)
+  objective: masked-residue (AA + 3Di tokens)
+  pretrain_data: ~40M AlphaFold DB structures
+  year: 2024
+  license: MIT
+  access: open-weights
+  org_type: academic
+  region: China
+  url: https://openreview.net/forum?id=6MRm3G4NiU
+  weights: https://github.com/westlake-repl/SaProt
+  topics:
+  - protein
+  - foundation-model
+  - structure-prediction
+  why: Injects Foldseek 3Di structure tokens into a structure-aware vocabulary, beating sequence-only LMs on many tasks.
+- id: prostt5
+  kind: model
+  label: ProstT5
+  modality: protein
+  params: 3B
+  architecture: transformer (encoder-decoder, T5)
+  objective: bilingual translation (AA ↔ 3Di)
+  pretrain_data: ~17M AlphaFold DB structures (from ProtT5)
+  year: 2024
+  license: MIT
+  access: open-weights
+  org_type: academic
+  region: Germany
+  url: https://academic.oup.com/nargab/article/6/4/lqae150/7901286
+  weights: https://github.com/mheinzinger/ProstT5
+  topics:
+  - protein
+  - foundation-model
+  - structure-prediction
+  why: Bilingual sequence/structure model translating between amino acids and 3Di tokens for folding and inverse folding.
+- id: alphafold2
+  kind: model
+  label: AlphaFold2
+  modality: protein
+  architecture: Evoformer + structure module
+  objective: structure prediction (MSA-based)
+  pretrain_data: PDB + self-distillation on UniRef/Uniclust
+  year: 2021
+  released: 2021-07
+  license: Apache-2.0 (weights CC-BY-4.0)
+  access: open-weights
+  org_type: industry
+  region: UK
+  url: https://www.nature.com/articles/s41586-021-03819-2
+  weights: https://github.com/google-deepmind/alphafold
+  topics:
+  - protein
+  - foundation-model
+  - structure-prediction
+  why: Solved high-accuracy protein structure prediction at CASP14; defined the modern structure-prediction era.
+  benchmarks:
+  - name: CASP14
+    score: median GDT_TS ~92
+- id: alphafold3
+  kind: model
+  label: AlphaFold3
+  modality: protein
+  architecture: Pairformer + diffusion module
+  objective: biomolecular complex structure prediction (diffusion)
+  pretrain_data: PDB (proteins, nucleic acids, ligands, ions)
+  year: 2024
+  released: 2024-05
+  license: CC-BY-NC-SA-4.0 (code); weights non-commercial on request
+  access: gated-weights
+  org_type: industry
+  region: UK
+  url: https://www.nature.com/articles/s41586-024-07487-w
+  weights: https://github.com/google-deepmind/alphafold3
+  topics:
+  - protein
+  - foundation-model
+  - structure-prediction
+  why: Extends folding to proteins, nucleic acids, ligands and ions via a diffusion-based all-atom architecture.
+- id: esmfold
+  kind: model
+  label: ESMFold
+  modality: protein
+  params: 15B (ESM-2 backbone + folding head)
+  architecture: transformer LM + folding trunk
+  objective: structure prediction (single-sequence)
+  pretrain_data: ESM-2 on UniRef; folding head on PDB
+  year: 2023
+  released: 2022-11
+  license: MIT
+  access: open-weights
+  org_type: industry
+  region: US
+  url: https://www.science.org/doi/10.1126/science.ade2574
+  weights: https://github.com/facebookresearch/esm
+  topics:
+  - protein
+  - foundation-model
+  - structure-prediction
+  why: MSA-free structure prediction from a single sequence using ESM-2 embeddings; an order-of-magnitude faster than AF2.
+  benchmarks:
+  - name: CAMEO (TM-score)
+    score: ~0.83
+  - name: CASP14 (TM-score)
+    score: ~0.68
+- id: openfold
+  kind: model
+  label: OpenFold
+  modality: protein
+  architecture: Evoformer + structure module (AF2 reproduction)
+  objective: structure prediction (MSA-based)
+  pretrain_data: PDB + OpenProteinSet distillation
+  year: 2024
+  released: 2024-05
+  license: Apache-2.0
+  access: open-weights
+  org_type: academic
+  region: US
+  url: https://www.nature.com/articles/s41592-024-02272-z
+  weights: https://github.com/aqlaboratory/openfold
+  topics:
+  - protein
+  - foundation-model
+  - structure-prediction
+  why: Trainable, memory-efficient PyTorch reproduction of AlphaFold2 enabling retraining and new-task adaptation.
+- id: rosettafold
+  kind: model
+  label: RoseTTAFold
+  modality: protein
+  architecture: three-track (1D/2D/3D) network
+  objective: structure prediction (MSA-based)
+  pretrain_data: PDB + sequence databases
+  year: 2021
+  released: 2021-07
+  license: MIT
+  access: open-weights
+  org_type: academic
+  region: US
+  url: https://www.science.org/doi/10.1126/science.abj8754
+  weights: https://github.com/RosettaCommons/RoseTTAFold
+  topics:
+  - protein
+  - foundation-model
+  - structure-prediction
+  why: Three-track architecture for accurate structure prediction; an open contemporary of AlphaFold2.
+- id: rosettafold-all-atom
+  kind: model
+  label: RoseTTAFold All-Atom
+  modality: protein
+  architecture: three-track + all-atom representation
+  objective: biomolecular structure prediction (all-atom)
+  pretrain_data: PDB (proteins, nucleic acids, small molecules, metals)
+  year: 2024
+  released: 2024-03
+  license: see repository (non-commercial components)
+  access: gated-weights
+  org_type: academic
+  region: US
+  url: https://www.science.org/doi/10.1126/science.adl2528
+  weights: https://github.com/baker-laboratory/RoseTTAFold-All-Atom
+  topics:
+  - protein
+  - foundation-model
+  - structure-prediction
+  why: Generalizes RoseTTAFold to full assemblies with nucleic acids, small molecules, metals and covalent modifications.
+- id: omegafold
+  kind: model
+  label: OmegaFold
+  modality: protein
+  architecture: protein LM + geometry-inspired transformer
+  objective: structure prediction (single-sequence)
+  pretrain_data: PDB + sequence corpus
+  year: 2022
+  released: 2022-07
+  license: Apache-2.0
+  access: open-weights
+  org_type: industry
+  region: China
+  url: https://www.biorxiv.org/content/10.1101/2022.07.21.500999v1
+  weights: https://github.com/HeliXonProtein/OmegaFold
+  topics:
+  - protein
+  - foundation-model
+  - structure-prediction
+  why: First high-resolution structure prediction from a single sequence without multiple sequence alignments.
+- id: pdb
+  kind: dataset
+  label: Protein Data Bank (PDB)
+  modality: protein
+  org_type: nonprofit
+  region: US
+  year: 1971
+  url: https://www.rcsb.org/
+  topics:
+  - protein
+  - structure-prediction
+  why: Archive of experimentally determined biomolecular structures; the training ground for structure-prediction models.
+- id: alphafold-db
+  kind: dataset
+  label: AlphaFold Protein Structure Database
+  modality: protein
+  org_type: nonprofit
+  region: UK
+  year: 2021
+  url: https://alphafold.ebi.ac.uk/
+  topics:
+  - protein
+  - structure-prediction
+  why: 200M+ predicted structures; a primary source of 3Di/structure tokens for structure-aware protein LMs.
+- id: proteingym
+  kind: benchmark
+  label: ProteinGym
+  modality: protein
+  year: 2023
+  url: https://proteingym.org/
+  topics:
+  - protein
+  - foundation-model
+  why: Standard benchmark of deep mutational scans for zero-shot and supervised variant-effect prediction.
+- id: casp
+  kind: benchmark
+  label: CASP
+  modality: protein
+  year: 1994
+  url: https://predictioncenter.org/
+  topics:
+  - protein
+  - structure-prediction
+  why: Biennial blind assessment of protein structure prediction; the field's reference evaluation.
+- id: cameo
+  kind: benchmark
+  label: CAMEO
+  modality: protein
+  year: 2013
+  url: https://www.cameo3d.org/
+  topics:
+  - protein
+  - structure-prediction
+  why: Continuous weekly blind evaluation of structure-prediction servers on newly released PDB entries.
+- id: evolutionaryscale
+  kind: org
+  label: EvolutionaryScale
+  modality: protein
+  org_type: industry
+  region: US
+  year: 2023
+  url: https://www.evolutionaryscale.ai/
+  topics:
+  - protein
+  - foundation-model
+  why: Builds the ESM3 and ESM C protein foundation models after the original Meta FAIR ESM team.
+- id: deepmind
+  kind: org
+  label: Google DeepMind
+  modality: protein
+  org_type: industry
+  region: UK
+  year: 2010
+  url: https://deepmind.google/
+  topics:
+  - protein
+  - structure-prediction
+  why: Created the AlphaFold family, transforming protein structure prediction.
+- id: baker-lab
+  kind: org
+  label: Baker Lab (IPD
+  UW): null
+  modality: protein
+  org_type: academic
+  region: US
+  year: 1993
+  url: https://www.bakerlab.org/
+  topics:
+  - protein
+  - structure-prediction
+  - generative
+  why: Develops RoseTTAFold and protein-design methods at the Institute for Protein Design.
+- id: rostlab
+  kind: org
+  label: Rostlab (TU Munich)
+  modality: protein
+  org_type: academic
+  region: Germany
+  year: 1998
+  url: https://rostlab.org/
+  topics:
+  - protein
+  - foundation-model
+  why: Authors the ProtTrans family (ProtBERT, ProtT5) and ProstT5 protein language models.
+- id: virchow
+  kind: model
+  label: Virchow
+  modality: pathology
+  params: 632M (ViT-H/14)
+  architecture: ViT-H/14 (DINOv2)
+  objective: self-distillation (DINOv2)
+  pretrain_data: ~1.5M H&E WSIs / ~2B tiles (MSKCC, ~100k patients)
+  context: 224px tiles
+  year: 2024
+  released: 2024-08
+  license: CC-BY-NC-ND-4.0
+  access: open-weights
+  org_type: industry
+  region: US
+  url: https://www.nature.com/articles/s41591-024-03141-0
+  weights: https://huggingface.co/paige-ai/Virchow
+  topics:
+  - pathology
+  - foundation-model
+  why: Paige's first million-slide histopathology tile encoder; a widely-used clinical-grade pathology backbone.
+  benchmarks:
+  - name: pan-cancer tile classification (AUC, internal)
+    score: ~0.95
+- id: virchow2
+  kind: model
+  label: Virchow2
+  modality: pathology
+  params: 632M (ViT-H/14)
+  architecture: ViT-H/14 (modified DINOv2)
+  objective: self-distillation (DINOv2; KDE regularizer, extended-context translation)
+  pretrain_data: ~3.1M WSIs (MSKCC), multi-magnification 5x/10x/20x/40x
+  context: 224px tiles
+  year: 2024
+  released: 2024-08
+  license: CC-BY-NC-ND-4.0
+  access: open-weights
+  org_type: industry
+  region: US
+  url: https://arxiv.org/abs/2408.00738
+  weights: https://huggingface.co/paige-ai/Virchow2
+  topics:
+  - pathology
+  - foundation-model
+  why: Scaled, mixed-magnification successor to Virchow; strong general-purpose tile encoder across resolutions.
+- id: conch
+  kind: model
+  label: CONCH
+  modality: pathology
+  architecture: CoCa (ViT-B image + text decoder), vision-language
+  objective: contrastive image-text + captioning
+  pretrain_data: ~1.17M histopathology image-caption pairs
+  context: 256px tiles
+  year: 2024
+  released: 2024-03
+  license: CC-BY-NC-ND-4.0
+  access: gated-weights
+  org_type: academic
+  region: US
+  url: https://www.nature.com/articles/s41591-024-02856-4
+  weights: https://huggingface.co/MahmoodLab/CONCH
+  topics:
+  - pathology
+  - foundation-model
+  - multimodal
+  why: Mahmood-lab vision-language pathology model enabling zero-shot tile classification and image-text retrieval.
+- id: prov-gigapath
+  kind: model
+  label: Prov-GigaPath
+  modality: pathology
+  architecture: ViT-G tile encoder (DINOv2) + LongNet slide encoder (MAE)
+  objective: self-distillation (tile) + masked autoencoding (slide)
+  pretrain_data: ~1.3B tiles / 171k WSIs (Providence, real-world)
+  context: 256px tiles
+  year: 2024
+  released: 2024-05
+  license: Apache-2.0 (code); non-commercial weights
+  access: gated-weights
+  org_type: industry
+  region: US
+  url: https://www.nature.com/articles/s41586-024-07441-w
+  weights: https://huggingface.co/prov-gigapath/prov-gigapath
+  topics:
+  - pathology
+  - foundation-model
+  why: Microsoft/Providence whole-slide model pairing a tile encoder with a LongNet slide encoder on real-world data.
+- id: hibou
+  kind: model
+  label: Hibou (-B / -L)
+  modality: pathology
+  params: 86M (ViT-B/14), 307M (ViT-L/14)
+  architecture: ViT-B/14, ViT-L/14 (DINOv2)
+  objective: self-distillation (DINOv2)
+  pretrain_data: '>1M proprietary WSIs (diverse stains)'
+  context: 224px tiles
+  year: 2024
+  released: 2024-06
+  license: Apache-2.0 (Hibou-B); MIT-style (Hibou-L)
+  access: open-weights
+  org_type: industry
+  region: US
+  url: https://arxiv.org/abs/2406.05074
+  weights: https://huggingface.co/histai/hibou-b
+  topics:
+  - pathology
+  - foundation-model
+  why: HistAI's openly-released ViT-B/ViT-L pathology encoders trained on a diverse multi-stain slide corpus.
+- id: h-optimus-0
+  kind: model
+  label: H-optimus-0
+  modality: pathology
+  params: 1.1B (ViT-g/14)
+  architecture: ViT-g/14 (DINOv2)
+  objective: self-distillation (DINOv2)
+  pretrain_data: hundreds of millions of tiles / >500k WSIs (4,000 clinics)
+  context: 224px tiles
+  year: 2024
+  released: 2024-07
+  license: Apache-2.0
+  access: open-weights
+  org_type: industry
+  region: France
+  url: https://huggingface.co/bioptimus/H-optimus-0
+  weights: https://huggingface.co/bioptimus/H-optimus-0
+  topics:
+  - pathology
+  - foundation-model
+  why: Bioptimus's billion-parameter open-source pathology tile encoder; one of the largest fully open weights.
+- id: h-optimus-1
+  kind: model
+  label: H-optimus-1
+  modality: pathology
+  params: 1.1B (ViT-g/14)
+  architecture: ViT-g/14 (DINOv2)
+  objective: self-distillation (DINOv2)
+  pretrain_data: '>1M H&E slides / >800k patients (4,000+ centers, 50 organs)'
+  context: 224px tiles
+  year: 2025
+  released: 2025-03
+  license: proprietary (AWS Marketplace / gated)
+  access: gated-weights
+  org_type: industry
+  region: France
+  url: https://huggingface.co/bioptimus/H-optimus-1
+  weights: https://huggingface.co/bioptimus/H-optimus-1
+  topics:
+  - pathology
+  - foundation-model
+  why: Bioptimus's successor trained on its most patient-diverse corpus; best-in-class on subtyping and biomarker tasks.
+- id: phikon
+  kind: model
+  label: Phikon
+  modality: pathology
+  params: 86M (ViT-B/16)
+  architecture: ViT-B/16 (iBOT)
+  objective: masked image modeling (iBOT self-distillation)
+  pretrain_data: ~40M tiles / ~6k WSIs (TCGA)
+  context: 224px tiles
+  year: 2023
+  released: 2023-07
+  license: CC-BY-NC-SA-4.0
+  access: open-weights
+  org_type: industry
+  region: France
+  url: https://huggingface.co/owkin/phikon
+  weights: https://huggingface.co/owkin/phikon
+  topics:
+  - pathology
+  - foundation-model
+  why: Owkin's early iBOT-trained pathology encoder on TCGA; a common open baseline for tile-level tasks.
+- id: phikon-v2
+  kind: model
+  label: Phikon-v2
+  modality: pathology
+  params: 307M (ViT-L/16)
+  architecture: ViT-L/16 (DINOv2)
+  objective: self-distillation (DINOv2)
+  pretrain_data: ~456M tiles / ~60k WSIs (PANCAN-XL, >30 cancer sites)
+  context: 224px tiles (20x)
+  year: 2024
+  released: 2024-09
+  license: CC-BY-NC-SA-4.0
+  access: open-weights
+  org_type: industry
+  region: France
+  url: https://arxiv.org/abs/2409.09173
+  weights: https://huggingface.co/owkin/phikon-v2
+  topics:
+  - pathology
+  - foundation-model
+  why: Owkin's larger DINOv2 successor to Phikon for biomarker prediction; publicly released feature extractor.
+- id: ctranspath
+  kind: model
+  label: CTransPath
+  modality: pathology
+  params: ~28M (Swin-Tiny hybrid)
+  architecture: CNN + Swin Transformer (hybrid)
+  objective: semantically-relevant contrastive learning (SRCL / MoCo v3)
+  pretrain_data: ~15M tiles (TCGA + PAIP)
+  context: 224px tiles
+  year: 2022
+  released: 2022-10
+  license: GPL-3.0
+  access: open-weights
+  org_type: academic
+  region: China
+  url: https://www.sciencedirect.com/science/article/abs/pii/S1361841522002043
+  weights: https://huggingface.co/1aurent/swin_tiny_patch4_window7_224.CTransPath
+  topics:
+  - pathology
+  - foundation-model
+  why: Pre-ViT-era Swin/CNN hybrid with SRCL pretraining; a long-standing histopathology feature-extractor baseline.
+- id: uni2
+  kind: model
+  label: UNI2 (UNI2-h)
+  modality: pathology
+  params: 681M (ViT-H/14)
+  architecture: ViT-H/14 (DINOv2)
+  objective: self-distillation (DINOv2)
+  pretrain_data: '>200M tiles / >350k H&E + IHC slides (Mass General Brigham)'
+  context: 224px tiles
+  year: 2025
+  released: 2025-01
+  license: CC-BY-NC-ND-4.0
+  access: gated-weights
+  org_type: academic
+  region: US
+  url: https://huggingface.co/MahmoodLab/UNI2-h
+  weights: https://huggingface.co/MahmoodLab/UNI2-h
+  topics:
+  - pathology
+  - foundation-model
+  why: Larger ViT-H successor to UNI trained on H&E and IHC slides; stronger general-purpose tile encoder.
+- id: rudolfv
+  kind: model
+  label: RudolfV
+  modality: pathology
+  params: 307M (ViT-L)
+  architecture: ViT-L (DINOv2)
+  objective: self-distillation (DINOv2), pathologist-guided curation
+  pretrain_data: ~134k WSIs / ~750M tiles (15+ labs, 58 tissues, 129 stains)
+  context: 224px tiles
+  year: 2024
+  released: 2024-01
+  license: proprietary (closed)
+  access: closed
+  org_type: industry
+  region: Germany
+  url: https://arxiv.org/abs/2401.04079
+  topics:
+  - pathology
+  - foundation-model
+  why: Aignostics 'by pathologists for pathologists' model using expert-guided curation across many labs and stains.
+- id: plip
+  kind: model
+  label: PLIP
+  modality: pathology
+  architecture: CLIP (ViT-B/32 + text encoder), vision-language
+  objective: contrastive image-text (CLIP fine-tune)
+  pretrain_data: OpenPath (~208k pathology image-text pairs from Twitter)
+  context: 224px tiles
+  year: 2023
+  released: 2023-08
+  license: non-commercial research
+  access: open-weights
+  org_type: academic
+  region: US
+  url: https://www.nature.com/articles/s41591-023-02504-3
+  weights: https://huggingface.co/vinid/plip
+  topics:
+  - pathology
+  - foundation-model
+  - multimodal
+  why: First pathology vision-language model, fine-tuning CLIP on Twitter-sourced image-text pairs (OpenPath).
+- id: titan
+  kind: model
+  label: TITAN
+  modality: pathology
+  architecture: ViT slide encoder + vision-language (uses CONCHv1.5 tile features)
+  objective: visual self-supervision + vision-language alignment (reports + synthetic captions)
+  pretrain_data: 335,645 WSIs + reports + 423,122 synthetic captions
+  context: slide-level (512px ROI tiles)
+  year: 2025
+  released: 2024-12
+  license: CC-BY-NC-ND-4.0
+  access: gated-weights
+  org_type: academic
+  region: US
+  url: https://www.nature.com/articles/s41591-025-03982-3
+  weights: https://huggingface.co/MahmoodLab/TITAN
+  topics:
+  - pathology
+  - foundation-model
+  - multimodal
+  why: Mahmood-lab multimodal whole-slide model giving zero-shot slide classification and report generation.
+- id: gpfm
+  kind: model
+  label: GPFM
+  modality: pathology
+  params: 307M (ViT-L)
+  architecture: ViT-L (unified knowledge distillation)
+  objective: expert + self knowledge distillation
+  pretrain_data: ~190M tiles / ~72k public WSIs, 34 tissue types
+  context: 224px tiles
+  year: 2025
+  released: 2024-07
+  license: non-commercial research
+  access: open-weights
+  org_type: academic
+  region: Hong Kong
+  url: https://www.nature.com/articles/s41551-025-01488-4
+  weights: https://github.com/birkhoffkiki/GPFM
+  topics:
+  - pathology
+  - foundation-model
+  why: Generalizable pathology model distilling several expert encoders; top average rank across a broad benchmark.
+- id: lunit-dino
+  kind: model
+  label: Lunit-DINO
+  modality: pathology
+  params: 22M (ViT-S/8)
+  architecture: ViT-S/8, ViT-S/16 (DINO)
+  objective: self-distillation (DINO)
+  pretrain_data: ~33M tiles (TCGA + TULIP)
+  context: 224px tiles
+  year: 2023
+  released: 2023-06
+  license: Apache-2.0
+  access: open-weights
+  org_type: industry
+  region: South Korea
+  url: https://github.com/lunit-io/benchmark-ssl-pathology
+  weights: https://huggingface.co/1aurent/vit_small_patch8_224.lunit_dino
+  topics:
+  - pathology
+  - foundation-model
+  why: Lunit's CVPR'23 SSL benchmark study; its DINO ViT-S became a popular lightweight pathology encoder.
+- id: kaiko-midnight
+  kind: model
+  label: Kaiko Midnight
+  modality: pathology
+  params: 1.1B (ViT-g/14)
+  architecture: ViT-g/14 (modified DINOv2)
+  objective: self-distillation (DINOv2; KDE regularizer)
+  pretrain_data: 12k-92k WSIs (TCGA + NKI-80k) — far fewer than peers
+  context: 224px / 392px tiles
+  year: 2025
+  released: 2025-04
+  license: MIT
+  access: open-weights
+  org_type: industry
+  region: Netherlands
+  url: https://arxiv.org/abs/2504.05186
+  weights: https://huggingface.co/kaiko-ai/midnight
+  topics:
+  - pathology
+  - foundation-model
+  why: kaiko.ai showed SOTA pathology encoders are trainable on orders-of-magnitude fewer slides; openly released.
+- id: madeleine
+  kind: model
+  label: MADELEINE
+  modality: pathology
+  architecture: multi-stain slide encoder (CONCH tile features + cross-stain alignment)
+  objective: dual global-local cross-stain contrastive alignment
+  pretrain_data: 4,211 breast WSIs (5 stains) + 12,070 kidney WSIs (4 stains)
+  context: slide-level
+  year: 2024
+  released: 2024-08
+  license: CC-BY-NC-ND-4.0
+  access: open-weights
+  org_type: academic
+  region: US
+  url: https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/04788.pdf
+  weights: https://github.com/mahmoodlab/MADELEINE
+  topics:
+  - pathology
+  - foundation-model
+  - multimodal
+  why: Multi-stain slide-representation pretraining aligning H&E with IHC/special stains for downstream slide tasks.
+- id: chief
+  kind: model
+  label: CHIEF
+  modality: pathology
+  architecture: CTransPath tile encoder + weakly-supervised slide aggregation (CLAM-style)
+  objective: weakly-supervised slide representation + text-anatomy guidance
+  pretrain_data: ~60k WSIs / ~15M tiles for tile encoder; slide-level on 19 cohorts
+  context: slide-level
+  year: 2024
+  released: 2024-09
+  license: AGPL-3.0 (non-commercial)
+  access: open-weights
+  org_type: academic
+  region: US
+  url: https://www.nature.com/articles/s41586-024-07894-z
+  weights: https://github.com/hms-dbmi/CHIEF
+  topics:
+  - pathology
+  - foundation-model
+  why: Yu-lab weakly-supervised slide model for cancer diagnosis, prognosis and biomarker prediction across cancers.
+- id: prism
+  kind: model
+  label: PRISM
+  modality: pathology
+  architecture: Perceiver slide encoder (Virchow tile features) + BioGPT text decoder
+  objective: slide-report contrastive + generative captioning
+  pretrain_data: ~587k WSIs + ~195k clinical reports
+  context: slide-level (Virchow tiles)
+  year: 2024
+  released: 2024-08
+  license: CC-BY-NC-ND-4.0
+  access: open-weights
+  org_type: industry
+  region: US
+  url: https://arxiv.org/abs/2405.10254
+  weights: https://huggingface.co/paige-ai/Prism
+  topics:
+  - pathology
+  - foundation-model
+  - multimodal
+  why: Paige's multimodal generative slide model over Virchow tiles enabling zero-shot prediction and report generation.
+- id: musk
+  kind: model
+  label: MUSK
+  modality: pathology
+  architecture: multimodal transformer (BEiT-3 style), vision-language
+  objective: unified masked modeling (image + text), then contrastive alignment
+  pretrain_data: ~50M pathology images + ~1B pathology text tokens
+  context: 384px tiles
+  year: 2025
+  released: 2025-01
+  license: CC-BY-NC-ND-4.0
+  access: gated-weights
+  org_type: academic
+  region: US
+  url: https://www.nature.com/articles/s41586-024-08378-w
+  weights: https://huggingface.co/xiangjx/musk
+  topics:
+  - pathology
+  - foundation-model
+  - multimodal
+  why: Stanford vision-language oncology model from unpaired image/text via masked modeling; strong on outcome prediction.
+- id: tcga
+  kind: dataset
+  label: TCGA
+  modality: pathology
+  org_type: government
+  region: US
+  year: 2006
+  url: https://portal.gdc.cancer.gov/
+  topics:
+  - pathology
+  why: The Cancer Genome Atlas — ~30k diagnostic WSIs across 30+ cancers; the default public pathology pretraining/eval corpus.
+- id: cptac
+  kind: dataset
+  label: CPTAC
+  modality: pathology
+  org_type: government
+  region: US
+  year: 2011
+  url: https://proteomics.cancer.gov/programs/cptac
+  topics:
+  - pathology
+  why: Clinical Proteomic Tumor Analysis Consortium WSIs; a common external validation cohort for pathology FMs.
+- id: panda
+  kind: dataset
+  label: PANDA
+  modality: pathology
+  org_type: academic
+  region: International
+  year: 2020
+  url: https://www.kaggle.com/c/prostate-cancer-grade-assessment
+  topics:
+  - pathology
+  why: Prostate cANcer graDe Assessment — ~11k biopsy WSIs; a standard Gleason-grading benchmark for tile/slide encoders.
+- id: openpath
+  kind: dataset
+  label: OpenPath
+  modality: pathology
+  org_type: academic
+  region: US
+  year: 2023
+  url: https://www.nature.com/articles/s41591-023-02504-3
+  topics:
+  - pathology
+  - multimodal
+  why: ~208k pathology image-text pairs mined from medical Twitter; PLIP's vision-language pretraining set.
+- id: camelyon
+  kind: benchmark
+  label: CAMELYON16/17
+  modality: pathology
+  org_type: academic
+  region: Netherlands
+  year: 2016
+  url: https://camelyon17.grand-challenge.org/
+  topics:
+  - pathology
+  why: Lymph-node metastasis detection challenge; a canonical WSI metastasis-detection benchmark for pathology FMs.
+- id: eva-benchmark
+  kind: benchmark
+  label: eva
+  modality: pathology
+  org_type: industry
+  region: Netherlands
+  year: 2024
+  url: https://github.com/kaiko-ai/eva
+  topics:
+  - pathology
+  - eval
+  why: kaiko.ai's open oncology-FM evaluation framework; standardized linear-probe leaderboard across pathology tasks.
+- id: hest
+  kind: benchmark
+  label: HEST-1k / HEST-Benchmark
+  modality: pathology
+  org_type: academic
+  region: US
+  year: 2024
+  url: https://github.com/mahmoodlab/HEST
+  topics:
+  - pathology
+  - spatial
+  - eval
+  why: Spatial-transcriptomics-paired histology benchmark; evaluates tile encoders on gene-expression prediction from morphology.
+- id: mahmood-lab
+  kind: org
+  label: Mahmood Lab (Harvard/BWH)
+  org_type: academic
+  region: US
+  url: https://faisal.ai/
+  topics:
+  - pathology
+  why: Harvard/Brigham computational-pathology lab behind UNI, CONCH, TITAN, MADELEINE and the eva/HEST ecosystem.
+- id: paige-ai
+  kind: org
+  label: Paige AI
+  org_type: industry
+  region: US
+  url: https://www.paige.ai/
+  topics:
+  - pathology
+  why: Digital-pathology company that open-sourced the Virchow and PRISM million-slide model suite.
+- id: bioptimus
+  kind: org
+  label: Bioptimus
+  org_type: industry
+  region: France
+  url: https://www.bioptimus.com/
+  topics:
+  - pathology
+  why: Paris-based biology-FM startup behind the H-optimus pathology model family.
+- id: owkin
+  kind: org
+  label: Owkin
+  org_type: industry
+  region: France
+  url: https://www.owkin.com/
+  topics:
+  - pathology
+  why: Biotech-AI company that released the Phikon and Phikon-v2 open pathology encoders.
+- id: kaiko-ai
+  kind: org
+  label: kaiko.ai
+  org_type: industry
+  region: Netherlands
+  url: https://kaiko.ai/
+  topics:
+  - pathology
+  why: Amsterdam oncology-AI org behind the Midnight models and the eva evaluation framework.
+- id: rad-dino
+  kind: model
+  label: RAD-DINO
+  modality: radiology
+  params: 86.6M (ViT-B/14)
+  architecture: ViT-B/14 (DINOv2)
+  objective: self-distillation (DINOv2, image-only)
+  pretrain_data: 882,775 chest X-rays (MIMIC-CXR, CheXpert, NIH-CXR, PadChest, BRAX)
+  context: 518px
+  year: 2024
+  released: 2024-01
+  license: MIT
+  access: open-weights
+  org_type: industry
+  region: UK
+  url: https://arxiv.org/abs/2401.10815
+  weights: https://huggingface.co/microsoft/rad-dino
+  topics:
+  - radiology
+  - foundation-model
+  why: Image-only DINOv2 CXR encoder showing self-supervision can match text-supervised models on radiology tasks.
+  benchmarks:
+  - name: Avg AUROC (CheXpert, RSNA Pneumonia, NIH CXR8)
+    score: 87.3%
+- id: chexagent
+  kind: model
+  label: CheXagent
+  modality: multimodal
+  params: 8B
+  architecture: vision encoder + clinical LLM (instruction-tuned VLM)
+  objective: instruction tuning (vision-language)
+  pretrain_data: 'CheXinstruct: ~6M instruction-image-answer triplets'
+  year: 2024
+  released: 2024-01
+  license: open (research)
+  access: open-weights
+  org_type: academic
+  region: US
+  url: https://arxiv.org/abs/2401.12208
+  weights: https://github.com/Stanford-AIMI/CheXagent
+  topics:
+  - radiology
+  - foundation-model
+  - multimodal
+  why: Instruction-tuned CXR foundation model spanning 8 interpretation tasks; outperformed prior general/medical FMs on CheXbench.
+  benchmarks:
+  - name: Radiologist-preferred drafted reports (residents)
+    score: 81%
+- id: merlin
+  kind: model
+  label: Merlin
+  modality: multimodal
+  architecture: 3D vision encoder + text (vision-language)
+  objective: contrastive (image-text) + EHR-supervised pretraining
+  pretrain_data: 15,331 abdominal CTs; 1.8M EHR diagnosis codes; 6M report tokens
+  context: 3D CT volume
+  year: 2024
+  released: 2024-06
+  license: open (research)
+  access: open-weights
+  org_type: academic
+  region: US
+  url: https://arxiv.org/abs/2406.06512
+  weights: https://huggingface.co/stanfordmimi/Merlin
+  topics:
+  - radiology
+  - foundation-model
+  - multimodal
+  why: 3D CT vision-language FM pretrained on paired CTs, EHR codes and reports; single-GPU training, evaluated on 752 tasks.
+  benchmarks:
+  - name: Zero-shot findings classification
+    score: 30 findings
+- id: ct-fm
+  kind: model
+  label: CT-FM
+  modality: radiology
+  architecture: 3D CNN (SegResNet, lighter)
+  objective: self-supervised intra-sample contrastive (SimCLR-style)
+  pretrain_data: 148,000 CT scans (Imaging Data Commons)
+  context: 3D CT volume patch
+  year: 2025
+  released: 2025-01
+  license: open-weights
+  access: open-weights
+  org_type: academic
+  region: US
+  url: https://arxiv.org/abs/2501.09001
+  weights: https://github.com/project-lighter/CT-FM
+  topics:
+  - radiology
+  - foundation-model
+  why: Label-agnostic 3D CT backbone pretrained on 148K scans; strong on segmentation, triage, retrieval and semantic tasks.
+- id: radfm
+  kind: model
+  label: RadFM
+  modality: multimodal
+  params: 14B
+  architecture: 3D ViT + Perceiver + LLM (MedLLaMA)
+  objective: visually-conditioned generative pretraining
+  pretrain_data: MedMD ~16M 2D&3D scans; fine-tuned on RadMD ~3M radiologic pairs
+  context: interleaved 2D/3D scans + text
+  year: 2023
+  released: 2023-08
+  license: open (research)
+  access: open-weights
+  org_type: academic
+  region: China
+  url: https://arxiv.org/abs/2308.02463
+  weights: https://github.com/chaoyi-wu/RadFM
+  topics:
+  - radiology
+  - foundation-model
+  - multimodal
+  why: Generalist radiology VLM handling interleaved 2D/3D scans + text across diagnosis, VQA and report generation.
+- id: medimageinsight
+  kind: model
+  label: MedImageInsight
+  modality: multimodal
+  params: 610M (DaViT image 360M + text 252M)
+  architecture: DaViT image encoder + text encoder (CLIP-style, UniCL)
+  objective: contrastive image-text (UniCL)
+  pretrain_data: ~3.7M clinical images across 14 medical domains
+  year: 2024
+  released: 2024-10
+  license: MIT
+  access: open-weights
+  org_type: industry
+  region: US
+  url: https://arxiv.org/abs/2410.06542
+  topics:
+  - radiology
+  - foundation-model
+  - multimodal
+  why: Open-source general-domain medical image embedding model spanning 14 modalities; strong CXR image-image search and fairness.
+- id: sam-med2d
+  kind: model
+  label: SAM-Med2D
+  modality: radiology
+  architecture: ViT (SAM-based)
+  objective: promptable segmentation
+  pretrain_data: 4.6M images / 19.7M masks (SA-Med2D-20M)
+  context: 256px
+  year: 2023
+  released: 2023-08
+  license: Apache-2.0
+  access: open-weights
+  org_type: academic
+  region: China
+  url: https://arxiv.org/abs/2308.16184
+  weights: https://github.com/OpenGVLab/SAM-Med2D
+  topics:
+  - radiology
+  - foundation-model
+  - segmentation
+  why: SAM fine-tuned on the largest 2D medical segmentation set (10 modalities, 31 organs) for promptable 2D segmentation.
+- id: sam-med3d
+  kind: model
+  label: SAM-Med3D
+  modality: radiology
+  architecture: fully 3D SAM (3D ViT encoder + 3D decoder)
+  objective: promptable 3D segmentation
+  pretrain_data: ~22K 3D images / 143K 3D masks (SA-Med3D-140K)
+  context: 3D volume patch
+  year: 2023
+  released: 2023-10
+  license: Apache-2.0
+  access: open-weights
+  org_type: academic
+  region: China
+  url: https://arxiv.org/abs/2310.15161
+  weights: https://github.com/uni-medical/SAM-Med3D
+  topics:
+  - radiology
+  - foundation-model
+  - segmentation
+  why: Fully 3D reformulation of SAM for volumetric medical images; accurate few-point 3D segmentation across 247 categories.
+- id: medsam-2
+  kind: model
+  label: MedSAM2
+  modality: radiology
+  architecture: SAM2-based (Hiera image encoder + memory)
+  objective: promptable 3D/video segmentation
+  pretrain_data: 455,000+ 3D image-mask pairs; 76,000 video frames
+  context: 3D volume / video
+  year: 2025
+  released: 2025-04
+  license: Apache-2.0
+  access: open-weights
+  org_type: academic
+  region: Canada
+  url: https://arxiv.org/abs/2504.03600
+  weights: https://github.com/bowang-lab/MedSAM2
+  topics:
+  - radiology
+  - foundation-model
+  - segmentation
+  why: SAM2 fine-tuned for unified 3D image and video medical segmentation with a self-sorting memory bank.
+- id: usfm
+  kind: model
+  label: USFM
+  modality: radiology
+  architecture: ViT (spatial-frequency dual-masked modeling)
+  objective: masked image modeling (spatial + frequency)
+  pretrain_data: '>2M multi-organ, multi-center, multi-device ultrasound images'
+  year: 2024
+  released: 2024-05
+  license: open (research)
+  access: open-weights
+  org_type: academic
+  region: China
+  url: https://doi.org/10.1016/j.media.2024.103202
+  weights: https://github.com/openmedlab/USFM
+  topics:
+  - ultrasound
+  - foundation-model
+  why: Universal ultrasound FM with spatial-frequency dual-masked pretraining; label-efficient across segmentation/classification/enhancement.
+- id: retfound
+  kind: model
+  label: RETFound
+  modality: radiology
+  params: ~303M (ViT-L)
+  architecture: ViT-L (masked autoencoder)
+  objective: masked image modeling (MAE)
+  pretrain_data: ~1.6M unlabelled retinal images (color fundus + OCT)
+  context: 224px
+  year: 2023
+  released: 2023-08
+  license: CC-BY-NC-4.0
+  access: open-weights
+  org_type: academic
+  region: UK
+  url: https://www.nature.com/articles/s41586-023-06555-x
+  weights: https://github.com/rmaphoh/RETFound_MAE
+  topics:
+  - retina
+  - foundation-model
+  why: First ophthalmology FM; MAE-pretrained retinal encoder enabling label-efficient diagnosis, prognosis and systemic-disease prediction.
+- id: biomedparse
+  kind: model
+  label: BiomedParse
+  modality: multimodal
+  architecture: text-prompted segmentation foundation model (SEEM-based)
+  objective: joint segmentation, detection and recognition
+  pretrain_data: 'BiomedParseData: ~6M image-mask-text triples (45 datasets)'
+  year: 2024
+  released: 2024-11
+  license: MIT
+  access: open-weights
+  org_type: industry
+  region: US
+  url: https://www.nature.com/articles/s41592-024-02499-w
+  weights: https://github.com/microsoft/BiomedParse
+  topics:
+  - radiology
+  - foundation-model
+  - segmentation
+  - multimodal
+  why: Text-promptable biomedical image-parsing FM doing segmentation/detection/recognition for 82 object types across 9 modalities.
+- id: fvlm
+  kind: model
+  label: fVLM
+  modality: multimodal
+  architecture: anatomy-level CT vision-language (CLIP-style)
+  objective: fine-grained anatomy-level contrastive image-text
+  pretrain_data: CT + reports from 69,086 patients
+  context: 3D CT volume
+  year: 2025
+  released: 2025-01
+  license: open (research)
+  access: open-weights
+  org_type: industry
+  region: China
+  url: https://arxiv.org/abs/2501.14548
+  weights: https://github.com/alibaba-damo-academy/fvlm
+  topics:
+  - radiology
+  - foundation-model
+  - multimodal
+  why: Anatomy-level CT-report contrastive pretraining with false-negative calibration; strong zero-shot diagnosis across 54 tasks.
+  benchmarks:
+  - name: Zero-shot AUC (54 diagnosis tasks)
+    score: 81.3%
+- id: eva-x
+  kind: model
+  label: EVA-X
+  modality: radiology
+  architecture: ViT (EVA, MIM)
+  objective: masked image modeling (EVA-style)
+  pretrain_data: Public CXR (ChestX-ray14 + CheXpert + MIMIC-CXR)
+  year: 2024
+  released: 2024-05
+  license: open-weights
+  access: open-weights
+  org_type: academic
+  region: China
+  url: https://arxiv.org/abs/2405.05237
+  weights: https://github.com/hustvl/EVA-X
+  topics:
+  - radiology
+  - foundation-model
+  why: MIM-pretrained chest X-ray ViT spanning 20+ chest diseases using only public CXR data.
+- id: cxr-foundation
+  kind: model
+  label: CXR Foundation (ELIXR)
+  modality: multimodal
+  architecture: EfficientNet-L2 image encoder + BERT (ELIXR / BLIP-2)
+  objective: supervised-contrastive + image-text (CLIP/BLIP-2)
+  pretrain_data: 821,544 chest X-rays (India + US) + reports
+  year: 2023
+  released: 2023-08
+  license: HAI-DEF (Google Health AI terms)
+  access: gated-weights
+  org_type: industry
+  region: US
+  url: https://arxiv.org/abs/2308.01317
+  weights: https://huggingface.co/google/cxr-foundation
+  topics:
+  - radiology
+  - foundation-model
+  - multimodal
+  why: Google CXR embedding model (ELIXR) enabling data-efficient and zero-shot chest X-ray classification.
+  benchmarks:
+  - name: Zero-shot CXR classification (mean AUC, 13 findings)
+    score: '0.850'
+- id: vista3d
+  kind: model
+  label: VISTA3D
+  modality: radiology
+  architecture: 3D segmentation FM (auto + interactive dual-branch)
+  objective: automatic + interactive 3D segmentation
+  pretrain_data: 11,454 CT volumes; 127 anatomical classes + lesions
+  context: 3D CT volume
+  year: 2024
+  released: 2024-06
+  license: Apache-2.0
+  access: open-weights
+  org_type: industry
+  region: US
+  url: https://arxiv.org/abs/2406.05285
+  weights: https://github.com/Project-MONAI/VISTA
+  topics:
+  - radiology
+  - foundation-model
+  - segmentation
+  why: Unified 3D CT segmentation FM with both out-of-the-box automatic (127 classes) and point-prompt interactive branches.
+- id: mimic-cxr
+  kind: dataset
+  label: MIMIC-CXR
+  modality: radiology
+  org_type: academic
+  region: US
+  year: 2019
+  url: https://physionet.org/content/mimic-cxr/2.0.0/
+  topics:
+  - radiology
+  why: ~377K chest radiographs with free-text reports from BIDMC; the standard CXR pretraining/benchmark corpus.
+- id: chexpert
+  kind: dataset
+  label: CheXpert
+  modality: radiology
+  org_type: academic
+  region: US
+  year: 2019
+  url: https://stanfordmlgroup.github.io/competitions/chexpert/
+  topics:
+  - radiology
+  why: 224K+ chest radiographs labelled for 14 observations; canonical CXR classification benchmark.
+- id: nih-chestxray
+  kind: dataset
+  label: NIH ChestX-ray14
+  modality: radiology
+  org_type: government
+  region: US
+  year: 2017
+  url: https://nihcc.app.box.com/v/ChestXray-NIHCC
+  topics:
+  - radiology
+  why: 112K chest X-rays with 14 disease labels; widely-used CXR pretraining and evaluation set.
+- id: totalsegmentator
+  kind: dataset
+  label: TotalSegmentator
+  modality: radiology
+  org_type: academic
+  region: Switzerland
+  year: 2023
+  url: https://github.com/wasserth/TotalSegmentator
+  topics:
+  - radiology
+  - segmentation
+  why: 1,200+ CTs with 100+ anatomical structure masks; reference 3D CT segmentation dataset.
+- id: radimagenet
+  kind: dataset
+  label: RadImageNet
+  modality: radiology
+  org_type: academic
+  region: US
+  year: 2022
+  url: https://www.radimagenet.com/
+  topics:
+  - radiology
+  why: 1.35M annotated CT/MRI/US images; a radiology-native transfer-learning pretraining source.
+- id: imaging-data-commons
+  kind: dataset
+  label: NCI Imaging Data Commons
+  modality: radiology
+  org_type: government
+  region: US
+  year: 2021
+  url: https://imaging.datacommons.cancer.gov/
+  topics:
+  - radiology
+  why: Cloud cancer imaging repository; the 148K-CT pretraining source for CT-FM.
+- id: padchest
+  kind: dataset
+  label: PadChest
+  modality: radiology
+  org_type: academic
+  region: Spain
+  year: 2020
+  url: https://bimcv.cipf.es/bimcv-projects/padchest/
+  topics:
+  - radiology
+  why: 160K+ chest X-rays with Spanish reports and 174 findings; a public RAD-DINO pretraining source.
+- id: sa-med2d-20m
+  kind: dataset
+  label: SA-Med2D-20M
+  modality: radiology
+  org_type: academic
+  region: China
+  year: 2023
+  url: https://arxiv.org/abs/2311.11969
+  topics:
+  - radiology
+  - segmentation
+  why: 4.6M 2D medical images with ~19.7M masks across 10 modalities; SAM-Med2D's training set.
+- id: medmd
+  kind: dataset
+  label: MedMD / RadMD
+  modality: radiology
+  org_type: academic
+  region: China
+  year: 2023
+  url: https://github.com/chaoyi-wu/RadFM
+  topics:
+  - radiology
+  - multimodal
+  why: ~16M 2D&3D medical scans (MedMD) with a cleaned 3M radiologic-pair subset (RadMD); RadFM's training corpus.
+- id: chexbench
+  kind: benchmark
+  label: CheXbench
+  modality: radiology
+  org_type: academic
+  region: US
+  year: 2024
+  url: https://arxiv.org/abs/2401.12208
+  topics:
+  - radiology
+  why: Benchmark evaluating FMs across 8 clinically-relevant chest X-ray interpretation tasks; introduced with CheXagent.
+- id: radbench
+  kind: benchmark
+  label: RadBench
+  modality: radiology
+  org_type: academic
+  region: China
+  year: 2023
+  url: https://arxiv.org/abs/2308.02463
+  topics:
+  - radiology
+  why: Five-task radiology benchmark (modality recognition, diagnosis, VQA, report generation, rationale); introduced with RadFM.
+- id: stanford-aimi
+  kind: org
+  label: Stanford AIMI
+  org_type: academic
+  region: US
+  url: https://aimi.stanford.edu/
+  topics:
+  - radiology
+  why: Stanford Center for AI in Medicine & Imaging; producer of CheXagent, CheXpert and Merlin.
+- id: microsoft-health
+  kind: org
+  label: Microsoft Health & Life Sciences
+  org_type: industry
+  region: US
+  url: https://www.microsoft.com/en-us/research/research-area/medical-health-genomics/
+  topics:
+  - radiology
+  why: Microsoft Research healthcare AI group; produced RAD-DINO, MedImageInsight and BiomedParse.
+- id: biobert
+  kind: model
+  label: BioBERT
+  modality: clinical-language
+  params: 110M
+  architecture: transformer (BERT-base, encoder-only)
+  objective: masked-language + next-sentence prediction
+  pretrain_data: PubMed abstracts (4.5B words) + PMC full-text (13.5B words), continual pretraining from BERT
+  context: 512 tokens
+  year: 2020
+  released: 2019-01
+  license: Apache-2.0
+  access: open-weights
+  org_type: academic
+  region: South Korea
+  url: https://doi.org/10.1093/bioinformatics/btz682
+  weights: https://github.com/dmis-lab/biobert
+  topics:
+  - clinical
+  - foundation-model
+  - biomedical-nlp
+  why: First widely-adopted BERT continually pretrained on PubMed+PMC; SOTA on biomedical NER, RE, QA.
+  benchmarks:
+  - name: BioASQ (QA, MRR gain over BERT)
+    score: +12.24%
+- id: scibert
+  kind: model
+  label: SciBERT
+  modality: clinical-language
+  params: 110M
+  architecture: transformer (BERT-base, encoder-only)
+  objective: masked-language + next-sentence prediction
+  pretrain_data: 1.14M Semantic Scholar full-text papers (82% biomedical, 18% CS), trained from scratch with in-domain SciVocab
+  context: 512 tokens
+  year: 2019
+  released: 2019-03
+  license: Apache-2.0
+  access: open-weights
+  org_type: nonprofit
+  region: USA
+  url: https://doi.org/10.18653/v1/D19-1371
+  weights: https://huggingface.co/allenai/scibert_scivocab_uncased
+  topics:
+  - clinical
+  - foundation-model
+  - scientific-text
+  why: Pretrained from scratch on scientific full text with domain vocabulary; strong on scientific/biomedical NLP.
+  benchmarks: []
+- id: pubmedbert-biomedbert
+  kind: model
+  label: PubMedBERT (BiomedBERT)
+  modality: clinical-language
+  params: 110M
+  architecture: transformer (BERT-base, encoder-only)
+  objective: masked-language
+  pretrain_data: PubMed abstracts (+ PMC full text in larger variant), pretrained from scratch with domain vocabulary
+  context: 512 tokens
+  year: 2021
+  released: 2020-07
+  license: MIT
+  access: open-weights
+  org_type: industry
+  region: USA
+  url: https://doi.org/10.1145/3458754
+  weights: https://huggingface.co/microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract
+  topics:
+  - clinical
+  - foundation-model
+  - biomedical-nlp
+  why: From-scratch in-domain pretraining beats continual pretraining; long-time BLURB leader. Renamed BiomedBERT.
+  benchmarks:
+  - name: BLURB
+    score: SOTA (2021)
+- id: bluebert
+  kind: model
+  label: BlueBERT
+  modality: clinical-language
+  params: 110M / 340M
+  architecture: transformer (BERT base/large, encoder-only)
+  objective: masked-language + next-sentence prediction
+  pretrain_data: PubMed abstracts (~4B words) + MIMIC-III clinical notes (~0.5B words), continual pretraining from BERT
+  context: 512 tokens
+  year: 2019
+  released: 2019-06
+  license: public-domain (US-gov work)
+  access: open-weights
+  org_type: government
+  region: USA
+  url: https://doi.org/10.18653/v1/W19-5006
+  weights: https://github.com/ncbi-nlp/bluebert
+  topics:
+  - clinical
+  - foundation-model
+  - biomedical-nlp
+  why: NCBI BERT on PubMed+MIMIC-III; reference model for the BLUE benchmark across 5 biomedical text tasks.
+  benchmarks:
+  - name: BLUE
+    score: reference baseline
+- id: clinicalbert-huang
+  kind: model
+  label: ClinicalBERT
+  modality: clinical-language
+  params: 110M
+  architecture: transformer (BERT-base, encoder-only)
+  objective: masked-language + next-sentence prediction
+  pretrain_data: MIMIC-III clinical notes, continual pretraining from BERT-base
+  context: 512 tokens
+  year: 2019
+  released: 2019-04
+  license: MIT
+  access: open-weights
+  org_type: academic
+  region: USA
+  url: https://arxiv.org/abs/1904.05342
+  weights: https://github.com/kexinhuang12345/clinicalBERT
+  topics:
+  - clinical
+  - foundation-model
+  - ehr
+  why: BERT on MIMIC-III notes targeting 30-day hospital readmission with interpretable attention.
+  benchmarks: []
+- id: bio-clinicalbert
+  kind: model
+  label: Bio_ClinicalBERT
+  modality: clinical-language
+  params: 110M
+  architecture: transformer (BERT-base, encoder-only)
+  objective: masked-language + next-sentence prediction
+  pretrain_data: All MIMIC-III notes, continual pretraining initialized from BioBERT
+  context: 512 tokens
+  year: 2019
+  released: 2019-06
+  license: MIT
+  access: open-weights
+  org_type: academic
+  region: USA
+  url: https://doi.org/10.18653/v1/W19-1909
+  weights: https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT
+  topics:
+  - clinical
+  - foundation-model
+  - ehr
+  why: BioBERT further pretrained on MIMIC-III notes; the most-downloaded publicly available clinical BERT.
+  benchmarks: []
+- id: kebiolm
+  kind: model
+  label: KeBioLM
+  modality: clinical-language
+  params: 110M
+  architecture: transformer (encoder-only) with text-entity fusion layer
+  objective: masked-language + entity detection + entity linking
+  pretrain_data: PubMed abstracts with UMLS-linked entities
+  context: 512 tokens
+  year: 2021
+  released: 2021-04
+  license: MIT
+  access: open-weights
+  org_type: academic
+  region: China
+  url: https://aclanthology.org/2021.bionlp-1.20/
+  weights: https://github.com/GanjinZero/KeBioLM
+  topics:
+  - clinical
+  - foundation-model
+  - knowledge-enhanced
+  why: Injects UMLS knowledge via entity detection/linking objectives; improves biomedical NER and relation extraction.
+  benchmarks:
+  - name: BLURB (NER + RE subset)
+    score: improved over PubMedBERT
+- id: bio-megatron
+  kind: model
+  label: BioMegatron
+  modality: clinical-language
+  params: 345M / 800M / 1.2B
+  architecture: transformer (Megatron, encoder-only; GPT-2-style layernorm placement)
+  objective: masked-language
+  pretrain_data: PubMed abstracts (4.5B words) + PMC CC0 full text (1.6B words)
+  context: 512 tokens
+  year: 2020
+  released: 2020-10
+  license: open (NVIDIA NGC)
+  access: open-weights
+  org_type: industry
+  region: USA
+  url: https://doi.org/10.18653/v1/2020.emnlp-main.379
+  weights: https://catalog.ngc.nvidia.com/orgs/nvidia/models/biomegatron345m_biovocab_50k_cased
+  topics:
+  - clinical
+  - foundation-model
+  - biomedical-nlp
+  why: Scaled biomedical encoder (up to 1.2B) studying vocabulary and model-size effects on biomedical NLP.
+  benchmarks: []
+- id: clinical-longformer
+  kind: model
+  label: Clinical-Longformer
+  modality: clinical-language
+  params: 149M
+  architecture: transformer (Longformer, sparse attention, encoder-only)
+  objective: masked-language
+  pretrain_data: MIMIC-III clinical notes, continual pretraining from Longformer
+  context: 4096 tokens
+  year: 2022
+  released: 2022-01
+  license: open-weights (HF)
+  access: open-weights
+  org_type: academic
+  region: USA
+  url: https://arxiv.org/abs/2201.11838
+  weights: https://huggingface.co/yikuan8/Clinical-Longformer
+  topics:
+  - clinical
+  - foundation-model
+  - long-context
+  why: Long-context clinical encoder (4096 tokens) that outperforms ClinicalBERT on long-document tasks.
+  benchmarks: []
+- id: biogpt
+  kind: model
+  label: BioGPT
+  modality: clinical-language
+  params: 347M
+  architecture: GPT-2-style transformer decoder (24 layers)
+  objective: autoregressive
+  pretrain_data: 15M PubMed abstracts (~1960s-2021), trained from scratch with 42K BPE vocabulary
+  context: 1024 tokens
+  year: 2022
+  released: 2022-10
+  license: MIT
+  access: open-weights
+  org_type: industry
+  region: USA
+  url: https://doi.org/10.1093/bib/bbac409
+  weights: https://huggingface.co/microsoft/biogpt
+  topics:
+  - clinical
+  - foundation-model
+  - biomedical-nlp
+  - generative
+  why: Generative PubMed model; SOTA on biomedical relation extraction and QA with strong text generation.
+  benchmarks:
+  - name: PubMedQA
+    score: 78.2% (BioGPT-Large)
+- id: biomedlm
+  kind: model
+  label: BioMedLM (PubMedGPT 2.7B)
+  modality: clinical-language
+  params: 2.7B
+  architecture: GPT-2-style transformer decoder (32 layers, hidden 2560)
+  objective: autoregressive
+  pretrain_data: PubMed abstracts + full text from The Pile (~34.6B tokens), trained from scratch
+  context: 1024 tokens
+  year: 2022
+  released: 2022-12
+  license: Apache-2.0
+  access: open-weights
+  org_type: academic
+  region: USA
+  url: https://arxiv.org/abs/2403.18421
+  weights: https://huggingface.co/stanford-crfm/BioMedLM
+  topics:
+  - clinical
+  - foundation-model
+  - biomedical-nlp
+  - generative
+  why: Compact 2.7B PubMed model from Stanford CRFM + MosaicML; strong MedQA results from a small model.
+  benchmarks:
+  - name: MedQA
+    score: 50.3%
+- id: clinical-t5
+  kind: model
+  label: Clinical-T5
+  modality: clinical-language
+  params: 220M / 770M
+  architecture: T5 (encoder-decoder, seq2seq)
+  objective: span-corruption (text-to-text)
+  pretrain_data: Union of MIMIC-III + MIMIC-IV notes (~1.2B words)
+  context: 512 tokens
+  year: 2023
+  released: 2023-02
+  license: PhysioNet credentialed (research)
+  access: gated-weights
+  org_type: academic
+  region: USA
+  url: https://doi.org/10.13026/rj8x-v335
+  weights: https://physionet.org/content/clinical-t5/1.0.0/
+  topics:
+  - clinical
+  - foundation-model
+  - ehr
+  - seq2seq
+  why: T5 pretrained on MIMIC notes; small clinical models rival much larger general LLMs on clinical tasks.
+  benchmarks: []
+- id: gatortrongpt
+  kind: model
+  label: GatorTronGPT
+  modality: clinical-language
+  params: 5B / 20B
+  architecture: GPT-3-style transformer decoder (Megatron/NeMo)
+  objective: autoregressive
+  pretrain_data: 82B words UF Health clinical text + 195B words general English (277B total)
+  context: 2048 tokens
+  year: 2023
+  released: 2023-05
+  license: open (NVIDIA NGC, research)
+  access: gated-weights
+  org_type: academic
+  region: USA
+  url: https://doi.org/10.1038/s41746-023-00958-w
+  topics:
+  - clinical
+  - foundation-model
+  - ehr
+  - generative
+  why: First 20B GPT-3-style clinical LLM; synthetic clinical text (GatorTronS) beats real-text NLP models.
+  benchmarks: []
+- id: medcpt
+  kind: model
+  label: MedCPT
+  modality: clinical-language
+  params: 220M
+  architecture: dual BERT (retriever + re-ranker), contrastive
+  objective: contrastive (query-document)
+  pretrain_data: 255M PubMed user click logs; backbone from PubMedBERT
+  context: 512 tokens
+  year: 2023
+  released: 2023-07
+  license: public-domain (US-gov work)
+  access: open-weights
+  org_type: government
+  region: USA
+  url: https://doi.org/10.1093/bioinformatics/btad651
+  weights: https://github.com/ncbi/MedCPT
+  topics:
+  - clinical
+  - foundation-model
+  - retrieval
+  why: Contrastively trained retriever/re-ranker on PubMed click logs; SOTA zero-shot biomedical IR.
+  benchmarks:
+  - name: biomedical IR (6 tasks)
+    score: SOTA (2023)
+- id: med-bert
+  kind: model
+  label: Med-BERT
+  modality: clinical-language
+  params: transformer encoder (BERT-style)
+  architecture: EHR token transformer (BERT-style, code + visit embeddings)
+  objective: masked-language (masked code) + prolonged length-of-stay prediction
+  pretrain_data: Structured EHR diagnosis codes from 28.5M patients (Cerner Health Facts)
+  context: patient timeline (sequence of coded visits)
+  year: 2021
+  released: 2021-05
+  license: Apache-2.0
+  access: open-weights
+  org_type: academic
+  region: USA
+  url: https://doi.org/10.1038/s41746-021-00455-y
+  weights: https://github.com/ZhiGroup/Med-BERT
+  topics:
+  - clinical
+  - foundation-model
+  - ehr
+  - structured-ehr
+  why: Adapts BERT to structured EHR diagnosis codes over 28.5M patients; boosts disease prediction on small cohorts.
+  benchmarks: []
+- id: behrt
+  kind: model
+  label: BEHRT
+  modality: clinical-language
+  params: transformer encoder (BERT-style)
+  architecture: EHR token transformer (BERT-style; age/position/segment embeddings)
+  objective: masked-language (masked disease) + next-visit disease prediction
+  pretrain_data: CPRD UK primary-care EHR (~1.6M patients, 301 conditions)
+  context: patient timeline (sequence of visits)
+  year: 2020
+  released: 2020-04
+  license: open-source (GitHub)
+  access: open-weights
+  org_type: academic
+  region: UK
+  url: https://doi.org/10.1038/s41598-020-62922-y
+  weights: https://github.com/deepmedicine/BEHRT
+  topics:
+  - clinical
+  - foundation-model
+  - ehr
+  - structured-ehr
+  why: BERT for EHR predicting 301 future conditions; 8-13% AP gain over prior deep EHR models on CPRD.
+  benchmarks: []
+- id: core-behrt
+  kind: model
+  label: CORE-BEHRT
+  modality: clinical-language
+  params: transformer encoder (BERT-style)
+  architecture: EHR token transformer (BERT-style, optimized)
+  objective: masked-language (masked code)
+  pretrain_data: Danish national EHR (structured codes)
+  context: patient timeline (sequence of coded events)
+  year: 2024
+  released: 2024-04
+  license: open-source (GitHub)
+  access: open-weights
+  org_type: academic
+  region: Denmark
+  url: https://arxiv.org/abs/2404.15201
+  weights: https://github.com/FGA-DIKU/EHR
+  topics:
+  - clinical
+  - foundation-model
+  - ehr
+  - structured-ehr
+  why: Carefully optimized, rigorously reproduced BEHRT; gains on 17 of 25 clinical tasks with isolated design ablations.
+  benchmarks:
+  - name: 25 clinical tasks
+    score: improved on 24/25
+- id: ethos
+  kind: model
+  label: ETHOS
+  modality: clinical-language
+  params: GPT-style transformer decoder
+  architecture: GPT-style transformer decoder over tokenized Patient Health Timelines
+  objective: autoregressive (next-token over health-event timeline)
+  pretrain_data: MIMIC-IV (admissions, demographics, procedures, medications) tokenized into PHTs
+  context: patient health timeline (token sequence)
+  year: 2024
+  released: 2024-08
+  license: open-source (GitHub)
+  access: open-weights
+  org_type: academic
+  region: USA
+  url: https://doi.org/10.1038/s41746-024-01235-0
+  weights: https://github.com/ipolharvard/ethos-paper
+  topics:
+  - clinical
+  - foundation-model
+  - ehr
+  - generative
+  why: Tokenizes health histories into Patient Health Timelines; zero-shot future-trajectory prediction without fine-tuning.
+  benchmarks: []
+- id: foresight
+  kind: model
+  label: Foresight
+  modality: clinical-language
+  params: GPT-style transformer decoder
+  architecture: GPT-style transformer decoder over SNOMED-coded timelines
+  objective: autoregressive (next medical concept)
+  pretrain_data: King's College Hospital + SLaM EHR (free-text + structured via MedCAT) and MIMIC-III
+  context: patient timeline (concept sequence)
+  year: 2024
+  released: 2024-04
+  license: open-source (GitHub)
+  access: open-weights
+  org_type: academic
+  region: UK
+  url: https://doi.org/10.1016/S2589-7500(24)00025-6
+  weights: https://github.com/CogStack/Foresight
+  topics:
+  - clinical
+  - foundation-model
+  - ehr
+  - generative
+  why: GPT over extracted medical concepts; forecasts future disorders/procedures across UK hospitals and MIMIC-III.
+  benchmarks:
+  - name: next-disorder precision@10 (MIMIC-III)
+    score: '0.88'
+- id: mimic-iii
+  kind: dataset
+  label: MIMIC-III
+  modality: clinical-language
+  region: USA
+  url: https://doi.org/10.1038/sdata.2016.35
+  topics:
+  - clinical
+  - ehr
+  - dataset
+  why: De-identified critical-care EHR (notes + structured data) from BIDMC; backbone corpus for clinical NLP.
+- id: mimic-iv
+  kind: dataset
+  label: MIMIC-IV
+  modality: clinical-language
+  region: USA
+  url: https://doi.org/10.1038/s41597-022-01899-x
+  topics:
+  - clinical
+  - ehr
+  - dataset
+  why: Successor to MIMIC-III; modular critical-care EHR used to build patient-timeline foundation models.
+- id: pubmed
+  kind: dataset
+  label: PubMed
+  modality: clinical-language
+  region: USA
+  url: https://pubmed.ncbi.nlm.nih.gov/
+  topics:
+  - clinical
+  - biomedical-nlp
+  - dataset
+  why: 30M+ biomedical citations/abstracts; primary pretraining corpus for biomedical language models.
+- id: pmc
+  kind: dataset
+  label: PubMed Central (PMC)
+  modality: clinical-language
+  region: USA
+  url: https://www.ncbi.nlm.nih.gov/pmc/
+  topics:
+  - clinical
+  - biomedical-nlp
+  - dataset
+  why: Free full-text biomedical article archive; full-text pretraining source for BioBERT, SciBERT, BioMegatron.
+- id: blurb-benchmark
+  kind: benchmark
+  label: BLURB
+  modality: clinical-language
+  region: USA
+  url: https://microsoft.github.io/BLURB/
+  topics:
+  - clinical
+  - biomedical-nlp
+  - benchmark
+  why: Biomedical Language Understanding and Reasoning Benchmark; standard suite for biomedical text encoders.
+- id: blue-benchmark
+  kind: benchmark
+  label: BLUE
+  modality: clinical-language
+  region: USA
+  url: https://github.com/ncbi-nlp/BLUE_Benchmark
+  topics:
+  - clinical
+  - biomedical-nlp
+  - benchmark
+  why: Biomedical Language Understanding Evaluation; 5 tasks / 10 corpora introduced alongside BlueBERT.
+- id: medqa
+  kind: benchmark
+  label: MedQA
+  modality: clinical-language
+  region: USA
+  url: https://arxiv.org/abs/2009.13081
+  topics:
+  - clinical
+  - benchmark
+  - qa
+  why: USMLE-style multiple-choice medical QA benchmark widely used to evaluate biomedical LLMs.
+- id: cprd
+  kind: dataset
+  label: CPRD
+  modality: clinical-language
+  region: UK
+  url: https://www.cprd.com/
+  topics:
+  - clinical
+  - ehr
+  - dataset
+  why: UK linked primary-care EHR (35M+ patients); pretraining source for BEHRT.
+- id: uf-health-ehr
+  kind: dataset
+  label: UF Health EHR
+  modality: clinical-language
+  region: USA
+  url: https://doi.org/10.1038/s41746-023-00958-w
+  topics:
+  - clinical
+  - ehr
+  - dataset
+  why: 82B-word de-identified clinical corpus from University of Florida Health used to train GatorTronGPT.
+- id: microsoft-research
+  kind: org
+  label: Microsoft Research
+  modality: clinical-language
+  region: USA
+  url: https://www.microsoft.com/en-us/research/
+  topics:
+  - clinical
+  - org
+  why: Developed BioGPT and PubMedBERT/BiomedBERT.
+- id: ncbi
+  kind: org
+  label: NCBI (NIH)
+  modality: clinical-language
+  region: USA
+  url: https://www.ncbi.nlm.nih.gov/
+  topics:
+  - clinical
+  - org
+  why: US National Center for Biotechnology Information; developed BlueBERT and MedCPT, hosts PubMed/PMC.
+- id: allen-institute-ai
+  kind: org
+  label: Allen Institute for AI (AI2)
+  modality: clinical-language
+  region: USA
+  url: https://allenai.org/
+  topics:
+  - clinical
+  - org
+  why: Developed SciBERT.
+- id: stanford-crfm
+  kind: org
+  label: Stanford CRFM
+  modality: clinical-language
+  region: USA
+  url: https://crfm.stanford.edu/
+  topics:
+  - clinical
+  - org
+  why: Center for Research on Foundation Models; co-developed BioMedLM with MosaicML.
+- id: university-of-florida
+  kind: org
+  label: University of Florida
+  modality: clinical-language
+  region: USA
+  url: https://www.ufl.edu/
+  topics:
+  - clinical
+  - org
+  why: Developed the GatorTron family including GatorTronGPT.
+- id: chemberta
+  kind: model
+  label: ChemBERTa
+  modality: chemistry
+  architecture: transformer (RoBERTa on SMILES)
+  objective: masked-language (SMILES)
+  pretrain_data: up to 77M SMILES (PubChem)
+  context: SMILES string
+  year: 2020
+  released: 2020-10
+  access: open-weights
+  org_type: nonprofit
+  region: US
+  url: https://arxiv.org/abs/2010.09885
+  weights: https://github.com/seyonechithrananda/bert-loves-chemistry
+  topics:
+  - chemistry
+  - foundation-model
+  why: One of the first SMILES transformer LMs; demonstrated MLM pretraining scales for molecular property prediction.
+  benchmarks:
+  - name: MoleculeNet
+    score: competitive on BBBP/Tox21/ClinTox
+- id: chemberta-2
+  kind: model
+  label: ChemBERTa-2
+  modality: chemistry
+  architecture: transformer (RoBERTa on SMILES)
+  objective: masked-language (MLM) or multi-task regression (MTR)
+  pretrain_data: up to 77M SMILES (PubChem)
+  context: SMILES string
+  year: 2022
+  released: 2022-09
+  access: open-weights
+  org_type: industry
+  region: US
+  url: https://arxiv.org/abs/2209.01712
+  weights: https://github.com/seyonechithrananda/bert-loves-chemistry
+  topics:
+  - chemistry
+  - foundation-model
+  why: Scaled ChemBERTa toward a chemical foundation model; showed multi-task-regression pretraining beats MLM downstream.
+  benchmarks:
+  - name: MoleculeNet
+    score: MTR > MLM across tasks
+- id: uni-mol
+  kind: model
+  label: Uni-Mol
+  modality: chemistry
+  architecture: SE(3)-equivariant transformer (3D)
+  objective: 3D position recovery + masked-atom prediction
+  pretrain_data: 209M molecular conformations + 3M protein pockets
+  context: 3D conformer
+  year: 2023
+  released: 2023-03
+  license: MIT
+  access: open-weights
+  org_type: industry
+  region: China
+  url: https://openreview.net/forum?id=6K2RM6wVqKu
+  weights: https://github.com/deepmodeling/Uni-Mol
+  topics:
+  - chemistry
+  - foundation-model
+  why: Universal 3D molecular representation framework; learns directly from conformers and pockets, strong on geometry-aware tasks.
+  benchmarks:
+  - name: MoleculeNet
+    score: SOTA on multiple tasks
+- id: uni-mol2
+  kind: model
+  label: Uni-Mol2
+  modality: chemistry
+  params: 1.1B (84M–1.1B family)
+  architecture: two-track transformer (atom + graph + geometry)
+  objective: masked-atom + coordinate denoising
+  pretrain_data: ~884M 3D conformations
+  context: 3D conformer
+  year: 2024
+  released: 2024-06
+  license: MIT
+  access: open-weights
+  org_type: industry
+  region: China
+  url: https://arxiv.org/abs/2406.14969
+  weights: https://github.com/deepmodeling/Uni-Mol
+  topics:
+  - chemistry
+  - foundation-model
+  why: Scaled molecular pretraining to 1.1B params and characterized chemistry scaling laws; largest 3D molecular FM to date.
+  benchmarks:
+  - name: QM9
+    score: SOTA
+- id: molgpt
+  kind: model
+  label: MolGPT
+  modality: chemistry
+  architecture: transformer-decoder (GPT, SMILES)
+  objective: autoregressive (next-token SMILES)
+  pretrain_data: MOSES + GuacaMol
+  context: SMILES string
+  year: 2021
+  released: 2021-05
+  license: MIT
+  access: open-weights
+  org_type: academic
+  region: India
+  url: https://chemrxiv.org/engage/chemrxiv/article-details/60c7588e469df48597f456ae
+  weights: https://github.com/devalab/molgpt
+  topics:
+  - chemistry
+  - foundation-model
+  - generative
+  why: Early GPT-style decoder for de novo molecule generation with conditional/scaffold control over SMILES.
+  benchmarks:
+  - name: MOSES
+    score: high validity/novelty
+  - name: GuacaMol
+    score: distribution-learning metrics
+- id: smiles-bert
+  kind: model
+  label: SMILES-BERT
+  modality: chemistry
+  architecture: transformer (BERT encoder on SMILES)
+  objective: masked SMILES recovery
+  pretrain_data: large-scale unlabeled SMILES
+  context: SMILES string
+  year: 2019
+  released: 2019-09
+  access: open-weights
+  org_type: academic
+  region: US
+  url: https://dl.acm.org/doi/10.1145/3307339.3342186
+  weights: https://github.com/uta-smile/SMILES-BERT
+  topics:
+  - chemistry
+  - foundation-model
+  why: Early BERT-style masked-recovery pretraining on SMILES; precursor to the SMILES language-model line.
+- id: molclr
+  kind: model
+  label: MolCLR
+  modality: chemistry
+  architecture: GNN (GIN/GCN) with contrastive head
+  objective: contrastive (graph augmentations)
+  pretrain_data: ~10M molecules (PubChem)
+  context: molecular graph
+  year: 2022
+  released: 2022-03
+  license: MIT
+  access: open-weights
+  org_type: academic
+  region: US
+  url: https://www.nature.com/articles/s42256-022-00447-x
+  weights: https://github.com/yuyangw/MolCLR
+  topics:
+  - chemistry
+  - foundation-model
+  why: Self-supervised contrastive GNN with atom-mask / bond-delete / subgraph augmentations; a graph-based molecular FM baseline.
+  benchmarks:
+  - name: MoleculeNet
+    score: SOTA on several tasks
+- id: chemgpt
+  kind: model
+  label: ChemGPT
+  modality: chemistry
+  params: 1.2B (4.7M–1.2B family)
+  architecture: transformer-decoder (GPT-Neo, SELFIES)
+  objective: autoregressive (next-token SELFIES)
+  pretrain_data: ~10M molecules (PubChem10M)
+  context: SELFIES string
+  year: 2023
+  released: 2023-08
+  access: open-weights
+  org_type: industry
+  region: US
+  url: https://www.nature.com/articles/s42256-023-00740-3
+  weights: https://huggingface.co/ncfrey/ChemGPT-1.2B
+  topics:
+  - chemistry
+  - foundation-model
+  - generative
+  why: Generative SELFIES model used to show neural scaling laws transfer from NLP to chemistry, up to 1B+ params.
+- id: molt5
+  kind: model
+  label: MolT5
+  modality: chemistry
+  architecture: transformer (T5 encoder-decoder)
+  objective: span-corruption on SMILES + natural-language text
+  pretrain_data: SMILES strings + natural-language corpus
+  context: SMILES / text
+  year: 2022
+  released: 2022-12
+  license: BSD-3-Clause
+  access: open-weights
+  org_type: academic
+  region: US
+  url: https://aclanthology.org/2022.emnlp-main.26/
+  weights: https://github.com/blender-nlp/MolT5
+  topics:
+  - chemistry
+  - foundation-model
+  - generative
+  why: 'Bridges molecules and language: T5 trained for molecule captioning and text-to-molecule generation.'
+- id: selformer
+  kind: model
+  label: SELFormer
+  modality: chemistry
+  architecture: transformer (RoBERTa on SELFIES)
+  objective: masked-language (SELFIES)
+  pretrain_data: ~2M drug-like compounds (ChEMBL)
+  context: SELFIES string
+  year: 2023
+  released: 2023-06
+  access: open-weights
+  org_type: academic
+  region: Turkey
+  url: https://iopscience.iop.org/article/10.1088/2632-2153/acdb30
+  weights: https://github.com/HUBioDataLab/SELFormer
+  topics:
+  - chemistry
+  - foundation-model
+  why: SELFIES-based chemical LM guaranteeing valid molecules; strong on solubility and adverse-drug-reaction prediction.
+  benchmarks:
+  - name: MoleculeNet
+    score: outperforms SMILES LMs on several tasks
+- id: chemformer
+  kind: model
+  label: Chemformer (MolBART)
+  modality: chemistry
+  architecture: transformer (BART encoder-decoder on SMILES)
+  objective: denoising (masked/augmented SMILES)
+  pretrain_data: ~100M SMILES (ZINC-15)
+  context: SMILES string
+  year: 2022
+  released: 2022-01
+  license: Apache-2.0
+  access: open-weights
+  org_type: industry
+  region: Sweden
+  url: https://iopscience.iop.org/article/10.1088/2632-2153/ac3ffb
+  weights: https://github.com/MolecularAI/Chemformer
+  topics:
+  - chemistry
+  - foundation-model
+  - generative
+  why: BART pretrained on SMILES for both generative (synthesis/retrosynthesis) and property-prediction tasks; SOTA on reaction prediction.
+- id: x-mol
+  kind: model
+  label: X-MOL
+  modality: chemistry
+  architecture: transformer (shared encoder-decoder on SMILES)
+  objective: generative SMILES pretraining (random-SMILES reconstruction)
+  pretrain_data: ~1.1B molecules (ZINC-15)
+  context: SMILES string
+  year: 2022
+  license: Apache-2.0
+  access: open-weights
+  org_type: academic
+  region: China
+  url: https://www.biorxiv.org/content/10.1101/2020.12.23.424259v2.full
+  weights: https://github.com/bm2-lab/X-MOL
+  topics:
+  - chemistry
+  - foundation-model
+  - generative
+  why: Billion-molecule pretrained encoder-decoder spanning property prediction, DDI, reaction productivity, generation, and optimization.
+- id: smiles-transformer
+  kind: model
+  label: SMILES Transformer
+  modality: chemistry
+  architecture: transformer encoder-decoder (autoencoder)
+  objective: SMILES reconstruction (seq2seq)
+  pretrain_data: ~861k SMILES (ChEMBL-24)
+  context: SMILES string
+  year: 2019
+  released: 2019-11
+  license: BSD-3-Clause
+  access: open-weights
+  org_type: academic
+  region: Japan
+  url: https://arxiv.org/abs/1911.04738
+  weights: https://github.com/DSPsleeporg/smiles-transformer
+  topics:
+  - chemistry
+  - foundation-model
+  why: Early pretrained SMILES autoencoder producing data-driven fingerprints that generalize in low-data drug-discovery settings.
+- id: mol-bert
+  kind: model
+  label: Mol-BERT
+  modality: chemistry
+  architecture: transformer (BERT on SMILES substructure tokens)
+  objective: masked-language (substructure / Morgan tokens)
+  pretrain_data: large-scale unlabeled SMILES
+  context: SMILES string
+  year: 2021
+  released: 2021-09
+  access: closed
+  org_type: academic
+  region: China
+  url: https://onlinelibrary.wiley.com/doi/10.1155/2021/7181815
+  topics:
+  - chemistry
+  - foundation-model
+  why: BERT pretrained on SMILES substructure tokens for property prediction; improves ROC-AUC on Tox21/SIDER/ClinTox.
+- id: graphormer-molecular
+  kind: model
+  label: Graphormer
+  modality: chemistry
+  architecture: graph transformer (centrality/spatial/edge encodings)
+  objective: supervised graph regression (quantum property)
+  pretrain_data: PCQM4M / PCQM4Mv2 (~3.8M molecular graphs)
+  context: molecular graph
+  year: 2021
+  released: 2021-06
+  license: MIT
+  access: open-weights
+  org_type: industry
+  region: China
+  url: https://proceedings.neurips.cc/paper/2021/file/f1c1592588411002af340cbaedd6fc33-Paper.pdf
+  weights: https://github.com/microsoft/Graphormer
+  topics:
+  - chemistry
+  - foundation-model
+  why: Transformer-on-graphs backbone (Microsoft) that won OGB-LSC quantum-chemistry track; a default molecular graph-transformer.
+  benchmarks:
+  - name: OGB-LSC PCQM4M
+    score: 1st place (KDD Cup 2021)
+- id: zinc
+  kind: dataset
+  label: ZINC
+  modality: chemistry
+  org_type: academic
+  region: US
+  year: 2005
+  url: https://zinc.docking.org/
+  topics:
+  - chemistry
+  why: Free database of commercially available compounds; billion-scale SMILES corpora for X-MOL and Chemformer.
+- id: chembl
+  kind: dataset
+  label: ChEMBL
+  modality: chemistry
+  org_type: nonprofit
+  region: UK
+  year: 2009
+  url: https://www.ebi.ac.uk/chembl/
+  topics:
+  - chemistry
+  why: EBI bioactivity database of drug-like molecules; pretraining source for SELFormer and SMILES Transformer.
+- id: moleculenet
+  kind: benchmark
+  label: MoleculeNet
+  modality: chemistry
+  org_type: academic
+  region: US
+  year: 2018
+  url: https://moleculenet.org/
+  topics:
+  - chemistry
+  why: Standard molecular property-prediction benchmark suite (BBBP, Tox21, ClinTox, ...) for chemistry FMs.
+- id: tdc
+  kind: benchmark
+  label: Therapeutics Data Commons
+  modality: chemistry
+  org_type: academic
+  region: US
+  year: 2021
+  url: https://tdcommons.ai/
+  topics:
+  - chemistry
+  why: ML-for-therapeutics datasets and leaderboards across ADMET, drug-target, and generation tasks.
+- id: moses
+  kind: benchmark
+  label: MOSES
+  modality: chemistry
+  org_type: industry
+  region: US
+  year: 2020
+  url: https://github.com/molecularsets/moses
+  topics:
+  - chemistry
+  - generative
+  why: Molecular-set benchmark for de novo generation (validity/novelty/diversity); used by MolGPT.
+- id: guacamol
+  kind: benchmark
+  label: GuacaMol
+  modality: chemistry
+  org_type: industry
+  region: UK
+  year: 2019
+  url: https://github.com/BenevolentAI/guacamol
+  topics:
+  - chemistry
+  - generative
+  why: Benchmark for de novo molecular design (distribution-learning + goal-directed); used by MolGPT.
+- id: ogb-lsc
+  kind: benchmark
+  label: OGB-LSC (PCQM4M)
+  modality: chemistry
+  org_type: academic
+  region: US
+  year: 2021
+  url: https://ogb.stanford.edu/docs/lsc/
+  topics:
+  - chemistry
+  why: Large-scale graph ML challenge; PCQM4M quantum-property track won by Graphormer.
+- id: deepmodeling
+  kind: org
+  label: DeepModeling / DP Technology
+  modality: chemistry
+  org_type: industry
+  region: China
+  year: 2021
+  url: https://github.com/deepmodeling
+  topics:
+  - chemistry
+  why: Open-source scientific-computing community behind the Uni-Mol series.
+- id: molecularai
+  kind: org
+  label: MolecularAI (AstraZeneca)
+  modality: chemistry
+  org_type: industry
+  region: Sweden
+  year: 2020
+  url: https://github.com/MolecularAI
+  topics:
+  - chemistry
+  why: AstraZeneca's open cheminformatics group; develops Chemformer / MolBART.
+- id: ecg-fm
+  kind: model
+  label: ECG-FM
+  modality: physiological-signal
+  params: ~90M
+  architecture: wav2vec 2.0 (CNN feature encoder + transformer)
+  objective: 'hybrid self-supervised: masked reconstruction (W2V) + contrastive (CMSC) + random-lead masking (WCR)'
+  pretrain_data: 1.5M 12-lead ECGs (MIMIC-IV-ECG, PhysioNet 2021, UHN-ECG)
+  context: 12-lead 10s
+  year: 2025
+  released: 2024-08
+  license: MIT
+  access: open-weights
+  org_type: academic
+  region: Canada
+  url: https://doi.org/10.1093/jamiaopen/ooaf122
+  weights: https://github.com/bowang-lab/ECG-FM
+  topics:
+  - signals
+  - foundation-model
+  why: Open, reproducible 12-lead ECG FM combining masked reconstruction and contrastive learning; openly released MIMIC-IV-ECG benchmark.
+  benchmarks:
+  - name: MIMIC-IV-ECG (multi-label)
+    score: reported in paper
+  - name: PhysioNet 2021
+    score: reported in paper
+- id: ecgfounder
+  kind: model
+  label: ECGFounder
+  modality: physiological-signal
+  architecture: 1D CNN (net1d)
+  objective: supervised pretraining on 150 diagnostic labels
+  pretrain_data: 10.7M 12-lead ECGs / 1.8M subjects (Harvard-Emory ECG DB)
+  context: 12-lead and reduced/single-lead
+  year: 2025
+  released: 2024-10
+  license: MIT
+  access: open-weights
+  org_type: academic
+  region: US
+  url: https://doi.org/10.1056/AIoa2401033
+  weights: https://huggingface.co/PKUDigitalHealth/ECGFounder
+  topics:
+  - signals
+  - foundation-model
+  why: Large-scale supervised ECG FM on 10M+ recordings; out-of-the-box diagnosis plus single-lead support for wearables.
+  benchmarks:
+  - name: Internal validation (80 diagnoses)
+    score: AUROC >0.95
+- id: st-mem
+  kind: model
+  label: ST-MEM
+  modality: physiological-signal
+  architecture: ViT encoder + transformer decoder (MAE-style)
+  objective: masked reconstruction of 12-lead ECG (spatio-temporal masking)
+  pretrain_data: 12-lead ECGs (multi-source)
+  context: 12-lead; adaptable to arbitrary lead subsets
+  year: 2024
+  released: 2024-02
+  access: open-weights
+  org_type: industry
+  region: South Korea
+  url: https://arxiv.org/abs/2402.09450
+  weights: https://github.com/bakqui/ST-MEM
+  topics:
+  - signals
+  - foundation-model
+  why: Generative MAE for ECG that guides masking to capture spatio-temporal lead relationships; robust to varying lead combinations.
+- id: hubert-ecg
+  kind: model
+  label: HuBERT-ECG
+  modality: physiological-signal
+  architecture: HuBERT (CNN encoder + transformer) with offline-clustered targets
+  objective: self-supervised masked prediction of clustered acoustic-style units
+  pretrain_data: 9.1M 12-lead ECGs (164 cardiovascular conditions)
+  context: 12-lead
+  year: 2024
+  released: 2024-11
+  access: open-weights
+  org_type: academic
+  region: Italy
+  url: https://doi.org/10.1101/2024.11.14.24317328
+  weights: https://github.com/Edoar-do/HuBERT-ECG
+  topics:
+  - signals
+  - foundation-model
+  why: Adapts speech HuBERT to ECG at scale (9.1M records); fine-tunes to 164 conditions and 2-year mortality prediction.
+  benchmarks:
+  - name: 17 downstream scenarios
+    score: AUROC 0.843-0.99
+- id: merl
+  kind: model
+  label: MERL
+  modality: physiological-signal
+  architecture: CLIP-style dual encoder (ECG signal encoder + text encoder)
+  objective: multimodal contrastive (cross-modal + uni-modal alignment) on ECG-report pairs
+  pretrain_data: ECG waveforms + paired clinical reports (MIMIC-IV-ECG)
+  context: 12-lead + free-text report
+  year: 2024
+  released: 2024-03
+  access: open-weights
+  org_type: academic
+  region: US
+  url: https://arxiv.org/abs/2403.06659
+  weights: https://github.com/cheliu-computation/MERL-ICML2024
+  topics:
+  - signals
+  - foundation-model
+  - multimodal
+  why: Multimodal ECG-text contrastive FM enabling zero-shot ECG classification from text prompts without downstream training data.
+- id: labram
+  kind: model
+  label: LaBraM
+  modality: physiological-signal
+  params: 5.8M-369M (Base/Large/Huge)
+  architecture: neural transformer + vector-quantized neural spectrum tokenizer
+  objective: masked prediction of neural codes over EEG channel patches
+  pretrain_data: ~2500h EEG / ~20 datasets
+  context: EEG channel patches; cross-montage
+  year: 2024
+  released: 2024-01
+  license: Apache-2.0
+  access: open-weights
+  org_type: academic
+  region: China
+  url: https://openreview.net/forum?id=QzTpTRVtrP
+  weights: https://github.com/935963004/LaBraM
+  topics:
+  - signals
+  - foundation-model
+  why: ICLR 2024 spotlight; unified cross-dataset EEG FM via VQ neural tokenizer and channel-patch masking across ~2500h of EEG.
+  benchmarks:
+  - name: TUAB (abnormal)
+    score: reported in paper
+  - name: TUEV (events)
+    score: reported in paper
+- id: eegpt
+  kind: model
+  label: EEGPT
+  modality: physiological-signal
+  params: ~10M
+  architecture: hierarchical transformer (separate spatial + temporal processing)
+  objective: mask-based dual self-supervision with spatio-temporal representation alignment
+  pretrain_data: mixed multi-task EEG datasets
+  context: EEG patches; multi-channel
+  year: 2024
+  released: 2024-12
+  access: open-weights
+  org_type: academic
+  region: China
+  url: https://proceedings.neurips.cc/paper_files/paper/2024/hash/4540d267eeec4e5dbd9dae9448f0b739-Abstract-Conference.html
+  weights: https://github.com/BINE022/EEGPT
+  topics:
+  - signals
+  - foundation-model
+  why: NeurIPS 2024 EEG FM aligning representations (not raw signals) for higher SNR; strong linear-probe transfer across tasks.
+- id: biot
+  kind: model
+  label: BIOT
+  modality: physiological-signal
+  architecture: biosignal transformer with channel + relative-position tokenization
+  objective: self-supervised contrastive pretraining; cross-data biosignal learning
+  pretrain_data: EEG (TUH), ECG, and human-activity sensor signals
+  context: variable channels / lengths (tokenized 'biosignal sentences')
+  year: 2023
+  released: 2023-05
+  license: MIT
+  access: open-weights
+  org_type: academic
+  region: US
+  url: https://proceedings.neurips.cc/paper_files/paper/2023/hash/f6b30f3e2dd9cb53bbf2024402d02295-Abstract-Conference.html
+  weights: https://github.com/ycq091044/BIOT
+  topics:
+  - signals
+  - foundation-model
+  why: NeurIPS 2023; tokenizes mismatched-channel/variable-length biosignals into a unified format enabling cross-dataset transfer.
+  benchmarks:
+  - name: CHB-MIT seizure detection
+    score: +3-4% balanced acc vs baselines
+- id: bendr
+  kind: model
+  label: BENDR
+  modality: physiological-signal
+  architecture: wav2vec 2.0 (1D conv encoder + transformer)
+  objective: contrastive self-supervised (masked-segment prediction)
+  pretrain_data: TUH EEG Corpus (TUEG)
+  context: multi-channel EEG windows
+  year: 2021
+  released: 2021-06
+  access: open-weights
+  org_type: academic
+  region: Canada
+  url: https://doi.org/10.3389/fnhum.2021.653659
+  weights: https://github.com/SPOClab-ca/BENDR
+  topics:
+  - signals
+  - foundation-model
+  why: Early EEG FM adapting wav2vec 2.0 contrastive pretraining to massive unlabeled TUEG data; a standard EEG-SSL baseline.
+- id: brant
+  kind: model
+  label: Brant
+  modality: physiological-signal
+  params: ~500M
+  architecture: transformer (time + frequency domain, long-range)
+  objective: self-supervised masked modeling of intracranial signal patches
+  pretrain_data: ~2528h SEEG / 1.01 TB intracranial recordings
+  context: intracranial (SEEG) channels, 1000 Hz
+  year: 2023
+  released: 2023-11
+  access: open-weights
+  org_type: academic
+  region: China
+  url: https://proceedings.neurips.cc/paper_files/paper/2023/hash/535915d26859036410b0533804cee788-Abstract-Conference.html
+  weights: https://zju-brainnet.github.io/Brant.github.io/
+  topics:
+  - signals
+  - foundation-model
+  why: NeurIPS 2023; large FM for intracranial (SEEG) signals capturing long-range temporal and spatial structure for forecasting and seizure tasks.
+- id: eegformer
+  kind: model
+  label: EEGFormer
+  modality: physiological-signal
+  architecture: transformer encoder + vector-quantized codebook + shallow decoder
+  objective: vector-quantized reconstruction (discrete EEG codes) from frequency patches
+  pretrain_data: ~1.7 TB EEG (TUH EEG Corpus)
+  context: frequency patches, channel-independent encoding
+  year: 2024
+  released: 2024-01
+  access: closed
+  org_type: industry
+  region: US
+  url: https://arxiv.org/abs/2401.10278
+  topics:
+  - signals
+  - foundation-model
+  why: Large-scale (1.7TB) interpretable EEG FM using vector quantization for transferable discrete representations and seizure detection.
+  benchmarks:
+  - name: TUSZ seizure detection
+    score: +14.1% AUPRC vs baseline
+- id: neuro-gpt
+  kind: model
+  label: Neuro-GPT
+  modality: physiological-signal
+  architecture: EEG encoder + GPT (causal transformer)
+  objective: self-supervised reconstruction of masked EEG chunks
+  pretrain_data: TUH EEG Corpus (TUEG)
+  context: fixed-length EEG chunks as tokens
+  year: 2024
+  released: 2023-11
+  access: open-weights
+  org_type: academic
+  region: US
+  url: https://arxiv.org/abs/2311.03764
+  weights: https://github.com/wenhui0206/NeuroGPT
+  topics:
+  - signals
+  - foundation-model
+  why: GPT-style EEG FM treating EEG chunks as tokens; addresses EEG data scarcity/heterogeneity for downstream BCI tasks.
+- id: cerebro-eeg
+  kind: model
+  label: CEReBrO
+  modality: physiological-signal
+  params: 3.6M-85M
+  architecture: transformer with alternating (intra-channel temporal / inter-channel spatial) attention
+  objective: self-supervised pretraining on per-channel EEG patches
+  pretrain_data: '>20,000h public scalp EEG'
+  context: per-channel EEG patches, diverse montages
+  year: 2025
+  released: 2025-01
+  access: open-weights
+  org_type: academic
+  region: Switzerland
+  url: https://arxiv.org/abs/2501.10885
+  topics:
+  - signals
+  - foundation-model
+  why: Compact, efficient EEG FM whose alternating attention gives ~2x speed and ~6x less memory than full self-attention.
+- id: papagei
+  kind: model
+  label: PaPaGei
+  modality: physiological-signal
+  architecture: 1D-ResNet encoder (morphology-aware representation learning)
+  objective: self-supervised morphology-based representation learning on PPG
+  pretrain_data: ~20M PPG segments / ~57,000h (public datasets)
+  context: PPG segments
+  year: 2025
+  released: 2024-10
+  license: CC-BY-NC-4.0
+  access: open-weights
+  org_type: industry
+  region: UK
+  url: https://openreview.net/forum?id=kYwTmlq6Vn
+  weights: https://github.com/Nokia-Bell-Labs/papagei-foundation-model
+  topics:
+  - signals
+  - foundation-model
+  why: First open PPG FM (ICLR 2025); morphology-aware pretraining beats time-series FMs up to 70x larger and benchmarks skin-tone bias.
+  benchmarks:
+  - name: 20 tasks / 10 datasets
+    score: +6.3% class, +2.9% reg avg
+- id: ptb-xl
+  kind: dataset
+  label: PTB-XL
+  modality: physiological-signal
+  region: Germany
+  url: https://physionet.org/content/ptb-xl/
+  topics:
+  - signals
+  why: Large public 12-lead clinical ECG dataset (~21,800 records); a standard ECG-FM evaluation benchmark.
+- id: mimic-iv-ecg
+  kind: dataset
+  label: MIMIC-IV-ECG
+  modality: physiological-signal
+  region: US
+  url: https://physionet.org/content/mimic-iv-ecg/
+  topics:
+  - signals
+  why: ~800k 12-lead ECGs linked to MIMIC-IV records; major pretraining and evaluation source for ECG FMs.
+- id: tuh-eeg
+  kind: dataset
+  label: TUH EEG Corpus (TUEG)
+  modality: physiological-signal
+  region: US
+  url: https://isip.piconepress.com/projects/nedc/html/tuh_eeg/
+  topics:
+  - signals
+  why: Largest public clinical EEG archive (14,000+ subjects); the dominant pretraining corpus for EEG foundation models.
+- id: code-15
+  kind: dataset
+  label: CODE-15%
+  modality: physiological-signal
+  region: Brazil
+  url: https://zenodo.org/record/4916206
+  topics:
+  - signals
+  why: Large Brazilian 12-lead ECG cohort (~345k exams); widely used for ECG pretraining and external validation.
+- id: chapman-shaoxing
+  kind: dataset
+  label: Chapman-Shaoxing
+  modality: physiological-signal
+  region: China
+  url: https://physionet.org/content/ecg-arrhythmia/
+  topics:
+  - signals
+  why: Public 12-lead ECG arrhythmia dataset; common ECG-FM benchmark, included via PhysioNet 2021.
+- id: harvard-emory-ecg-db
+  kind: dataset
+  label: Harvard-Emory ECG Database
+  modality: physiological-signal
+  region: US
+  url: https://doi.org/10.1056/AIoa2401033
+  topics:
+  - signals
+  why: 10.7M expert-annotated ECGs from 1.8M subjects; pretraining corpus behind ECGFounder.
+- id: tuh-eeg-tuab-tuev
+  kind: benchmark
+  label: TUH EEG (TUAB / TUEV / TUSZ)
+  modality: physiological-signal
+  region: US
+  url: https://isip.piconepress.com/projects/nedc/html/tuh_eeg/
+  topics:
+  - signals
+  why: Standard EEG evaluation tasks (abnormal detection, event/seizure classification) used across EEG foundation models.
+- id: bowang-lab
+  kind: org
+  label: Bo Wang Lab (UHN / Vector Institute)
+  region: Canada
+  url: https://wanglab.ai/
+  topics:
+  - signals
+  - foundation-model
+  why: Developed ECG-FM; prolific biomedical-FM lab spanning ECG and single-cell modalities.
+- id: nokia-bell-labs
+  kind: org
+  label: Nokia Bell Labs
+  region: UK
+  url: https://www.bell-labs.com/
+  topics:
+  - signals
+  - foundation-model
+  why: Released PaPaGei, the first open PPG foundation model.
+- id: biomedgpt-pharmolix
+  kind: model
+  label: BioMedGPT (PharMolix)
+  modality: multimodal
+  params: 10B (BioMedGPT-10B); LM 7B
+  architecture: multi-modal LLM aligning molecule + protein encoders to a Llama2-based biomedical LM
+  objective: feature-space alignment of biological modalities to natural language
+  pretrain_data: molecules, proteins, and biomedical text (S2ORC / PubMed corpus)
+  context: molecule + protein + free text
+  year: 2023
+  released: 2023-08
+  license: Apache-2.0 (code); LM commercial-friendly
+  access: open-weights
+  org_type: industry
+  region: China
+  url: https://arxiv.org/abs/2308.09442
+  weights: https://github.com/PharMolix/OpenBioMed
+  topics:
+  - multimodal
+  - foundation-model
+  why: Aligns molecules, proteins, and text in one generative model; first to let users converse with diverse biological modalities.
+  benchmarks:
+  - name: USMLE / biomedical QA
+    score: on par with / exceeds humans (fine-tuned)
+- id: pmc-clip
+  kind: model
+  label: PMC-CLIP
+  modality: multimodal
+  architecture: CLIP (ResNet/ViT image encoder + text encoder)
+  objective: image-text contrastive + masked language modeling
+  pretrain_data: 'PMC-OA: 1.6M figure-caption pairs from PubMed Central Open Access'
+  context: biomedical figures + captions
+  year: 2023
+  released: 2023-03
+  access: open-weights
+  org_type: academic
+  region: China
+  url: https://arxiv.org/abs/2303.07240
+  weights: https://github.com/WeixiongLin/PMC-CLIP
+  topics:
+  - multimodal
+  - foundation-model
+  why: Biomedical CLIP trained on 1.6M PMC subfigure-subcaption pairs; SOTA on medical image-text retrieval and VQA when released.
+  benchmarks:
+  - name: image-text retrieval (ROCO) R@10
+    score: +8.1% over prior
+  - name: MedMNIST classification
+    score: +3.9% acc
+- id: biomedgpt-stanford
+  kind: model
+  label: BiomedGPT (generalist VLM)
+  modality: multimodal
+  params: ~182M (base); 33M–182M family
+  architecture: unified encoder-decoder vision-language transformer (OFA-style, seq2seq)
+  objective: multi-task sequence-to-sequence (masked + generative)
+  pretrain_data: 14 public biomedical image + text datasets across modalities
+  context: images + text, instruction-style tasks
+  year: 2024
+  released: 2024-08
+  license: Apache-2.0
+  access: open-weights
+  org_type: academic
+  region: US
+  url: https://www.nature.com/articles/s41591-024-03185-2
+  weights: https://github.com/taokz/BiomedGPT
+  topics:
+  - multimodal
+  - foundation-model
+  why: First open, lightweight generalist biomedical VLM; SOTA on 16/25 tasks at a fraction of Med-PaLM-M's size.
+  benchmarks:
+  - name: biomedical tasks SOTA
+    score: 16/25 experiments
+- id: med-flamingo
+  kind: model
+  label: Med-Flamingo
+  modality: multimodal
+  params: ~9B
+  architecture: Flamingo (frozen LLM + vision encoder, cross-attention); built on OpenFlamingo-9B
+  objective: continued pretraining on interleaved image-text (few-shot VQA)
+  pretrain_data: paired + interleaved medical image-text from publications and textbooks
+  context: interleaved multi-image few-shot prompts
+  year: 2023
+  released: 2023-07
+  access: open-weights
+  org_type: academic
+  region: US
+  url: https://arxiv.org/abs/2307.15189
+  weights: https://github.com/snap-stanford/med-flamingo
+  topics:
+  - multimodal
+  - foundation-model
+  why: First multimodal medical few-shot learner; improves generative medical VQA by up to 20% in clinician ratings.
+- id: medclip
+  kind: model
+  label: MedCLIP
+  modality: multimodal
+  architecture: CLIP-style dual encoder (Swin/ViT image + BioClinicalBERT text)
+  objective: decoupled contrastive with semantic-matching loss (knowledge-driven, reduces false negatives)
+  pretrain_data: unpaired chest X-rays + reports (CheXpert, MIMIC-CXR), ~20K pairs
+  context: chest radiographs + reports
+  year: 2022
+  released: 2022-10
+  access: open-weights
+  org_type: academic
+  region: US
+  url: https://aclanthology.org/2022.emnlp-main.256/
+  weights: https://github.com/RyanWangZf/MedCLIP
+  topics:
+  - multimodal
+  - foundation-model
+  why: Decouples images and text for contrastive learning, scaling usable pairs combinatorially; beats prior SOTA with 10x less data.
+- id: biobridge
+  kind: model
+  label: BioBridge
+  modality: multimodal
+  architecture: parameter-efficient bridge modules over frozen unimodal FMs, learned via knowledge graph
+  objective: KG-guided cross-modal transformation learning (bridges protein/molecule/text FMs)
+  pretrain_data: biomedical knowledge graph triples linking modalities
+  context: cross-modal retrieval across protein, molecule, text
+  year: 2024
+  released: 2024-05
+  license: MIT
+  access: open-weights
+  org_type: industry
+  region: US
+  url: https://arxiv.org/abs/2310.03320
+  weights: https://github.com/RyanWangZf/BioBridge
+  topics:
+  - multimodal
+  - foundation-model
+  why: Bridges independently trained unimodal biomedical FMs into multimodal behavior via knowledge graphs, no FM fine-tuning.
+  benchmarks:
+  - name: cross-modal retrieval vs KG baselines
+    score: ~+76.3% avg
+- id: merlin-ct
+  kind: model
+  label: Merlin
+  modality: multimodal
+  architecture: 3D vision-language model (3D CT image encoder + text), EHR- and report-supervised
+  objective: contrastive + supervised alignment to EHR diagnosis codes and radiology reports
+  pretrain_data: 15,331 CTs (6M+ slices), 1.8M+ EHR codes, 6M+ report tokens
+  context: 3D CT volumes + reports + EHR codes
+  year: 2024
+  released: 2024-06
+  access: open-weights
+  org_type: academic
+  region: US
+  url: https://www.nature.com/articles/s41586-026-10181-8
+  weights: https://huggingface.co/stanfordmimi/Merlin
+  topics:
+  - multimodal
+  - foundation-model
+  why: 3D CT-text FM supervised by both EHR diagnosis codes and reports; evaluated on 752 tasks across 6 task types.
+- id: prism-paige
+  kind: model
+  label: PRISM
+  modality: multimodal
+  params: 558M
+  architecture: Perceiver image aggregator + BioGPT decoder over Virchow tile embeddings (CoCa objective)
+  objective: contrastive + captioning (slide-level report generation)
+  pretrain_data: 587K whole-slide images + 195K clinical reports (MSKCC)
+  context: whole-slide histopathology + reports
+  year: 2024
+  released: 2024-05
+  license: CC-BY-NC-ND-4.0
+  access: gated-weights
+  org_type: industry
+  region: US
+  url: https://arxiv.org/abs/2405.10254
+  weights: https://huggingface.co/paige-ai/Prism
+  topics:
+  - multimodal
+  - foundation-model
+  why: Slide-level generative pathology VLM; aggregates Virchow tile embeddings into slide embeddings and generates clinical reports.
+- id: novae
+  kind: model
+  label: Novae
+  modality: spatial
+  architecture: graph attention network (self-supervised, optimal-transport)
+  objective: self-supervised spatial-domain representation (panel-agnostic)
+  pretrain_data: 78 slides, ~30M cells across 18 tissues (Xenium, MERSCOPE, CosMX)
+  context: spatial neighborhood graphs
+  year: 2025
+  released: 2024-09
+  license: BSD-3-Clause
+  access: open-weights
+  org_type: academic
+  region: France
+  url: https://www.nature.com/articles/s41592-025-02899-6
+  weights: https://github.com/MICS-Lab/novae
+  topics:
+  - spatial
+  - foundation-model
+  why: Graph FM for spatial transcriptomics; zero-shot spatial-domain inference and native batch-effect correction across technologies.
+- id: stformer
+  kind: model
+  label: stFormer
+  modality: spatial
+  architecture: transformer with biased cross-attention injecting spatial ligand genes
+  objective: masked gene representation with ligand-mediated cross-attention
+  pretrain_data: ~4.1M samples from public human Visium datasets
+  context: single-cell within spatial niche
+  year: 2024
+  released: 2024-09
+  access: open-weights
+  org_type: academic
+  region: China
+  url: https://www.biorxiv.org/content/10.1101/2024.09.27.615337v7
+  weights: https://github.com/csh3/stFormer
+  topics:
+  - spatial
+  - foundation-model
+  why: Spatial-transcriptomics FM adding cross-attention over ligand genes; reveals ligand-receptor signaling via in-silico perturbation.
+- id: cellcontrast
+  kind: model
+  label: CellContrast
+  modality: spatial
+  architecture: deep contrastive encoder over gene expression
+  objective: contrastive (proximate cells share similar embeddings)
+  pretrain_data: spatial transcriptomics references (SeqFISH, Stereo-seq, Visium, MERSCOPE)
+  context: single-cell expression → spatial reconstruction
+  year: 2024
+  released: 2024-08
+  access: open-weights
+  org_type: academic
+  region: Hong Kong
+  url: https://www.cell.com/patterns/fulltext/S2666-3899(24)00155-7
+  weights: https://github.com/HKU-BAL/CellContrast
+  topics:
+  - spatial
+  - foundation-model
+  why: Reconstructs spatial relationships from dissociated scRNA-seq via contrastive learning trained on spatial references.
+- id: spatialglue
+  kind: model
+  label: SpatialGlue
+  modality: spatial
+  architecture: graph neural network with dual-attention cross-omics aggregation
+  objective: intra- then cross-omics integration of spatial multi-omics
+  pretrain_data: spatial epigenome-transcriptome and transcriptome-proteome slices
+  context: co-profiled spatial multi-omics, single slice
+  year: 2024
+  released: 2024-06
+  access: open-weights
+  org_type: academic
+  region: Singapore
+  url: https://www.nature.com/articles/s41592-024-02316-4
+  weights: https://github.com/JinmiaoChenLab/SpatialGlue
+  topics:
+  - spatial
+  - foundation-model
+  why: GNN with dual-attention deciphering spatial domains by integrating co-profiled spatial multi-omics modalities.
+- id: nichecompass
+  kind: model
+  label: NicheCompass
+  modality: spatial
+  architecture: bio-inspired graph deep-learning (signaling-pathway-aware autoencoder)
+  objective: predict cell + neighbor molecular profiles via communication pathways
+  pretrain_data: spatial atlases up to ~8.4M cells (e.g., mouse brain atlas)
+  context: spatial neighborhood graphs with signaling priors
+  year: 2025
+  released: 2024-02
+  access: open-weights
+  org_type: academic
+  region: Germany
+  url: https://www.nature.com/articles/s41588-025-02120-6
+  weights: https://github.com/Lotfollahi-lab/nichecompass
+  topics:
+  - spatial
+  - foundation-model
+  why: Interpretable spatial embeddings encoding cell-cell communication; quantitatively characterizes niches by signaling pathways.
+- id: tarrow
+  kind: model
+  label: TARROW
+  modality: spatial
+  architecture: single-image feature extractor + time-arrow-prediction head
+  objective: self-supervised time-arrow prediction (order of time-flipped frames)
+  pretrain_data: unlabeled live-cell microscopy videos
+  context: live-cell microscopy time series
+  year: 2023
+  released: 2023-05
+  access: open-weights
+  org_type: academic
+  region: Switzerland
+  url: https://arxiv.org/abs/2305.05511
+  weights: https://github.com/weigertlab/tarrow
+  topics:
+  - spatial
+  - foundation-model
+  why: Self-supervised dense representations from raw live-cell microscopy via time-arrow prediction; captures divisions at pixel level.
+- id: pmc-oa
+  kind: dataset
+  label: PMC-OA
+  modality: multimodal
+  year: 2023
+  org_type: academic
+  region: China
+  url: https://arxiv.org/abs/2303.07240
+  topics:
+  - multimodal
+  why: 1.6M biomedical figure-caption pairs from PubMed Central Open Access, aligned at subfigure-subcaption level; PMC-CLIP's corpus.
+- id: spatialcorpus-110m
+  kind: dataset
+  label: SpatialCorpus-110M
+  modality: spatial
+  year: 2025
+  org_type: academic
+  region: Germany
+  url: https://www.nature.com/articles/s41592-025-02814-z
+  topics:
+  - spatial
+  why: ~110M dissociated + spatially-resolved human/mouse cells across 73 tissues; Nicheformer's pretraining corpus.
+- id: spatialhuman30m
+  kind: dataset
+  label: SpatialHuman30M
+  modality: spatial
+  year: 2025
+  org_type: academic
+  region: Canada
+  url: https://www.biorxiv.org/content/10.1101/2025.02.05.636714v1
+  topics:
+  - spatial
+  why: 30M human cells/spots across Visium, Visium HD, MERFISH, Xenium; scGPT-spatial's pretraining corpus.
+- id: pharmolix
+  kind: org
+  label: PharMolix
+  org_type: industry
+  region: China
+  url: https://github.com/PharMolix/OpenBioMed
+  topics:
+  - multimodal
+  why: Builds OpenBioMed / BioMedGPT multimodal biomedical foundation models.
+- id: paige
+  kind: org
+  label: Paige
+  org_type: industry
+  region: US
+  url: https://www.paige.ai/
+  topics:
+  - pathology
+  - multimodal
+  why: Computational-pathology company behind Virchow tile FMs and the PRISM slide-level vision-language model.
+- id: grover-molecular
+  kind: model
+  label: GROVER (molecular)
+  modality: chemistry
+  params: ~100M
+  architecture: graph transformer (message-passing + transformer)
+  objective: self-supervised node/edge/graph-level tasks
+  pretrain_data: ~10M unlabeled molecules
+  context: molecular graph
+  year: 2020
+  released: 2020-07
+  access: open-weights
+  org_type: industry
+  region: China
+  url: https://proceedings.neurips.cc/paper/2020/file/94aef38441efa3380a3bed3faf1f9d5d-Paper.pdf
+  weights: https://github.com/tencent-ailab/grover
+  topics:
+  - chemistry
+  - foundation-model
+  why: Large self-supervised graph transformer (Tencent) on 10M molecules; strong MoleculeNet results across 11 benchmarks.
+  benchmarks:
+  - name: MoleculeNet
+    score: '>6% avg over prior SOTA'
