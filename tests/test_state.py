@@ -47,3 +47,24 @@ items:
     state = build_state(corpus, name="no-map", format_label="resourcelib")
     assert state["map"]["traces"] == []
     assert state["map"]["layout"] == {}
+
+
+def test_benchmarks_serialize_as_list_of_dicts(tmp_path):
+    p = tmp_path / "b.yaml"
+    p.write_text(
+        """
+title: "bench"
+vocab: {kinds: [{id: model, label: Model}]}
+items:
+  - id: m1
+    kind: model
+    label: M1
+    benchmarks:
+      - {name: "A", score: "1"}
+"""
+    )
+    corpus = load_corpus(p)
+    state = build_state(corpus, name="b", format_label="resourcelib")
+    item = state["items"][0]
+    assert isinstance(item["benchmarks"], list)
+    assert item["benchmarks"] == [{"name": "A", "score": "1"}]

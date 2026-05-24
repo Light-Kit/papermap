@@ -60,6 +60,7 @@ def _item_to_dict(item: Item) -> dict[str, Any]:
     d = asdict(item)
     d["topics"] = list(d["topics"])
     d["people"] = list(d["people"])
+    d["benchmarks"] = [dict(b) for b in d["benchmarks"]]
     return d
 
 
