@@ -6168,3 +6168,21 @@ items:
   region: CN
   why: A cross-ecosystem MAG catalogue shipping 78 'AI-ready' enzyme/defense-system datasets.
   description: 'gcMeta is a large cross-ecosystem repository of metagenome-assembled genomes that also ships 78 curated ''AI-ready'' functional-gene datasets. Adjacent to the vault: microbiome/metagenomics, with a thin AI-ready-training-data bridge.'
+- id: esig-net
+  kind: tool
+  modality: proteomic
+  name: eSIG-Net — single-mutation protein-interaction perturbation language model
+  authors: Pan, Yi et al.
+  venue: Nature Methods
+  year: 2026
+  url: https://www.nature.com/articles/s41592-026-03086-x
+  topics:
+  - protein
+  - perturbation-prediction
+  - foundation-model
+  status: published
+  org_type: academic
+  region: US
+  why: 'Edgetic view of perturbation: predicts how single point mutations rewire protein–protein interactions from sequence alone. Adjacent to the vault — protein-interaction effects, not single-cell state.'
+  papermap_category: other_fm
+  description: 'eSIG-Net (Pan & Yi, UT Austin) is an interaction language model that predicts how single point mutations rewire protein–protein interactions — the ''edgetic'' effect — directly from protein sequence, using mutation-encoding plus contrastive learning. It sits adjacent to the virtual-cell thread rather than inside it: the perturbation here is a coding mutation acting on the interactome, not a genetic or chemical perturbation read out as a cell-state transition. It earns a place as a protein-layer perturbation reference — the molecular substrate beneath the network rewiring that downstream cell-state models inherit — but it is a protein-interaction method first, and would sit more naturally in a protein-FM vault.'
