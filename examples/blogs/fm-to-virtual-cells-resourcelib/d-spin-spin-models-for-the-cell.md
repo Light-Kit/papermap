@@ -44,6 +44,14 @@ Two headline results, both about *organizing principles of perturbation response
 
 The paper's explicit pitch against deep learning: black-box models "lack interpretability due to the large number of parameters and feedforward architectures that do not naturally map onto biochemical pathways." (It argues the point against black-box DL in general; it doesn't single out scGPT or Geneformer by name.)
 
+## The resource footprint
+
+This is where the FM contrast gets concrete — D-SPIN is almost free to fit.
+
+- **Model size.** Genes are compressed to **30 programs**, so the entire model is **465 shared coupling parameters** (the `J` network, 30×31/2) plus **30 field parameters per condition** (`h`). For the ~1,200-condition immune dataset that's roughly **37k parameters total** — three to four orders of magnitude smaller than scGPT/Geneformer's tens-to-hundreds of millions.
+- **Compute.** **2 CPU cores, ~6 hours for 256,000 cells** — no GPU. The paper notes competing GRN methods "could not finish within a week" on the same data; inference is parallelized pseudo-likelihood / gradient-based maximum-likelihood.
+- **Data — the one real cost.** D-SPIN is multiplexed by construction, so it needs many pooled conditions: **9,867 knockdowns / ~2M cells** for genome-wide K562, **1.5M cells / >1,200 conditions** for the immune-drug panel. But that's the *labeled output of a screen you already ran*, not a vast unlabeled pretraining corpus. The resource the FMs spend — GPU-weeks plus a scraped corpus — D-SPIN skips; the resource it spends is a well-designed Perturb-seq screen.
+
 ## Where it sits in this vault — the connections
 
 This is the part worth lingering on.
@@ -55,6 +63,16 @@ This is the part worth lingering on.
 - **Versus the perturbation-response cousins.** CPA, chemCPA, GEARS predict perturbation responses too, but as supervised regressors with various structural tricks. D-SPIN reframes the same task as **inferring a network + applying fields**, which is why it can *explain* a combination (additive recruitment) rather than only predict it.
 - **The interpretability bridge.** D-SPIN's gene programs play the role that monosemantic features play in mechanistic-interpretability work on sc-FMs (SAEs, probing): a small, named basis you can reason about. The difference is D-SPIN *builds* in that basis rather than *recovering* it post-hoc from a trained black box. That contrast is the heart of the [interpretability of cell FMs](interpretability-state-of-cell-fms.md) discussion.
 - **The lineage upstream.** Maximum-entropy models of neural population activity (Schneidman/Bialek), Ising/spin-glass models, Hopfield networks, and NMF gene-program decomposition. D-SPIN is a synthesis of all four, pointed at single-cell biology.
+
+## Similar and sibling work
+
+If you want to read D-SPIN against its closest relatives, three are worth pulling up directly:
+
+- **CellBox** (Yuan et al., Sander lab, *Cell Systems* 2021) is the nearest sibling: it also learns a small, interpretable **interaction matrix** from perturbation data, takes perturbations as inputs, and predicts unseen drug *combinations* — D-SPIN's "few named parameters + perturbation-as-input + compositional prediction" pitch, arrived at independently. The difference is dynamics: CellBox is a deterministic ODE system, where D-SPIN is a stochastic energy model that returns a *distribution* of states. A 2024 paper recasting CellBox as a causal structural-equation model makes the comparison even sharper against this vault's causal framing.
+- **Lezon et al.** (*PNAS* 2006), "entropy maximization to infer genetic interaction networks from expression," is the literal method precursor — the same maximum-entropy pairwise idea, before single-cell, perturbations, or gene programs. D-SPIN is that idea scaled up (the Schneidman/Bialek neural max-ent models are its cousins one field over).
+- **CellOracle** (Morris lab, *Nature* 2023) is the closest neighbour *already in this vault*: infer a regulatory network (from ATAC), then simulate an in-silico knockout. It shares D-SPIN's mechanism-grounded, not-a-learned-embedding stance, but predicts via GRN propagation rather than an energy landscape.
+
+The honest summary: D-SPIN is the only one of these that is *both* an interpretable network *and* a generative energy model. CellBox shares the interpretable-network half, CellOracle the mechanism half, and the diffusion/flow crowd ([CFGen, scDiffusion, CellFlow](diffusion-and-flow-matching-for-virtual-cells.md)) the generative half — none of them combine all three.
 
 ## On the causal ladder
 
