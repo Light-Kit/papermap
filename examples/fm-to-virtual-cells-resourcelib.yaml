@@ -5319,3 +5319,852 @@ items:
   - single-cell
   why: Free hosted environment with Colab tutorials for scGPT, rBio, TranscriptFormer, and scGenePT.
   description: 'The CZI Virtual Cells Platform is a free hosted Colab environment with tutorials for scGPT, rBio, TranscriptFormer, and scGenePT, designed to lower the entry cost for researchers who want to try recent single-cell foundation models without setting up GPU infrastructure. As infrastructure rather than a model, its significance is community-building: CZI is using the platform to make a specific set of models the practical default by being the easiest to get running, which shapes which methods get cited and extended. That role is interesting in light of the 2025 reckoning, because the platform''s curated model list is a soft endorsement of which scLLMs CZI thinks are worth surfacing, and the choices skew toward the foundation-model side of the debate. For a researcher new to the area it is the right starting point. The open question is which models the platform highlights once post-reckoning benchmarks settle.'
+- id: perturbdiff
+  kind: tool
+  modality: single-cell-rna
+  name: PerturbDiff — functional diffusion for single-cell perturbation modeling
+  authors: Xinyu Yuan, Jian Tang
+  venue: arXiv
+  year: 2026
+  url: https://arxiv.org/abs/2602.19685
+  topics:
+  - perturbation-prediction
+  - generative
+  - diffusion
+  status: preprint
+  org_type: academic
+  region: global
+  why: Functional diffusion over whole cell distributions; SOTA on signaling/drug/genetic perturbation benchmarks.
+  description: A diffusion model that operates over whole-cell expression distributions (in an RKHS/MMD sense) rather than individual cells, framing perturbation as a distribution-to-distribution map. It reports state-of-the-art results across signaling, drug, and genetic perturbation benchmarks and is strong in the low-data regime.
+- id: statexdiff
+  kind: tool
+  modality: single-cell-rna
+  name: StateXDiff — state-contextualized multimodal diffusion for perturbation
+  venue: arXiv
+  year: 2026
+  url: https://arxiv.org/abs/2605.16104
+  topics:
+  - perturbation-prediction
+  - generative
+  - diffusion
+  - multimodal
+  status: preprint
+  why: Adds protein-level context and drug–gene templates; generalizes to unseen cell lines, drugs, and combinations.
+  description: A conditional diffusion model that contextualizes generation on cell state plus inferred protein-level signals and drug–gene templates, targeting out-of-distribution single-cell drug-perturbation prediction across unseen cell lines, drugs, and combinations.
+- id: perturbgraph
+  kind: tool
+  modality: single-cell-rna
+  name: PerturbGraph — GNN with biological priors for unseen gene perturbations
+  venue: bioRxiv
+  year: 2026
+  url: https://www.biorxiv.org/content/10.64898/2026.03.23.713780v1
+  topics:
+  - perturbation-prediction
+  status: preprint
+  org_type: academic
+  why: Graph neural network with biological priors beating scGen/CPA and tree baselines on unseen-gene response.
+  description: Predicts unseen gene-perturbation responses using a graph neural network that injects biological priors over genes, reporting gains over scGen, CPA, and tree-based baselines.
+- id: perttf
+  kind: tool
+  modality: single-cell-rna
+  name: pertTF — perturbation-aware transformer
+  venue: bioRxiv
+  year: 2026
+  url: https://www.biorxiv.org/content/10.64898/2026.03.12.711379v1
+  topics:
+  - perturbation-prediction
+  - foundation-model
+  status: preprint
+  why: Predicts cross-context unseen-gene responses and the cell-identity shifts perturbations induce.
+  description: A perturbation-aware transformer that predicts responses to unseen genetic perturbations across contexts and models the cell-identity shifts those perturbations cause.
+- id: latent-causal-diffusions
+  kind: paper
+  modality: single-cell-rna
+  name: Latent Causal Diffusions for Single-Cell Perturbation Modeling
+  authors: Lorch et al. (Uhler & Scholkopf)
+  venue: arXiv
+  year: 2026
+  url: https://arxiv.org/abs/2601.15341
+  topics:
+  - perturbation-prediction
+  - generative
+  - diffusion
+  - causal
+  status: preprint
+  org_type: academic
+  region: EU
+  why: Learns a mechanistic GRN dynamical system in latent space; predicts unseen perturbation-combination shifts.
+  description: A generative model that learns a latent mechanistic gene-regulatory dynamical system and uses it to predict shifts under unseen perturbation combinations, with causal-recovery evaluation.
+- id: ot-novel-genetic-perturbations
+  kind: paper
+  modality: single-cell-rna
+  name: Predicting single-cell responses to novel genetic perturbations with optimal transport
+  venue: bioRxiv
+  year: 2026
+  url: https://www.biorxiv.org/content/10.64898/2026.01.08.698172v1
+  topics:
+  - perturbation-prediction
+  - generative
+  status: preprint
+  why: Optimal transport plus attention over multi-source gene priors for unseen genetic perturbations.
+  description: Combines optimal transport with attention-based aggregation over multiple sources of gene prior knowledge to predict single-cell responses to genetic perturbations not seen in training.
+- id: perturbgen
+  kind: tool
+  modality: single-cell-rna
+  name: PerturbGen — generative FM for perturbation trajectories
+  authors: Lotfollahi et al.
+  venue: bioRxiv
+  year: 2026
+  url: https://www.biorxiv.org/content/10.64898/2026.03.04.709254v1
+  topics:
+  - perturbation-prediction
+  - generative
+  - lineage
+  status: preprint
+  org_type: academic
+  region: UK
+  why: A >100M-cell generative FM predicting how perturbations reshape whole cellular trajectories over time, validated in vivo.
+  description: A generative foundation model pretrained on over 100M cells that predicts how perturbations reshape entire cellular trajectories rather than static endpoints, with validation in hematopoiesis, organoids, and in vivo.
+- id: scdiva
+  kind: tool
+  modality: single-cell-rna
+  name: ScDiVa — masked discrete-diffusion cell foundation model
+  venue: arXiv
+  year: 2026
+  url: https://arxiv.org/abs/2602.03477
+  topics:
+  - foundation-model
+  - generative
+  - diffusion
+  status: preprint
+  why: A 59M-cell discrete-diffusion FM modeling gene identity and value jointly, with strong perturbation transfer.
+  description: A cell foundation model using masked discrete diffusion to jointly model gene identity and expression value, aligning generation with dropout-style corruption and showing strong transfer to perturbation tasks.
+- id: dcm-discrete-cell-models
+  kind: paper
+  modality: single-cell-rna
+  name: DCM — Discrete Cell Models (discrete-domain diffusion for single-cell expression)
+  venue: bioRxiv
+  year: 2026
+  url: https://www.biorxiv.org/content/10.64898/2026.02.19.705033v1
+  topics:
+  - generative
+  - diffusion
+  status: preprint
+  why: Discrete-domain diffusion for single-cell expression; beats scLDM/scVI/STATE/scGPT on key benchmarks.
+  description: Applies discrete-domain diffusion to single-cell gene expression, reporting gains over scLDM, scVI, STATE, and scGPT on Dentate Gyrus generation and conditional Replogle perturbation.
+- id: scppdm
+  kind: tool
+  modality: single-cell-rna
+  name: scPPDM — diffusion for single-cell drug response
+  venue: arXiv
+  year: 2026
+  url: https://arxiv.org/abs/2510.11726
+  topics:
+  - perturbation-prediction
+  - generative
+  - diffusion
+  - drug-design
+  status: preprint
+  why: Diffusion for single-cell drug response with factorized classifier-free guidance (dose to guidance magnitude).
+  description: A diffusion framework for single-cell drug-response prediction that factorizes classifier-free guidance so dose maps to guidance magnitude, reporting SOTA on Tahoe-100M unseen-drug and unseen-covariate regimes.
+- id: cure-transcriptome-drug-design
+  kind: paper
+  modality: single-cell-rna
+  name: CURE — perturbation-conditioned molecular diffusion for transcriptome-based drug design
+  authors: Ziyu Xu, Shu Wu
+  venue: arXiv
+  year: 2026
+  url: https://arxiv.org/abs/2605.15243
+  topics:
+  - generative
+  - drug-design
+  - diffusion
+  status: preprint
+  org_type: academic
+  region: CN
+  why: 'Inverts the virtual cell: designs drugs from desired transcriptome state-transitions.'
+  description: Conditions a molecular diffusion generator on desired transcriptome state-transitions to design drugs that would produce them, inverting the usual perturbation-prediction direction.
+- id: flow-matching-gene-regulation
+  kind: paper
+  modality: single-cell-rna
+  name: Learning biophysical models of gene regulation with probability flow matching
+  authors: Suryanarayana Maddu, Victor Chardes, Michael J. Shelley
+  venue: arXiv
+  year: 2026
+  url: https://arxiv.org/abs/2604.25062
+  topics:
+  - generative
+  - flow-matching
+  - mech-modeling
+  status: preprint
+  org_type: academic
+  region: US
+  why: Probability flow matching learns biophysically-consistent stochastic GRN dynamics from time-resolved scRNA-seq.
+  description: Uses probability flow matching to learn biophysically-consistent stochastic gene-regulatory dynamics from time-resolved scRNA-seq, and shows that good interpolation accuracy does not imply the correct underlying mechanism.
+- id: d-spin
+  kind: tool
+  modality: single-cell-rna
+  name: D-SPIN — regulatory-network spin models from perturb-seq
+  authors: Jialong Jiang, Sisi Chen (Matt Thomson, Caltech)
+  venue: Cell
+  year: 2026
+  url: https://www.cell.com/cell/fulltext/S0092-8674(26)00463-0
+  topics:
+  - perturbation-prediction
+  - mech-modeling
+  - generative
+  - perturb-seq
+  status: published
+  org_type: academic
+  region: US
+  starred: true
+  why: Maximum-entropy spin-network model inferring gene-program regulatory interactions from multiplexed perturb-seq.
+  description: D-SPIN constructs maximum-entropy spin-network (Markov random field) regulatory models from multiplexed perturb-seq, inferring interactions between gene programs and revealing organizing principles of perturbation response. Generative and mechanistically interpretable; upgraded from a 2023 bioRxiv preprint to a 2026 Cell paper (Thomson lab, Caltech).
+- id: holotea
+  kind: paper
+  modality: spatial
+  name: HoloTea — 3D-aware flow matching for volumetric spatial transcriptomics
+  venue: arXiv
+  year: 2026
+  url: https://arxiv.org/abs/2511.14613
+  topics:
+  - spatial
+  - generative
+  - flow-matching
+  - 4d-modeling
+  status: preprint
+  why: Generates volumetric tissue spatial transcriptomics from serial histology — a 3D spatiotemporal cell generator.
+  description: A 3D-aware flow-matching model that generates volumetric tissue spatial transcriptomics from serial histology sections, extending virtual spatial transcriptomics into three dimensions.
+- id: representation-good-perturbation
+  kind: paper
+  modality: single-cell-rna
+  name: What Makes a Representation Good for Single-Cell Perturbation Prediction?
+  venue: arXiv
+  year: 2026
+  url: https://arxiv.org/abs/2605.19343
+  topics:
+  - eval
+  - perturbation-prediction
+  - causal
+  status: preprint
+  why: Contrasts causal versus foundation-model representations for perturbation prediction.
+  description: A conceptual study analyzing which properties of a learned representation actually help single-cell perturbation prediction, contrasting causal representations against foundation-model embeddings.
+- id: intermediate-layers-scfm
+  kind: paper
+  modality: single-cell-rna
+  name: Intermediate Layers Encode Optimal Biological Representations in Single-Cell FMs
+  venue: arXiv
+  year: 2026
+  url: https://arxiv.org/abs/2604.14838
+  topics:
+  - interpretability
+  - eval
+  - foundation-model
+  status: preprint
+  why: The optimal embedding layer is task-dependent in scFoundation and Tahoe-X1 — challenges the 'use the final layer' convention.
+  description: Shows that the most informative embedding layer in single-cell foundation models such as scFoundation and Tahoe-X1 is task-dependent and often intermediate, undercutting the default practice of reading off the final layer.
+- id: cell-jepa
+  kind: tool
+  modality: single-cell-rna
+  name: Cell-JEPA — joint-embedding predictive FM for scRNA-seq
+  venue: arXiv
+  year: 2026
+  url: https://arxiv.org/abs/2602.02093
+  topics:
+  - foundation-model
+  - single-cell
+  status: preprint
+  why: A JEPA-style latent-prediction foundation model for single-cell RNA-seq.
+  description: Applies the joint-embedding predictive architecture (JEPA) to single-cell RNA-seq, learning representations by predicting in latent space rather than reconstructing expression.
+- id: unified-scfm-benchmark
+  kind: benchmark
+  modality: single-cell-rna
+  name: A unified framework for accessible deployment and benchmarking of single-cell FMs
+  authors: Siyu Hou, Xiang Zhou
+  venue: bioRxiv
+  year: 2026
+  url: https://doi.org/10.64898/2026.01.06.698060
+  topics:
+  - eval
+  - benchmark
+  - foundation-model
+  status: preprint
+  org_type: academic
+  region: US
+  why: 13 scFMs vs classical baselines across 50+ datasets; no model beats additive baselines on perturbation error, PCA stays competitive.
+  description: A deployment-and-benchmarking framework comparing 13 single-cell foundation models against classical baselines across 50+ datasets, finding that no model beats additive baselines on perturbation error and that PCA remains competitive — squarely a reckoning result.
+- id: in-the-wild-vc-benchmark
+  kind: benchmark
+  modality: single-cell-rna
+  name: Benchmarking virtual cell models for in-the-wild perturbation response
+  venue: arXiv
+  year: 2026
+  url: https://arxiv.org/abs/2604.27646
+  topics:
+  - eval
+  - benchmark
+  - perturbation-prediction
+  - virtual-cell
+  status: preprint
+  why: Performance is overestimated in common setups and drops sharply under strict unseen-context conditions.
+  description: A modular benchmark for virtual-cell models across unseen contexts, perturbations, and cross-dataset transfer, showing that commonly reported performance is overestimated and falls sharply under strict evaluation.
+- id: scmbench
+  kind: benchmark
+  modality: multimodal
+  name: SCMBench — benchmarking domain-specific and foundation models for single-cell multi-omics integration
+  venue: Nature Communications
+  year: 2026
+  url: https://www.nature.com/articles/s41467-026-72570-x
+  topics:
+  - eval
+  - benchmark
+  - multimodal
+  status: published
+  why: 23 methods; foundation models show task-specific trade-offs versus domain-specific models.
+  description: Benchmarks 23 methods for single-cell multi-omics integration, finding that foundation models show task-specific trade-offs against domain-specific tools and proposing an adaptation strategy.
+- id: scfm-cell-retrieval
+  kind: benchmark
+  modality: single-cell-rna
+  name: Evaluating Single-Cell Foundation Models for Cell Retrieval
+  venue: OpenReview
+  year: 2026
+  url: https://openreview.net/forum?id=iOltCu4TPS
+  topics:
+  - eval
+  - benchmark
+  - foundation-model
+  status: preprint
+  why: 12 retrieval methods under cross-platform/species/omics shift, with label-free and label-dependent metrics.
+  description: Evaluates 12 cell-retrieval methods spanning non-ML, VAE, and single-cell foundation models under cross-platform, cross-species, and cross-omics shift, using both label-free and label-dependent metrics.
+- id: parameter-free-representations
+  kind: paper
+  modality: single-cell-rna
+  name: Parameter-free representations outperform single-cell foundation models on downstream benchmarks
+  venue: bioRxiv
+  year: 2026
+  url: https://doi.org/10.64898/2026.02.11.705358
+  topics:
+  - eval
+  - foundation-model
+  status: preprint
+  why: Careful normalization plus linear methods reach SOTA or near-SOTA; cell identity is largely linearly encoded.
+  description: Shows that careful normalization combined with simple linear representations matches or beats single-cell foundation models on downstream benchmarks, arguing that cell identity is largely captured by linear structure.
+- id: okr-cell
+  kind: tool
+  modality: single-cell-rna
+  name: OKR-Cell — open-world-knowledge-aided single-cell FM
+  venue: bioRxiv
+  year: 2026
+  url: https://www.biorxiv.org/content/10.64898/2026.01.09.698573v1
+  topics:
+  - foundation-model
+  - single-cell
+  - multimodal
+  status: preprint
+  why: RAG-enriched cell descriptions and robust cross-modal alignment using text as a unifying interface.
+  description: A single-cell foundation model that enriches cells with retrieval-augmented textual descriptions and aligns modalities robustly, using natural language as a unifying interface for noisy multi-omics interpretation.
+- id: glm-fundamental-limitations
+  kind: paper
+  modality: dna-seq
+  name: Fundamental limitations of genomic language models
+  venue: bioRxiv
+  year: 2026
+  url: https://www.biorxiv.org/content/10.64898/2026.01.17.700093v2
+  topics:
+  - genomic
+  - interpretability
+  - eval
+  status: preprint
+  why: Argues genomic language models fail at realistic sequence generation — feeds the 'do biological FMs compute biology?' debate.
+  description: A critical analysis arguing that genomic language models fail at realistic sequence generation, contributing to the broader question of whether biological foundation models actually compute biology.
+- id: compbiobench
+  kind: benchmark
+  modality: text
+  name: CompBioBench — 100 verifiable computational-biology tasks for AI agents
+  venue: bioRxiv
+  year: 2026
+  url: https://www.biorxiv.org/content/10.64898/2026.04.06.716850v1
+  topics:
+  - benchmark
+  - agents
+  - eval
+  status: preprint
+  org_type: industry
+  region: US
+  why: Codex/Claude Code score ~81–83%; defines the well-scoped frontier for agentic computational biology.
+  description: A benchmark of 100 verifiable computational-biology tasks for AI agents, where Codex and Claude Code score roughly 81–83%, mapping the boundary of what agentic computational biology can reliably do today.
+- id: cellvq
+  kind: tool
+  modality: single-cell-rna
+  name: CellVQ — illuminating cell states with an interpretable single-cell FM
+  venue: Nature Communications
+  year: 2026
+  url: https://www.nature.com/articles/s41467-026-70071-5
+  topics:
+  - foundation-model
+  - single-cell
+  - interpretability
+  status: published
+  why: A 68M-cell, 500M-param sc-FM with a discretization 'cell code' plus a plug-and-play CellVQ-Graph for interpretable biology.
+  description: A 68M-cell, 500M-parameter single-cell foundation model with a vector-quantization 'cell code' module and a plug-and-play CellVQ-Graph head, aimed at interpretable readouts of cell state.
+- id: ickg
+  kind: tool
+  modality: text
+  name: ICKG — AI-powered immune cell knowledge graph with granular immune contexts
+  authors: Ken Chen lab
+  venue: npj Artificial Intelligence
+  year: 2025
+  url: https://www.nature.com/articles/s44387-025-00060-4
+  topics:
+  - agents
+  - interpretability
+  - clinical
+  status: published
+  org_type: academic
+  region: US
+  why: LLM-built, cell-type-specific immune knowledge graphs from 24k+ immuno-oncology abstracts, validated on perturbation data.
+  description: An LLM-built immune cell knowledge graph that captures cell-type-specific immune contexts from over 24,000 immuno-oncology abstracts and supports context-aware pathway annotation, validated against cytokine and CRISPR perturbation data.
+- id: prediction-powered-inference
+  kind: paper
+  modality: other
+  name: Prediction-powered inference
+  authors: Anastasios N. Angelopoulos, Stephen Bates, Michael I. Jordan et al.
+  venue: Science
+  year: 2023
+  url: https://www.science.org/doi/10.1126/science.adi6000
+  topics:
+  - eval
+  - causal
+  status: published
+  org_type: academic
+  region: US
+  why: Valid confidence intervals when ML predictions supplement real data — an adjacent method for honest evaluation of FM predictions.
+  description: A statistics method giving valid confidence intervals when machine-learning predictions are used to supplement a smaller set of real measurements — directly useful for honest benchmarking of foundation-model predictions. Included as an adjacent method.
+- id: brain-inspired-warmup-uq
+  kind: paper
+  modality: other
+  name: Brain-inspired warm-up training with random noise for uncertainty calibration
+  authors: Jeonghwan Cheon, Se-Bum Paik
+  venue: Nature Machine Intelligence
+  year: 2026
+  url: https://www.nature.com/articles/s42256-026-01215-x
+  topics:
+  - eval
+  - interpretability
+  status: published
+  org_type: academic
+  region: KR
+  why: Noise-pretraining reduces neural-net overconfidence — an adjacent UQ/calibration method.
+  description: Shows that pretraining with random noise improves uncertainty calibration and reduces overconfidence in neural networks. Included as an adjacent uncertainty-quantification method, not specific to virtual cells.
+- id: storm-2026
+  kind: tool
+  modality: pathology
+  name: STORM — multimodal histology + spatial-transcriptomics FM
+  authors: Jinxi Xiang, Ruijiang Li
+  venue: arXiv
+  year: 2026
+  url: https://arxiv.org/abs/2604.03630
+  topics:
+  - pathology
+  - spatial
+  - multimodal
+  - foundation-model
+  status: preprint
+  org_type: academic
+  why: A 1.2M-profile histology+ST FM that predicts spatial expression from H&E and improves immunotherapy-response prognostication.
+  description: A multimodal foundation model trained on 1.2M histology + spatial-transcriptomics profiles across 18 organs that predicts spatial expression from H&E and improves immunotherapy-response prognostication across thousands of patients.
+- id: mupad
+  kind: tool
+  modality: pathology
+  name: MUPAD — generative diffusion FM bridging H&E and IHC/mIF
+  authors: Jinxi Xiang et al.
+  venue: arXiv
+  year: 2026
+  url: https://arxiv.org/abs/2604.03635
+  topics:
+  - pathology
+  - generative
+  - multimodal
+  status: preprint
+  org_type: academic
+  why: 'A generative virtual stainer: RNA/text-conditioned histology generation for spatial-omics exploration.'
+  description: A generative diffusion foundation model that bridges H&E to IHC/mIF stains and supports RNA- or text-conditioned histology generation, acting as a virtual stainer for spatial-omics exploration.
+- id: bridge-virtual-st
+  kind: tool
+  modality: pathology
+  name: BRIDGE — multi-organ histology to spatial-transcriptomics FM
+  authors: Zhuo Liang, Lequan Yu
+  venue: bioRxiv
+  year: 2026
+  url: https://www.biorxiv.org/content/10.64898/2026.05.05.722971v1
+  topics:
+  - pathology
+  - spatial
+  - foundation-model
+  status: preprint
+  org_type: academic
+  why: Generates virtual spatial transcriptomics with zero-shot survival prediction (C-index 0.717) on unseen cancers.
+  description: A multi-organ histology-to-spatial-transcriptomics foundation model that generates virtual spatial transcriptomics and achieves zero-shot survival prediction (C-index 0.717) on unseen cancer types.
+- id: h2o-histopath-omics
+  kind: tool
+  modality: pathology
+  name: H2O — Histopathology to Omics foundation model
+  venue: bioRxiv
+  year: 2026
+  url: https://www.biorxiv.org/content/10.64898/2026.04.21.717342v1
+  topics:
+  - pathology
+  - spatial
+  - multimodal
+  status: preprint
+  why: Infers spatial transcriptomics and proteomics from H&E by aligning ViT morphology with LLM molecular knowledge.
+  description: A foundation model that infers spatial transcriptomics and proteomics from H&E by aligning Vision-Transformer morphology features with an LLM's molecular knowledge.
+- id: genbio-pathfm
+  kind: tool
+  modality: pathology
+  name: GenBio-PathFM — 1.1B open-weight pathology foundation model
+  authors: GenBio AI
+  venue: bioRxiv
+  year: 2026
+  url: https://www.biorxiv.org/content/10.64898/2026.03.17.712534v1
+  topics:
+  - pathology
+  - foundation-model
+  status: preprint
+  org_type: biotech
+  region: US
+  why: A 1.1B-parameter open-weight pathology FM trained only on public data via JEDI (JEPA+DINO).
+  description: A 1.1B-parameter open-weight pathology foundation model trained solely on public data using a JEDI objective (combining JEPA and DINO), reporting SOTA on THUNDER, HEST, and PathoROB.
+- id: stpath
+  kind: tool
+  modality: pathology
+  name: STpath — pathology-FM embeddings to cell-type composition and expression
+  venue: bioRxiv
+  year: 2026
+  url: https://www.biorxiv.org/content/10.64898/2026.03.17.711896v1
+  topics:
+  - pathology
+  - spatial
+  - interpretability
+  status: preprint
+  why: Translates pathology-FM embeddings into interpretable cell-type composition and gene expression.
+  description: Maps pathology-foundation-model embeddings into cell-type composition and gene expression (via gradient-boosted models on spatial transcriptomics), providing an interpretability bridge for clinical studies.
+- id: phoenix-virtual-st
+  kind: tool
+  modality: pathology
+  name: Phoenix — latent flow-matching for pan-cancer virtual spatial transcriptomics
+  venue: bioRxiv
+  year: 2026
+  url: https://www.biorxiv.org/content/10.64898/2026.04.25.720812v2
+  topics:
+  - pathology
+  - spatial
+  - generative
+  - flow-matching
+  status: preprint
+  why: Infers spatially-resolved single-cell expression from routine H&E (pan-cancer virtual spatial transcriptomics).
+  description: A latent flow-matching generative model that infers pan-cancer, spatially-resolved single-cell expression from routine H&E, producing virtual spatial transcriptomics.
+- id: evee
+  kind: tool
+  modality: dna-seq
+  name: EVEE — interpretable variant-effect prediction from genomic-FM embeddings
+  venue: bioRxiv
+  year: 2026
+  url: https://www.biorxiv.org/content/10.64898/2026.04.10.717844v1
+  topics:
+  - genomic
+  - interpretability
+  status: preprint
+  why: Precomputes effects for all 4.2M ClinVar variants via a web explorer, built on Evo-lineage embeddings.
+  description: An interpretable variant-effect predictor built on genomic-foundation-model (Evo-lineage) embeddings, with precomputed effects for all 4.2M ClinVar variants exposed through a web explorer.
+- id: scprotrans
+  kind: tool
+  modality: multimodal
+  name: scProTrans — sequence-knowledge-guided single-cell multi-omics translation
+  venue: Genome Biology
+  year: 2026
+  url: https://link.springer.com/article/10.1186/s13059-026-04070-6
+  topics:
+  - proteomics
+  - multimodal
+  - genomic
+  status: published
+  why: Fuses sequence knowledge with multi-omics for transcriptome-to-proteome translation at single-cell resolution.
+  description: An interpretable deep-learning framework that fuses sequence knowledge with multi-omics to translate transcriptome to proteome at single-cell resolution, preserving low-abundance proteins.
+- id: esmfold2
+  kind: tool
+  modality: proteomic
+  name: ESMFold2 — single-sequence all-atom structure prediction (Biohub)
+  authors: Alex Rives et al.
+  venue: Biohub
+  year: 2026
+  url: https://biohub.org/news/world-model-of-protein-biology/
+  topics:
+  - protein
+  - foundation-model
+  status: launched
+  org_type: foundation
+  region: US
+  why: An ESMFold successor on ESMC that beats AlphaFold3 on antibody–antigen pose; part of Biohub's 'world model of protein biology' release.
+  description: A genuine ESMFold successor built on the ESMC protein language model, doing single-sequence (optional-MSA) all-atom structure and complex prediction and reportedly beating AlphaFold3 on antibody–antigen pose. Released May 2026 as part of Biohub/Rives's 'world model of protein biology'.
+- id: esm-atlas
+  kind: dataset
+  modality: proteomic
+  name: ESM Atlas — web-scale protein structure map (Biohub)
+  venue: Biohub
+  year: 2026
+  url: https://biohub.org/news/world-model-of-protein-biology/
+  topics:
+  - protein
+  status: launched
+  org_type: foundation
+  region: US
+  why: A web-scale (~6.8B-protein) structure map released alongside ESMC and ESMFold2.
+  description: A web-scale map of predicted protein structures (~6.8B proteins) released as part of the May 2026 Biohub protein-biology suite alongside ESMC and ESMFold2.
+- id: ubio-molfm
+  kind: tool
+  modality: other
+  name: UBio-MolFM — universal molecular foundation model for bio-systems
+  authors: IQuestLab
+  venue: arXiv
+  year: 2026
+  url: https://arxiv.org/abs/2602.17709
+  topics:
+  - foundation-model
+  - drug-design
+  status: preprint
+  why: 'A QM/ML neural potential delivering DFT-fidelity at biomolecular scale (adjacent: molecular simulation).'
+  description: 'A universal molecular foundation model (E2Former-V2 trained on a 17M-configuration dataset) acting as a neural potential with DFT-level fidelity at biomolecular scale. Adjacent to the vault: molecular-simulation/force-field territory rather than cell modeling.'
+- id: nafm
+  kind: tool
+  modality: other
+  name: NaFM — foundation model for small-molecule natural products
+  venue: Nature Machine Intelligence
+  year: 2026
+  url: https://doi.org/10.1038/s42256-026-01226-8
+  topics:
+  - foundation-model
+  - drug-design
+  status: published
+  why: 'A scaffold-aware natural-products FM for genome mining, taxonomy, and virtual screening (adjacent: chemistry).'
+  description: 'A scaffold-aware foundation model for small-molecule natural products (contrastive plus masked-graph pretraining) supporting genome mining, taxonomy, and virtual screening. Adjacent to the vault: chemistry/drug-discovery rather than cell modeling.'
+- id: arc-stack-perturb-sapiens
+  kind: tool
+  modality: single-cell-rna
+  name: Stack + Perturb Sapiens (Arc Institute) — in-context sc-FM + whole-organism perturbation atlas
+  authors: Arc Institute
+  venue: bioRxiv
+  year: 2026
+  url: https://www.biorxiv.org/content/10.64898/2026.01.09.698608v1
+  topics:
+  - foundation-model
+  - single-cell
+  - perturbation-prediction
+  status: preprint
+  org_type: foundation
+  region: US
+  why: A 149M-cell in-context-learning sc-FM used to build the first whole-organism perturbation atlas (~20K profiles).
+  description: Arc Institute's Stack is an in-context-learning single-cell foundation model (149M cells) used to construct Perturb Sapiens, a first whole-organism perturbation atlas (~20K profiles), pushing toward autonomous in-silico perturbation at scale.
+- id: owkin-k-pro
+  kind: org
+  modality: other
+  name: Owkin K Pro / Biology Super Intelligence
+  authors: Owkin
+  venue: press
+  year: 2026
+  url: https://www.businesswire.com/news/home/20260112461277/en/
+  topics:
+  - agents
+  - clinical
+  - drug-design
+  status: launched
+  org_type: biotech
+  region: EU
+  why: JPM-2026 launch of Owkin's agentic biology infrastructure (K Pro agent community) toward 'Biological ASI'.
+  description: Owkin's JPM-2026 launch of K Pro, an agentic biology infrastructure and agent community (with NVIDIA and Anthropic) framed as a step toward biological super-intelligence.
+- id: owkin-astrazeneca
+  kind: move
+  modality: other
+  name: Owkin K Pro x AstraZeneca partnership
+  venue: press
+  year: 2026
+  url: https://www.businesswire.com/news/home/20260512749977/en/
+  topics:
+  - agents
+  - clinical
+  - drug-design
+  status: announced
+  org_type: biotech
+  region: global
+  why: A multi-year K Pro license to build AI agents for AstraZeneca — a major agentic-bio commercial deal.
+  description: A multi-year licensing deal in which AstraZeneca adopts Owkin's K Pro to build AI agents, a notable commercial validation of agentic biology platforms.
+- id: amazon-bio-discovery
+  kind: org
+  modality: other
+  name: Amazon Bio Discovery (AWS)
+  authors: AWS
+  venue: press
+  year: 2026
+  url: https://www.genengnews.com/topics/artificial-intelligence/aws-launches-amazon-bio-discovery-agentic-ai-to-accelerate-drug-development/
+  topics:
+  - agents
+  - lab-automation
+  - drug-design
+  status: launched
+  org_type: industry
+  region: US
+  why: An agentic platform pairing 40+ bio FMs with AI agents and a wet-lab CRO network for closed-loop drug discovery.
+  description: AWS's agentic drug-discovery platform combining 40+ biological foundation models, AI agents, and a wet-lab CRO network (Twist, Ginkgo) into a lab-in-the-loop closed loop.
+- id: cz-biohub-vbi
+  kind: move
+  modality: other
+  name: CZ Biohub Virtual Biology Initiative ($500M)
+  authors: CZ Biohub
+  venue: press
+  year: 2026
+  url: https://www.prnewswire.com/news-releases/biohub-launches-the-virtual-biology-initiative-to-galvanize-a-global-effort-to-create-the-open-data-foundation-for-ai-accelerated-biology-302756743.html
+  topics:
+  - virtual-cell
+  - agents
+  status: funded
+  org_type: foundation
+  region: US
+  why: A $500M, five-year global open-data effort to build the 'flight simulator for biology' / virtual cells.
+  description: CZ Biohub's $500M, five-year Virtual Biology Initiative (with Broad, Allen, Arc, Sanger, NVIDIA) to build the open-data foundation for AI-accelerated biology and virtual cells.
+- id: agentic-lab-harvard
+  kind: tool
+  modality: other
+  name: Agentic Lab — agentic-physical AI for closed-loop cell experiments
+  authors: Marin-Llobet et al.
+  venue: bioRxiv
+  year: 2025
+  url: https://www.biorxiv.org/content/10.1101/2025.11.11.686354v1
+  topics:
+  - agents
+  - lab-automation
+  status: preprint
+  org_type: academic
+  region: US
+  why: LLM/VLM plus AR running multi-week pancreatic-organoid differentiation — true closed-loop wet-lab experimentation.
+  description: An agentic-physical AI system (LLM/VLM plus augmented reality) that ran multi-week pancreatic-organoid differentiation experiments, demonstrating closed-loop wet-lab cell experimentation.
+- id: recursion-najat-khan
+  kind: move
+  modality: other
+  name: Recursion CEO transition (Najat Khan)
+  authors: Recursion
+  venue: press
+  year: 2026
+  url: https://ir.recursion.com/news-releases/news-release-details/recursion-reports-fourth-quarter-and-full-year-2025-financial
+  topics:
+  - agents
+  - drug-design
+  status: announced
+  org_type: biotech
+  region: US
+  why: Najat Khan named CEO effective Jan 1 2026 — a notable TechBio leadership move.
+  description: Recursion named Najat Khan CEO effective January 1, 2026, a notable leadership transition in the AI-drug-discovery sector.
+- id: robin-futurehouse
+  kind: tool
+  modality: other
+  name: Robin — FutureHouse multi-agent system for scientific discovery
+  authors: Ali Essam Ghareeb, Samuel G. Rodriques
+  venue: arXiv
+  year: 2025
+  url: https://arxiv.org/abs/2505.13400
+  topics:
+  - agents
+  - lab-automation
+  - drug-design
+  status: preprint
+  org_type: biotech
+  region: US
+  why: An end-to-end multi-agent AI that autonomously surfaced ripasudil for dry AMD — humans only ran the bench.
+  description: FutureHouse's Robin is an end-to-end multi-agent system (Crow/Falcon/Finch) that autonomously hypothesized, designed analyses, and surfaced ripasudil as a candidate for dry AMD, with humans only executing bench steps.
+- id: target-id-ai-review
+  kind: review
+  modality: other
+  name: Target identification and assessment in the era of AI
+  authors: Frank W. Pun, Alex Zhavoronkov
+  venue: Nature Reviews Drug Discovery
+  year: 2026
+  url: https://www.nature.com/articles/s41573-026-01412-8
+  topics:
+  - clinical
+  - drug-design
+  status: published
+  org_type: biotech
+  region: global
+  why: Maps AI-driven drug-target identification — the drug arm upstream of virtual-cell modeling.
+  description: A review mapping AI-driven drug-target identification and assessment. Relevant to the vault's drug arm but upstream of virtual-cell modeling itself.
+- id: pinn-biomedical-review
+  kind: review
+  modality: other
+  name: Physics-Informed Machine Learning in Biomedical Science and Engineering
+  authors: Nazanin Ahmadi, George Em Karniadakis
+  venue: Annual Review of Biomedical Engineering
+  year: 2025
+  url: https://arxiv.org/abs/2510.05433
+  topics:
+  - mech-modeling
+  status: published
+  org_type: academic
+  region: US
+  why: Surveys PINNs/NODEs/neural operators in biomedicine — an adjacent mechanistic-modeling method family.
+  description: A survey of physics-informed machine learning (PINNs, neural ODEs, neural operators) in biomedicine. Included as an adjacent mechanistic-modeling method family, tangential to data-driven virtual cells.
+- id: rareq
+  kind: tool
+  modality: single-cell-rna
+  name: RareQ — cell-neighborhood topology for rare cell population identification
+  authors: Bing Fa et al.
+  venue: Nature Communications
+  year: 2026
+  url: https://www.nature.com/articles/s41467-026-71180-x
+  topics:
+  - single-cell
+  status: published
+  why: A small-world-graph 'cliquishness' framework that finds rare cell types/states in single-cell + spatial omics at atlas scale.
+  description: A method that uses small-world cell-neighborhood topology ('cliquishness') to identify rare cell populations hidden in single-cell and spatial omics, scaling to very large atlases. An adjacent single-cell method rather than a foundation model.
+- id: magic-imputation
+  kind: paper
+  modality: single-cell-rna
+  name: MAGIC — recovering gene interactions from single-cell data using data diffusion
+  authors: David van Dijk (Dana Pe'er, Smita Krishnaswamy)
+  venue: Cell
+  year: 2018
+  url: https://doi.org/10.1016/j.cell.2018.05.061
+  topics:
+  - single-cell
+  - generative
+  status: published
+  org_type: academic
+  region: US
+  why: The canonical diffusion-based imputation/denoising method for sparse scRNA-seq — a pre-FM building block.
+  description: MAGIC is the canonical data-diffusion method for imputing and denoising sparse, dropout-laden scRNA-seq, recovering gene–gene relationships. Included as a foundational pre-FM building block of the single-cell analysis pipeline.
+- id: pepyrus-cancer-antigens
+  kind: paper
+  modality: proteomic
+  name: Sensitive detection of cancer antigens enabled by user-defined peptide libraries (Pepyrus)
+  venue: Nature Biotechnology
+  year: 2026
+  url: https://www.nature.com/articles/s41587-026-03003-9
+  topics:
+  - proteomics
+  - clinical
+  status: published
+  org_type: academic
+  region: US
+  why: User-defined peptide libraries plus HLA-specific DIA recover low-abundance neoantigens for immunotherapy.
+  description: 'Pepyrus builds user-defined peptide libraries (expressed in E. coli) with HLA-specific data-independent acquisition to recover low-abundance neoantigens for immunotherapy. Adjacent to the vault: immunopeptidomics/MS proteomics rather than virtual cells.'
+- id: gcmeta-2025
+  kind: dataset
+  modality: dna-seq
+  name: gcMeta 2025 — global repository of metagenome-assembled genomes
+  venue: Nucleic Acids Research
+  year: 2026
+  url: https://doi.org/10.1093/nar/gkaf1115
+  topics:
+  - genomic
+  status: published
+  region: CN
+  why: A cross-ecosystem MAG catalogue shipping 78 'AI-ready' enzyme/defense-system datasets.
+  description: 'gcMeta is a large cross-ecosystem repository of metagenome-assembled genomes that also ships 78 curated ''AI-ready'' functional-gene datasets. Adjacent to the vault: microbiome/metagenomics, with a thin AI-ready-training-data bridge.'
