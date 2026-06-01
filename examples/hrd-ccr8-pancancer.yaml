@@ -177,6 +177,36 @@ papermap_edges:
 - - liang-lab
   - knijnenburg-2018
   - derived-from
+- - luo-2024
+  - gse269793
+  - validates-on
+- - luo-2024
+  - gse222555
+  - validates-on
+- - pantelidou-2019
+  - luo-2024
+  - builds-on
+- - farkkila-2020-topacio
+  - luo-2024
+  - builds-on
+- - mitri-2024-amtec
+  - luo-2024
+  - validates-on
+- - liang-2024-tam
+  - luo-2024
+  - builds-on
+- - delpino-2025-persister
+  - luo-2024
+  - builds-on
+- - wang-2025-sclc
+  - pantelidou-2019
+  - builds-on
+- - khan-2026-tcm
+  - pantelidou-2019
+  - builds-on
+- - liang-2024-tam
+  - gerkelab-tcgahrd
+  - validates-on
 
 items:
 
@@ -497,6 +527,128 @@ items:
   - mhc-class-ii
   why: Connects PARPi pharmacology to the immune-conditioning effects the project quantifies — the literature bridge between Thread 1 and Thread 2.
 
+- id: pantelidou-2019
+  starred: true
+  kind: paper
+  label: Pantelidou et al. — PARPi efficacy depends on CD8 recruitment via intratumoral STING (BRCA-deficient TNBC)
+  modality: single-cell-rna
+  year: 2019
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: parpi-immune
+  url: https://doi.org/10.1158/2159-8290.CD-18-1218
+  topics:
+  - parpi
+  - cgas-sting
+  - interferon
+  - exhausted-cd8
+  - breast-cancer
+  why: The foundational paper proving olaparib activates STING in vivo in BRCA1-null TNBC GEMMs (K14cre-Brca1fl/fl-Trp53fl/fl) and the antitumor effect is partly immune-dependent. The mechanistic precedent the Luo 2024 chain rests on; cited by every PARPi-IO combination program.
+
+- id: farkkila-2020-topacio
+  starred: true
+  kind: paper
+  label: Färkkilä et al. — Immunogenomic profiling on TOPACIO (niraparib + pembrolizumab, recurrent ovarian)
+  modality: proteomics
+  year: 2020
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: parpi-immune
+  url: https://doi.org/10.1038/s41467-020-15315-8
+  topics:
+  - parpi
+  - immunotherapy
+  - interferon
+  - treg
+  - ovarian-cancer
+  why: The pre-Luo TOPACIO biopsies — multiplex t-CyCIF on 62 patients showed the IFN-response signature and the Treg fraction co-rise under niraparib+pembrolizumab, foreshadowing the Cell 2024 mechanism. Single-cell *protein* (CyCIF), not scRNA-seq — important distinction; useful as the orthogonal-modality validator.
+
+- id: mitri-2024-amtec
+  kind: paper
+  label: Mitri et al. — AMTEC (olaparib + durvalumab, BRCA-wildtype metastatic TNBC)
+  modality: proteomics
+  year: 2024
+  status: preprint
+  org_type: academic
+  region: US
+  papermap_category: parpi-immune
+  url: https://doi.org/10.1101/2024.08.29.24312245
+  topics:
+  - parpi
+  - immunotherapy
+  - breast-cancer
+  - tumor-microenvironment
+  why: Paired pre-PARPi vs on-PARPi biopsies in BRCA-WT mTNBC with serial spatial single-cell proteomics (CyCIF/mIHC) and bulk RNA/WES. The HTAN-OHSU deposit; the only paired-timepoint PARPi-treated human resource outside the Luo cohort. Tests whether the IFN→eTreg chain runs in HRD-low BRCA-WT TNBC — the negative control for the project's pan-cancer claim.
+
+- id: liang-2024-tam
+  starred: true
+  kind: paper
+  label: Liang et al. — TAM_C3/C5aR1 axis in PARPi-resistant syngeneic TNBC and ovarian (Nat Commun 2024)
+  modality: single-cell-rna
+  year: 2024
+  status: published
+  org_type: academic
+  region: China
+  papermap_category: parpi-immune
+  url: https://doi.org/10.1038/s41467-024-48637-y
+  topics:
+  - parpi
+  - tumor-microenvironment
+  - breast-cancer
+  - ovarian-cancer
+  why: Paired PARPi-sensitive (LPA1-T22) vs PARPi-resistant (LPA1-T127) syngeneic TNBC plus KPCA ovarian; olaparib + AZD5305 (PARP1-selective) on a 4/8/20-day timecourse. The cleanest public scRNA dataset for "what does PARPi-resistant TME look like over time" — useful for asking whether the CCR8/eTreg compartment loads or unloads at resistance, in a non-HGSOC model.
+
+- id: delpino-2025-persister
+  kind: paper
+  label: del Pino Herrera et al. — Chronic-olaparib OVCAR3 persister scRNA (bioRxiv 2025)
+  modality: single-cell-rna
+  year: 2025
+  status: preprint
+  org_type: academic
+  region: US
+  papermap_category: parpi-immune
+  url: https://doi.org/10.1101/2025.10.08.681266
+  topics:
+  - parpi
+  - ovarian-cancer
+  - single-cell
+  why: OVCAR3 (BRCA1-mut HGSOC line) under 2-month chronic olaparib, scRNA + RNA velocity comparing naive vs persister states. Tumor-cell-intrinsic only (no microenvironment) — the cleanest map of the PARPi-persister state itself, complementing Liang's microenvironment-resolved resistance map.
+
+- id: wang-2025-sclc
+  kind: paper
+  label: Wang et al. — Olaparib + RT + anti-PD-L1 in SCLC syngeneic + PDX (Nat Commun 2025)
+  modality: single-cell-rna
+  year: 2025
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: parpi-immune
+  url: https://doi.org/10.1038/s41467-025-57257-z
+  topics:
+  - parpi
+  - cgas-sting
+  - immunotherapy
+  - exhausted-cd8
+  why: The only SCLC PARPi single-cell study found in public data — extends the cGAS-STING-CD8 chain to a tumor type with high baseline cytosolic DNA but largely HRD-low genomics. Tests whether the chain runs without classical HRD, which matters for the project's specificity claim.
+
+- id: khan-2026-tcm
+  kind: paper
+  label: Khan et al. — PARPi expands CD8 central-memory T cells via host DNA-damage signaling (Nat Immunol 2026)
+  modality: single-cell-rna
+  year: 2026
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: parpi-immune
+  url: https://doi.org/10.1038/s41590-025-02383-5
+  topics:
+  - parpi
+  - exhausted-cd8
+  - immunotherapy
+  why: Mouse TIL scRNA across olaparib/niraparib/talazoparib showing PARPi acts on the host CD8 T-cell compartment, not only the tumor. Important caveat for the project — PARPi effects observed in TCGA-bulk-RNA could be host-immune-cell-intrinsic rather than tumor-IFN-driven.
+
 # ----- DATASETS -----
 - id: tcga-pancan
   pinned: true
@@ -596,6 +748,71 @@ items:
   - pan-cancer
   - proteomics
   why: RPPA companion to CPTAC — provides a second proteomic readout (smaller panel, larger sample size) for cross-checking key targets like CCR8 / LAG3.
+
+- id: gse269793
+  kind: dataset
+  label: GSE269793 — Luo 2024 sister cohort, Singleron scRNA-seq (HGSOC niraparib)
+  modality: single-cell-rna
+  year: 2024
+  status: open
+  access: open
+  papermap_category: datasets
+  url: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE269793
+  topics:
+  - parpi
+  - hrd
+  - ovarian-cancer
+  - single-cell
+  why: Validation cohort for the Luo 2024 anchor on a second single-cell platform (Singleron). Lets the project ask whether the eTreg/IFN signature is platform-invariant before generalizing pan-cancer.
+
+- id: gse222555
+  kind: dataset
+  label: GSE222555 — Luo 2024 paired scTCR-seq (HGSOC niraparib)
+  modality: single-cell-rna
+  year: 2024
+  status: open
+  access: open
+  papermap_category: datasets
+  url: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE222555
+  topics:
+  - parpi
+  - hrd
+  - ovarian-cancer
+  - single-cell
+  - treg
+  - exhausted-cd8
+  why: TCR clonotypes paired with GSE222556 — the substrate for testing the Luo claim that terminal eTregs and terminally exhausted CD8 co-localize on shared lesional samples and not just by frequency.
+
+- id: gse288483
+  kind: dataset
+  label: GSE288483 — Spatial transcriptomics, olaparib-maintenance HGSOC
+  modality: single-cell-rna
+  year: 2025
+  status: open
+  access: open
+  papermap_category: datasets
+  url: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE288483
+  topics:
+  - parpi
+  - ovarian-cancer
+  - tumor-microenvironment
+  why: One of very few human PARPi-maintenance spatial datasets (Visium-class). No anchor publication yet — flag for re-verification when the paper lands. Useful as the spatial complement to dissociated scRNA for asking whether CCR8⁺ eTregs and exhausted CD8 are physically co-located.
+
+- id: gse276238
+  kind: dataset
+  label: GSE276238 — Syngeneic PDAC, olaparib + radiotherapy ± anti-PD-L1 scRNA-seq
+  modality: single-cell-rna
+  year: 2025
+  status: open
+  access: open
+  papermap_category: datasets
+  url: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE276238
+  topics:
+  - parpi
+  - pancreatic-cancer
+  - cgas-sting
+  - tumor-microenvironment
+  why: Mouse syngeneic PDAC (KPC-derived) with full 4-arm design (vehicle / olaparib / RT / olaparib+RT) and PD-L1 combination; the only public PDAC PARPi scRNA dataset found. Lets the project test the IFN→CD8 chain in a non-ovarian, mostly-HRD-low tumor type.
 
 # ----- SIGNATURES / METHODS -----
 - id: hrdsum
