@@ -1,22 +1,23 @@
 ---
-title: 'The data we have to work with — every public PARPi-treated single-cell dataset, beyond the anchor'
+title: 'The data we have to work with — seven layers of public single-cell + spatial evidence for the HRD × IFN × CCR8 chain'
 date: '2026-06-02'
 topics:
 - dataset
 - parpi
 - hrd
 - single-cell
+- spatial
 - ovarian-cancer
 - breast-cancer
 - pancreatic-cancer
 - resources
-summary: 'An earlier draft of the [pan-cancer bet](the-pan-cancer-bet.md) called GSE222556 "essentially the only" public single-cell dataset from PARPi-treated patients. That is too tight. The honest map is: a bulk-multi-omics layer (TCGA + CPTAC + TCPA + GerkeLab/TCGAhrd) the project will live in; a small but non-trivial human PARPi-treated single-cell layer (the Luo HGSOC anchor + two sister GEO IDs from the same trial, plus spatial olaparib-maintenance HGSOC, plus two paired-timepoint clinical proteomics resources from TOPACIO and AMTEC); a real preclinical scRNA layer across TNBC, ovarian, PDAC, and SCLC including paired sensitive/resistant models and chronic-PARPi persister states; and pan-cancer single-cell validators (Zheng T-atlas, Cheng myeloid atlas). The pivotal trials whose PARPi-arm single-cell data would have changed the picture — PRIMA, SOLO, NOVA, POLO, MEDIOLA, NEOTALA, TALAPRO — are bulk-only in public space. The project remains HGSOC-anchored on the human treated side but has real cross-tumor scRNA leverage on the preclinical side.'
+summary: 'An earlier draft of the [pan-cancer bet](the-pan-cancer-bet.md) called GSE222556 "essentially the only" public single-cell dataset from PARPi-treated patients. That is too tight. The honest map is seven layers — a bulk multi-omics arena (TCGA + CPTAC + TCPA + GerkeLab/TCGAhrd); a human PARPi-treated single-cell layer (the Luo HGSOC anchor + two sister GEO IDs from the same trial, plus spatial olaparib-maintenance HGSOC, plus two paired-timepoint clinical proteomics resources from TOPACIO and AMTEC); a real preclinical PARPi scRNA layer across TNBC, ovarian, PDAC, and SCLC including paired sensitive/resistant models and chronic-PARPi persister states; a much larger HRD-stratified human single-cell + spatial layer where PARPi treatment is not required (Vázquez-García MSK-SPECTRUM, Pal BRCA1+/–, Bassez BIOKEY, Launonen/Färkkilä BRCA1/2-vs-WT mIF, Stur HGSOC Visium, Kopper ovarian PDO biobank, Hwang HTAPP PDAC); a single-cell HR-gene perturbation layer (Replogle genome-scale Perturb-seq) that gives a per-gene molecular fingerprint of HR loss; pan-cancer single-cell atlases and frameworks (Zheng, Cheng, Combes IRIS, Chu T-stress, Nieto TICAtlas, 3CA, Tay 2025 CCR8 NSCLC); and a list of pivotal-trial PARPi-arm single-cell data that does not exist publicly (PRIMA / SOLO / NOVA / POLO / MEDIOLA / NEOTALA / TALAPRO). The treated-outcome layer is HGSOC-anchored, but the HRD-stratified layer is large enough to test the chain pan-cancer.'
 starred: true
 ---
 
 When a reader works through the [pan-cancer bet](the-pan-cancer-bet.md) and the [chain blog](the-chain-from-broken-dna-to-broken-t-cells.md), the practical question that follows is: **what data is actually on the table right now?** This blog is the inventory.
 
-Five layers, smallest to largest.
+Seven layers, narrowest (treated-outcome) to widest (pan-cancer framework).
 
 ## Layer 1 — The bulk multi-omics arena (where Aims 1–4 live)
 
@@ -75,14 +76,53 @@ Two foundational predecessors are worth keeping in the corpus even though they'r
 - **Pantelidou et al. *Cancer Discov* 2019** — KB1P (K14cre-Brca1fl/fl-Trp53fl/fl) GEMM, olaparib activates STING in vivo in BRCA1-null TNBC. The mechanistic precedent every PARPi-IO paper cites.
 - **Zhang et al. *Theranostics* 2021** — scRNA atlas of BRCA1-KO mouse mammary tumors across four molecular subtypes with subtype-resolved olaparib sensitivity. Useful as the "PARPi-responder TME" reference, though resistance trajectories are not the focus.
 
-## Layer 4 — Pan-cancer single-cell validators
+## Layer 4 — HRD-stratified human single-cell + spatial (PARPi treatment not required)
 
-These are not PARPi-treated but they are how the project will check that bulk-deconvolved signals correspond to real cells:
+This is the layer the earlier draft of this blog missed entirely, and it is the one that matters most for the pan-cancer bet. The hook is **per-patient HRD or BRCA status reported at single-cell or spatial resolution** — whether the patient ever saw a PARPi is irrelevant.
 
-- **Zheng et al. *Science* 2021** — pan-cancer T-cell atlas, 21 cancer types, 316 patients, ~390k T cells with paired TCR. The single-cell substrate for confirming CCR8 marks intratumoral eTregs across tumor types and for supplying per-cancer eTreg fractions.
-- **Cheng et al. *Cell* 2021** — pan-cancer myeloid atlas. The DC and macrophage reference for asking how the DC–Treg conversation looks in HRD vs HRP samples.
+### HGSOC HRD-stratified atlases
 
-## Layer 5 — What is *not* public, and what the project therefore cannot do
+- **Vázquez-García et al. *Nature* 2022 (MSK-SPECTRUM)** — 42 treatment-naive HGSOC patients, 160 tumor sites, ~929k cells scRNA + paired WGS + mIF, with each case labeled HRD-Dup (BRCA1-like), HRD-Del (BRCA2-like), FBI (foldback-inversion), or TD (tandem-duplicator). SBS3 calls reported. The single best public substrate for projecting the Luo eTreg/IFN signature onto an HRD-stratified, treatment-naive HGSOC reference. Synapse `syn25569736`.
+- **Olbrecht et al. *Genome Med* 2021** — 7 untreated HGSOC patients with germline BRCA1/2 noted per case (ArrayExpress `E-MTAB-8107`). Small but clean; pairs with Vázquez-García for cross-cohort consistency.
+- **Stur et al. *iScience* 2022** — HGSOC Visium in a long-term-survivor cohort with BRCA1/2 status per case (`GSE211956`). The smallest-but-cleanest HGSOC-with-BRCA spatial dataset; useful for ligand-receptor crosstalk in HRD vs HRP samples.
+- **Launonen / Färkkilä et al. *Nat Commun* 2022** — 44 HGSOC (31 BRCA1/2-mut, 13 HR-WT), 124,623 cells, 21-marker t-CyCIF. The cleanest published spatial-protein test of HRD-driven immune conditioning — the protein-level precursor to Luo 2024 — and the obvious external validator for the project's HGSOC findings.
+- **HTAN HMS-Ovarian (Sorger / Färkkilä)** and **HTAN HTAPP-Ovarian (Broad/DFCI)** — both deposit paired WGS + t-CyCIF / snRNA + spatial with curated HRD calls per case. The HTAN extension of MSK-SPECTRUM with spatial pairing. Synapse `syn22000242` / `syn22000241`.
+
+### Breast (where BRCA1+/– biology is most legible)
+
+- **Pal et al. *EMBO J* 2021 (`GSE161529`)** — the rare per-patient germline-BRCA1 single-cell deposit, with explicit BRCA1+/– *preneoplastic* tissue (69 specimens, ~340k cells). Critical for asking what BRCA1-heterozygous epithelium looks like *before* tumor — the IFN baseline reference for the project.
+- **Wu et al. *Nat Genet* 2021 (Swarbrick lab, `GSE176078`)** — 26 primary tumors, 130k cells, scRNA + CITE-seq + Visium; germline BRCA status flagged for a TNBC subset. The de-facto reference breast TME atlas; includes IFN-response cancer-cell states the project will project onto.
+- **Bassez et al. *Nat Med* 2021 (BIOKEY, `EGAS00001004809`)** — 40 BC patients on anti-PD-1, ~175k cells scRNA + CITE + TCR with paired pre/on-treatment biopsies. The best public proof that CXCL13⁺ CD8 + Tex predict ICB response in breast — central to the exhausted-CD8 arm of the chain, even without PARPi.
+
+### Pancreatic and ovarian PDO
+
+- **Hwang et al. *Nat Genet* 2022 (`GSE202051`)** — 43 PDAC patients, ~225k nuclei snRNA + paired Slide-seqV2; BRCA1/2/PALB2 genotype noted in the HTAN HTAPP subset. The human PDAC reference that pairs with the syngeneic GSE276238 dataset from Layer 3.
+- **Kopper et al. *Nat Med* 2019 (HUB Foundation)** — 56 organoids from 32 HGSOC / LGSOC / clear-cell / endometrioid ovarian patients with per-PDO HRD scores, BRCA1/2 status, and **olaparib + niraparib IC50 measured per organoid**. The functional HRD × PARPi-response substrate; subsequent scRNA has been layered on subsets.
+
+The headline for Layer 4: per-patient HRD or BRCA status at single-cell or spatial resolution exists for a far larger cohort than the PARPi-treated layer. The project can test the IFN→CCR8⁺ eTreg→exhausted CD8 chain against ~50–100 HRD-stratified human samples *before* needing any treated-outcome resolution.
+
+## Layer 5 — Single-cell HR-gene perturbation (molecular fingerprint of HR loss)
+
+A different kind of resource — not a tumor cohort, but a per-gene loss-of-function readout at single-cell resolution.
+
+- **Replogle et al. *Cell* 2022** — K562 + RPE1 genome-scale CRISPRi Perturb-seq, ~2.5 million cells. The HR roster is explicitly included: **BRCA1, BRCA2, RAD51, RAD51C, RAD51D, PALB2, BRIP1, 53BP1 (TP53BP1), Shieldin (SHLD1/2/3), REV7 (MAD2L2)**. Lets the project ask, for each HR gene, *what does its loss look like transcriptionally* at single-cell resolution — the molecular fingerprint that any bulk-RNA HRD signature is implicitly trying to recover.
+
+PARPi was not in the sci-Plex original (`GSE139944`, 188 compounds in A549/K562/MCF7) — verified. So sci-Plex is *not* a PARPi single-cell dose-response resource. The Replogle screen is the closer analog: the *genetic* version of "what does HR deficiency do at single-cell resolution," covering the genes a PARPi inhibitor effectively phenocopies.
+
+## Layer 6 — Pan-cancer single-cell atlases and frameworks
+
+These are not HRD-stratified but they are how the project will check that bulk-deconvolved signals correspond to real cells, and how it will place HRD tumors into the broader pan-cancer immune landscape.
+
+- **Zheng et al. *Science* 2021** — pan-cancer T-cell atlas, 21 cancer types, 316 patients, ~390k T cells with paired TCR. Confirms CCR8 marks intratumoral eTregs across tumor types and supplies per-cancer eTreg fractions.
+- **Cheng et al. *Cell* 2021** — pan-cancer myeloid atlas. The DC and macrophage reference for the DC–Treg conversation in HRD vs HRP samples.
+- **Combes et al. *Cell* 2022 (IRIS)** — 364 tumors across 12 indications incl. HGSOC, breast, PDAC; ~1.5M live-cell scRNA + 28-color flow. The framework for placing HRD tumors into a pan-cancer immune-archetype map — answers "where does an HRD-high tumor sit among IRIS archetypes."
+- **Chu et al. *Nat Med* 2023 (`GSE207422`)** — 308k T cells across 16 cancer types. Defines a TSTR (stress-response) state orthogonal to IFN/exhaustion that the project should disambiguate in HRD-high tumors — does HRD-driven IFN load the eTreg axis, the TSTR axis, or both?
+- **Magen et al. *Nat Med* 2023 (HCC neoadjuvant anti-PD-1)** — the methodological gold standard for "DC + Tfh niche enables Tex differentiation" using paired scRNA + CITE + TCR + spatial. The protocol the project's CCR8-eTreg-niche analysis should mirror.
+- **Nieto et al. *Genome Res* 2021 (TICAtlas)** — ~500k cells, 217 patients, 13 cancer types; the projection framework compatible with SPOTlight spatial deconvolution.
+- **Tirosh lab *Nat Cancer* 2025 (3CA — Curated Cancer Cell Atlas)** — 124 datasets, 2,836 samples with recurrent cancer-cell metaprograms including an IFN-α/γ-response module. Lets the project compare HRD-driven IFN against a pan-cancer baseline rather than assert it in isolation.
+- **Tay et al. *Cell* 2025** — anti-PD-1 NSCLC scRNA defines three Treg states post-treatment (proliferating, CCR8–, CCR8+). Direct CCR8 single-cell evidence on the immunotherapy axis; tests whether the eTreg compartment expands as a treatment effect, which matters for the project's PARPi → IFN → eTreg causal claim outside HGSOC.
+
+## Layer 7 — What is *not* public, and what the project therefore cannot do
 
 Honest list of holes:
 
@@ -98,10 +138,12 @@ What this means concretely: the project cannot run a **PARPi-treated × outcome-
 
 ## What this changes for the project
 
-Three updates to the analysis plan:
+Five updates to the analysis plan, once Layers 4–6 are folded in:
 
-1. **Aim 1 (HRD landscape) is unchanged.** Bulk-RNA + GerkeLab/TCGAhrd was always the spine.
-2. **Aim 2 (CCR8/IFN deconvolution) gains genuine cross-tumor preclinical scRNA validators**. GSE276238 (PDAC) and Wang 2025 (SCLC) test whether the chain fires in HRD-low tumors. Liang 2024 (TNBC + ovarian) tests whether the chain modulates at resistance. The bulk-RNA claim no longer has to lean entirely on cross-tumor inference.
-3. **Aim 6 (translational hypothesis) gains an important caveat surface**. Khan 2026 means the project has to argue why a TCGA-bulk-RNA CCR8 signal is tumor-intrinsic mechanism rather than peripheral-T-cell-trafficking artifact — and the AMTEC paired biopsies are the obvious negative control. Both belong in the discussion.
+1. **Aim 1 (HRD landscape) gains a single-cell anchor.** Bulk RNA + GerkeLab/TCGAhrd is still the spine, but Vázquez-García MSK-SPECTRUM (~929k cells across 42 HGSOC patients with HRD-Dup/Del/FBI/TD per case) lets the bulk HRD landscape be cross-validated at single-cell resolution in HGSOC.
+2. **Aim 2 (CCR8/IFN deconvolution) gains cross-tumor preclinical scRNA + HRD-stratified human validators.** GSE276238 (PDAC) and Wang 2025 (SCLC) test whether the chain fires in HRD-low tumors; Liang 2024 (TNBC + ovarian) tests whether it modulates at resistance; Launonen/Färkkilä 2022 mIF and Pal 2021 BRCA1+/– give HRD-stratified human references beyond HGSOC. The bulk-RNA claim no longer has to lean on cross-tumor inference alone.
+3. **Aim 3 (signature mechanics) gains a per-gene molecular fingerprint.** Replogle 2022 Perturb-seq covers BRCA1, BRCA2, RAD51, RAD51C/D, PALB2, BRIP1, 53BP1, Shieldin (SHLD1/2/3), REV7 at single-cell resolution. The project's HRD signatures can be cross-checked against the actual transcriptional response to losing each gene — separating genomic-scar HRD from functional HRD on a principled basis.
+4. **Aim 4 (pan-cancer placement) gains an immune-archetype frame.** Combes IRIS, Nieto TICAtlas, Tirosh 3CA, and Chu T-stress let the project place HRD-high tumors into a pan-cancer immune-archetype map and disambiguate IFN-driven from stress-driven T-cell states. The "HRD-high × IFN/eTreg-high" subgroup the [pan-cancer bet](the-pan-cancer-bet.md) calls for becomes a labelled region of an existing archetype space, not a free-floating claim.
+5. **Aim 6 (translational hypothesis) gains a caveat surface and a non-HGSOC CCR8 anchor.** Khan 2026 means the project has to argue why a TCGA-bulk-RNA CCR8 signal is tumor-intrinsic mechanism rather than peripheral-T-cell-trafficking artifact — and the AMTEC paired biopsies are the obvious negative control. Tay 2025 NSCLC anti-PD-1 gives the first non-HGSOC single-cell evidence that the CCR8⁺ Treg compartment behaves as a treatment-responsive axis, which is structurally what the PARPi + anti-CCR8 combination needs.
 
-The headline: the project is still HGSOC-anchored on the *human treated* side, but it now has real preclinical scRNA leverage across TNBC, PDAC, SCLC, plus persister states — which is the level of cross-tumor data the chain needs to be stress-tested against before the [pan-cancer bet](the-pan-cancer-bet.md) makes sense as a stratifier rather than a generalization.
+The headline: the project is still HGSOC-anchored on the *human treated* side, but Layers 4–6 supply a much wider HRD-stratified single-cell base — across breast, pancreatic, prostate, and pan-cancer immune frames — plus a per-gene HR-loss fingerprint from genome-scale Perturb-seq. That is the level of cross-tumor data the chain needs to be stress-tested against before the [pan-cancer bet](the-pan-cancer-bet.md) makes sense as a stratifier rather than a generalization.
