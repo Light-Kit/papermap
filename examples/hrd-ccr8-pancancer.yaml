@@ -59,9 +59,6 @@ papermap_relations:
 - id: validates-on
   label: Validates on
   color: '#59a14f'
-- id: targets
-  label: Targets
-  color: '#e8924a'
 - id: in-trial
   label: In trial
   color: '#9c6bab'
@@ -108,18 +105,21 @@ papermap_edges:
 - - cptac-pancan-2024
   - tcpa
   - builds-on
+- - zl-1218
+  - luo-2024
+  - validates-on
 - - chs-114
-  - ccr8
-  - targets
+  - ccr8-onco-2022
+  - builds-on
 - - lm-108
-  - ccr8
-  - targets
+  - ccr8-onco-2022
+  - builds-on
 - - gs-1811
-  - ccr8
-  - targets
+  - ccr8-onco-2022
+  - builds-on
 - - fg-3165
-  - ccr8
-  - targets
+  - ccr8-onco-2022
+  - builds-on
 - - chs-114
   - nct05635643
   - in-trial
@@ -210,12 +210,12 @@ items:
   - mhc-class-ii
   - ovarian-cancer
   - single-cell
-  why: The mechanism anchor — HRD → IFN signaling → tumor-cell MHC-II^hi + co-inhibitory ligands → CCR8⁺ terminal eTreg enrichment (co-occurring with terminally exhausted CD8); eTreg depletion + PARPi cuts tumor burden in CCR8-humanized mice. Closes the loop in HGSOC; opens the pan-cancer question this project answers.
+  why: The mechanism anchor — HRD → IFN signaling → tumor-cell MHC-II^hi + co-inhibitory ligands → CCR8⁺ terminal eTreg enrichment (co-occurring with terminally exhausted CD8); in CCR8-humanized mice bearing orthotopic Trp53⁻/⁻;Brca1⁻/⁻ ID8 tumors, niraparib + anti-CCR8 (ZL-1218) produced significantly greater tumor suppression than either agent alone. Closes the loop in HGSOC; opens the pan-cancer question this project answers.
   qa:
-    did: Used scRNA + TCR repertoire on neoadjuvant-niraparib HGSOC samples (phase II NCT04507841) to trace how HRD reshapes the tumor microenvironment, then validated the mechanism in CCR8-humanized mice with PARPi + anti-CCR8 combination treatment.
+    did: Used scRNA + TCR repertoire on neoadjuvant-niraparib HGSOC samples (phase II NCT04507841) to trace how HRD reshapes the tumor microenvironment, then validated the mechanism in CCR8-humanized (hCCR8 knock-in) mice with niraparib + anti-CCR8 (ZL-1218) combination treatment.
     purpose: To identify which tumor-immune circuit explains why HRD tumors should — but often don't — sustain durable anti-tumor immunity under PARPi, and to convert that circuit into a druggable combination hypothesis.
-    method: Single-cell transcriptomes + paired TCR clones from HGSOC patients on the phase II niraparib arm; comparison of HRD vs HRP patients; in-vivo combination of PARPi with anti-CCR8 antibody in CCR8-humanized mice.
-    result: HRD enriches CCR8⁺ terminal effector Tregs co-occurring with terminally exhausted CD8 T cells; tumor cells in HRD samples upregulate MHC-II and co-inhibitory ligands consistent with IFN conditioning; PARPi + anti-CCR8 reduces tumor burden where PARPi alone does not.
+    method: Single-cell transcriptomes + paired TCR clones from HGSOC patients on the phase II niraparib arm; comparison of HRD vs HRP patients; in-vivo combination of niraparib with the clinical-stage anti-CCR8 antibody ZL-1218 in CCR8-humanized mice bearing orthotopic Trp53⁻/⁻;Brca1⁻/⁻ ID8 ovarian tumors, plus a parallel anti-CD25 arm as an alternative eTreg-depletion control.
+    result: HRD enriches CCR8⁺ terminal effector Tregs co-occurring with terminally exhausted CD8 T cells; tumor cells in HRD samples upregulate MHC-II and co-inhibitory ligands consistent with IFN conditioning; niraparib + ZL-1218 produces significantly greater tumor suppression than either agent alone — niraparib monotherapy still attenuates tumor progression on its own, the combination simply goes further.
 
 # ----- HRD GENOMICS -----
 - id: knijnenburg-2018
@@ -694,6 +694,21 @@ items:
   why: Lets the project add HRD calls to RNA-seq-only cohorts (especially ICI clinical cohorts), bridging Aim 6's translational test where SNP/WES isn't available.
 
 # ----- ANTI-CCR8 ANTIBODY PIPELINE -----
+- id: zl-1218
+  starred: true
+  kind: drug
+  label: ZL-1218 (Zai Lab) — anti-CCR8 used in the Luo 2024 in-vivo combination
+  modality: clinical
+  year: 2023
+  status: phase-1
+  org_type: industry
+  region: China
+  papermap_category: antibodies
+  topics:
+  - ccr8
+  - treg
+  - immunotherapy
+  why: The specific clinical-stage anti-CCR8 antibody Luo et al. (Cell 2024) combined with niraparib in their CCR8-humanized orthotopic ovarian model — the in-vivo agent behind the project's core mechanism claim, distinct from the four Western combinations (CHS-114 / LM-108 / GS-1811 / FG-3165) currently being paired with anti-PD-1.
 - id: chs-114
   starred: true
   kind: drug

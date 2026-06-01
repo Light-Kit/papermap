@@ -41,11 +41,11 @@ What they didn't do: connect this to a specific therapeutic intervention. That c
 
 **Pantelidou C, Sonzogni O, De Oliveria Taveira M, et al.** *PARP inhibitor efficacy depends on CD8⁺ T-cell recruitment via intratumoral STING pathway activation in BRCA-deficient models of triple-negative breast cancer.* **Cancer Discovery** 2019;9(6):722–737.
 
-**Shen J, Zhao W, Ju Z, et al.** *PARPi triggers STING-dependent immune response and enhances therapeutic efficacy of immune checkpoint blockade independent of BRCAness.* **Cancer Research** 2019;79(2):311–319.
+**Shen J, Zhao W, Ju Z, et al.** *PARPi triggers the STING-dependent immune response and enhances the therapeutic efficacy of immune checkpoint blockade independent of BRCAness.* **Cancer Research** 2019;79(2):311–319.
 
-**Sen T, Rodriguez BL, Chen L, et al.** *Targeting DNA damage response promotes anti-tumor immunity through STING-mediated T-cell activation in small-cell lung cancer.* **Cancer Discovery** 2019;9(5):646–661.
+**Sen T, Rodriguez BL, Chen L, et al.** *Targeting DNA Damage Response Promotes Antitumor Immunity through STING-Mediated T-cell Activation in Small Cell Lung Cancer.* **Cancer Discovery** 2019;9(5):646–661.
 
-Three near-simultaneous papers in 2019. They asked the same question — does PARPi activate STING in vivo and does the antitumor effect depend on the immune system? — and got the same answer in three different tumor settings (BRCA-deficient TNBC, multiple BRCA contexts, small-cell lung cancer). PARPi treatment **does** activate cGAS-STING; the antitumor effect is **partly immune-dependent**; and combining PARPi with anti-PD-1 / anti-PD-L1 enhances both efficacy and CD8 infiltration.
+Three near-simultaneous papers in 2019. They asked the same question — does inhibiting the DNA-damage response (PARP, and in Sen's case PARP **and** CHK1) activate STING in vivo, and does the antitumor effect depend on the immune system? — and got the same answer in three different tumor settings (BRCA-deficient TNBC, multiple BRCA contexts, small-cell lung cancer). DDR-targeting treatment **does** activate cGAS-STING; the antitumor effect is **partly immune-dependent**; and combining DDR inhibitors with anti-PD-1 / anti-PD-L1 enhances both efficacy and CD8 infiltration.
 
 This is the most underappreciated piece of the chain in routine clinical thinking. PARPi was originally sold as a cell-autonomous synthetic-lethal therapy. These three papers proved it is **also** an immunotherapy, mechanistically. They are what justifies using PARPi as the amplifier in a PARPi + anti-CCR8 combination — PARPi isn't just killing HR-deficient cells; it's actively driving the IFN signal that selects the eTreg compartment.
 
@@ -67,7 +67,7 @@ What they didn't do: prove the depletion works clinically. That took until 2024.
 
 **Luo Y, Xia Y, Liu D, et al.** *Neoadjuvant PARPi or chemotherapy in ovarian cancer informs targeting effector Treg cells for HRD tumors.* **Cell** 2024;187(18):4905–4925.e24.
 
-The paper this project is built around. Using scRNA + TCR from HGSOC patients on the neoadjuvant niraparib phase II (NCT04507841), Luo et al. traced the full chain in human tumors — HRD drives an IFN-conditioned tumor-cell state, which selects for CCR8⁺ terminal eTregs, which co-occur with terminally exhausted CD8. Then they validated the therapeutic implication in CCR8-humanized mice: PARPi + anti-CCR8 cut tumor burden where PARPi alone did not.
+The paper this project is built around. Using scRNA + TCR from HGSOC patients on the neoadjuvant niraparib phase II (NCT04507841), Luo et al. traced the full chain in human tumors — HRD drives an IFN-conditioned tumor-cell state, which selects for CCR8⁺ terminal eTregs, which co-occur with terminally exhausted CD8. Then they validated the therapeutic implication in **CCR8-humanized (hCCR8 knock-in) mice** bearing orthotopic Trp53⁻/⁻;Brca1⁻/⁻ ID8 ovarian tumors: the clinical-stage anti-CCR8 antibody **ZL-1218** (Zai Lab) combined with niraparib produced significantly greater tumor suppression than either agent alone — niraparib monotherapy did attenuate tumor progression on its own, the combination simply went further. A parallel arm using anti-CD25 as an alternative eTreg-depletion strategy reproduced the synergy.
 
 This is the integration paper. It joined the cGAS-STING-PARPi work (links 2–3) to the CCR8-Treg work (link 4) and produced the first end-to-end mechanism in a treated human cohort.
 
@@ -77,7 +77,7 @@ What it didn't do: ask whether this is HGSOC-specific or generalizable pan-cance
 
 **Coherus BioSciences, 2024 readouts.** CHS-114 (tagmokitug) in head-and-neck squamous cell carcinoma, dose-escalation cohort.
 
-The Plitas/De Simone target rationale predicted that selective intratumoral Treg depletion via CCR8 should work without systemic autoimmunity. The CHS-114 phase I tested it. The readouts: **CCR8⁺Treg ↓74%** at the tumor site, **CD8/CCR8⁺Treg ratio ↑12×**, no Grade ≥3 immune-related adverse events at the doses tested. The selective-depletion claim is no longer hypothetical.
+The Plitas/De Simone target rationale predicted that selective intratumoral Treg depletion via CCR8 should work without systemic autoimmunity. The CHS-114 phase I tested it. The readouts (SITC / AACR 2025): **CCR8⁺ Treg ↓74%** at the tumor site, **CD8 / CCR8⁺ Treg ratio ↑12×**, intratumoral **CD8 density ↑73%**, total FOXP3⁺ Treg ↓43%, with a "**manageable safety profile**" (no DLTs and no new safety signals beyond the expected toripalimab profile in the combination arm). The selective-depletion claim is no longer hypothetical.
 
 This makes the combination operationally feasible. Without a clinical-grade selective Treg-depleter, the PARPi + anti-CCR8 combination is biology with no execution route. CHS-114 (and the parallel LM-108 / GS-1811 / FG-3165 programs) make it a designable trial.
 

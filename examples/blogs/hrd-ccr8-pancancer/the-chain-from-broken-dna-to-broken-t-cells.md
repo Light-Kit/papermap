@@ -62,7 +62,7 @@ PARP enzymes are involved in single-strand-break repair and replication-fork sta
 
 But fork collapse also produces **more cytosolic DNA fragments**. PARPi therefore amplifies the very signal at the start of the chain. An HRD-tumor on PARPi is, mechanistically, a higher-IFN tumor than the same tumor untreated — which means PARPi is also unintentionally amplifying the eTreg-conditioning program.
 
-This is why PARPi as a single agent has the response/resistance profile it does: the cell-killing effect helps, the immune-conditioning effect hurts, and which one dominates depends on whether the eTreg compartment is already in place. In HRD tumors where the chain has been running long enough to establish a CCR8⁺ eTreg population, PARPi alone runs into a suppressive ceiling. Add an anti-CCR8 antibody to deplete the eTregs and the ceiling lifts.
+This is why PARPi as a single agent has the response/resistance profile it does: the cell-killing effect helps, the immune-conditioning effect works against it, and which one dominates depends on whether the eTreg compartment is already in place. PARPi monotherapy does still reduce tumor burden in HRD models — Luo et al. confirmed niraparib alone attenuates tumor progression in their CCR8-humanized orthotopic ovarian model — but its ceiling is lower than the underlying biology allows. Add anti-CCR8 to deplete the eTregs and the ceiling lifts: in the Luo experiment niraparib + ZL-1218 produced significantly greater suppression than either agent alone.
 
 ## The whole chain in two takeaways
 
