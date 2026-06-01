@@ -207,6 +207,69 @@ papermap_edges:
 - - liang-2024-tam
   - gerkelab-tcgahrd
   - validates-on
+- - vazquez-garcia-2022
+  - msk-spectrum
+  - derived-from
+- - vazquez-garcia-2022
+  - knijnenburg-2018
+  - builds-on
+- - launonen-2022-farkkila
+  - htan-hms-ovarian
+  - derived-from
+- - launonen-2022-farkkila
+  - luo-2024
+  - builds-on
+- - hwang-2022-pdac
+  - gse202051
+  - derived-from
+- - hwang-2022-pdac
+  - htan-htapp
+  - derived-from
+- - bassez-2021-biokey
+  - biokey-egas
+  - derived-from
+- - pal-2021-brca1
+  - gse161529
+  - derived-from
+- - stur-2022-visium
+  - vazquez-garcia-2022
+  - validates-on
+- - kopper-2019-pdo
+  - knijnenburg-2018
+  - validates-on
+- - chu-2023-tstr
+  - gse207422
+  - derived-from
+- - chu-2023-tstr
+  - zheng-2021-tcell
+  - builds-on
+- - magen-2023-hcc
+  - luo-2024
+  - validates-on
+- - nieto-2021-ticatlas
+  - zheng-2021-tcell
+  - builds-on
+- - combes-2022-iris
+  - zheng-2021-tcell
+  - validates-on
+- - 3ca-tirosh-2025
+  - ifn-isg-signature
+  - validates-on
+- - replogle-2022-perturbseq
+  - hrdsum
+  - validates-on
+- - tay-2025-ccr8-nsclc
+  - ccr8-target-review-2025
+  - builds-on
+- - tay-2025-ccr8-nsclc
+  - luo-2024
+  - builds-on
+- - wu-2021-breast
+  - luo-2024
+  - validates-on
+- - olbrecht-2021
+  - vazquez-garcia-2022
+  - builds-on
 
 items:
 
@@ -498,6 +561,277 @@ items:
   - tumor-microenvironment
   - pan-cancer
   why: The myeloid sibling to Zheng 2021 — adds DC and macrophage state references the project uses to investigate DC–Treg interactions in HRD tumors.
+
+- id: vazquez-garcia-2022
+  starred: true
+  kind: paper
+  label: Vázquez-García et al. — MSK-SPECTRUM HGSOC atlas with HRD subtypes (Nature 2022)
+  modality: single-cell-rna
+  year: 2022
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: atlas-singlecell
+  url: https://doi.org/10.1038/s41586-022-05496-1
+  people:
+  - Vázquez-García I
+  - Uhlitz F
+  topics:
+  - hrd
+  - ovarian-cancer
+  - single-cell
+  - tumor-microenvironment
+  why: The reference HRD-stratified HGSOC single-cell atlas — 42 treatment-naive patients, 160 sites, ~929k cells with paired WGS labelling each case as HRD-Dup (BRCA1-like), HRD-Del (BRCA2-like), FBI, or TD. Gold-standard substrate for projecting the Luo eTreg/IFN signature pre-treatment.
+
+- id: olbrecht-2021
+  kind: paper
+  label: Olbrecht et al. — Lambrechts tubo-ovarian scRNA reference (Genome Medicine 2021)
+  modality: single-cell-rna
+  year: 2021
+  status: published
+  org_type: academic
+  region: Belgium
+  papermap_category: atlas-singlecell
+  url: https://doi.org/10.1186/s13073-021-00922-x
+  topics:
+  - ovarian-cancer
+  - single-cell
+  - tumor-microenvironment
+  why: 7 untreated HGSOC patients with germline BRCA1/2 status (ArrayExpress E-MTAB-8107); small but clean baseline used by most ovarian atlas integrations, pairs with Vázquez-García for HRD subtyping.
+
+- id: pal-2021-brca1
+  starred: true
+  kind: paper
+  label: Pal et al. — BRCA1+/– preneoplastic-to-tumor breast scRNA atlas (EMBO J 2021)
+  modality: single-cell-rna
+  year: 2021
+  status: published
+  org_type: academic
+  region: Australia
+  papermap_category: atlas-singlecell
+  url: https://doi.org/10.15252/embj.2020107333
+  topics:
+  - hrd
+  - breast-cancer
+  - single-cell
+  - tumor-microenvironment
+  why: The rare per-patient germline-BRCA1 single-cell dataset — 69 specimens (incl. BRCA1+/– preneoplastic tissue), GSE161529. Critical for asking what BRCA1-heterozygous epithelium looks like before tumor — the IFN baseline reference.
+
+- id: wu-2021-breast
+  kind: paper
+  label: Wu et al. — Swarbrick lab breast scRNA + CITE-seq + Visium atlas (Nat Genet 2021)
+  modality: single-cell-rna
+  year: 2021
+  status: published
+  org_type: academic
+  region: Australia
+  papermap_category: atlas-singlecell
+  url: https://doi.org/10.1038/s41588-021-00911-1
+  topics:
+  - breast-cancer
+  - single-cell
+  - tumor-microenvironment
+  why: De-facto reference breast TME atlas — 26 primary tumors (11 ER+, 5 HER2+, 10 TNBC), 130k cells, with germline BRCA status flagged for a TNBC subset (GSE176078). TNBC-enriched and includes IFN-response cancer-cell states.
+
+- id: bassez-2021-biokey
+  kind: paper
+  label: Bassez et al. — BIOKEY breast anti-PD-1 paired pre/on-treatment scRNA+TCR (Nat Med 2021)
+  modality: single-cell-rna
+  year: 2021
+  status: published
+  org_type: academic
+  region: Belgium
+  papermap_category: atlas-singlecell
+  url: https://doi.org/10.1038/s41591-021-01323-8
+  topics:
+  - breast-cancer
+  - immunotherapy
+  - exhausted-cd8
+  - single-cell
+  why: Best public proof that clonally-expanded CXCL13⁺ CD8 + Tex predict ICB response in breast (40 patients, scRNA+CITE+TCR, EGAS00001004809). Central to the exhausted-CD8 arm of the project's chain.
+
+- id: launonen-2022-farkkila
+  starred: true
+  kind: paper
+  label: Launonen / Färkkilä — Spatial single-cell mIF of BRCA1/2 vs HR-WT HGSOC (Nat Commun 2022)
+  modality: proteomics
+  year: 2022
+  status: published
+  org_type: academic
+  region: Finland/US
+  papermap_category: atlas-singlecell
+  url: https://doi.org/10.1038/s41467-022-28389-3
+  topics:
+  - hrd
+  - ovarian-cancer
+  - tumor-microenvironment
+  - mhc-class-ii
+  why: Direct HRD-vs-HRP spatial-protein comparison — 44 HGSOC (31 BRCA1/2-mut, 13 HR-WT), 124,623 cells, 21-marker t-CyCIF. The cleanest published spatial test of HRD-driven immune conditioning; the protein-level pre-cursor to the Luo 2024 mechanism.
+
+- id: stur-2022-visium
+  kind: paper
+  label: Stur et al. — HGSOC long-term-survivor Visium with BRCA status (iScience 2022)
+  modality: single-cell-rna
+  year: 2022
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: atlas-singlecell
+  url: https://doi.org/10.1016/j.isci.2022.103923
+  topics:
+  - hrd
+  - ovarian-cancer
+  - tumor-microenvironment
+  why: HGSOC Visium (GSE211956) with BRCA1/2 per-case in a long-term-survivor cohort; useful for ligand-receptor crosstalk at the tumor-stroma interface in HRD vs HRP tumors.
+
+- id: kopper-2019-pdo
+  starred: true
+  kind: paper
+  label: Kopper et al. — HUB ovarian PDO biobank with HRD + olaparib/niraparib IC50 (Nat Med 2019)
+  modality: single-cell-rna
+  year: 2019
+  status: published
+  org_type: academic
+  region: Netherlands
+  papermap_category: atlas-singlecell
+  url: https://doi.org/10.1038/s41591-019-0422-6
+  topics:
+  - hrd
+  - parpi
+  - ovarian-cancer
+  why: 56 PDOs from 32 patients spanning HGSOC / LGSOC / clear-cell / endometrioid, with per-PDO HRD scores, BRCA1/2 status, and olaparib + niraparib IC50. Subsequent scRNA has been layered on subsets. The functional HRD × PARPi-response substrate for tumor-intrinsic validation.
+
+- id: hwang-2022-pdac
+  kind: paper
+  label: Hwang et al. — DFCI/HTAN PDAC snRNA + Slide-seq atlas (Nat Genet 2022)
+  modality: single-cell-rna
+  year: 2022
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: atlas-singlecell
+  url: https://doi.org/10.1038/s41588-022-01134-8
+  topics:
+  - pancreatic-cancer
+  - single-cell
+  - tumor-microenvironment
+  why: 43 patients incl. treatment-naive and post-neoadjuvant, ~225k nuclei with paired Slide-seqV2 (GSE202051). BRCA1/2/PALB2 genotype noted in the HTAN HTAPP subset — the human PDAC reference that pairs with the GSE276238 syngeneic dataset.
+
+- id: combes-2022-iris
+  kind: paper
+  label: Combes et al. — IRIS pan-cancer immune archetypes (Cell 2022)
+  modality: single-cell-rna
+  year: 2022
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: atlas-singlecell
+  url: https://doi.org/10.1016/j.cell.2021.12.004
+  topics:
+  - single-cell
+  - pan-cancer
+  - tumor-microenvironment
+  - immunotherapy
+  why: 364 tumors across 12 indications (incl. HGSOC, breast, PDAC), ~1.5M live-cell scRNA + 28-color flow. The framework for placing HRD tumors into a pan-cancer immune archetype map — the "where does an HRD-high tumor sit among IRIS archetypes" question.
+
+- id: chu-2023-tstr
+  kind: paper
+  label: Chu et al. — Pan-cancer T-cell stress atlas (Nat Med 2023)
+  modality: single-cell-rna
+  year: 2023
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: atlas-singlecell
+  url: https://doi.org/10.1038/s41591-023-02371-y
+  topics:
+  - single-cell
+  - exhausted-cd8
+  - pan-cancer
+  - immunotherapy
+  why: 308k T cells across 16 cancer types incl. HGSOC, breast, PDAC (GSE207422). Adds the TSTR (stress-response) state — orthogonal axis to IFN/exhaustion that the project should disambiguate in HRD-high tumors.
+
+- id: magen-2023-hcc
+  kind: paper
+  label: Magen et al. — HCC neoadjuvant anti-PD-1 CXCL13+ Tfh / DC niche (Nat Med 2023)
+  modality: single-cell-rna
+  year: 2023
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: atlas-singlecell
+  url: https://doi.org/10.1038/s41591-023-02345-0
+  topics:
+  - single-cell
+  - exhausted-cd8
+  - immunotherapy
+  - tumor-microenvironment
+  why: Methodological gold standard for "DC + Tfh niche enables Tex differentiation" using paired scRNA + CITE + TCR + spatial on neoadjuvant anti-PD-1 (29 HCC patients, GSE227156). Protocol the project should mirror for its CCR8-eTreg-niche analysis.
+
+- id: nieto-2021-ticatlas
+  kind: paper
+  label: Nieto et al. — TICAtlas pan-cancer tumor immune cell atlas (Genome Research 2021)
+  modality: single-cell-rna
+  year: 2021
+  status: published
+  org_type: academic
+  region: Spain
+  papermap_category: atlas-singlecell
+  url: https://doi.org/10.1101/gr.273300.120
+  topics:
+  - single-cell
+  - pan-cancer
+  - tumor-microenvironment
+  why: ~500k cells, 217 patients, 13 cancer types — reference immune-archetype framework compatible with SPOTlight spatial deconvolution. Used for projecting the Luo eTreg signature onto HGSOC Visium.
+
+- id: 3ca-tirosh-2025
+  kind: dataset
+  label: 3CA — Curated Cancer Cell Atlas (Tirosh lab, Nat Cancer 2025)
+  modality: single-cell-rna
+  year: 2025
+  status: open
+  access: open
+  papermap_category: atlas-singlecell
+  url: https://www.weizmann.ac.il/sites/3CA/
+  topics:
+  - single-cell
+  - pan-cancer
+  - tumor-microenvironment
+  why: 124 datasets, 2,836 samples; recurrent cancer-cell metaprograms incl. an IFN-α/γ-response module. The reference the project anchors its tumor-intrinsic IFN axis to — lets HRD-driven IFN be compared against a pan-cancer baseline rather than asserted in isolation.
+
+- id: replogle-2022-perturbseq
+  starred: true
+  kind: dataset
+  label: Replogle et al. — Genome-scale Perturb-seq incl. HR genes (Cell 2022)
+  modality: single-cell-rna
+  year: 2022
+  status: open
+  access: open
+  papermap_category: signatures
+  url: https://doi.org/10.1016/j.cell.2022.05.013
+  topics:
+  - single-cell
+  - dna-repair
+  - signatures
+  - hrd
+  why: K562 + RPE1 genome-scale CRISPRi Perturb-seq (~2.5M cells) — explicitly includes BRCA1, BRCA2, RAD51, RAD51C/D, PALB2, BRIP1, 53BP1 (TP53BP1), Shieldin SHLD1/2/3, REV7. The cleanest "what does loss of HR gene X look like transcriptionally at single-cell" — direct HRD molecular-fingerprint reference for the project's signatures.
+
+- id: tay-2025-ccr8-nsclc
+  kind: paper
+  label: Tay et al. — Anti-PD-1 NSCLC scRNA defines proliferating + CCR8– + CCR8+ Treg states (Cell 2025)
+  modality: single-cell-rna
+  year: 2025
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: ccr8-etreg
+  url: https://doi.org/10.1016/j.cell.2025.03.041
+  topics:
+  - ccr8
+  - treg
+  - single-cell
+  - immunotherapy
+  why: Direct CCR8 single-cell evidence on the immunotherapy axis — defines three Treg states post-anti-PD-1 (proliferating, CCR8–, CCR8+). Tests whether the eTreg compartment expands as a treatment effect, which matters for the project's PARPi → IFN → eTreg causal claim.
 
 # ----- PARPi IMMUNE -----
 - id: parp-trapping-review
@@ -813,6 +1147,115 @@ items:
   - cgas-sting
   - tumor-microenvironment
   why: Mouse syngeneic PDAC (KPC-derived) with full 4-arm design (vehicle / olaparib / RT / olaparib+RT) and PD-L1 combination; the only public PDAC PARPi scRNA dataset found. Lets the project test the IFN→CD8 chain in a non-ovarian, mostly-HRD-low tumor type.
+
+- id: msk-spectrum
+  pinned: true
+  kind: dataset
+  label: MSK-SPECTRUM — Vázquez-García HGSOC HRD-stratified scRNA + WGS + mIF
+  modality: single-cell-rna
+  year: 2022
+  status: open
+  access: registered
+  papermap_category: datasets
+  url: https://www.synapse.org/Synapse:syn25569736
+  topics:
+  - hrd
+  - ovarian-cancer
+  - single-cell
+  - multi-omics
+  why: ~929k cells, 42 HGSOC patients, 160 sites, paired WGS labelling HRD-Dup / HRD-Del / FBI / TD per case. The gold-standard substrate for projecting eTreg/IFN signatures onto HRD-stratified ovarian samples.
+
+- id: htan-htapp
+  kind: dataset
+  label: HTAN HTAPP — Broad/DFCI multi-tumor (ovarian, breast, PDAC) with HRD calls
+  modality: multi-omics
+  year: 2024
+  status: open
+  access: registered
+  papermap_category: datasets
+  url: https://humantumoratlas.org/
+  topics:
+  - hrd
+  - pan-cancer
+  - single-cell
+  - multi-omics
+  why: HTAN HTAPP arm hosts ovarian, breast, and PDAC sub-cohorts with paired WES → HRD scoring per case. Synapse syn22000241; pairs with HTAPP-PDAC (Hwang 2022) and HTAPP-Ovarian releases for cross-tumor HRD-stratified single-cell.
+
+- id: htan-hms-ovarian
+  kind: dataset
+  label: HTAN HMS-Ovarian — Sorger/Färkkilä HGSOC tCyCIF + WGS
+  modality: proteomics
+  year: 2023
+  status: open
+  access: registered
+  papermap_category: datasets
+  url: https://humantumoratlas.org/
+  topics:
+  - hrd
+  - ovarian-cancer
+  - tumor-microenvironment
+  why: 40-plex t-CyCIF on FFPE HGSOC with paired WGS, curated HRD labels via the MSK-SPECTRUM pipeline (Synapse syn22000242). The best public spatial-protein atlas of HGSOC with HRD calls — direct extension of the Launonen/Färkkilä 2022 cohort.
+
+- id: biokey-egas
+  kind: dataset
+  label: BIOKEY — Bassez breast anti-PD-1 paired pre/on-treatment scRNA+TCR
+  modality: single-cell-rna
+  year: 2021
+  status: open
+  access: registered
+  papermap_category: datasets
+  url: https://ega-archive.org/studies/EGAS00001004809
+  topics:
+  - breast-cancer
+  - immunotherapy
+  - exhausted-cd8
+  - single-cell
+  why: ~175k cells, 40 BC patients, paired pre/on anti-PD-1 with scRNA + CITE + TCR. The substrate for testing the Tex / CXCL13⁺ CD8 expansion claim in HRD-relevant breast tumors.
+
+- id: gse161529
+  kind: dataset
+  label: GSE161529 — Pal BRCA1+/– preneoplastic-to-tumor breast scRNA
+  modality: single-cell-rna
+  year: 2021
+  status: open
+  access: open
+  papermap_category: datasets
+  url: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE161529
+  topics:
+  - hrd
+  - breast-cancer
+  - single-cell
+  why: 69 specimens incl. BRCA1+/– preneoplastic tissue; the rare per-patient germline-BRCA1 single-cell deposit (~340k cells). IFN baseline for what BRCA1-heterozygous epithelium looks like before tumor.
+
+- id: gse202051
+  kind: dataset
+  label: GSE202051 — Hwang DFCI/HTAN PDAC snRNA-seq + Slide-seq
+  modality: single-cell-rna
+  year: 2022
+  status: open
+  access: open
+  papermap_category: datasets
+  url: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE202051
+  topics:
+  - pancreatic-cancer
+  - single-cell
+  - tumor-microenvironment
+  why: 43 PDAC, ~225k nuclei with paired Slide-seqV2; BRCA1/2/PALB2 noted in HTAPP subset. The human PDAC reference paired with the syngeneic GSE276238 dataset.
+
+- id: gse207422
+  kind: dataset
+  label: GSE207422 — Chu pan-cancer T-cell stress atlas
+  modality: single-cell-rna
+  year: 2023
+  status: open
+  access: open
+  papermap_category: datasets
+  url: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE207422
+  topics:
+  - single-cell
+  - exhausted-cd8
+  - pan-cancer
+  why: 308k T cells, 16 cancer types incl. HGSOC, breast, PDAC. The pan-cancer T-cell reference with TSTR state, complementary to Zheng 2021.
 
 # ----- SIGNATURES / METHODS -----
 - id: hrdsum
