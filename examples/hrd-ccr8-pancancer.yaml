@@ -1,0 +1,818 @@
+title: HRD × CCR8⁺ eTreg — a pan-cancer multi-omics vault
+subtitle: A project-notebook vault for the bet that HRD tumors carry an IFN-conditioned CCR8⁺ effector-Treg immunosuppressive program — and that the (HRD-high × IFN/eTreg-high) intersection defines a pan-cancer subgroup suited to PARPi + anti-CCR8. Anchor paper, supporting literature across HRD/PARPi · IFN-cGAS-STING · CCR8-eTreg, the datasets and signatures the analysis depends on, the anti-CCR8 antibody pipeline, and the relevant trials. Compare lines up the antibodies; Topics surfaces the three threads; Blogs hosts the literature review + analysis plan.
+vocab:
+  kind:
+    paper: Peer-reviewed paper, preprint, or workshop submission
+    review: Review article or perspective synthesising a literature
+    dataset: A data resource — atlas, cohort, screen, corpus
+    signature: A scoring method, gene signature, or computational scar metric
+    tool: A named software package or pipeline
+    drug: A clinical antibody or small molecule (with sponsor + trial)
+    trial: A clinical trial entry (NCT ID, phase, indication)
+    org: Lab, institute, company, or consortium
+  modality:
+  - bulk-rna
+  - single-cell-rna
+  - proteomics
+  - genomics
+  - dna-damage
+  - clinical
+  - multi-omics
+  topics:
+  - hrd
+  - parpi
+  - cgas-sting
+  - interferon
+  - mhc-class-ii
+  - ccr8
+  - treg
+  - exhausted-cd8
+  - synthetic-lethality
+  - dna-repair
+  - pan-cancer
+  - ovarian-cancer
+  - breast-cancer
+  - prostate-cancer
+  - pancreatic-cancer
+  - immunotherapy
+  - tumor-microenvironment
+  - multi-omics
+  - single-cell
+  - proteomics
+  - signatures
+  - deconvolution
+papermap_categories:
+- anchor
+- hrd-genomics
+- ifn-bridge
+- ccr8-etreg
+- parpi-immune
+- atlas-singlecell
+- datasets
+- signatures
+- antibodies
+- trials
+papermap_relations:
+- id: builds-on
+  label: Builds on
+  color: '#4e79a7'
+- id: validates-on
+  label: Validates on
+  color: '#59a14f'
+- id: targets
+  label: Targets
+  color: '#e8924a'
+- id: in-trial
+  label: In trial
+  color: '#9c6bab'
+- id: derived-from
+  label: Derived from
+  color: '#bcbd22'
+papermap_edges:
+- - luo-2024
+  - gse222556
+  - validates-on
+- - luo-2024
+  - nct04507841
+  - in-trial
+- - luo-2024
+  - etreg-signature
+  - derived-from
+- - knijnenburg-2018
+  - tcga-pancan
+  - validates-on
+- - knijnenburg-2018
+  - hrdsum
+  - derived-from
+- - zheng-2021-tcell
+  - ngdc-tcell-atlas
+  - derived-from
+- - cheng-2021-myeloid
+  - ngdc-tcell-atlas
+  - validates-on
+- - hrd-npj-2022
+  - knijnenburg-2018
+  - builds-on
+- - hrd-scirep-2023
+  - tcga-pancan
+  - validates-on
+- - hrd-humancell-2021
+  - tcga-pancan
+  - validates-on
+- - hrd-tme-2025
+  - luo-2024
+  - builds-on
+- - exphrd-2024
+  - tcga-pancan
+  - validates-on
+- - cptac-pancan-2024
+  - tcpa
+  - builds-on
+- - chs-114
+  - ccr8
+  - targets
+- - lm-108
+  - ccr8
+  - targets
+- - gs-1811
+  - ccr8
+  - targets
+- - fg-3165
+  - ccr8
+  - targets
+- - chs-114
+  - nct05635643
+  - in-trial
+- - gs-1811
+  - ccr8-onco-2022
+  - derived-from
+- - ccr8-target-review-2025
+  - luo-2024
+  - builds-on
+- - ccr8-lung-tcga
+  - tcga-pancan
+  - validates-on
+- - ccr8-colorectal-tcga
+  - tcga-pancan
+  - validates-on
+- - ccr8-hcc-tcga
+  - tcga-pancan
+  - validates-on
+- - ccr8-breast-tcga
+  - tcga-pancan
+  - validates-on
+- - ccr8-bladder-tcga
+  - tcga-pancan
+  - validates-on
+- - sbs3
+  - tcga-pancan
+  - validates-on
+- - gerkelab-tcgahrd
+  - hrdsum
+  - derived-from
+- - cibersortx
+  - tcga-pancan
+  - validates-on
+- - ssgsea
+  - etreg-signature
+  - validates-on
+- - ifn-isg-signature
+  - luo-2024
+  - validates-on
+- - cgas-sting-parpi-review
+  - luo-2024
+  - builds-on
+- - ifn-double-edge-review
+  - luo-2024
+  - builds-on
+- - parp-trapping-review
+  - luo-2024
+  - builds-on
+- - parpi-icd-review
+  - luo-2024
+  - builds-on
+- - gao-lab
+  - luo-2024
+  - derived-from
+- - liang-lab
+  - knijnenburg-2018
+  - derived-from
+
+items:
+
+# ----- ANCHOR -----
+- id: luo-2024
+  pinned: true
+  starred: true
+  kind: paper
+  label: Luo et al. — PARPi or chemo neoadjuvant in ovarian cancer informs effector-Treg targeting in HRD
+  modality: single-cell-rna
+  year: 2024
+  released: '2024-08'
+  status: published
+  org_type: academic
+  region: China
+  papermap_category: anchor
+  url: https://doi.org/10.1016/j.cell.2024.06.013
+  people:
+  - Luo Y
+  - Xia Y
+  - Liu D
+  - Liang H
+  - Gao Q
+  topics:
+  - hrd
+  - parpi
+  - ccr8
+  - treg
+  - exhausted-cd8
+  - interferon
+  - mhc-class-ii
+  - ovarian-cancer
+  - single-cell
+  why: The mechanism anchor — HRD → IFN signaling → tumor-cell MHC-II^hi + co-inhibitory ligands → CCR8⁺ terminal eTreg enrichment (co-occurring with terminally exhausted CD8); eTreg depletion + PARPi cuts tumor burden in CCR8-humanized mice. Closes the loop in HGSOC; opens the pan-cancer question this project answers.
+  qa:
+    did: Used scRNA + TCR repertoire on neoadjuvant-niraparib HGSOC samples (phase II NCT04507841) to trace how HRD reshapes the tumor microenvironment, then validated the mechanism in CCR8-humanized mice with PARPi + anti-CCR8 combination treatment.
+    purpose: To identify which tumor-immune circuit explains why HRD tumors should — but often don't — sustain durable anti-tumor immunity under PARPi, and to convert that circuit into a druggable combination hypothesis.
+    method: Single-cell transcriptomes + paired TCR clones from HGSOC patients on the phase II niraparib arm; comparison of HRD vs HRP patients; in-vivo combination of PARPi with anti-CCR8 antibody in CCR8-humanized mice.
+    result: HRD enriches CCR8⁺ terminal effector Tregs co-occurring with terminally exhausted CD8 T cells; tumor cells in HRD samples upregulate MHC-II and co-inhibitory ligands consistent with IFN conditioning; PARPi + anti-CCR8 reduces tumor burden where PARPi alone does not.
+
+# ----- HRD GENOMICS -----
+- id: knijnenburg-2018
+  starred: true
+  kind: paper
+  label: Knijnenburg et al. — Genomic and molecular landscape of DDR deficiency across TCGA
+  modality: genomics
+  year: 2018
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: hrd-genomics
+  url: https://doi.org/10.1016/j.celrep.2018.03.076
+  topics:
+  - hrd
+  - dna-repair
+  - pan-cancer
+  - signatures
+  why: The canonical TCGA pan-cancer HRD landscape — gives the HRDsum (LOH+LST+TAI) scores plus per-cancer distributions this project uses as its primary genomic-scar definition.
+
+- id: hrd-npj-2022
+  kind: paper
+  label: npj Precision Oncology 2022 — HRD genomic scar patterns pan-cancer
+  modality: genomics
+  year: 2022
+  status: published
+  papermap_category: hrd-genomics
+  url: https://www.nature.com/articles/s41698-022-00276-6
+  topics:
+  - hrd
+  - pan-cancer
+  - signatures
+  why: Cautionary anchor — shows the HRDsum ≥42 cutpoint optimal for ovarian is suboptimal in other cancer types, motivating the project's tumor-type-specific cutpoint sensitivity analysis.
+
+- id: hrd-scirep-2023
+  kind: paper
+  label: Sci Rep 2023 — Pan-cancer HRD → exhausted T → anti-PD-1 response
+  modality: bulk-rna
+  year: 2023
+  status: published
+  papermap_category: hrd-genomics
+  url: https://www.nature.com/articles/s41598-023-31888-y
+  topics:
+  - hrd
+  - exhausted-cd8
+  - immunotherapy
+  - pan-cancer
+  why: The closest prior pan-cancer link from HRD to immune exhaustion to anti-PD-1 response — establishes the broad pattern this project will refine into a CCR8/IFN-specific stratifier.
+
+- id: hrd-humancell-2021
+  kind: paper
+  label: Human Cell 2021 — HRD score as predictive marker for immunotherapy
+  modality: clinical
+  year: 2021
+  status: published
+  papermap_category: hrd-genomics
+  url: https://link.springer.com/journal/13577
+  topics:
+  - hrd
+  - immunotherapy
+  why: Treats HRD as a candidate IO biomarker; useful as a precedent for the project's stratifier framing while making clear that HRD alone (without IFN/eTreg gating) is too coarse.
+
+- id: hrd-tme-2025
+  kind: review
+  label: Biomarker Research 2025 — The distinct landscape of TME in HRD cancers
+  modality: bulk-rna
+  year: 2025
+  status: published
+  papermap_category: hrd-genomics
+  url: https://biomarkerres.biomedcentral.com/
+  topics:
+  - hrd
+  - tumor-microenvironment
+  - interferon
+  - immunotherapy
+  why: Synthesizes the dynamic balance of early immune activation vs late immunosuppression in HRD tumors — the conceptual frame this project operationalizes as a stratifier.
+
+# ----- IFN BRIDGE -----
+- id: cgas-sting-parpi-review
+  kind: review
+  label: PARPi-induced cGAS-STING and type I IFN (mechanism review)
+  modality: dna-damage
+  year: 2023
+  status: published
+  papermap_category: ifn-bridge
+  topics:
+  - parpi
+  - cgas-sting
+  - interferon
+  - dna-damage
+  why: Background for the IFN bridge — DNA damage → cytosolic DNA → cGAS-STING → type I IFN — the mechanism that lets HRD/PARPi remodel the TME at all.
+
+- id: ifn-double-edge-review
+  kind: review
+  label: The double edge of IFN in the tumor microenvironment
+  modality: bulk-rna
+  year: 2022
+  status: published
+  papermap_category: ifn-bridge
+  topics:
+  - interferon
+  - mhc-class-ii
+  - tumor-microenvironment
+  - exhausted-cd8
+  why: Frames the central tension this project measures — IFN recruits effector T cells and simultaneously upregulates PD-L1/MHC-II/co-inhibitory ligands; useful to cite when arguing the eTreg enrichment is IFN-conditioned, not IFN-absent.
+
+# ----- CCR8 / eTreg -----
+- id: ccr8-target-review-2025
+  starred: true
+  kind: review
+  label: CCR8 — a promising therapeutic target against tumor-infiltrating Treg cells (Gao lab review, 2025)
+  modality: bulk-rna
+  year: 2025
+  status: published
+  org_type: academic
+  region: China
+  papermap_category: ccr8-etreg
+  topics:
+  - ccr8
+  - treg
+  - immunotherapy
+  - pan-cancer
+  why: Closest review to the project's scope — argues CCR8 is the right Treg target and walks through per-cancer evidence; the project differentiates by adding HRD/IFN gating.
+
+- id: ccr8-onco-2022
+  kind: paper
+  label: OncoImmunology 2022 — GS-1811 anti-CCR8 antibody + TCGA Treg target screen
+  modality: bulk-rna
+  year: 2022
+  status: published
+  papermap_category: ccr8-etreg
+  url: https://www.tandfonline.com/journals/koni20
+  topics:
+  - ccr8
+  - treg
+  - immunotherapy
+  why: Established intratumoral-Treg specificity of CCR8 across TCGA and the depletion-antibody approach; the technical precedent every later anti-CCR8 program cites.
+
+- id: ccr8-lung-tcga
+  kind: paper
+  label: CCR8⁺ Treg in non-small-cell lung cancer — TCGA + function
+  modality: bulk-rna
+  year: 2023
+  status: published
+  papermap_category: ccr8-etreg
+  topics:
+  - ccr8
+  - treg
+  - immunotherapy
+  why: Per-cancer evidence — confirms the CCR8⁺ eTreg pattern in NSCLC; one of the lung pieces of the pan-cancer landscape this project will systematize.
+
+- id: ccr8-colorectal-tcga
+  kind: paper
+  label: CCR8⁺ Treg in colorectal cancer — TCGA + function
+  modality: bulk-rna
+  year: 2023
+  status: published
+  papermap_category: ccr8-etreg
+  topics:
+  - ccr8
+  - treg
+  - immunotherapy
+  why: Per-cancer evidence in colorectal — relevant because CRC has both MSI-high (decoupled from HRD) and MSS subtypes the project must separate.
+
+- id: ccr8-hcc-tcga
+  kind: paper
+  label: CCR8⁺ Treg in hepatocellular carcinoma — TCGA + function
+  modality: bulk-rna
+  year: 2022
+  status: published
+  papermap_category: ccr8-etreg
+  topics:
+  - ccr8
+  - treg
+  - immunotherapy
+  why: HCC piece — useful comparator since HCC is rarely HRD-high; expected to test the specificity claim (HRD-independent CCR8 enrichment vs HRD-driven enrichment).
+
+- id: ccr8-breast-tcga
+  kind: paper
+  label: CCR8⁺ Treg in breast cancer — TCGA + function
+  modality: bulk-rna
+  year: 2023
+  status: published
+  papermap_category: ccr8-etreg
+  topics:
+  - ccr8
+  - treg
+  - breast-cancer
+  why: Breast is the canonical second-HRD cancer; per-cancer CCR8 data here is essential for the Aim 4 subgroup map.
+
+- id: ccr8-bladder-tcga
+  kind: paper
+  label: CCR8⁺ Treg in bladder cancer — TCGA + function
+  modality: bulk-rna
+  year: 2024
+  status: published
+  papermap_category: ccr8-etreg
+  topics:
+  - ccr8
+  - treg
+  - immunotherapy
+  why: Bladder is high-mutation/IO-responsive — a useful control for "high immunogenicity ≠ HRD-driven eTreg enrichment."
+
+# ----- PAN-CANCER ATLASES -----
+- id: zheng-2021-tcell
+  starred: true
+  kind: paper
+  label: Zheng et al. — Pan-cancer single-cell landscape of tumor-infiltrating T cells (Science 2021)
+  modality: single-cell-rna
+  year: 2021
+  status: published
+  org_type: academic
+  region: China
+  papermap_category: atlas-singlecell
+  url: https://doi.org/10.1126/science.abe6474
+  people:
+  - Zheng L
+  - Qin S
+  - Zhang Z
+  topics:
+  - single-cell
+  - treg
+  - exhausted-cd8
+  - pan-cancer
+  - tumor-microenvironment
+  why: The pan-cancer T-cell atlas (21 cancer types, 316 patients, ~390k T cells) — confirms CCR8 marks intratumoral eTregs across tumor types and supplies the per-cancer eTreg fractions this project will compare against HRD surrogates.
+  qa:
+    did: Built a pan-cancer single-cell atlas of tumor-infiltrating T cells across 21 cancer types and 316 patients, integrating ~390k T cells with paired TCR repertoire information.
+    purpose: To answer whether T-cell states (Treg, exhausted, effector) are shared archetypes across cancers or tumor-type-specific, and to provide a reference panel future single-cell studies can map onto.
+    method: Integrated scRNA + paired TCR sequencing across multiple datasets; defined cell states by clustering; quantified per-tumor-type fractions and TCR-clonotype sharing across states.
+    result: Identified recurring T-cell states — including CCR8-defined effector Tregs and terminally exhausted CD8 — that appear across cancer types at variable abundance; established the shared-archetype framing the project applies pan-cancer.
+
+- id: cheng-2021-myeloid
+  starred: true
+  kind: paper
+  label: Cheng et al. — Pan-cancer single-cell atlas of tumor-infiltrating myeloid cells (Cell 2021)
+  modality: single-cell-rna
+  year: 2021
+  status: published
+  org_type: academic
+  region: China
+  papermap_category: atlas-singlecell
+  url: https://doi.org/10.1016/j.cell.2021.01.010
+  people:
+  - Cheng S
+  - Li Z
+  - Gao R
+  topics:
+  - single-cell
+  - tumor-microenvironment
+  - pan-cancer
+  why: The myeloid sibling to Zheng 2021 — adds DC and macrophage state references the project uses to investigate DC–Treg interactions in HRD tumors.
+
+# ----- PARPi IMMUNE -----
+- id: parp-trapping-review
+  kind: review
+  label: PARP trapping, replication-fork collapse, and synthetic lethality (review)
+  modality: dna-damage
+  year: 2022
+  status: published
+  papermap_category: parpi-immune
+  topics:
+  - parpi
+  - synthetic-lethality
+  - dna-repair
+  why: Classical pharmacology background — PARP trapping is the mechanism that converts HRD into a survival liability; the prerequisite for the IFN bridge to fire.
+
+- id: parpi-icd-review
+  kind: review
+  label: PARPi-induced immunogenic cell death and IFN/antigen presentation upregulation
+  modality: dna-damage
+  year: 2023
+  status: published
+  papermap_category: parpi-immune
+  topics:
+  - parpi
+  - cgas-sting
+  - interferon
+  - mhc-class-ii
+  why: Connects PARPi pharmacology to the immune-conditioning effects the project quantifies — the literature bridge between Thread 1 and Thread 2.
+
+# ----- DATASETS -----
+- id: tcga-pancan
+  pinned: true
+  kind: dataset
+  label: TCGA pan-cancer (RNA-seq + SNP array + WES)
+  modality: multi-omics
+  year: 2018
+  status: open
+  access: open
+  papermap_category: datasets
+  url: https://portal.gdc.cancer.gov/
+  topics:
+  - pan-cancer
+  - multi-omics
+  - genomics
+  why: The main arena for Aims 1–4 — provides the bulk RNA-seq for signature scoring, the SNP array / WES for HRDsum + BRCA1/2 calls, and per-cancer cohort sizes that let the project move from per-tumor associations to pan-cancer mixed models.
+
+- id: cptac-pancan-2024
+  pinned: true
+  kind: dataset
+  label: CPTAC pan-cancer proteogenomics (10 cancer types, 1,043 patients)
+  modality: proteomics
+  year: 2024
+  status: open
+  access: open
+  papermap_category: datasets
+  url: https://proteomic.datacommons.cancer.gov/
+  topics:
+  - pan-cancer
+  - proteomics
+  - multi-omics
+  why: The cross-validation layer for Aim 5 — confirms transcript-level CCR8/eTreg/IFN findings hold at the protein and phosphosite level. 10 cancer types covers most of the project's pan-cancer scope.
+  qa:
+    did: Provides matched genomic, transcriptomic, proteomic, and phosphoproteomic measurements across 10 cancer types and 1,043 patients in the harmonized CPTAC pan-cancer release.
+    purpose: To enable cross-omic validation of any transcript-level finding — does the protein and phospho readout agree with the RNA story?
+    method: Matched multi-omic profiling on the same tumor samples; reprocessed by the CPTAC consortium with shared pipelines; surfaced via the Proteomic Data Commons.
+    result: A pan-cancer multi-omic resource that this project uses to confirm CCR8, LAG3, TNFRSF18, and IFN-pathway members are concordantly altered at the protein/phospho level in HRD tumors, not just at the transcript level.
+
+- id: gse222556
+  pinned: true
+  kind: dataset
+  label: GSE222556 — Neoadjuvant niraparib HGSOC scRNA-seq (the Luo 2024 anchor data)
+  modality: single-cell-rna
+  year: 2024
+  status: open
+  access: open
+  papermap_category: datasets
+  url: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE222556
+  topics:
+  - parpi
+  - hrd
+  - ovarian-cancer
+  - single-cell
+  why: Discovery anchor — the single-cell data backing Luo 2024. Used as the positive control for the project's eTreg/IFN signature definitions before they're rolled out pan-cancer.
+
+- id: ngdc-tcell-atlas
+  kind: dataset
+  label: NGDC — Zheng et al. pan-cancer T-cell atlas data release
+  modality: single-cell-rna
+  year: 2021
+  status: open
+  access: open
+  papermap_category: datasets
+  url: https://ngdc.cncb.ac.cn/
+  topics:
+  - single-cell
+  - treg
+  - exhausted-cd8
+  - pan-cancer
+  why: The public release behind Zheng 2021 — the single-cell substrate for verifying that bulk-deconvolved CCR8⁺ eTreg signal corresponds to real cells, not artifacts.
+
+- id: gerkelab-tcgahrd
+  kind: tool
+  label: GerkeLab/TCGAhrd — pre-processed Knijnenburg HRD scores for TCGA
+  modality: genomics
+  year: 2020
+  status: open
+  access: open
+  papermap_category: datasets
+  url: https://github.com/GerkeLab/TCGAhrd
+  topics:
+  - hrd
+  - pan-cancer
+  - signatures
+  why: Saves a week of work — ships the Knijnenburg HRDsum/LOH/LST/NtAI scores ready-to-use for 33 cancer types, 9,125 samples. Used directly in Aim 1.
+
+- id: tcpa
+  kind: dataset
+  label: TCPA — The Cancer Proteome Atlas (RPPA)
+  modality: proteomics
+  year: 2020
+  status: open
+  access: open
+  papermap_category: datasets
+  url: https://tcpaportal.org/
+  topics:
+  - pan-cancer
+  - proteomics
+  why: RPPA companion to CPTAC — provides a second proteomic readout (smaller panel, larger sample size) for cross-checking key targets like CCR8 / LAG3.
+
+# ----- SIGNATURES / METHODS -----
+- id: hrdsum
+  kind: signature
+  label: HRDsum (LOH + LST + TAI/NtAI)
+  modality: genomics
+  year: 2018
+  status: published
+  papermap_category: signatures
+  url: https://doi.org/10.1016/j.celrep.2018.03.076
+  topics:
+  - hrd
+  - signatures
+  - dna-repair
+  why: Primary genomic-scar HRD score; the composite metric of Knijnenburg 2018 used as the main HRD definition with tumor-type-specific cutpoints (sensitivity analysis required outside ovarian).
+
+- id: sbs3
+  kind: signature
+  label: SBS3 — Mutational signature of HR-deficiency (COSMIC v3)
+  modality: genomics
+  year: 2020
+  status: published
+  papermap_category: signatures
+  url: https://cancer.sanger.ac.uk/signatures/sbs/sbs3/
+  topics:
+  - hrd
+  - signatures
+  - dna-repair
+  why: Orthogonal HRD definition based on SNV patterns — used to test whether genomic-scar HRD and mutational-signature HRD agree pan-cancer (they don't always; the disagreement is itself a result).
+
+- id: etreg-signature
+  starred: true
+  kind: signature
+  label: Cell 2024 terminal eTreg gene signature (CCR8 + LAG3 + TNFRSF18 + …)
+  modality: single-cell-rna
+  year: 2024
+  status: published
+  papermap_category: signatures
+  url: https://doi.org/10.1016/j.cell.2024.06.013
+  topics:
+  - ccr8
+  - treg
+  - signatures
+  - signatures
+  why: Reused directly from Luo 2024 so the pan-cancer comparison stays apples-to-apples with the mechanism paper. Scored via ssGSEA on bulk RNA, validated against single-cell.
+
+- id: ifn-isg-signature
+  kind: signature
+  label: Type-I IFN / ISG response signature (Liberzon Hallmark)
+  modality: bulk-rna
+  year: 2015
+  status: published
+  papermap_category: signatures
+  url: https://www.gsea-msigdb.org/gsea/msigdb/cards/HALLMARK_INTERFERON_ALPHA_RESPONSE
+  topics:
+  - interferon
+  - signatures
+  why: The standard ISG / type-I IFN signature; used to estimate IFN-conditioning of the TME in bulk RNA samples (the IFN axis of the 2D / 3D stratifier).
+
+- id: ssgsea
+  kind: tool
+  label: ssGSEA — single-sample gene set enrichment
+  modality: bulk-rna
+  year: 2009
+  status: published
+  papermap_category: signatures
+  url: https://www.gsea-msigdb.org/
+  topics:
+  - signatures
+  why: Scoring engine for the eTreg and IFN signatures; sample-level scores that can be regressed against HRD status with covariates.
+
+- id: cibersortx
+  kind: tool
+  label: CIBERSORTx — bulk transcriptome deconvolution
+  modality: bulk-rna
+  year: 2019
+  status: published
+  papermap_category: signatures
+  url: https://cibersortx.stanford.edu/
+  topics:
+  - signatures
+  - deconvolution
+  why: Used to estimate per-sample immune-cell fractions (Tregs, CD8 subsets, DCs) — gives the "total immune infiltrate" covariate that confounder-controls the project's main claim.
+
+- id: exphrd-2024
+  kind: tool
+  label: expHRD — transcriptome-based HRD prediction (cohort-independent ssGSEA)
+  modality: bulk-rna
+  year: 2024
+  status: published
+  papermap_category: signatures
+  topics:
+  - hrd
+  - signatures
+  - immunotherapy
+  why: Lets the project add HRD calls to RNA-seq-only cohorts (especially ICI clinical cohorts), bridging Aim 6's translational test where SNP/WES isn't available.
+
+# ----- ANTI-CCR8 ANTIBODY PIPELINE -----
+- id: chs-114
+  starred: true
+  kind: drug
+  label: CHS-114 / tagmokitug (Coherus) — anti-CCR8 Treg depleter
+  modality: clinical
+  year: 2024
+  released: '2023-11'
+  status: phase-1
+  org_type: industry
+  region: US
+  papermap_category: antibodies
+  url: https://clinicaltrials.gov/study/NCT05635643
+  topics:
+  - ccr8
+  - treg
+  - immunotherapy
+  why: The most clinically advanced selective anti-CCR8 program with public PD readouts (CCR8⁺Treg ↓74%, CD8/CCR8⁺Treg ratio ↑12× in HNSCC). Lead candidate for any future PARPi + anti-CCR8 combination trial.
+
+- id: lm-108
+  kind: drug
+  label: LM-108 (LaNova / Merck) — anti-CCR8 Treg depleter
+  modality: clinical
+  year: 2024
+  status: phase-1-2
+  org_type: industry
+  region: China
+  papermap_category: antibodies
+  topics:
+  - ccr8
+  - treg
+  - immunotherapy
+  why: China-licensed-to-Merck program; expanding into NSCLC + GI combinations with anti-PD-1 — never with PARPi (the gap this project flags).
+
+- id: gs-1811
+  kind: drug
+  label: GS-1811 (Gilead) — anti-CCR8 Treg depleter
+  modality: clinical
+  year: 2023
+  status: phase-1
+  org_type: industry
+  region: US
+  papermap_category: antibodies
+  topics:
+  - ccr8
+  - treg
+  - immunotherapy
+  why: First-disclosed anti-CCR8 from the OncoImmunology 2022 target screen; another industry-side combination candidate.
+
+- id: fg-3165
+  kind: drug
+  label: FG-3165 (FogPharma) — anti-CCR8 Treg depleter
+  modality: clinical
+  year: 2024
+  status: phase-1
+  org_type: industry
+  region: US
+  papermap_category: antibodies
+  topics:
+  - ccr8
+  - treg
+  - immunotherapy
+  why: Newer entrant in the anti-CCR8 race; included for completeness of the Compare-tab landscape.
+
+# ----- TRIALS -----
+- id: nct04507841
+  kind: trial
+  label: NCT04507841 — Phase II niraparib (PARPi) neoadjuvant HGSOC
+  modality: clinical
+  year: 2020
+  status: phase-2
+  papermap_category: trials
+  url: https://clinicaltrials.gov/study/NCT04507841
+  topics:
+  - parpi
+  - ovarian-cancer
+  - hrd
+  why: The trial whose samples produced GSE222556 and Luo 2024; the only public PARPi-treated cohort with paired scRNA outcomes — the entire project's positive control.
+
+- id: nct05635643
+  kind: trial
+  label: NCT05635643 — Phase I CHS-114 (anti-CCR8) ± toripalimab in HNSCC
+  modality: clinical
+  year: 2023
+  status: phase-1
+  papermap_category: trials
+  url: https://clinicaltrials.gov/study/NCT05635643
+  topics:
+  - ccr8
+  - immunotherapy
+  why: The trial reporting CCR8⁺Treg ↓74% and CD8/CCR8⁺Treg ratio ↑12× — proof-of-concept that selective intratumoral Treg depletion is achievable without systemic irAEs.
+
+# ----- ORGS -----
+- id: gao-lab
+  kind: org
+  label: Gao Qiang lab (Fudan / Zhongshan Hospital)
+  modality: clinical
+  year: 2024
+  status: active
+  org_type: academic
+  region: China
+  papermap_category: ccr8-etreg
+  topics:
+  - ccr8
+  - treg
+  - hrd
+  - ovarian-cancer
+  why: The Luo 2024 anchor lab; also authors of the CCR8 target review. The clearest example of an integrated mechanism-to-trial program in this space.
+
+- id: liang-lab
+  kind: org
+  label: Liang Han lab (MD Anderson) — co-author on Luo 2024
+  modality: bulk-rna
+  year: 2024
+  status: active
+  org_type: academic
+  region: US
+  papermap_category: hrd-genomics
+  topics:
+  - hrd
+  - pan-cancer
+  - multi-omics
+  why: TCGA-side computational collaborator on Luo 2024; relevant lineage for pan-cancer HRD-genomics analysis at scale.
