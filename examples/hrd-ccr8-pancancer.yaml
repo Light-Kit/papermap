@@ -52,6 +52,8 @@ papermap_categories:
 - signatures
 - antibodies
 - trials
+- real-world
+- models
 papermap_relations:
 - id: builds-on
   label: Builds on
@@ -400,6 +402,201 @@ papermap_edges:
   - replogle-2022-perturbseq
   - validates-on
 - - depmap-prism
+  - knijnenburg-2018
+  - validates-on
+- - genie-bpc
+  - aacr-genie-v19
+  - builds-on
+- - jee-2024-msk-chord
+  - msk-impact-zehir-2017
+  - builds-on
+- - msk-met-nguyen-2022
+  - msk-impact-zehir-2017
+  - builds-on
+- - fmi-flatiron-cgdb
+  - knijnenburg-2018
+  - validates-on
+- - newberg-2023-foundation-hrdsig
+  - fmi-flatiron-cgdb
+  - derived-from
+- - sokol-2020-foundation-brca-gloh
+  - fmi-flatiron-cgdb
+  - derived-from
+- - stover-2022-tempus-hrd
+  - knijnenburg-2018
+  - validates-on
+- - orien-avatar
+  - knijnenburg-2018
+  - validates-on
+- - kundra-2021-oncotree
+  - aacr-genie-v19
+  - builds-on
+- - sachs-2018-breast-pdo
+  - knijnenburg-2018
+  - validates-on
+- - hill-2018-hgsoc-pdo
+  - castroviejo-2018-rad51-foci
+  - builds-on
+- - bruna-2016-breast-pdtx
+  - knijnenburg-2018
+  - validates-on
+- - tiriac-2018-pdac-pdo
+  - knijnenburg-2018
+  - validates-on
+- - pdmr-nci
+  - knijnenburg-2018
+  - validates-on
+- - hcmi-ngcm
+  - knijnenburg-2018
+  - validates-on
+- - europdx-portal
+  - byrne-2017-europdx
+  - derived-from
+- - van-de-wetering-2015-crc-pdo
+  - knijnenburg-2018
+  - validates-on
+- - driehuis-2019-pdac
+  - tiriac-2018-pdac-pdo
+  - builds-on
+- - driehuis-2019-hnscc
+  - van-de-wetering-2015-crc-pdo
+  - builds-on
+- - mer-2019-xeva-jax
+  - pdmr-nci
+  - validates-on
+- - proxe-townsend-2016
+  - pdmr-nci
+  - builds-on
+- - cellxgene-census
+  - zheng-2021-tcell
+  - validates-on
+- - tisch2
+  - zheng-2021-tcell
+  - validates-on
+- - xenium-prime-5k-public
+  - vazquez-garcia-2022
+  - validates-on
+- - hubmap
+  - gse202051
+  - validates-on
+- - tabula-sapiens-v2
+  - cellxgene-census
+  - derived-from
+- - eraslan-2022-gtex-snrna
+  - cellxgene-census
+  - derived-from
+- - tcga-450k-pancan
+  - tcga-pancan
+  - derived-from
+- - polak-2017-brca1-meth
+  - tcga-450k-pancan
+  - validates-on
+- - bell-2011-tcga-ov
+  - tcga-450k-pancan
+  - validates-on
+- - esteller-2000-brca1-meth
+  - polak-2017-brca1-meth
+  - builds-on
+- - corces-2018-tcga-atac
+  - tcga-pancan
+  - derived-from
+- - roadmap-epigenomics
+  - corces-2018-tcga-atac
+  - validates-on
+- - encode-cancer-lines
+  - corces-2018-tcga-atac
+  - validates-on
+- - granja-2021-pancan-scatac
+  - corces-2018-tcga-atac
+  - validates-on
+- - ma-2020-shareseq
+  - granja-2021-pancan-scatac
+  - builds-on
+- - gtex-atac-2025
+  - corces-2018-tcga-atac
+  - validates-on
+- - ciita-pivIV-ifn
+  - ifn-isg-signature
+  - validates-on
+- - axelrod-2019-ciita-tumor
+  - ciita-pivIV-ifn
+  - builds-on
+- - geo-hrd-meth-deposits
+  - tcga-450k-pancan
+  - validates-on
+- - tracerx-lung-abbosh-2023
+  - davies-2017-hrdetect
+  - validates-on
+- - profound-ctdna-2023
+  - mateo-2021-toparp
+  - builds-on
+- - magnitude-ctdna-2023
+  - profound-ctdna-2023
+  - builds-on
+- - davies-2017-hrdetect
+  - hrdsum
+  - builds-on
+- - davies-2017-hrdetect
+  - sbs3
+  - builds-on
+- - sztupinszki-2018-scarhrd
+  - knijnenburg-2018
+  - derived-from
+- - sztupinszki-2018-scarhrd
+  - hrdsum
+  - derived-from
+- - telli-2016-mychoice
+  - knijnenburg-2018
+  - builds-on
+- - coleman-2017-ariel2-loh
+  - knijnenburg-2018
+  - builds-on
+- - hodgson-2018-ariel3-loh
+  - coleman-2017-ariel2-loh
+  - builds-on
+- - farkkila-2023-ovahrdscar
+  - knijnenburg-2018
+  - builds-on
+- - farkkila-2023-ovahrdscar
+  - vazquez-garcia-2022
+  - validates-on
+- - bergstrom-2024-deephrd
+  - davies-2017-hrdetect
+  - validates-on
+- - abbasi-2025-hrprofiler
+  - davies-2017-hrdetect
+  - validates-on
+- - gulhan-2019-sigma
+  - sbs3
+  - builds-on
+- - jensen-2025-foundation-hrdsig
+  - coleman-2017-ariel2-loh
+  - builds-on
+- - castroviejo-2018-rad51-foci
+  - hill-2018-hgsoc-pdo
+  - validates-on
+- - cruz-2018-rad51-resistance
+  - castroviejo-2018-rad51-foci
+  - builds-on
+- - marquard-2015-pancancer-scars
+  - knijnenburg-2018
+  - builds-on
+- - doig-2022-oncoscan-hrd
+  - telli-2016-mychoice
+  - validates-on
+- - alexandrov-2024-celllines-hrd-benchmark
+  - depmap-prism
+  - builds-on
+- - vergote-2024-eu-hrd-consensus
+  - telli-2016-mychoice
+  - builds-on
+- - etemadmoghadam-2013-ccne1
+  - knijnenburg-2018
+  - validates-on
+- - champions-tumorgraft
+  - pdmr-nci
+  - validates-on
+- - jee-2024-msk-chord
   - knijnenburg-2018
   - validates-on
 
@@ -2436,3 +2633,1036 @@ items:
   - pan-cancer
   - proteomics
   why: 375 CCLE lines × 12,755 proteins via TMT10 — STAT1, HLA-DR/DP/DQ, LGALS9 robustly quantified. Lets the project ask "do per-line ISG/MHC-II protein levels track the RNA story" before extrapolating to tumor cohorts.
+
+# ===== ROUND 4 =====
+# ----- REAL-WORLD CLINICO-GENOMIC -----
+- id: aacr-genie-v19
+  pinned: true
+  kind: dataset
+  label: AACR Project GENIE v19 — multi-institutional clinico-genomic registry
+  modality: genomics
+  year: 2026
+  released: '2026-01'
+  status: open
+  access: open
+  papermap_category: real-world
+  url: https://www.aacr.org/professionals/research/aacr-project-genie/
+  topics:
+  - hrd
+  - pan-cancer
+  - genomics
+  why: ~271,837 samples / ~227,696 patients across 19+ centers with HRR-gene panel calls (assay varies by site). Open via Synapse syn7222066 + cBioPortal. The largest open registry of HRR-pathway calls — denominator for any pan-cancer HRD-prevalence claim.
+
+- id: genie-bpc
+  starred: true
+  kind: dataset
+  label: GENIE BPC — Biopharma Collaborative cohorts (NSCLC, CRC, breast, prostate, pancreas, bladder)
+  modality: clinical
+  year: 2024
+  status: open
+  access: registered
+  papermap_category: real-world
+  url: https://www.aacr.org/professionals/research/aacr-project-genie/bpc/
+  topics:
+  - hrd
+  - parpi
+  - immunotherapy
+  - pan-cancer
+  why: 6 BPC cohorts (NSCLC 1,846, CRC 1,485, breast 1,130, pancreas 1,109, prostate 1,116, bladder ~750) with PRISMM-curated regimens incl. platinum/PARPi/IO + RECIST/OS. Best open HRR × PARPi/platinum outcome resource at multi-institutional clinic-N.
+
+- id: jee-2024-msk-chord
+  starred: true
+  kind: paper
+  label: Jee et al. — MSK-CHORD pan-cancer clinico-genomic 24,950-patient cohort (Nature 2024)
+  modality: genomics
+  year: 2024
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: real-world
+  url: https://doi.org/10.1038/s41586-024-08167-5
+  people:
+  - Jee J
+  - Schultz N
+  - Sanchez-Vega F
+  topics:
+  - hrd
+  - parpi
+  - immunotherapy
+  - pan-cancer
+  why: 24,950 patients across NSCLC/breast/CRC/prostate/pancreas with MSK-IMPACT HRR calls + NLP-harmonized regimens incl. PARPi/platinum/IO + OS/PFS. cBioPortal `msk_chord_2024` public; dbGaP phs002995 raw. Largest single-institution PARPi-treated × HRR × OS cohort publicly downloadable.
+
+- id: fmi-flatiron-cgdb
+  pinned: true
+  kind: dataset
+  label: FMI–Flatiron clinico-genomic database (CGDB) — Singal 2019 validation, 280k+ patients
+  modality: clinical
+  year: 2019
+  status: open
+  access: sponsor-portal
+  papermap_category: real-world
+  url: https://doi.org/10.1001/jama.2019.3241
+  topics:
+  - hrd
+  - parpi
+  - immunotherapy
+  - pan-cancer
+  why: 28,998 validation patients; CGDB now 280k+ patients with FoundationOne CDx (BRCA1/2 + HRR + LOH + HRDsig) linked to Flatiron EHR regimens (PARPi, platinum, IO) + OS. Sponsor-portal access; publicly disclosed sub-cuts are the citable evidence base. The deepest commercial HRR × PARPi × OS resource.
+
+- id: orien-avatar
+  kind: dataset
+  label: ORIEN AVATAR — Oncology Research Information Exchange Network total-cancer-care cohort
+  modality: multi-omics
+  year: 2018
+  status: open
+  access: registered
+  papermap_category: real-world
+  url: https://www.oriencancer.org/research-programs
+  topics:
+  - hrd
+  - pan-cancer
+  - multi-omics
+  why: 27,000+ patients across 17 NCI-designated centers with WES (tumor/normal) + tumor RNA-seq + longitudinal EHR. The only large RWE source with paired WES + RNA-seq + outcomes — enables HRDsum + IFN/CCR8 deconvolution per patient at registry scale.
+
+- id: msk-impact-zehir-2017
+  kind: paper
+  label: Zehir et al. — MSK-IMPACT 10,336-patient pan-cancer mutational landscape (Nat Med 2017)
+  modality: genomics
+  year: 2017
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: real-world
+  url: https://doi.org/10.1038/nm.4333
+  people:
+  - Zehir A
+  - Berger MF
+  topics:
+  - hrd
+  - pan-cancer
+  - genomics
+  why: 10,336 patients via the 410–468-gene MSK-IMPACT panel — BRCA1/2 + HRR-gene calls. The platform anchor every downstream MSK paper (MSK-MET, MSK-CHORD, BPC) builds on.
+
+- id: msk-met-nguyen-2022
+  kind: paper
+  label: Nguyen et al. — MSK-MET 25,775-patient metastatic landscape (Cell 2022)
+  modality: genomics
+  year: 2022
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: real-world
+  url: https://doi.org/10.1016/j.cell.2022.01.003
+  people:
+  - Nguyen B
+  - Razavi P
+  topics:
+  - hrd
+  - pan-cancer
+  - genomics
+  why: 25,775 patients with metastatic disease across 50 tumor types with MSK-IMPACT panel + site-of-metastasis. HRR alterations × metastatic tropism — useful for site-of-disease covariates in the pan-cancer stratifier.
+
+- id: newberg-2023-foundation-hrdsig
+  kind: paper
+  label: Newberg et al. — FoundationOne pan-cancer HRDsig signature (JCO Precis Oncol 2023)
+  modality: genomics
+  year: 2023
+  status: published
+  org_type: industry
+  region: US
+  papermap_category: signatures
+  url: https://ascopubs.org/doi/10.1200/PO.23.00093
+  topics:
+  - hrd
+  - signatures
+  - pan-cancer
+  why: Panel-based HRDsig signature (copy-number features) benchmarked vs gLOH and BRCA1/2 across 200k+ FoundationOne profiles. The harmonization layer the project needs to compare panel-only patients to WGS-CHORD patients.
+
+- id: sokol-2020-foundation-brca-gloh
+  kind: paper
+  label: Sokol et al. — Pan-cancer biallelic BRCA1/2 + gLOH prevalence (JCO Precis Oncol 2020)
+  modality: genomics
+  year: 2020
+  status: published
+  org_type: industry
+  region: US
+  papermap_category: real-world
+  url: https://pubmed.ncbi.nlm.nih.gov/32903788/
+  topics:
+  - hrd
+  - pan-cancer
+  - genomics
+  why: ~234,000 FoundationOne samples; biallelic BRCA1/2 prevalence + gLOH pan-cancer. The "how many patients qualify" denominator for HRD-targeted therapies.
+
+- id: stover-2022-tempus-hrd
+  kind: paper
+  label: Stover et al. — Tempus HRD-DNA + HRD-RNA pan-cancer validation (BMC Cancer 2022)
+  modality: multi-omics
+  year: 2022
+  status: published
+  org_type: industry
+  region: US
+  papermap_category: real-world
+  url: https://doi.org/10.1186/s12885-022-09669-z
+  topics:
+  - hrd
+  - pan-cancer
+  - signatures
+  why: 48,843 Tempus xT samples with HRD-DNA scar + HRD-RNA gene-expression classifier (16,750 RNA-seq). Only commercial cohort with paired panel-DNA HRD + tumor-RNA at >10K scale — directly parallels the project's HRD × IFN axis design.
+
+- id: kundra-2021-oncotree
+  kind: paper
+  label: Kundra et al. — OncoTree pan-cancer taxonomy (JCO Clin Cancer Inform 2021)
+  modality: clinical
+  year: 2021
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: real-world
+  url: https://doi.org/10.1200/CCI.20.00108
+  topics:
+  - pan-cancer
+  why: The ~900-node cancer-type ontology that GENIE, MSK-CHORD, BPC, and cBioPortal all use. Required to harmonize HRD-relevant cohorts across studies; FDA-recognized.
+
+# ----- PDX + ORGANOID BIOBANKS -----
+- id: sachs-2018-breast-pdo
+  starred: true
+  kind: paper
+  label: Sachs et al. — HUB breast PDO biobank with WGS + olaparib IC50 (Cell 2018)
+  modality: multi-omics
+  year: 2018
+  status: published
+  org_type: academic
+  region: Netherlands
+  papermap_category: models
+  url: https://doi.org/10.1016/j.cell.2017.11.010
+  people:
+  - Sachs N
+  - Clevers H
+  topics:
+  - hrd
+  - parpi
+  - breast-cancer
+  why: ~100 breast PDOs spanning ER+/HER2+/TNBC, ~50 with WGS; per-PDO BRCA1/2 germline+somatic and olaparib IC50. Includes BRCA-WT PARPi-sensitive PDOs (functional HRD without BRCA mut) — the cleanest substrate for separating genotype-HRD from signature-only HRD.
+
+- id: hill-2018-hgsoc-pdo
+  starred: true
+  kind: paper
+  label: Hill et al. — D'Andrea HGSOC PDOs with RAD51 + DNA-fiber + PARPi IC50 (Cancer Discov 2018)
+  modality: multi-omics
+  year: 2018
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: models
+  url: https://doi.org/10.1158/2159-8290.CD-18-0474
+  people:
+  - Hill SJ
+  - D'Andrea AD
+  topics:
+  - hrd
+  - parpi
+  - ovarian-cancer
+  why: 33 short-term HGSOC PDOs with functional HR assays — RAD51 foci post-IR + fork-protection (DNA fiber) + per-organoid olaparib/niraparib/carboplatin/CHK1i/ATRi IC50. Gold-standard functional-HRD substrate beyond genomic-scar.
+
+- id: bruna-2016-breast-pdtx
+  kind: paper
+  label: Bruna et al. — Caldas breast PDTX/PDTC biobank with PARPi IC50 + 53BP1-loss resistance (Cell 2016)
+  modality: multi-omics
+  year: 2016
+  status: published
+  org_type: academic
+  region: UK
+  papermap_category: models
+  url: https://doi.org/10.1016/j.cell.2016.08.041
+  people:
+  - Bruna A
+  - Caldas C
+  topics:
+  - hrd
+  - parpi
+  - breast-cancer
+  why: ~80 breast PDTX + PDTC with BRCA1/2 germline + BRCA1 promoter-meth subsets, per-PDTC olaparib IC50, and 53BP1/MAD2L2 resistance lesions called. The rare model where BRCA1-mut PDXs split into PARPi-sensitive vs 53BP1-loss resistant — clean HR-restoration test.
+
+- id: tiriac-2018-pdac-pdo
+  kind: paper
+  label: Tiriac et al. — Tuveson PDAC PDO biobank with per-organoid pharmacotyping (Cancer Discov 2018)
+  modality: multi-omics
+  year: 2018
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: models
+  url: https://doi.org/10.1158/2159-8290.CD-18-0349
+  people:
+  - Tiriac H
+  - Tuveson DA
+  topics:
+  - parpi
+  - pancreatic-cancer
+  why: 66 PDAC PDOs (CSHL library) with WGS, RNA-seq, and 5-drug chemo IC50 (gem, 5FU, irinotecan, oxaliplatin, paclitaxel) per PDO; olaparib in subset. Honest gap — no canonical BRCA1/2 deleterious mut in this library, so PARPi response without BRCA mut is the question this substrate poses.
+
+- id: pdmr-nci
+  pinned: true
+  kind: dataset
+  label: NCI PDMR — Patient-Derived Models Repository (PDX + PDOrg + PDC + CAF)
+  modality: multi-omics
+  year: 2017
+  status: open
+  access: registered
+  papermap_category: models
+  url: https://pdmr.cancer.gov/
+  topics:
+  - hrd
+  - parpi
+  - pan-cancer
+  why: Over 1,500 models — ~600 PDX + matched PDOrg/PDC/CAF across breast (~50), ovarian (~40), PDAC (~70), prostate (~30). WES BRCA1/2/PALB2/RAD51C per model in public DB; olaparib + niraparib + ~30 SoC IC50 in PDC subset; in vivo PDX response data. The largest matched PDX↔PDO↔PDC public resource for cross-validating the stratifier.
+
+- id: hcmi-ngcm
+  kind: dataset
+  label: HCMI — NCI Human Cancer Models Initiative (>250 next-gen cancer models)
+  modality: multi-omics
+  year: 2023
+  status: open
+  access: open
+  papermap_category: models
+  url: https://www.cancer.gov/ccg/research/functional-genomics/hcmi
+  topics:
+  - hrd
+  - pan-cancer
+  - multi-omics
+  why: Over 250 next-gen cancer models distributed via ATCC; ~100 with WGS/WES/RNA-seq on GDC. Uniform-pipeline genomics across hundreds of breast/ov/PDAC organoids — cross-cohort HRDsum + IFN signature scoring on a single harmonized substrate. Gap — no central drug screen.
+
+- id: europdx-portal
+  kind: dataset
+  label: EurOPDX consortium PDX portal — 18-institution European PDX network
+  modality: multi-omics
+  year: 2022
+  status: open
+  access: registered
+  papermap_category: models
+  url: https://dataportal.europdx.eu/
+  topics:
+  - hrd
+  - pan-cancer
+  - multi-omics
+  why: ~1,500 PDX across 18 institutions — breast (~250), ovarian (~150), CRC (~400), PDAC (~100) — with per-model mutation, CNA, RNA-seq, and BRCA1/2 calls; institutional in-vivo olaparib/cisplatin response (Curie HBCx, XenTech, etc.). The European counterweight to PDMR for cross-cohort generalizability tests.
+
+- id: byrne-2017-europdx
+  kind: review
+  label: Byrne et al. — EurOPDX patient-derived xenograft network (Nat Rev Cancer 2017)
+  modality: multi-omics
+  year: 2017
+  status: published
+  org_type: academic
+  region: International
+  papermap_category: models
+  url: https://www.nature.com/articles/nrc.2016.140
+  topics:
+  - pan-cancer
+  why: Anchor review for the EurOPDX consortium — design rationale, member institutions, and data-sharing model. Citation backbone for the EurOPDX portal entry.
+
+- id: van-de-wetering-2015-crc-pdo
+  kind: paper
+  label: van de Wetering et al. — Clevers CRC PDO biobank + 83-compound drug screen (Cell 2015)
+  modality: multi-omics
+  year: 2015
+  status: published
+  org_type: academic
+  region: Netherlands
+  papermap_category: models
+  url: https://doi.org/10.1016/j.cell.2015.03.053
+  people:
+  - van de Wetering M
+  - Clevers H
+  topics:
+  - pan-cancer
+  why: 22 CRC PDOs + 83-compound IC50 — the foundational HUB PDO biobank framework Sachs/Tiriac/Driehuis all build on. CRC HRD is rare, but the platform is the reference.
+
+- id: driehuis-2019-pdac
+  kind: paper
+  label: Driehuis et al. — PDAC PDO biobank with 76-compound screen incl. olaparib (PNAS 2019)
+  modality: multi-omics
+  year: 2019
+  status: published
+  org_type: academic
+  region: Netherlands
+  papermap_category: models
+  url: https://doi.org/10.1073/pnas.1911273116
+  topics:
+  - parpi
+  - pancreatic-cancer
+  why: 30 pancreatic/biliary PDOs with 76-compound drug screen including olaparib per-PDO IC50. Complements Tiriac for non-BRCA PDAC PARPi-response signal.
+
+- id: driehuis-2019-hnscc
+  kind: paper
+  label: Driehuis et al. — HNSCC PDO biobank with radiation + drug screen (Cancer Discov 2019)
+  modality: multi-omics
+  year: 2019
+  status: published
+  org_type: academic
+  region: Netherlands
+  papermap_category: models
+  url: https://doi.org/10.1158/2159-8290.CD-19-0349
+  topics:
+  - pan-cancer
+  why: 31 HNSCC PDOs with radiation + drug screen. HRD off-axis but provides HNSCC model layer for the CHS-114 (anti-CCR8) phase-I CCR8-depletion indication.
+
+- id: mer-2019-xeva-jax
+  kind: paper
+  label: Mer et al. — Xeva JAX/NIBR PDX pharmacogenomics framework (Cancer Res 2019)
+  modality: multi-omics
+  year: 2019
+  status: published
+  org_type: academic
+  region: Canada
+  papermap_category: models
+  url: https://doi.org/10.1158/0008-5472.CAN-19-0709
+  topics:
+  - pan-cancer
+  why: Integrated NIBR + JAX PDX pharmacogenomics framework. HRD signal per-model is weak but Xeva is the citable tooling layer for cross-PDX-biobank analysis.
+
+- id: proxe-townsend-2016
+  kind: paper
+  label: Townsend et al. — PRoXe public hematologic PDX repository (Cancer Cell 2016)
+  modality: multi-omics
+  year: 2016
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: models
+  url: https://doi.org/10.1016/j.ccell.2016.03.008
+  topics:
+  - pan-cancer
+  why: DFCI hematologic-malignancy PDX repository. Off-axis for solid-tumor HRD but the canonical public-PDX-platform precedent.
+
+- id: champions-tumorgraft
+  kind: dataset
+  label: Champions Oncology TumorGraft — commercial PDX–patient correlation database
+  modality: multi-omics
+  year: 2020
+  status: open
+  access: sponsor-portal
+  papermap_category: models
+  url: https://database.championsoncology.com/about
+  topics:
+  - parpi
+  - pan-cancer
+  why: 237-patient PDX–patient response-correlation set; commercial portal. Useful as PDX-vs-patient concordance reference; no public deposit.
+
+# ----- SINGLE-CELL + SPATIAL HUBS -----
+- id: cellxgene-census
+  pinned: true
+  kind: dataset
+  label: CellxGene Census (CZI) — programmatic pan-tissue scRNA hub, ~75M human cells
+  modality: single-cell-rna
+  year: 2024
+  status: open
+  access: open
+  papermap_category: datasets
+  url: https://chanzuckerberg.github.io/cellxgene-census/
+  topics:
+  - single-cell
+  - pan-cancer
+  why: ~75M+ human cells across 1,400+ datasets, served via a SOMA/TileDB API (Python + R). Lets the project pull every HGSOC / breast / PDAC scRNA at uniform schema in one call rather than paper-by-paper — direct CCR8⁺ Treg fraction and ISG-signature queries pan-cohort.
+
+- id: tisch2
+  starred: true
+  kind: dataset
+  label: TISCH2 — Tumor Immune Single Cell Hub (190 tumor scRNA datasets, ~6M cells)
+  modality: single-cell-rna
+  year: 2023
+  status: open
+  access: open
+  papermap_category: datasets
+  url: http://tisch.comp-genomics.org
+  topics:
+  - single-cell
+  - immunotherapy
+  - pan-cancer
+  why: 190 tumor scRNA datasets across 50 cancer types with explicit IO-treatment-arm tagging (Yost, Bi, Sade-Feldman, Caushi, BIOKEY pre-annotated). Per-dataset h5ad/Seurat at uniform schema — direct CCR8/Treg lookup pan-cohort without redoing each pipeline.
+
+- id: xenium-prime-5k-public
+  kind: dataset
+  label: 10x Xenium Prime 5K + Visium HD — public HGSOC / breast vendor panels
+  modality: single-cell-rna
+  year: 2024
+  status: open
+  access: open
+  papermap_category: datasets
+  url: https://www.10xgenomics.com/datasets
+  topics:
+  - single-cell
+  - ovarian-cancer
+  - breast-cancer
+  - tumor-microenvironment
+  why: Vendor-shipped Xenium Prime 5K and Visium HD public datasets on HGSOC and breast FFPE blocks; the Pan-Tissue 5K panel includes CCR8, MHC-II, PD-L1, and ISG markers. Spatial controls the project can use as reference panels before profiling its own tissue.
+
+- id: hubmap
+  kind: dataset
+  label: HuBMAP — Human BioMolecular Atlas (5,032 datasets, 27 organs, 310 donors)
+  modality: multi-omics
+  year: 2025
+  status: open
+  access: open
+  papermap_category: datasets
+  url: https://portal.hubmapconsortium.org/
+  topics:
+  - single-cell
+  - pan-cancer
+  why: Healthy-tissue spatial + sc reference (scRNA/snRNA, scATAC, SNARE-seq2, CODEX, MIBI, Visium, CyTOF, IMS) across ovary/breast/pancreas. The non-malignant baseline for asking "what does CCR8/IFN/MHC-II look like in healthy tissue."
+
+- id: tabula-sapiens-v2
+  kind: dataset
+  label: Tabula Sapiens v2 — 1.14M cells across 28 healthy tissues (24 donors)
+  modality: single-cell-rna
+  year: 2024
+  status: open
+  access: open
+  papermap_category: datasets
+  url: https://tabula-sapiens.sf.czbiohub.org/
+  topics:
+  - single-cell
+  - pan-cancer
+  why: 1.14M cells across 28 tissues incl. ovary, mammary, prostate, pancreas — treatment-naive healthy baseline for CCR8⁺ Treg frequency in normal tissues. Mirrored in CellxGene Census.
+
+- id: eraslan-2022-gtex-snrna
+  kind: paper
+  label: Eraslan et al. — GTEx snRNA-seq across 8 normal tissues (Science 2022)
+  modality: single-cell-rna
+  year: 2022
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: atlas-singlecell
+  url: https://doi.org/10.1126/science.abl4290
+  people:
+  - Eraslan G
+  - Regev A
+  topics:
+  - single-cell
+  - pan-cancer
+  why: 209,126 snRNA nuclei across 8 GTEx tissues incl. breast and prostate. Normal-tissue eQTL + cell-type baseline for the cancer-tissues the project targets.
+
+# ----- EPIGENOME (methylation + ATAC) -----
+- id: tcga-450k-pancan
+  pinned: true
+  kind: dataset
+  label: TCGA pan-cancer Illumina HM450k methylation arm (~10,000 tumors, 33 cancer types)
+  modality: genomics
+  year: 2018
+  status: open
+  access: open
+  papermap_category: datasets
+  url: https://gdc.cancer.gov/about-data/publications/PanCan-CellOfOrigin
+  topics:
+  - hrd
+  - pan-cancer
+  - signatures
+  why: ~10,000 tumors on Illumina HM450k across 33 cancer types — direct BRCA1 promoter beta (cg19531713 / cg08993267) per sample. Pair with GerkeLab HRDsum to derive a BRCA1-methylation HRD-driver axis orthogonal to mutation calls.
+
+- id: polak-2017-brca1-meth
+  starred: true
+  kind: paper
+  label: Polak et al. — BRCA1-methylated tumors phenocopy BRCA1-mut HRD (Nat Genet 2017)
+  modality: genomics
+  year: 2017
+  status: published
+  org_type: academic
+  region: US/UK
+  papermap_category: hrd-genomics
+  url: https://doi.org/10.1038/ng.3934
+  people:
+  - Polak P
+  - Stratton MR
+  topics:
+  - hrd
+  - signatures
+  - dna-repair
+  why: 560 breast + 80 ovarian WGS cross-referenced with HM450k BRCA1 methylation — canonical proof that BRCA1 promoter methylation = HRD driver, with SBS3 burden equivalent to BRCA1-mut. The mechanistic underwriter of TCGA-450k-pancan use.
+
+- id: bell-2011-tcga-ov
+  kind: paper
+  label: TCGA Research Network — HGSOC molecular landscape, BRCA1-meth HRD subset (Nature 2011)
+  modality: multi-omics
+  year: 2011
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: hrd-genomics
+  url: https://doi.org/10.1038/nature10166
+  topics:
+  - hrd
+  - ovarian-cancer
+  - signatures
+  why: 489 HGSOC with HM27/HM450 methylation — defined the BRCA1-meth subset (~11%) as HRD-equivalent. The TCGA-OV anchor every HGSOC HRD-stratifier benchmarks against.
+
+- id: esteller-2000-brca1-meth
+  kind: paper
+  label: Esteller et al. — BRCA1 hypermethylation in sporadic breast/ovarian cancer (JNCI 2000)
+  modality: genomics
+  year: 2000
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: hrd-genomics
+  url: https://doi.org/10.1093/jnci/92.7.564
+  topics:
+  - hrd
+  - breast-cancer
+  - ovarian-cancer
+  why: First link of BRCA1 promoter hypermethylation to LOH/sporadic HR loss. Historical anchor; the foundation Polak 2017 quantitatively extends.
+
+- id: corces-2018-tcga-atac
+  pinned: true
+  kind: dataset
+  label: Corces et al. — TCGA pan-cancer ATAC-seq atlas (410 tumors, 23 cancer types) (Science 2018)
+  modality: genomics
+  year: 2018
+  status: open
+  access: open
+  papermap_category: datasets
+  url: https://gdc.cancer.gov/about-data/publications/ATACseq-AWG
+  topics:
+  - pan-cancer
+  - mhc-class-ii
+  - interferon
+  why: 410 TCGA tumors / 23 cancer types with bulk ATAC-seq, sample-matched to TCGA RNA + HRDsum. The only pan-TCGA chromatin atlas — direct CIITA / MHC-II promoter and IFN-locus accessibility per tumor vs HRD status.
+
+- id: roadmap-epigenomics
+  kind: dataset
+  label: Roadmap Epigenomics — 111 reference epigenomes (Kundaje 2015, Nature)
+  modality: genomics
+  year: 2015
+  status: open
+  access: open
+  papermap_category: datasets
+  url: https://egg2.wustl.edu/roadmap/web_portal/
+  topics:
+  - pan-cancer
+  - mhc-class-ii
+  - interferon
+  why: 111 reference epigenomes incl. ovary, breast HMEC, pancreas, T-cell subsets — WGBS + ChIP (H3K4me3/H3K27ac/H3K27me3) + DNase. Non-malignant chromatin baseline for BRCA1 promoter + CIITA + IFN-locus deltas in tumor.
+
+- id: encode-cancer-lines
+  kind: dataset
+  label: ENCODE cancer-line ATAC + ChIP — BRCA1/2-mut vs WT chromatin reference
+  modality: genomics
+  year: 2020
+  status: open
+  access: open
+  papermap_category: datasets
+  url: https://www.encodeproject.org/
+  topics:
+  - hrd
+  - mhc-class-ii
+  - interferon
+  why: DNase / ATAC / H3K27ac / H3K4me3 / CTCF across MCF7, MDAMB231, HCC1937 (BRCA1-mut), UWB1.289 (BRCA1-null), Capan-1 (BRCA2-mut), K562. Near-isogenic BRCA1/2 vs WT line comparison for CIITA + IFN-locus chromatin mechanism.
+
+- id: granja-2021-pancan-scatac
+  kind: paper
+  label: Granja et al. — Pan-cancer scATAC reference + ArchR framework (Nat Genet 2021)
+  modality: single-cell-rna
+  year: 2021
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: atlas-singlecell
+  url: https://doi.org/10.1038/s41588-021-00790-6
+  people:
+  - Granja JM
+  - Greenleaf WJ
+  topics:
+  - single-cell
+  - pan-cancer
+  why: ~70 hematopoietic + pan-cancer scATAC datasets (GSE139369). The single-cell ATAC reference + ArchR analysis framework — needed for cell-type-resolved accessibility of CIITA / IFN locus in HRD tumors.
+
+- id: ma-2020-shareseq
+  kind: paper
+  label: Ma et al. — SHARE-seq paired scATAC + scRNA (Cell 2020)
+  modality: single-cell-rna
+  year: 2020
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: atlas-singlecell
+  url: https://doi.org/10.1016/j.cell.2020.09.056
+  people:
+  - Ma S
+  - Buenrostro JD
+  topics:
+  - single-cell
+  why: Method anchor for paired scATAC + scRNA at single-cell resolution (GSE140203). Technical reference for any HGSOC follow-up that wants paired-modality accessibility + transcript readout.
+
+- id: gtex-atac-2025
+  kind: dataset
+  label: GTEx v9 ATAC arm — normal-tissue bulk ATAC across ~400 tissues
+  modality: genomics
+  year: 2025
+  status: open
+  access: open
+  papermap_category: datasets
+  url: https://gtexportal.org/
+  topics:
+  - pan-cancer
+  - mhc-class-ii
+  - interferon
+  why: ~400 normal-tissue bulk ATAC samples — the non-malignant accessibility baseline that pairs with Corces 2018 tumor ATAC for tumor-vs-normal delta at CIITA / IFN locus.
+
+- id: ciita-pivIV-ifn
+  kind: review
+  label: Wright & Ting — CIITA pIV / IFN-γ regulation of MHC class II in non-APC tumor cells (Trends Immunol 2006)
+  modality: bulk-rna
+  year: 2006
+  status: published
+  papermap_category: ifn-bridge
+  url: https://doi.org/10.1016/j.it.2006.06.005
+  topics:
+  - interferon
+  - mhc-class-ii
+  why: Mechanism anchor — CIITA promoter pIV is the IFN-γ-responsive switch that turns on MHC-II in non-professional APCs like tumor cells. The molecular hook connecting chronic IFN signaling to the project's MHC-II-on-tumor-cell readout.
+
+- id: axelrod-2019-ciita-tumor
+  kind: review
+  label: Axelrod et al. — MHC class II on tumor cells, IFN-γ-CIITA regulation (Clin Cancer Res 2019)
+  modality: bulk-rna
+  year: 2019
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: ifn-bridge
+  url: https://doi.org/10.1158/1078-0432.CCR-18-3300
+  topics:
+  - interferon
+  - mhc-class-ii
+  - tumor-microenvironment
+  why: Review of MHC-II on tumor cells incl. CIITA pIV regulation by IFN-γ, with breast and melanoma case data. Bridge between CIITA promoter biology and the project's MHC-II-on-HRD-tumor claim.
+
+- id: geo-hrd-meth-deposits
+  kind: dataset
+  label: GEO HRD-stratified methylation deposits — GSE65820 (HGSOC), GSE233242 (PARPi-HGSOC), GSE211692 (PDAC)
+  modality: genomics
+  year: 2023
+  status: open
+  access: open
+  papermap_category: datasets
+  url: https://www.ncbi.nlm.nih.gov/geo/
+  topics:
+  - hrd
+  - parpi
+  - ovarian-cancer
+  - pancreatic-cancer
+  why: Three GEO deposits with explicit HRD-vs-HRP or BRCA-class methylation labels — Patch 2015 HGSOC HM450 (GSE65820, ~80), PARPi-treated HGSOC methylome (GSE233242, ~40), PDAC HRD methylome (GSE211692, ~60). Discrete-cohort complements to TCGA-450k-pancan.
+
+# ----- LIQUID BIOPSY -----
+- id: tracerx-lung-abbosh-2023
+  starred: true
+  kind: paper
+  label: Abbosh et al. — TRACERx lung longitudinal ctDNA + tissue WES (Nature 2023)
+  modality: clinical
+  year: 2023
+  status: published
+  org_type: academic
+  region: UK
+  papermap_category: parpi-immune
+  url: https://doi.org/10.1038/s41586-023-05776-4
+  people:
+  - Abbosh C
+  - Swanton C
+  topics:
+  - bulk-rna
+  - pan-cancer
+  - immunotherapy
+  why: 197 NSCLC patients with 1,069 serial plasma samples + paired tissue WES via EGAS00001006494. The only large open serial-plasma cohort with paired tissue WES — enables tissue-derived HRD scoring anchored to plasma kinetics. The methodological template the project should mirror for any HRD-monitoring claim.
+
+- id: profound-ctdna-2023
+  kind: paper
+  label: Chi et al. — PROfound plasma BRCA/ATM ctDNA biomarker (Clin Cancer Res 2023)
+  modality: clinical
+  year: 2023
+  status: published
+  org_type: industry
+  region: International
+  papermap_category: parpi-immune
+  url: https://pmc.ncbi.nlm.nih.gov/articles/PMC9811161/
+  people:
+  - Chi K
+  - Harrington EA
+  topics:
+  - parpi
+  - prostate-cancer
+  - hrd
+  why: 491 mCRPC patients with matched tumor + plasma BRCA1/2/ATM calls via FoundationOne Liquid CDx. Benchmark for plasma → PARPi-response in mCRPC; defines the achievable BRCA-detect floor. Sponsor-controlled raw data.
+
+- id: magnitude-ctdna-2023
+  kind: paper
+  label: Chi et al. — MAGNITUDE serial plasma HRR tracking under niraparib + abi (Nat Med 2025)
+  modality: clinical
+  year: 2025
+  status: published
+  org_type: industry
+  region: International
+  papermap_category: parpi-immune
+  url: https://doi.org/10.1038/s41591-025-03961-8
+  topics:
+  - parpi
+  - prostate-cancer
+  - hrd
+  why: ~668 mCRPC HRR+ randomized, ~268 dual-tested plasma+tissue. The only dataset with serial plasma HRR tracking under PARPi + AR-blockade. Sponsor-controlled raw; published signature usable as longitudinal-monitoring proof-of-concept.
+
+# ----- HRD SCORING METHODS -----
+- id: davies-2017-hrdetect
+  starred: true
+  kind: signature
+  label: HRDetect (Davies et al. — WGS lasso HRD classifier, Nat Med 2017)
+  modality: genomics
+  year: 2017
+  status: published
+  papermap_category: signatures
+  url: https://doi.org/10.1038/nm.4292
+  people:
+  - Davies H
+  - Nik-Zainal S
+  topics:
+  - hrd
+  - signatures
+  - dna-repair
+  why: WGS HRD classifier — lasso on 6 features (SBS3, SBS8, RS3, RS5, microhomology-deletion fraction, HRD-index). Cutpoint ≥0.7. AUC ~0.98 vs CHORD ~0.95. The reference WGS classifier; use on Hartwig / PCAWG-style WGS cohorts.
+
+- id: sztupinszki-2018-scarhrd
+  starred: true
+  kind: tool
+  label: scarHRD (Sztupinszki et al. — open R package for WES/WGS HRDsum, npj Breast Cancer 2018)
+  modality: genomics
+  year: 2018
+  status: published
+  papermap_category: signatures
+  url: https://doi.org/10.1038/s41523-018-0066-6
+  topics:
+  - hrd
+  - signatures
+  why: Open R package that ports the Knijnenburg/Telli HRDsum to NGS (WES/WGS via Sequenza/ASCAT segments). Default cutpoint HRDsum ≥42. Turn-key WES → HRDsum for TCGA/CPTAC re-runs.
+
+- id: telli-2016-mychoice
+  kind: paper
+  label: Telli et al. — Myriad myChoice GIS ≥42 cutpoint origin (Clin Cancer Res 2016)
+  modality: genomics
+  year: 2016
+  status: published
+  papermap_category: signatures
+  url: https://doi.org/10.1158/1078-0432.CCR-15-2477
+  people:
+  - Telli ML
+  - Timms KM
+  topics:
+  - hrd
+  - signatures
+  - breast-cancer
+  - ovarian-cancer
+  why: 497 breast + 561 ovarian; defines the GIS ≥42 (LOH+TAI+LST) threshold at 95% sensitivity for BRCA1/2 loss. The FDA-CDx anchor (NOVA/PRIMA/PAOLA companion) — needed to justify per-cancer cutpoint deviations.
+
+- id: coleman-2017-ariel2-loh
+  kind: paper
+  label: Swisher/Coleman — ARIEL2 gLOH ≥14% rucaparib-eligibility cutpoint (Lancet Oncol 2017)
+  modality: genomics
+  year: 2017
+  status: published
+  papermap_category: signatures
+  url: https://www.thelancet.com/journals/lanonc/article/PIIS1470-2045(16)30559-9
+  people:
+  - Swisher EM
+  - Coleman RL
+  topics:
+  - hrd
+  - parpi
+  - signatures
+  - ovarian-cancer
+  why: ARIEL2 part 1 HGSOC PFS endpoint — established the FoundationFocus / F1CDx LOH ≥14% (refined to ≥16% in ARIEL3) HRD-positive call. The rucaparib-specific operating point; orthogonal to HRDsum.
+
+- id: hodgson-2018-ariel3-loh
+  kind: paper
+  label: Hodgson et al. — ARIEL3 LOH ≥16% cutpoint refinement (Br J Cancer 2018)
+  modality: genomics
+  year: 2018
+  status: published
+  papermap_category: signatures
+  url: https://www.nature.com/articles/s41416-018-0274-8
+  topics:
+  - hrd
+  - parpi
+  - signatures
+  why: Refined the ARIEL2 LOH cutpoint to ≥16% for ARIEL3. The operating-point convergence the project cites when comparing LOH-only vs HRDsum gating.
+
+- id: farkkila-2023-ovahrdscar
+  starred: true
+  kind: signature
+  label: ovaHRDscar (Pikkusaari/Färkkilä — HGSOC-tuned HRD score, npj Precis Oncol 2023)
+  modality: genomics
+  year: 2023
+  status: published
+  papermap_category: signatures
+  url: https://doi.org/10.1038/s41698-022-00339-8
+  people:
+  - Pikkusaari S
+  - Färkkilä A
+  topics:
+  - hrd
+  - ovarian-cancer
+  - signatures
+  why: WGS/WES HRDsum variant with HRD-specific size filters (LOH+LST+TAI <15Mb), cutpoint ≥54. Outperforms HRDsum and myChoice for HGSOC PFS/OS. The HGSOC-arm scorer the project should use on Vázquez-García MSK-SPECTRUM rather than the pan-cancer ≥42 default.
+
+- id: bergstrom-2024-deephrd
+  kind: tool
+  label: DeepHRD (Bergstrom et al. — H&E-only deep-learning HRD classifier, JCO 2024)
+  modality: genomics
+  year: 2024
+  status: published
+  papermap_category: signatures
+  url: https://ascopubs.org/doi/10.1200/JCO.23.02641
+  people:
+  - Bergstrom EN
+  - Alexandrov LB
+  topics:
+  - hrd
+  - signatures
+  why: Deep-learning H&E classifier trained on TCGA-BRCA n=1,008 + TCGA-OV n=459. Identifies 1.8–3.1× more HRD-positive cases than molecular CDx; better HGSOC OS and mBC platinum PFS. Image-only arm — extends the stratifier to TCGA-DX slides where WGS/RNA are missing.
+
+- id: abbasi-2025-hrprofiler
+  kind: tool
+  label: HRProfiler (Abbasi/Alexandrov — WES-tuned ML HRD classifier, Cancer Res 2025)
+  modality: genomics
+  year: 2025
+  status: published
+  papermap_category: signatures
+  url: https://aacrjournals.org/cancerres/article/85/13/2504/763111
+  topics:
+  - hrd
+  - signatures
+  why: 6-feature ML HRD classifier trained on 1,043 breast + 182 ovarian. Outperforms HRDetect/CHORD on WES. The WES-only scorer for CPTAC and ICGC-WES cohorts where HRDetect needs WGS.
+
+- id: gulhan-2019-sigma
+  kind: tool
+  label: SigMA (Gulhan/Park — panel mutational signature Sig3 detector, Nat Genet 2019)
+  modality: genomics
+  year: 2019
+  status: published
+  papermap_category: signatures
+  url: https://aacrjournals.org/clincancerres/article/28/21/4714/709823
+  people:
+  - Gulhan DC
+  - Park PJ
+  topics:
+  - hrd
+  - signatures
+  why: Mutational-signature Sig3/SBS3 detection from targeted gene panels (MSK-IMPACT, F1CDx). Rescues ~37% of MSK-IMPACT breast/ovarian as SBS3-positive. The proxy needed for GENIE / MSK-IMPACT panel cohorts where WGS is absent.
+
+- id: jensen-2025-foundation-hrdsig
+  kind: signature
+  label: Foundation HRDsig (Jensen et al. — F1CDx pan-tumor HRD signature, PLOS One 2025)
+  modality: genomics
+  year: 2025
+  status: published
+  papermap_category: signatures
+  url: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0336940
+  topics:
+  - hrd
+  - pan-cancer
+  - signatures
+  why: F1CDx targeted-panel CNV feature model — pan-tumor PPA 90% / NPA 94% vs reference HRD. The successor to F1CDx LOH and the layer that powers FoundationOne's pan-cancer HRD reporting (endometrial, pancreas, prostate).
+
+- id: castroviejo-2018-rad51-foci
+  starred: true
+  kind: signature
+  label: RAD51-IF foci functional HRD assay (Castroviejo-Bermejo et al., EMBO Mol Med 2018)
+  modality: dna-damage
+  year: 2018
+  status: published
+  papermap_category: signatures
+  url: https://pubmed.ncbi.nlm.nih.gov/30377213/
+  topics:
+  - hrd
+  - dna-repair
+  - signatures
+  why: FFPE immunofluorescence assay — <10% RAD51-positive geminin+ nuclei = functional HRD. Catches reversion / non-genomic HRD that scar signatures miss. Critical for CCNE1-amp cases that are scar-low but HR-proficient (and vice-versa) — the project's orthogonal "functional HRD" gate.
+
+- id: cruz-2018-rad51-resistance
+  kind: paper
+  label: Cruz et al. — RAD51 foci predict PARPi resistance via HR restoration (Ann Oncol 2018)
+  modality: dna-damage
+  year: 2018
+  status: published
+  papermap_category: signatures
+  url: https://pubmed.ncbi.nlm.nih.gov/29635390/
+  topics:
+  - hrd
+  - parpi
+  - signatures
+  why: Companion clinical-validation paper for the RAD51 foci assay — shows it predicts PARPi resistance in BRCA1/2-mutant tumors via HR restoration. The PARPi-resistance proof-of-concept for functional HRD gating.
+
+- id: marquard-2015-pancancer-scars
+  kind: paper
+  label: Marquard & Eklund — Pan-cancer LOH/LST/TAI HRD-scar component analysis (Biomark Res 2015)
+  modality: genomics
+  year: 2015
+  status: published
+  papermap_category: signatures
+  url: https://biomarkerres.biomedcentral.com/articles/10.1186/s40364-015-0033-4
+  topics:
+  - hrd
+  - pan-cancer
+  - signatures
+  why: Origin paper for the LOH+LST+TAI HRD-scar component decomposition and per-cancer ranking. The conceptual prerequisite to HRDsum (Knijnenburg 2018) and scarHRD.
+
+- id: doig-2022-oncoscan-hrd
+  kind: paper
+  label: Doig et al. — OncoScan FFPE SNP-array HRD vs myChoice concordance (BMC Cancer 2022)
+  modality: genomics
+  year: 2022
+  status: published
+  papermap_category: signatures
+  url: https://bmccancer.biomedcentral.com/articles/10.1186/s12885-022-10197-z
+  topics:
+  - hrd
+  - signatures
+  why: Aggregate HRD ρ=0.82 vs myChoice, AUROC=0.92. Cheap FFPE SNP-array alternative — useful for archive cohorts where fresh-frozen WGS is unavailable.
+
+- id: alexandrov-2024-celllines-hrd-benchmark
+  kind: paper
+  label: Steele/Alexandrov — Pan-cancer HRD benchmark in CCLE cell lines (Cancer Res Commun 2024)
+  modality: genomics
+  year: 2024
+  status: published
+  papermap_category: signatures
+  url: https://aacrjournals.org/cancerrescommun/article/4/12/3084/750467
+  topics:
+  - hrd
+  - signatures
+  why: Head-to-head HRDsum vs CHORD vs HRDetect benchmark across CCLE cell lines. Reference for picking which HRD scorer to trust on the project's CCLE / DepMap / Replogle cell-line layer.
+
+- id: vergote-2024-eu-hrd-consensus
+  kind: review
+  label: Vergote et al. — European consensus on HRD testing & CDx comparison (Eur J Cancer 2024)
+  modality: clinical
+  year: 2024
+  status: published
+  papermap_category: signatures
+  url: https://www.ejcancer.com/article/S0959-8049(24)01776-3/fulltext
+  topics:
+  - hrd
+  - signatures
+  - ovarian-cancer
+  why: Global expert consensus on HRD testing modalities + CDx comparison (myChoice vs F1CDx LOH vs HRDsig vs academic). The clinical-decision-framework anchor for the project's "when to use which scorer" position.
+
+- id: etemadmoghadam-2013-ccne1
+  kind: paper
+  label: Etemadmoghadam et al. — CCNE1 amplification × BRCA1/2 mutex in HGSOC (PNAS 2013)
+  modality: genomics
+  year: 2013
+  status: published
+  papermap_category: signatures
+  url: https://doi.org/10.1073/pnas.1314302110
+  topics:
+  - hrd
+  - ovarian-cancer
+  - signatures
+  why: The canonical CCNE1-amp × BRCA1/2 mutually-exclusive paper. CCNE1-amp HGSOC is the natural non-HRD comparator class, but ~half are still functionally HRD (Färkkilä AACR 2024 PR-003) — exclusion marker that requires RAD51-IF gating to use safely.
