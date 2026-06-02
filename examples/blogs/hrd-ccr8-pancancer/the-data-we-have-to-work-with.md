@@ -1,5 +1,5 @@
 ---
-title: 'The data we have to work with — seven layers of public single-cell + spatial evidence for the HRD × IFN × CCR8 chain'
+title: 'The data we have to work with — nine layers of public evidence for the HRD × IFN × CCR8 chain'
 date: '2026-06-02'
 topics:
 - dataset
@@ -7,17 +7,21 @@ topics:
 - hrd
 - single-cell
 - spatial
+- proteomics
+- bulk-rna
 - ovarian-cancer
 - breast-cancer
 - pancreatic-cancer
+- prostate-cancer
+- immunotherapy
 - resources
-summary: 'An earlier draft of the [pan-cancer bet](the-pan-cancer-bet.md) called GSE222556 "essentially the only" public single-cell dataset from PARPi-treated patients. That is too tight. The honest map is seven layers — a bulk multi-omics arena (TCGA + CPTAC + TCPA + GerkeLab/TCGAhrd); a human PARPi-treated single-cell layer (the Luo HGSOC anchor + two sister GEO IDs from the same trial, plus spatial olaparib-maintenance HGSOC, plus two paired-timepoint clinical proteomics resources from TOPACIO and AMTEC); a real preclinical PARPi scRNA layer across TNBC, ovarian, PDAC, and SCLC including paired sensitive/resistant models and chronic-PARPi persister states; a much larger HRD-stratified human single-cell + spatial layer where PARPi treatment is not required (Vázquez-García MSK-SPECTRUM, Pal BRCA1+/–, Bassez BIOKEY, Launonen/Färkkilä BRCA1/2-vs-WT mIF, Stur HGSOC Visium, Kopper ovarian PDO biobank, Hwang HTAPP PDAC); a single-cell HR-gene perturbation layer (Replogle genome-scale Perturb-seq) that gives a per-gene molecular fingerprint of HR loss; pan-cancer single-cell atlases and frameworks (Zheng, Cheng, Combes IRIS, Chu T-stress, Nieto TICAtlas, 3CA, Tay 2025 CCR8 NSCLC); and a list of pivotal-trial PARPi-arm single-cell data that does not exist publicly (PRIMA / SOLO / NOVA / POLO / MEDIOLA / NEOTALA / TALAPRO). The treated-outcome layer is HGSOC-anchored, but the HRD-stratified layer is large enough to test the chain pan-cancer.'
+summary: 'An earlier draft of the [pan-cancer bet](the-pan-cancer-bet.md) called GSE222556 "essentially the only" public single-cell dataset from PARPi-treated patients. That is too tight, and after a second round of digging the picture widens further. The honest map is now nine layers — (1) a bulk multi-omics arena extended with metastatic-WGS cohorts (Hartwig, PCAWG) and per-cohort CPTAC proteogenomic anchors across HGSOC / BRCA / UCEC / PDAC / CRC plus LUAD and HNSCC adjuncts; (2) human PARPi-treated single-cell + paired-timepoint clinical proteomics + the first two publicly deposited PARPi-trial bulk RNA cohorts (TOPARP-B mCRPC, AOCS GSE140996 HGSOC); (3) preclinical PARPi scRNA across TNBC / ovarian / PDAC / SCLC; (4) HRD-stratified human single-cell + spatial where PARPi is not required (Vázquez-García MSK-SPECTRUM, Pal BRCA1+/–, Bassez BIOKEY, Launonen/Färkkilä mIF, Stur Visium, Kopper PDO, Hwang HTAPP); (5) Replogle genome-scale Perturb-seq for the HR-gene molecular fingerprint; (6) pan-cancer immune atlases and frameworks (Zheng, Cheng, Combes IRIS, Chu T-stress, Nieto TICAtlas, 3CA, Tay 2025 NSCLC CCR8); (7) **new** — IO-treated cohorts as cross-validators (IMvigor210, IMmotion150/151, Braun CheckMate-009/010/025 for bulk RNA + outcome; Yost BCC/SCC, Krishna ADAPTeR ccRCC, Caushi NSCLC, Luoma HNSCC, Sade-Feldman melanoma, Bi RCC, Liu NSCLC for single-cell + scTCR); (8) **new** — cell-line baseline and drug-perturbation (LINCS L1000 PARPi signatures, DepMap + PRISM essentiality and sensitivity, CCLE RNA + proteomics rest-state); and (9) pivotal-trial PARPi-arm single-cell data that does not exist publicly. The treated-outcome layer is HGSOC + mCRPC anchored, but Layers 4–8 supply a wide enough cross-tumor base to stress-test the chain before any new-trial argument.'
 starred: true
 ---
 
 When a reader works through the [pan-cancer bet](the-pan-cancer-bet.md) and the [chain blog](the-chain-from-broken-dna-to-broken-t-cells.md), the practical question that follows is: **what data is actually on the table right now?** This blog is the inventory.
 
-Seven layers, narrowest (treated-outcome) to widest (pan-cancer framework).
+Nine layers, narrowest (treated-outcome) to widest (cell-line baseline + what's not public).
 
 ## Layer 1 — The bulk multi-omics arena (where Aims 1–4 live)
 
@@ -33,6 +37,26 @@ Two utilities save weeks:
 - **expHRD** — RNA-seq-only HRD predictor that lets the project add HRD calls to ICI cohorts where SNP/WES is absent.
 
 This layer is uncontroversial and almost off-the-shelf. The project will not break here.
+
+### WGS-grade metastatic + non-TCGA cohorts
+
+Two additions raise the genomic-scar quality and the metastatic-disease coverage that TCGA cannot follow:
+
+- **Hartwig Medical Foundation (HMF)** — 5,100+ metastatic patients with tumor+normal WGS (median 106×/38×) and matched RNA-seq on ~half. CHORD HRD classifier (Nguyen et al., *Nat Commun* 2020) + BRCA1-like vs BRCA2-like sub-classification + SBS3 are pre-computed; controlled access via DR-### application (free academic). This is the only large WGS cohort that is *metastatic by construction* — the patient population PARPi + anti-CCR8 actually treats, exactly where TCGA misclassifies because TCGA is primary.
+- **PCAWG** (ICGC/TCGA Pan-Cancer Analysis of Whole Genomes, *Nature* 2020) — 2,658 donors / 38 tumor types with uniformly reprocessed WGS, ~1,200 paired RNA-seq, and pre-computed SBS3 + RS3/RS5 structural-variant HRD signatures. Signature tables are open without DACO friction; raw WGS via ICGC DACO. Non-TCGA pan-cancer validation cohort for any HRD × IFN/eTreg stratifier trained on TCGA or HMF.
+
+### CPTAC per-cohort proteogenomic anchors
+
+The pan-CPTAC entry already in the corpus is the harmonized table. The per-cohort proteogenomic papers underneath it are the cleaner reference for each tumor type the project cares about — and the place to ground transcript-level CCR8 / IFN / MHC-II readouts in actual protein quantification:
+
+- **HGSOC** — Zhang et al. *Cell* 2016 (174 tumors, paired global+phospho proteomics, BRCA1/2 status) plus McDermott et al. *Cell Rep Med* 2020 (83 tumors + fallopian-tube normal anchors). The protein-level reference for the same arena Luo 2024 operates in.
+- **Breast** — Krug et al. *Cell* 2020 (~122 tumors with HRD scar + BRCAness, paired phosphoproteome). Pairs Pal 2021 BRCA1+/– scRNA and Wu 2021 atlas.
+- **Endometrial** — Dou et al. *Cell* 2020 (95 tumors: 83 EEC + 12 serous; POLE/MSI/CN-high subtypes; BRCA1/2 status). Lets HRD-positive serous EEC be compared to MSI-high EEC — the project's MSI confounder check.
+- **PDAC** — Cao et al. *Cell* 2021 (140 PDAC, 105 high-purity, BRCA1/BRCA2/PALB2 status). Protein layer pairing Hwang 2022 / GSE202051 snRNA from Layer 4.
+- **CRC** — Vasaikar et al. *Cell* 2019 (110 tumors with MSI status). Substrate for testing whether HRD-driven CCR8 enrichment is disproportionate even relative to MSI-high CRC.
+- *Adjuncts* — Gillette et al. *Cell* 2020 LUAD (110 + 101 NATs) and Huang et al. *Cancer Cell* 2021 HPV− HNSCC (108 + 66 NATs). No formal HRDsum, but they provide the IFN/MHC-II/STAT1 protein anchors needed for deconvolution QC. HNSCC additionally matches the indication where CHS-114 has its phase-I CCR8⁺Treg-depletion readout (NCT05635643).
+
+The pan-CPTAC HRDsum harmonization (Loeffler et al., *npj Precision Oncology* 2022) lets all eight cohorts be queried with the same HRD score the bulk-RNA layer uses. CCR8 itself is below TMT detection in bulk CPTAC — so the project always cross-checks CCR8 via scRNA, never via CPTAC alone. STAT1, HLA-DRA/DRB1, CIITA, MX1, ISG15, OAS1, IFI6 are reliably quantified; PD-L1 and LGALS9 are detectable but sparse; FGL1 is reliable in HCC/LUAD only.
 
 ## Layer 2 — Human PARPi-treated single-cell
 
@@ -59,7 +83,16 @@ Two multi-patient resources offer paired pre-PARPi vs on-PARPi biopsies, both si
 
 - **GSE288483** — Visium-class spatial transcriptomics, olaparib-maintenance HGSOC. Deposited September 2025; no anchor publication as of this writing — re-verify when the paper lands. The closest public spatial complement to the Luo dissociated scRNA: useful for asking whether CCR8⁺ eTregs and exhausted CD8 are *physically* co-located, which dissociated scRNA cannot answer.
 
-So the honest claim is: **GSE222556 + sisters is the only large, paired-timepoint, multi-platform human PARPi scRNA+TCR resource, and it is HGSOC-only.** The other human resources are smaller, protein-level, or HRD-WT.
+### Human PARPi-treated *bulk* RNA — narrower than expected, but not empty
+
+The pivotal PARPi trials are almost entirely DNA-only by protocol: PRIMA, SOLO-1/2, NOVA, PAOLA-1, POLO, MEDIOLA, OlympiAD, PROfound, ARIEL3, NEOTALA, and TALAPRO-1/2 either did not collect tumor RNA-seq or kept it under sponsor control via Vivli. Two cohorts are publicly deposited and worth running:
+
+- **TOPARP-A/B** (Mateo et al., *Cancer Discovery* 2021) — ICR/Royal Marsden academic phase II of olaparib in mCRPC. Tumor biopsies, WES + RNA-seq, per-patient olaparib response. EGA controlled-access via the ICR DAC. **The only publicly-deposited PARPi-trial tumor bulk RNA-seq cohort.** Extends the PARPi-treated transcriptome arena to prostate, outside HGSOC.
+- **GSE140996** (Christie et al.; Australian Ovarian Cancer Study sub-cohort) — AOCS PARPi-treated HGSOC bulk RNA + paired WGS, **fully open-access**. The closest second public PARPi-bulk-RNA dataset outside sponsor portals; the project can run HRD × IFN/eTreg signature scoring on this immediately.
+
+Two cohorts is still tight. But TOPARP gives the project a prostate-resolved PARPi transcriptome where the chain can be tested, and GSE140996 gives a second HGSOC bulk cohort to cross-check the Luo 2024 single-cell findings at bulk resolution.
+
+So the honest claim is: **GSE222556 + sisters is the only large, paired-timepoint, multi-platform human PARPi scRNA+TCR resource, and it is HGSOC-only.** The other human resources are smaller, protein-level, HRD-WT, or bulk-RNA (TOPARP, GSE140996).
 
 ## Layer 3 — Preclinical PARPi scRNA (the actual cross-tumor leverage)
 
@@ -122,7 +155,43 @@ These are not HRD-stratified but they are how the project will check that bulk-d
 - **Tirosh lab *Nat Cancer* 2025 (3CA — Curated Cancer Cell Atlas)** — 124 datasets, 2,836 samples with recurrent cancer-cell metaprograms including an IFN-α/γ-response module. Lets the project compare HRD-driven IFN against a pan-cancer baseline rather than assert it in isolation.
 - **Tay et al. *Cell* 2025** — anti-PD-1 NSCLC scRNA defines three Treg states post-treatment (proliferating, CCR8–, CCR8+). Direct CCR8 single-cell evidence on the immunotherapy axis; tests whether the eTreg compartment expands as a treatment effect, which matters for the project's PARPi → IFN → eTreg causal claim outside HGSOC.
 
-## Layer 7 — What is *not* public, and what the project therefore cannot do
+## Layer 7 — IO-treated cohorts as cross-validators
+
+The PARPi + anti-CCR8 combination has no clinical evidence. Anti-PD-1 monotherapy does. Testing the HRD × IFN/eTreg stratifier against actual IO response is the closest the project gets to a translational endpoint short of running its own trial — and the IO biomarker arena is richer than the PARPi-treated one.
+
+### IO-trial bulk RNA (response + outcome paired)
+
+- **IMvigor210** (Mariathasan et al., *Nature* 2018) — 348 metastatic urothelial-cancer tumors with pre-treatment RNA-seq + atezolizumab response/OS. Also packaged as the open `IMvigor210CoreBiologies` R package; the easiest IO-bulk-RNA arena to spin up. The TGF-β-excluded / T-effector-inflamed dichotomy every IO biomarker paper benchmarks against — directly comparable to the project's IFN/eTreg axis.
+- **IMmotion150** (McDermott et al., *Nat Med* 2018, EGAD00001004183) and **IMmotion151** (Motzer et al., *Cancer Cell* 2020, EGAS00001004353) — 263 and 823 mRCC tumors, atezo ± bev vs sunitinib, RNA-seq + ORR/PFS/OS via EGA controlled-access (Genentech/Roche DAC). IMmotion151 is the largest IO+TKI transcriptomic ccRCC cohort, with a 7-cluster NMF subtype map (incl. an IFN/T-eff cluster) the project's stratifier maps directly onto.
+- **Braun CheckMate-009/010/025** (Braun et al., *Nat Med* 2020, dbGaP `phs001493`) — 311 ccRCC tumors with RNA-seq + WES + nivo vs everolimus outcome, with clinical+molecular tables released as supplement. The most accessible IO-trial RNA cohort outside Genentech's EGA series — independent ccRCC validation of the HRD × IFN/eTreg stratifier.
+
+Sponsor-controlled but published-signature-usable: JAVELIN Renal 101 (Pfizer portal), KEYNOTE-426 (Merck External Data Sharing), IMvigor010 (Genentech DAC), CheckMate-274 (BMS Vivli). These cannot be downloaded, but their published signature scores can be referenced as additional concordance points.
+
+### IO single-cell anchors (paired pre/post + scTCR)
+
+For testing CCR8 dynamics specifically — not just IFN signature scores — the relevant resources are paired pre/post IO scRNA cohorts with TCR:
+
+- **Yost et al. *Nat Med* 2019 (`GSE123813`)** — 15 BCC/SCC patients with *site-matched paired pre+post* anti-PD-1 scRNA + scTCR (~79k cells). Gold-standard "clonal replacement" dataset; lets the project test whether CCR8⁺ eTreg clonotypes persist while CD8 clones turn over under IO.
+- **Krishna et al. *Cancer Cell* 2021 (ADAPTeR, `EGAD00001008166`)** — 6 ccRCC patients longitudinal pre / on-Tx (week 9) / post nivolumab, scRNA + scTCR + WES + mIF (~167k cells). The only ccRCC longitudinal scRNA+TCR atlas; the TRM niche this dataset resolves is exactly where CCR8⁺ eTregs sit.
+- **Caushi & Zhang et al. *Nature* 2021 (`GSE176021`)** — 20 NSCLC patients on neoadjuvant nivolumab with scRNA + scTCR + MANAFEST neoantigen-TCR mapping (~560k T cells). The only neoadjuvant lung dataset with neoantigen-resolved CD8 states — lets the project ask whether CCR8⁺ Tregs scale with MANA load.
+- **Luoma et al. *Cell* 2022 (`GSE200996`)** — HNSCC neoadjuvant anti-PD-1, paired pre/post biopsies. The non-HGSOC tissue companion for the CHS-114 phase-I CCR8-depletion readout (NCT05635643).
+- **Sade-Feldman et al. *Cell* 2018 (`GSE120575`)** — 32 melanoma patients, 48 biopsies, ~16k Smart-seq2 CD45+ cells with paired pre+post in 12 patients. Canonical melanoma IO scRNA dataset every Treg/exhaustion signature paper benchmarks against.
+- **Bi et al. *Cancer Cell* 2021 (`SCP1288`)** — ccRCC nivo+ipi scRNA atlas. Orthogonal validation cohort to Krishna 2021 ADAPTeR.
+- **Liu et al. *Nat Cancer* 2022 (`GSE179994`)** — longitudinal NSCLC anti-PD-1 scRNA + scTCR including on-treatment blood timepoints. Complements Caushi's tissue snapshot with peripheral clonotype dynamics.
+
+None of these are PARPi cohorts. But they are where the CCR8⁺ eTreg → exhausted-CD8 chain has been measured most carefully in human IO — and if the project's stratifier doesn't track IO response in any of them, it almost certainly won't track PARPi + anti-CCR8 response either. The IO single-cell layer is the project's plausibility check before any combination claim.
+
+## Layer 8 — Cell-line baseline and drug-perturbation
+
+Three resources operate on cell lines rather than patient tumors. They give the rest-state expression frame, the per-PARPi perturbation signature, and the HR-gene dependency profile that any patient-level inference should sit on top of.
+
+- **LINCS L1000 / CMap** (Subramanian et al., *Cell* 2017; `GSE92742` Phase 1 + `GSE70138` Phase 2) — olaparib, niraparib, talazoparib, rucaparib all profiled in the 9 core Touchstone lines and broader CMap panel. ISG15, IFI6, IFIT1, STAT1 are on the 978-transcript landmark set. The reference for asking per-cell-line whether a PARPi actually induces ISGs at all, and whether the magnitude tracks HRD genotype.
+- **DepMap + PRISM** (Tsherniak et al., *Cell* 2017; Corsello et al., *Nat Cancer* 2020) — DepMap CRISPR/RNAi essentiality across ~1,150 lines for BRCA1, BRCA2, PALB2, RAD51, 53BP1 (TP53BP1), Shieldin (SHLD1/2/3), REV7 (MAD2L2). PRISM gives all four PARPi in the primary 4,518-compound × ~578-line screen and the 8-dose × 1,448-compound × 499-line secondary. The cell-line genetics + drug-sensitivity layer underneath the HRD-*functional* axis the project wants (versus HRD-genomic-scar alone).
+- **CCLE bulk RNA + proteomics** (Ghandi et al., *Nature* 2019; Nusinow et al., *Cell* 2020) — ~1,400 lines with RNA-seq and 375 lines with TMT10 proteomics (~12,755 proteins). Baseline ISG (ISG15, IFI6, MX1, STAT1, IRF7), MHC-II, PD-L1, LGALS9, CCR8 expression per line at the transcript and protein level. The rest-state reference Replogle Perturb-seq fingerprints and L1000 PARPi signatures sit on top of.
+
+Concrete use: before touching any patient cohort, the project can ask (i) does this PARPi induce an ISG response at all in this cell line — L1000; (ii) which HR-gene losses are growth-essential there — DepMap; (iii) what the baseline ISG/MHC-II/CCR8 state is — CCLE RNA and proteomics. The cell-line layer answers the "does the mechanism work at all in this context" question that bulk-tumor inference cannot.
+
+## Layer 9 — What is *not* public, and what the project therefore cannot do
 
 Honest list of holes:
 
@@ -138,12 +207,14 @@ What this means concretely: the project cannot run a **PARPi-treated × outcome-
 
 ## What this changes for the project
 
-Five updates to the analysis plan, once Layers 4–6 are folded in:
+Seven updates to the analysis plan, once Layers 4–8 are folded in:
 
-1. **Aim 1 (HRD landscape) gains a single-cell anchor.** Bulk RNA + GerkeLab/TCGAhrd is still the spine, but Vázquez-García MSK-SPECTRUM (~929k cells across 42 HGSOC patients with HRD-Dup/Del/FBI/TD per case) lets the bulk HRD landscape be cross-validated at single-cell resolution in HGSOC.
-2. **Aim 2 (CCR8/IFN deconvolution) gains cross-tumor preclinical scRNA + HRD-stratified human validators.** GSE276238 (PDAC) and Wang 2025 (SCLC) test whether the chain fires in HRD-low tumors; Liang 2024 (TNBC + ovarian) tests whether it modulates at resistance; Launonen/Färkkilä 2022 mIF and Pal 2021 BRCA1+/– give HRD-stratified human references beyond HGSOC. The bulk-RNA claim no longer has to lean on cross-tumor inference alone.
-3. **Aim 3 (signature mechanics) gains a per-gene molecular fingerprint.** Replogle 2022 Perturb-seq covers BRCA1, BRCA2, RAD51, RAD51C/D, PALB2, BRIP1, 53BP1, Shieldin (SHLD1/2/3), REV7 at single-cell resolution. The project's HRD signatures can be cross-checked against the actual transcriptional response to losing each gene — separating genomic-scar HRD from functional HRD on a principled basis.
+1. **Aim 1 (HRD landscape) gains a single-cell anchor + a metastatic-WGS arena + non-TCGA validation.** Bulk RNA + GerkeLab/TCGAhrd is still the spine, but Vázquez-García MSK-SPECTRUM (~929k cells across 42 HGSOC patients with HRD-Dup/Del/FBI/TD per case) cross-validates the bulk HRD landscape at single-cell resolution in HGSOC; **HMF + CHORD** brings 5,100+ metastatic patients with WGS-grade HRD calls and matched RNA-seq into the arena — the population PARPi + anti-CCR8 actually treats; **PCAWG** gives a non-TCGA pan-cancer SBS3 + RS3/RS5 validation cohort the stratifier can be tested against out-of-distribution.
+2. **Aim 2 (CCR8/IFN deconvolution) gains cross-tumor preclinical scRNA + HRD-stratified human validators + per-cohort CPTAC protein anchors.** GSE276238 (PDAC) and Wang 2025 (SCLC) test whether the chain fires in HRD-low tumors; Liang 2024 (TNBC + ovarian) tests whether it modulates at resistance; Launonen/Färkkilä 2022 mIF and Pal 2021 BRCA1+/– give HRD-stratified human references beyond HGSOC; and the per-cohort CPTAC proteogenomics (Zhang 2016 / McDermott 2020 HGSOC, Krug 2020 breast, Dou 2020 UCEC, Cao 2021 PDAC, Vasaikar 2019 CRC) ground STAT1 / MHC-II / ISG-product / LGALS9 readouts at protein level across the project's core tumor types.
+3. **Aim 3 (signature mechanics) gains a per-gene molecular fingerprint + a cell-line essentiality + drug-sensitivity layer.** Replogle 2022 Perturb-seq covers BRCA1, BRCA2, RAD51, RAD51C/D, PALB2, BRIP1, 53BP1, Shieldin (SHLD1/2/3), REV7 at single-cell resolution; **DepMap + PRISM** adds per-line HR-gene essentiality and per-line PARPi sensitivity across ~1,150 cell lines; **LINCS L1000** adds the per-line PARPi → ISG perturbation signature. Together they let the project separate genomic-scar HRD from functional HRD on a principled basis and check whether each PARPi actually induces ISGs in HRD-relevant lines before extrapolating to tumors.
 4. **Aim 4 (pan-cancer placement) gains an immune-archetype frame.** Combes IRIS, Nieto TICAtlas, Tirosh 3CA, and Chu T-stress let the project place HRD-high tumors into a pan-cancer immune-archetype map and disambiguate IFN-driven from stress-driven T-cell states. The "HRD-high × IFN/eTreg-high" subgroup the [pan-cancer bet](the-pan-cancer-bet.md) calls for becomes a labelled region of an existing archetype space, not a free-floating claim.
-5. **Aim 6 (translational hypothesis) gains a caveat surface and a non-HGSOC CCR8 anchor.** Khan 2026 means the project has to argue why a TCGA-bulk-RNA CCR8 signal is tumor-intrinsic mechanism rather than peripheral-T-cell-trafficking artifact — and the AMTEC paired biopsies are the obvious negative control. Tay 2025 NSCLC anti-PD-1 gives the first non-HGSOC single-cell evidence that the CCR8⁺ Treg compartment behaves as a treatment-responsive axis, which is structurally what the PARPi + anti-CCR8 combination needs.
+5. **Aim 5 (clinical concordance) gains a real proxy via IO-trial bulk RNA cohorts.** IMvigor210 (mUC), IMmotion150/151 (mRCC), and Braun CheckMate-009/010/025 (ccRCC) supply ~1,700 patients with paired transcriptomes + actual IO outcome — the closest the project gets to testing whether HRD-high × IFN/eTreg-high tracks response in a real clinical cohort, before any PARPi combination argument. The stratifier should track IO response in at least some of these cohorts if it tracks anything at all.
+6. **Aim 6 (translational hypothesis) gains a caveat surface, a non-HGSOC CCR8 anchor, AND a public PARPi-treated transcriptome outside HGSOC.** Khan 2026 means the project has to argue why a TCGA-bulk-RNA CCR8 signal is tumor-intrinsic mechanism rather than peripheral-T-cell-trafficking artifact — and the AMTEC paired biopsies are the obvious negative control. Tay 2025 NSCLC anti-PD-1 gives the first non-HGSOC single-cell evidence that the CCR8⁺ Treg compartment behaves as a treatment-responsive axis. And **TOPARP-B** (Mateo 2021, olaparib mCRPC tumor RNA + outcome via EGA) is the only publicly-deposited PARPi-trial tumor bulk RNA-seq cohort — it lets the IFN/eTreg signature actually be scored against PARPi response in a non-HGSOC tumor type.
+7. **Aim 7 (CCR8 dynamics under IO) becomes addressable.** The IO single-cell anchors — Yost BCC/SCC paired pre+post + scTCR, Krishna ADAPTeR ccRCC longitudinal, Caushi NSCLC with MANAFEST, Luoma HNSCC neoadjuvant, Sade-Feldman melanoma — let the project ask, at clonotype resolution, whether CCR8⁺ eTreg clones persist while CD8 clones turn over under IO, and whether CCR8⁺ Tregs scale with neoantigen load. This is the structural prerequisite for arguing a PARPi + anti-CCR8 combination should outperform either alone.
 
-The headline: the project is still HGSOC-anchored on the *human treated* side, but Layers 4–6 supply a much wider HRD-stratified single-cell base — across breast, pancreatic, prostate, and pan-cancer immune frames — plus a per-gene HR-loss fingerprint from genome-scale Perturb-seq. That is the level of cross-tumor data the chain needs to be stress-tested against before the [pan-cancer bet](the-pan-cancer-bet.md) makes sense as a stratifier rather than a generalization.
+The headline: the project is still HGSOC-anchored on the *human PARPi-treated single-cell* side, but Layers 4–8 supply a much wider cross-tumor base — HRD-stratified human single-cell + spatial (Layer 4), per-gene HR-loss Perturb-seq (Layer 5), pan-cancer immune-archetype frames (Layer 6), IO-treated bulk RNA + scRNA + scTCR cohorts where the chain's downstream half has been measured most carefully (Layer 7), and a cell-line baseline + perturbation layer to plausibility-check the mechanism per line before extrapolation (Layer 8). That is the level of cross-tumor data the chain needs to be stress-tested against before the [pan-cancer bet](the-pan-cancer-bet.md) makes sense as a stratifier rather than a generalization.

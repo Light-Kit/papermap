@@ -270,6 +270,138 @@ papermap_edges:
 - - olbrecht-2021
   - vazquez-garcia-2022
   - builds-on
+- - hmf-cohort
+  - nguyen-2020-chord
+  - derived-from
+- - nguyen-2020-chord
+  - priestley-2019
+  - builds-on
+- - nguyen-2020-chord
+  - sbs3
+  - validates-on
+- - pcawg-2020
+  - pcawg-cohort
+  - derived-from
+- - pcawg-2020
+  - sbs3
+  - validates-on
+- - priestley-2019
+  - hmf-cohort
+  - derived-from
+- - loeffler-2022-cptac-hrd
+  - knijnenburg-2018
+  - builds-on
+- - loeffler-2022-cptac-hrd
+  - cptac-pancan-2024
+  - validates-on
+- - zhang-2016-hgsoc-cptac
+  - cptac-pancan-2024
+  - derived-from
+- - mcdermott-2020-hgsoc-rerun
+  - cptac-pancan-2024
+  - derived-from
+- - mcdermott-2020-hgsoc-rerun
+  - zhang-2016-hgsoc-cptac
+  - builds-on
+- - krug-2020-brca-cptac
+  - cptac-pancan-2024
+  - derived-from
+- - dou-2020-ucec-cptac
+  - cptac-pancan-2024
+  - derived-from
+- - cao-2021-pdac-cptac
+  - cptac-pancan-2024
+  - derived-from
+- - vasaikar-2019-crc-cptac
+  - cptac-pancan-2024
+  - derived-from
+- - gillette-2020-luad-cptac
+  - cptac-pancan-2024
+  - derived-from
+- - huang-2021-hnscc-cptac
+  - cptac-pancan-2024
+  - derived-from
+- - mariathasan-2018
+  - imvigor210
+  - derived-from
+- - mariathasan-2018
+  - ifn-isg-signature
+  - validates-on
+- - mcdermott-2018-immotion150
+  - immotion150
+  - derived-from
+- - motzer-2020-immotion151
+  - immotion151
+  - derived-from
+- - braun-2020-cm025
+  - braun-cm025-dbgap
+  - derived-from
+- - braun-2020-cm025
+  - ifn-isg-signature
+  - validates-on
+- - mateo-2021-toparp
+  - toparp-ega
+  - derived-from
+- - mateo-2021-toparp
+  - luo-2024
+  - builds-on
+- - christie-2019-parpi
+  - christie-gse140996
+  - derived-from
+- - yost-2019-bcc
+  - gse123813
+  - derived-from
+- - yost-2019-bcc
+  - luo-2024
+  - validates-on
+- - krishna-2021-adapter
+  - krishna-adapter-ega
+  - derived-from
+- - krishna-2021-adapter
+  - zheng-2021-tcell
+  - builds-on
+- - caushi-2021-nsclc
+  - gse176021
+  - derived-from
+- - caushi-2021-nsclc
+  - zheng-2021-tcell
+  - builds-on
+- - luoma-2022-hnscc
+  - gse200996
+  - derived-from
+- - sade-feldman-2018-mel
+  - gse120575
+  - derived-from
+- - bi-2021-rcc
+  - krishna-2021-adapter
+  - validates-on
+- - liu-2022-nsclc
+  - caushi-2021-nsclc
+  - builds-on
+- - subramanian-2017-l1000
+  - lincs-l1000
+  - derived-from
+- - subramanian-2017-l1000
+  - ifn-isg-signature
+  - validates-on
+- - tsherniak-2017-depmap
+  - depmap-prism
+  - derived-from
+- - corsello-2020-prism
+  - depmap-prism
+  - derived-from
+- - ghandi-2019-ccle
+  - ccle-rna
+  - derived-from
+- - nusinow-2020-ccle-prot
+  - ccle-proteomics
+  - derived-from
+- - ghandi-2019-ccle
+  - replogle-2022-perturbseq
+  - validates-on
+- - depmap-prism
+  - knijnenburg-2018
+  - validates-on
 
 items:
 
@@ -1491,3 +1623,816 @@ items:
   - pan-cancer
   - multi-omics
   why: TCGA-side computational collaborator on Luo 2024; relevant lineage for pan-cancer HRD-genomics analysis at scale.
+
+# ----- WGS METASTATIC + NON-TCGA (HRD genomics extension, round 3) -----
+- id: priestley-2019
+  kind: paper
+  label: Priestley et al. — Pan-cancer WGS of metastatic solid tumours (HMF flagship, Nature 2019)
+  modality: genomics
+  year: 2019
+  released: '2019-11'
+  status: published
+  org_type: academic
+  region: Netherlands
+  papermap_category: hrd-genomics
+  url: https://doi.org/10.1038/s41586-019-1689-y
+  people:
+  - Priestley P
+  - Cuppen E
+  topics:
+  - hrd
+  - pan-cancer
+  - genomics
+  why: HMF flagship — 2,520 biopsies / 2,399 metastatic patients with tumor+normal WGS (median 106×/38×) and matched RNA-seq on ~half. The reference frame for asking what HRD looks like in metastatic disease rather than primary TCGA tumors.
+
+- id: nguyen-2020-chord
+  starred: true
+  kind: paper
+  label: Nguyen et al. — CHORD pan-cancer HRD classifier (Nat Commun 2020)
+  modality: genomics
+  year: 2020
+  status: published
+  org_type: academic
+  region: Netherlands
+  papermap_category: hrd-genomics
+  url: https://doi.org/10.1038/s41467-020-19406-4
+  people:
+  - Nguyen L
+  - Martens JWM
+  - Van Hoeck A
+  - Cuppen E
+  topics:
+  - hrd
+  - pan-cancer
+  - signatures
+  - dna-repair
+  why: CHORD — the random-forest WGS HRD classifier shipped with the HMF release, plus the BRCA1-like vs BRCA2-like sub-classification used pan-cancer. The cleanest orthogonal HRD call to HRDsum/SBS3 for sensitivity-analysis triangulation.
+
+- id: pcawg-2020
+  starred: true
+  kind: paper
+  label: ICGC/TCGA PCAWG Consortium — Pan-cancer analysis of whole genomes (Nature 2020)
+  modality: genomics
+  year: 2020
+  status: published
+  org_type: academic
+  region: International
+  papermap_category: hrd-genomics
+  url: https://doi.org/10.1038/s41586-020-1969-6
+  topics:
+  - hrd
+  - pan-cancer
+  - signatures
+  - genomics
+  why: 2,658 donors / 38 tumor types with uniformly reprocessed WGS and ~1,200 paired RNA-seq, plus pre-computed SBS3 + RS3/RS5 structural-variant HRD signatures. Indispensable non-TCGA validation cohort for any pan-cancer HRD stratifier.
+
+# ----- CPTAC PROTEOGENOMICS PER-COHORT ANCHORS -----
+- id: loeffler-2022-cptac-hrd
+  kind: paper
+  label: Loeffler et al. — Pan-CPTAC HRDsum harmonization (npj Precision Oncology 2022)
+  modality: proteomics
+  year: 2022
+  status: published
+  papermap_category: hrd-genomics
+  url: https://www.nature.com/articles/s41698-022-00276-6
+  topics:
+  - hrd
+  - pan-cancer
+  - signatures
+  - proteomics
+  why: Harmonizes HRDsum across CPTAC tumor types so a single HRD score is comparable across HGSOC, BRCA, UCEC, PDAC, CRC. Lets the proteogenomic layer be queried with the same HRD definition the bulk-RNA layer uses.
+
+- id: zhang-2016-hgsoc-cptac
+  kind: paper
+  label: Zhang et al. — Integrated proteogenomic characterization of HGSOC (CPTAC, Cell 2016)
+  modality: proteomics
+  year: 2016
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: hrd-genomics
+  url: https://doi.org/10.1016/j.cell.2016.05.069
+  topics:
+  - hrd
+  - ovarian-cancer
+  - proteomics
+  - multi-omics
+  why: 174 HGSOC tumors with paired global + phospho proteomics, RNA-seq, and BRCA1/2 status. The protein-level reference for the same HGSOC arena Luo 2024 operates in — lets MHC-II / STAT1 / ISG product levels be cross-checked beyond transcripts.
+
+- id: mcdermott-2020-hgsoc-rerun
+  kind: paper
+  label: McDermott et al. — CPTAC-3 HGSOC re-run with fallopian-tube anchors (Cell Rep Med 2020)
+  modality: proteomics
+  year: 2020
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: hrd-genomics
+  url: https://doi.org/10.1016/j.xcrm.2020.100004
+  topics:
+  - hrd
+  - ovarian-cancer
+  - proteomics
+  why: 83 HGSOC tumors + fallopian-tube normal anchors, with HRD status per case. Extends Zhang 2016 with the tissue-of-origin baseline the project's IFN/MHC-II readouts need to be compared against.
+
+- id: krug-2020-brca-cptac
+  kind: paper
+  label: Krug et al. — CPTAC breast cancer proteogenomics with BRCAness scoring (Cell 2020)
+  modality: proteomics
+  year: 2020
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: hrd-genomics
+  url: https://doi.org/10.1016/j.cell.2020.10.036
+  topics:
+  - hrd
+  - breast-cancer
+  - proteomics
+  - multi-omics
+  why: ~122 breast tumors with HRD scar score and BRCAness, paired phosphoproteome. The protein-level breast arm of the HRD landscape — complements Pal 2021 BRCA1+/– scRNA and Wu 2021 atlas.
+
+- id: dou-2020-ucec-cptac
+  kind: paper
+  label: Dou et al. — CPTAC endometrial carcinoma proteogenomics (Cell 2020)
+  modality: proteomics
+  year: 2020
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: hrd-genomics
+  url: https://doi.org/10.1016/j.cell.2020.01.026
+  topics:
+  - hrd
+  - proteomics
+  - multi-omics
+  why: 95 endometrial tumors (83 EEC + 12 serous) with POLE/MSI/CN-high subtype assignments and BRCA1/2 status. Lets HRD-positive serous endometrial be compared to MSI-high EEC as the project's MSI confounder check.
+
+- id: cao-2021-pdac-cptac
+  kind: paper
+  label: Cao et al. — CPTAC pancreatic ductal adenocarcinoma proteogenomics (Cell 2021)
+  modality: proteomics
+  year: 2021
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: hrd-genomics
+  url: https://doi.org/10.1016/j.cell.2021.08.023
+  topics:
+  - hrd
+  - pancreatic-cancer
+  - proteomics
+  - multi-omics
+  why: 140 PDAC (105 high-purity) with BRCA1/BRCA2/PALB2 status and matched proteomics+phosphoproteomics. The protein layer pairing the Hwang 2022 / GSE202051 snRNA reference for PDAC.
+
+- id: vasaikar-2019-crc-cptac
+  kind: paper
+  label: Vasaikar et al. — CPTAC colorectal cancer proteogenomics with MSI subtypes (Cell 2019)
+  modality: proteomics
+  year: 2019
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: hrd-genomics
+  url: https://doi.org/10.1016/j.cell.2019.03.030
+  topics:
+  - proteomics
+  - multi-omics
+  - pan-cancer
+  why: 110 CRC tumors with MSI status — the protein-level substrate for testing whether HRD-driven CCR8 enrichment is disproportionate even relative to MSI-high CRC, the project's main MSI confounder control.
+
+- id: gillette-2020-luad-cptac
+  kind: paper
+  label: Gillette et al. — CPTAC lung adenocarcinoma proteogenomics (Cell 2020)
+  modality: proteomics
+  year: 2020
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: hrd-genomics
+  url: https://doi.org/10.1016/j.cell.2020.06.013
+  topics:
+  - proteomics
+  - multi-omics
+  why: 110 LUAD + 101 NATs. Adjunct CPTAC dataset — LUAD lacks formal HRDsum reporting but provides the IFN/MHC-II/STAT1 protein anchors needed for bulk-RNA deconvolution QC.
+
+- id: huang-2021-hnscc-cptac
+  kind: paper
+  label: Huang et al. — CPTAC HPV− head and neck squamous proteogenomics (Cancer Cell 2021)
+  modality: proteomics
+  year: 2021
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: hrd-genomics
+  url: https://doi.org/10.1016/j.ccell.2020.12.007
+  topics:
+  - proteomics
+  - multi-omics
+  - immunotherapy
+  why: 108 HPV− HNSCC + 66 NATs. Adjunct — HNSCC is where CHS-114 has its phase-I CCR8⁺Treg-depletion readout, so this is the natural protein-layer companion for cross-checking CCR8 / LAG3 / TNFRSF18 protein behavior in HNSCC tumors.
+
+# ----- IO TRIAL BULK RNA (paper anchors) -----
+- id: mariathasan-2018
+  starred: true
+  kind: paper
+  label: Mariathasan et al. — IMvigor210 atezolizumab in metastatic UC, TGF-β / T-eff stratifier (Nature 2018)
+  modality: bulk-rna
+  year: 2018
+  status: published
+  org_type: industry
+  region: US
+  papermap_category: hrd-genomics
+  url: https://doi.org/10.1038/nature25501
+  people:
+  - Mariathasan S
+  - Powles T
+  topics:
+  - immunotherapy
+  - interferon
+  - bulk-rna
+  - tumor-microenvironment
+  why: The canonical IO-bulk-RNA paper — 348 mUC tumors with anti-PD-L1 response + the TGF-β-excluded / T-effector-inflamed dichotomy every IO biomarker paper benchmarks against. Used to test whether HRD-high × IFN/eTreg-high tracks response in UC.
+
+- id: mcdermott-2018-immotion150
+  kind: paper
+  label: McDermott et al. — IMmotion150 atezolizumab ± bev vs sunitinib in mRCC (Nat Med 2018)
+  modality: bulk-rna
+  year: 2018
+  status: published
+  org_type: industry
+  region: US
+  papermap_category: hrd-genomics
+  url: https://doi.org/10.1038/s41591-018-0053-3
+  topics:
+  - immunotherapy
+  - interferon
+  - bulk-rna
+  why: 263 mRCC tumors with paired RNA-seq + ORR/PFS. The cleanest ccRCC IO biomarker set for the T-eff / angio axes the project repurposes for HRD × IFN testing.
+
+- id: motzer-2020-immotion151
+  starred: true
+  kind: paper
+  label: Motzer et al. — IMmotion151 atezo+bev vs sunitinib in mRCC (Cancer Cell 2020)
+  modality: bulk-rna
+  year: 2020
+  status: published
+  org_type: industry
+  region: US
+  papermap_category: hrd-genomics
+  url: https://doi.org/10.1016/j.ccell.2020.10.011
+  topics:
+  - immunotherapy
+  - interferon
+  - bulk-rna
+  - tumor-microenvironment
+  why: 823 mRCC tumors with RNA-seq + PFS/OS — the largest IO+TKI transcriptomic ccRCC cohort. Defines the 7-cluster NMF subtypes including the IFN/T-eff cluster the project's stratifier directly maps onto.
+
+- id: braun-2020-cm025
+  starred: true
+  kind: paper
+  label: Braun et al. — CheckMate-009/010/025 ccRCC nivolumab biomarker (Nat Med 2020)
+  modality: bulk-rna
+  year: 2020
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: hrd-genomics
+  url: https://doi.org/10.1038/s41591-020-0839-y
+  topics:
+  - immunotherapy
+  - interferon
+  - bulk-rna
+  why: 311 ccRCC tumors with RNA-seq + WES + nivo vs everolimus outcome, with clinical+molecular tables released in supplement. The most accessible IO-trial RNA cohort for an independent ccRCC validation of the HRD × IFN/eTreg stratifier.
+
+# ----- PARPi TRIAL BULK RNA -----
+- id: mateo-2021-toparp
+  starred: true
+  kind: paper
+  label: Mateo et al. — TOPARP-B olaparib in mCRPC biomarker (Cancer Discovery 2021)
+  modality: bulk-rna
+  year: 2021
+  status: published
+  org_type: academic
+  region: UK
+  papermap_category: parpi-immune
+  url: https://doi.org/10.1158/2159-8290.CD-21-0007
+  people:
+  - Mateo J
+  - de Bono JS
+  topics:
+  - parpi
+  - prostate-cancer
+  - bulk-rna
+  - hrd
+  why: The only publicly-deposited PARPi-trial tumor bulk RNA-seq cohort — ICR/Royal Marsden academic phase II mCRPC with biopsies, WES + RNA-seq, and per-patient olaparib response. Lets a PARPi-treated transcriptome × HRD × outcome analysis run outside HGSOC, in prostate.
+
+- id: christie-2019-parpi
+  kind: paper
+  label: Christie et al. — Australian Ovarian Cancer Study PARPi-treated HGSOC (GSE140996)
+  modality: bulk-rna
+  year: 2019
+  status: published
+  org_type: academic
+  region: Australia
+  papermap_category: parpi-immune
+  url: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE140996
+  topics:
+  - parpi
+  - ovarian-cancer
+  - bulk-rna
+  - hrd
+  why: AOCS sub-cohort with PARPi-treated HGSOC bulk RNA + paired WGS, deposited as GSE140996. The closest second public PARPi-bulk-RNA dataset to TOPARP outside sponsor-controlled trial portals.
+
+# ----- IO SINGLE-CELL ANCHORS -----
+- id: yost-2019-bcc
+  starred: true
+  kind: paper
+  label: Yost et al. — Clonal replacement in BCC/SCC anti-PD-1 scRNA+scTCR (Nat Med 2019)
+  modality: single-cell-rna
+  year: 2019
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: atlas-singlecell
+  url: https://doi.org/10.1038/s41591-019-0522-3
+  people:
+  - Yost KE
+  - Chang HY
+  - Satpathy AT
+  topics:
+  - immunotherapy
+  - exhausted-cd8
+  - single-cell
+  - treg
+  why: 15 BCC/SCC patients with site-matched paired pre+post anti-PD-1 scRNA + scTCR (GSE123813, ~79k cells). Gold-standard "clonal replacement" dataset — lets the project test whether CCR8⁺ eTreg clonotypes persist while CD8 clones turn over under IO.
+
+- id: krishna-2021-adapter
+  starred: true
+  kind: paper
+  label: Krishna et al. — ADAPTeR ccRCC nivolumab multi-region scRNA+scTCR (Cancer Cell 2021)
+  modality: single-cell-rna
+  year: 2021
+  status: published
+  org_type: academic
+  region: US/UK
+  papermap_category: atlas-singlecell
+  url: https://doi.org/10.1016/j.ccell.2021.03.007
+  people:
+  - Krishna C
+  - Chan TA
+  - Turajlic S
+  topics:
+  - immunotherapy
+  - exhausted-cd8
+  - treg
+  - single-cell
+  why: 6 ccRCC patients longitudinal pre / on-Tx (week 9) / post nivolumab, scRNA+scTCR+WES+mIF (~167k cells, EGAD00001008166). The only ccRCC longitudinal scRNA+TCR atlas — the TRM niche this dataset resolves is where CCR8⁺ eTregs sit.
+
+- id: caushi-2021-nsclc
+  starred: true
+  kind: paper
+  label: Caushi & Zhang et al. — NSCLC neoadjuvant nivolumab MANA-resolved scRNA+scTCR (Nature 2021)
+  modality: single-cell-rna
+  year: 2021
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: atlas-singlecell
+  url: https://doi.org/10.1038/s41586-021-03752-4
+  people:
+  - Caushi JX
+  - Zhang J
+  - Smith KN
+  topics:
+  - immunotherapy
+  - exhausted-cd8
+  - single-cell
+  why: 20 NSCLC patients on neoadjuvant nivolumab with scRNA+scTCR + MANAFEST neoantigen-TCR mapping (GSE176021, ~560k T cells). The only neoadjuvant lung dataset with neoantigen-resolved CD8 states — lets the project ask whether CCR8⁺ Tregs scale with MANA load.
+
+- id: luoma-2022-hnscc
+  kind: paper
+  label: Luoma et al. — HNSCC neoadjuvant anti-PD-1 paired pre/post scRNA (Cell 2022)
+  modality: single-cell-rna
+  year: 2022
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: atlas-singlecell
+  url: https://doi.org/10.1016/j.cell.2022.09.030
+  topics:
+  - immunotherapy
+  - exhausted-cd8
+  - single-cell
+  why: HNSCC neoadjuvant anti-PD-1 cohort with paired pre/post biopsies (GSE200996). The non-HGSOC tissue-IO single-cell anchor complementing Caushi 2021; pairs naturally with the HNSCC CHS-114 phase-I CCR8-depletion readout.
+
+- id: sade-feldman-2018-mel
+  kind: paper
+  label: Sade-Feldman et al. — Melanoma anti-PD-1 TCF7+ memory vs exhausted scRNA (Cell 2018)
+  modality: single-cell-rna
+  year: 2018
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: atlas-singlecell
+  url: https://doi.org/10.1016/j.cell.2018.10.038
+  people:
+  - Sade-Feldman M
+  - Hacohen N
+  topics:
+  - immunotherapy
+  - exhausted-cd8
+  - single-cell
+  why: 32 metastatic melanoma patients, 48 biopsies (incl. paired pre+post in 12), ~16k Smart-seq2 CD45+ cells (GSE120575). The canonical TCF7+ memory-vs-exhausted axis dataset every IO/Treg signature paper benchmarks against.
+
+- id: bi-2021-rcc
+  kind: paper
+  label: Bi et al. — ccRCC nivo+ipi scRNA (Cancer Cell 2021)
+  modality: single-cell-rna
+  year: 2021
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: atlas-singlecell
+  url: https://doi.org/10.1016/j.ccell.2021.02.015
+  topics:
+  - immunotherapy
+  - single-cell
+  - exhausted-cd8
+  why: ccRCC anti-PD-1 + anti-CTLA-4 scRNA atlas (Broad SCP1288). Orthogonal validation cohort to Krishna 2021 ADAPTeR; useful for cross-checking CCR8 / eTreg behavior in a different ccRCC IO regimen.
+
+- id: liu-2022-nsclc
+  kind: paper
+  label: Liu et al. — NSCLC anti-PD-1 longitudinal precursor-exhausted T (Nat Cancer 2022)
+  modality: single-cell-rna
+  year: 2022
+  status: published
+  org_type: academic
+  region: US/China
+  papermap_category: atlas-singlecell
+  url: https://doi.org/10.1038/s43018-022-00350-9
+  topics:
+  - immunotherapy
+  - exhausted-cd8
+  - single-cell
+  why: Longitudinal NSCLC anti-PD-1 scRNA+scTCR including on-treatment blood timepoints (GSE179994). Complements Caushi tissue-only data with peripheral clonotype dynamics — the "where do these clones come from" companion.
+
+# ----- CELL LINE / DRUG-PERTURBATION ANCHORS -----
+- id: subramanian-2017-l1000
+  starred: true
+  kind: paper
+  label: Subramanian et al. — CMap / LINCS L1000 next-gen connectivity map (Cell 2017)
+  modality: bulk-rna
+  year: 2017
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: signatures
+  url: https://doi.org/10.1016/j.cell.2017.10.049
+  people:
+  - Subramanian A
+  - Golub TR
+  topics:
+  - signatures
+  - bulk-rna
+  - dna-damage
+  why: Defines the L1000 platform and Touchstone perturbagen set — olaparib, niraparib, talazoparib, rucaparib are all profiled in the 9 core lines + broader CMap panel. The reference for per-cell-line PARPi-induced ISG response (ISG15, IFI6, IFIT1, STAT1 are all on the landmark list).
+
+- id: tsherniak-2017-depmap
+  starred: true
+  kind: paper
+  label: Tsherniak et al. — Defining a cancer dependency map (Cell 2017)
+  modality: genomics
+  year: 2017
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: signatures
+  url: https://doi.org/10.1016/j.cell.2017.06.010
+  people:
+  - Tsherniak A
+  - Hahn WC
+  topics:
+  - signatures
+  - dna-repair
+  - synthetic-lethality
+  why: Establishes the DepMap CRISPR/RNAi essentiality framework — gives per-line dependency scores for BRCA1, BRCA2, PALB2, RAD51, 53BP1, Shieldin (SHLD1/2/3), REV7. The cell-line genetics layer underneath the project's HRD-functional axis.
+
+- id: corsello-2020-prism
+  kind: paper
+  label: Corsello et al. — PRISM Drug Repurposing Hub (Nat Cancer 2020)
+  modality: bulk-rna
+  year: 2020
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: signatures
+  url: https://doi.org/10.1038/s43018-019-0018-6
+  people:
+  - Corsello SM
+  topics:
+  - signatures
+  - synthetic-lethality
+  - parpi
+  why: PRISM multiplexed compound screen — all four PARPi are in both the primary 4,518-compound × ~578-line screen and the 8-dose × 1,448-compound × 499-line secondary. The reference for per-line PARPi sensitivity vs HR-gene genotype.
+
+- id: ghandi-2019-ccle
+  kind: paper
+  label: Ghandi et al. — Next-generation CCLE characterization (Nature 2019)
+  modality: bulk-rna
+  year: 2019
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: signatures
+  url: https://doi.org/10.1038/s41586-019-1186-3
+  people:
+  - Ghandi M
+  topics:
+  - signatures
+  - bulk-rna
+  - pan-cancer
+  why: ~1,400 cell lines with RNA-seq + WES — gives baseline ISG (ISG15, IFI6, MX1, STAT1, IRF7), MHC-II, PD-L1, LGALS9, CCR8 transcript levels per line. The rest-state expression frame Replogle Perturb-seq fingerprints and L1000 PARPi responses sit on top of.
+
+- id: nusinow-2020-ccle-prot
+  kind: paper
+  label: Nusinow et al. — Quantitative proteomics of the CCLE (Cell 2020)
+  modality: proteomics
+  year: 2020
+  status: published
+  org_type: academic
+  region: US
+  papermap_category: signatures
+  url: https://doi.org/10.1016/j.cell.2019.12.023
+  people:
+  - Nusinow DP
+  - Gygi SP
+  topics:
+  - signatures
+  - proteomics
+  - pan-cancer
+  why: 375 CCLE lines × ~12,755 proteins via TMT10 — STAT1, HLA-DR/DP/DQ invariant chains, LGALS9 robustly quantified. The protein-layer baseline that lets the project ask "do per-line ISG/MHC-II transcripts agree with protein" before extrapolating to tumors.
+
+# ----- DATASETS (round 3) -----
+- id: hmf-cohort
+  pinned: true
+  kind: dataset
+  label: Hartwig Medical Foundation — Pan-cancer metastatic WGS + RNA-seq + CHORD HRD calls
+  modality: multi-omics
+  year: 2019
+  status: open
+  access: registered
+  papermap_category: datasets
+  url: https://www.hartwigmedicalfoundation.nl/en/data/database/
+  topics:
+  - hrd
+  - pan-cancer
+  - multi-omics
+  - genomics
+  why: ~5,100+ metastatic patients with tumor+normal WGS (CHORD HRD + SBS3 pre-computed) and matched tumor RNA-seq on ~half. Controlled-access via DR-### application; free academic. The only large WGS cohort that is metastatic by construction — the patient population for which PARPi + anti-CCR8 is plausible.
+
+- id: pcawg-cohort
+  kind: dataset
+  label: PCAWG — ICGC/TCGA Pan-Cancer Analysis of Whole Genomes (2,658 donors / 38 tumor types)
+  modality: multi-omics
+  year: 2020
+  status: open
+  access: open
+  papermap_category: datasets
+  url: https://dcc.icgc.org/pcawg
+  topics:
+  - hrd
+  - pan-cancer
+  - signatures
+  - genomics
+  why: 2,658 donors / 38 tumor types with uniformly reprocessed WGS, ~1,200 paired RNA-seq, pre-computed SBS3 + RS3/RS5 HRD signatures. Open-tier signatures usable without DACO friction; raw WGS via ICGC DACO.
+
+- id: imvigor210
+  kind: dataset
+  label: IMvigor210 — atezolizumab in metastatic UC bulk RNA + response (n=348)
+  modality: bulk-rna
+  year: 2018
+  status: open
+  access: registered
+  papermap_category: datasets
+  url: https://ega-archive.org/studies/EGAS00001004386
+  topics:
+  - immunotherapy
+  - interferon
+  - bulk-rna
+  why: 348 mUC tumors with pre-treatment RNA-seq + anti-PD-L1 response/OS, also packaged as the open `IMvigor210CoreBiologies` R package. The most accessible IO-bulk-RNA arena for testing the IFN/eTreg stratifier against actual response.
+
+- id: immotion150
+  kind: dataset
+  label: IMmotion150 — atezo ± bev vs sunitinib mRCC bulk RNA + ORR/PFS (n=263)
+  modality: bulk-rna
+  year: 2018
+  status: open
+  access: registered
+  papermap_category: datasets
+  url: https://ega-archive.org/datasets/EGAD00001004183
+  topics:
+  - immunotherapy
+  - interferon
+  - bulk-rna
+  why: 263 mRCC tumors with paired RNA-seq + ORR/PFS via EGA controlled access (Genentech DAC). The smaller-but-cleaner mRCC IO biomarker dataset for the T-eff / IFN axes.
+
+- id: immotion151
+  pinned: true
+  kind: dataset
+  label: IMmotion151 — atezo+bev vs sunitinib mRCC bulk RNA + PFS/OS (n=823)
+  modality: bulk-rna
+  year: 2020
+  status: open
+  access: registered
+  papermap_category: datasets
+  url: https://ega-archive.org/studies/EGAS00001004353
+  topics:
+  - immunotherapy
+  - interferon
+  - bulk-rna
+  why: 823 mRCC tumors with RNA-seq + PFS/OS via EGA controlled access (Roche/Genentech DAC) — the largest IO+TKI ccRCC transcriptomic cohort, with the 7-cluster NMF subtype map the project's stratifier can be projected onto.
+
+- id: braun-cm025-dbgap
+  kind: dataset
+  label: Braun CheckMate-009/010/025 — ccRCC nivolumab RNA-seq + WES + outcome (n=311)
+  modality: bulk-rna
+  year: 2020
+  status: open
+  access: registered
+  papermap_category: datasets
+  url: https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs001493
+  topics:
+  - immunotherapy
+  - interferon
+  - bulk-rna
+  why: 311 ccRCC tumors with RNA-seq + WES + nivo vs everolimus outcome (dbGaP phs001493). Clinical+molecular tables released as supplement — the most accessible IO-trial RNA cohort outside Genentech's EGA series.
+
+- id: toparp-ega
+  kind: dataset
+  label: TOPARP-A/B — Olaparib mCRPC tumor RNA-seq + WES (ICR/Royal Marsden)
+  modality: bulk-rna
+  year: 2021
+  status: open
+  access: registered
+  papermap_category: datasets
+  url: https://aacrjournals.org/cancerdiscovery/article/11/11/2812/666412
+  topics:
+  - parpi
+  - prostate-cancer
+  - bulk-rna
+  why: The only publicly-deposited PARPi-trial tumor bulk RNA-seq cohort — academic phase II mCRPC with biopsies, WES + RNA-seq, per-patient olaparib response. EGA controlled-access via the ICR DAC.
+
+- id: christie-gse140996
+  kind: dataset
+  label: GSE140996 — Australian Ovarian Cancer Study PARPi-treated HGSOC bulk RNA + WGS
+  modality: bulk-rna
+  year: 2019
+  status: open
+  access: open
+  papermap_category: datasets
+  url: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE140996
+  topics:
+  - parpi
+  - ovarian-cancer
+  - bulk-rna
+  - hrd
+  why: AOCS sub-cohort with PARPi-treated HGSOC bulk RNA + paired WGS. The closest second public PARPi-bulk-RNA dataset to TOPARP, and fully open-access — usable immediately for HRD × IFN/eTreg signature scoring.
+
+- id: gse123813
+  kind: dataset
+  label: GSE123813 — Yost BCC/SCC anti-PD-1 paired scRNA+scTCR (~79k cells)
+  modality: single-cell-rna
+  year: 2019
+  status: open
+  access: open
+  papermap_category: datasets
+  url: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE123813
+  topics:
+  - immunotherapy
+  - exhausted-cd8
+  - single-cell
+  why: 15 BCC/SCC patients with site-matched paired pre+post anti-PD-1 scRNA + scTCR. The best public substrate for tracking CCR8⁺ eTreg clonotype persistence across IO.
+
+- id: krishna-adapter-ega
+  kind: dataset
+  label: ADAPTeR ccRCC — Krishna 2021 longitudinal scRNA+scTCR (EGAD00001008166)
+  modality: single-cell-rna
+  year: 2021
+  status: open
+  access: registered
+  papermap_category: datasets
+  url: https://ega-archive.org/datasets/EGAD00001008166
+  topics:
+  - immunotherapy
+  - exhausted-cd8
+  - treg
+  - single-cell
+  why: ccRCC longitudinal pre / on-Tx / post nivolumab scRNA + scTCR + WES (~167k cells). The only ccRCC longitudinal scRNA+TCR atlas — the TRM/eTreg niche the project's CCR8 model predicts is loaded here.
+
+- id: gse176021
+  kind: dataset
+  label: GSE176021 — Caushi NSCLC neoadjuvant nivolumab scRNA+scTCR
+  modality: single-cell-rna
+  year: 2021
+  status: open
+  access: open
+  papermap_category: datasets
+  url: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE176021
+  topics:
+  - immunotherapy
+  - exhausted-cd8
+  - single-cell
+  why: 20 NSCLC patients, ~560k T cells with paired scRNA + scTCR + MANAFEST neoantigen-TCR mapping (post-treatment resection). The neoantigen-resolved CD8 reference for asking whether CCR8 eTregs co-cluster with MANA-reactive CD8.
+
+- id: gse200996
+  kind: dataset
+  label: GSE200996 — Luoma HNSCC neoadjuvant anti-PD-1 scRNA paired pre/post
+  modality: single-cell-rna
+  year: 2022
+  status: open
+  access: open
+  papermap_category: datasets
+  url: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE200996
+  topics:
+  - immunotherapy
+  - exhausted-cd8
+  - single-cell
+  why: HNSCC neoadjuvant anti-PD-1 with paired pre/post biopsies. The natural single-cell companion for the HNSCC CHS-114 phase-I CCR8-depletion readout (NCT05635643).
+
+- id: gse120575
+  kind: dataset
+  label: GSE120575 — Sade-Feldman melanoma anti-PD-1 ± CTLA-4 Smart-seq2 scRNA
+  modality: single-cell-rna
+  year: 2018
+  status: open
+  access: open
+  papermap_category: datasets
+  url: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE120575
+  topics:
+  - immunotherapy
+  - exhausted-cd8
+  - single-cell
+  why: 32 melanoma patients, 48 biopsies, ~16k CD45+ Smart-seq2 cells with paired pre+post in 12. Canonical melanoma IO scRNA dataset every Treg/exhaustion signature benchmarks against.
+
+- id: lincs-l1000
+  kind: dataset
+  label: LINCS L1000 / CMap (GSE92742 + GSE70138) — PARPi perturbation signatures
+  modality: bulk-rna
+  year: 2017
+  status: open
+  access: open
+  papermap_category: datasets
+  url: https://clue.io/
+  topics:
+  - parpi
+  - signatures
+  - dna-damage
+  why: Phase 1 (GSE92742, ~1.3M sigs) + Phase 2 (GSE70138) L1000 — olaparib, niraparib, talazoparib, rucaparib all profiled in the 9 core lines and broader CMap panel. The reference for "does this PARPi actually induce ISGs in this cell line," with ISG15 / IFI6 / IFIT1 / STAT1 on the landmark transcript list.
+
+- id: depmap-prism
+  pinned: true
+  kind: dataset
+  label: DepMap + PRISM — Cell-line essentiality + PARPi sensitivity across ~1,150 lines
+  modality: genomics
+  year: 2024
+  status: open
+  access: open
+  papermap_category: datasets
+  url: https://depmap.org/
+  topics:
+  - hrd
+  - signatures
+  - synthetic-lethality
+  - parpi
+  why: DepMap CRISPR/RNAi essentiality for BRCA1, BRCA2, PALB2, RAD51, 53BP1, SHLD1/2/3, REV7 across ~1,150 lines; PRISM gives all four PARPi in the primary 4,518-compound × ~578-line screen and the 8-dose × 1,448-compound × 499-line secondary. The cell-line genetics + drug-sensitivity layer underneath the HRD-functional axis.
+
+- id: ccle-rna
+  kind: dataset
+  label: CCLE — Ghandi 2019 RNA-seq + WES across ~1,400 cell lines
+  modality: bulk-rna
+  year: 2019
+  status: open
+  access: open
+  papermap_category: datasets
+  url: https://depmap.org/portal/data_page/?tab=allData&releasename=DepMap+Public+24Q4
+  topics:
+  - signatures
+  - pan-cancer
+  - bulk-rna
+  why: ~1,400 cell lines with RNA-seq — baseline ISG (ISG15, IFI6, MX1, STAT1, IRF7), MHC-II, PD-L1, LGALS9, CCR8 expression per line. The rest-state expression layer that L1000 PARPi signatures and Replogle Perturb-seq fingerprints sit on top of.
+
+- id: ccle-proteomics
+  kind: dataset
+  label: CCLE proteomics — Nusinow 2020 TMT10 across 375 lines (12,755 proteins)
+  modality: proteomics
+  year: 2020
+  status: open
+  access: open
+  papermap_category: datasets
+  url: https://gygi.hms.harvard.edu/publications/ccle.html
+  topics:
+  - signatures
+  - pan-cancer
+  - proteomics
+  why: 375 CCLE lines × 12,755 proteins via TMT10 — STAT1, HLA-DR/DP/DQ, LGALS9 robustly quantified. Lets the project ask "do per-line ISG/MHC-II protein levels track the RNA story" before extrapolating to tumor cohorts.
