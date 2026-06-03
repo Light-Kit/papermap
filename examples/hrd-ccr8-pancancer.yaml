@@ -999,7 +999,7 @@ items:
 
 - id: stur-2022-visium
   kind: paper
-  label: Stur et al. — HGSOC long-term-survivor Visium with BRCA status (iScience 2022)
+  label: Stur et al. — HGSOC Visium stratified by NACT response (iScience 2022)
   modality: single-cell-rna
   year: 2022
   status: published
@@ -1008,10 +1008,10 @@ items:
   papermap_category: atlas-singlecell
   url: https://doi.org/10.1016/j.isci.2022.103923
   topics:
-  - hrd
   - ovarian-cancer
   - tumor-microenvironment
-  why: HGSOC Visium (GSE211956) with BRCA1/2 per-case in a long-term-survivor cohort; useful for ligand-receptor crosstalk at the tumor-stroma interface in HRD vs HRP tumors.
+  - spatial-transcriptomics
+  why: HGSOC Visium (GSE211956) on 12 patients / 11 sections stratified by NACT response (6 excellent vs 5 poor responders, RECIST 1.1); BRCA status is NOT reported in this paper. Useful for ligand-receptor crosstalk at the tumor-stroma interface under treatment-response stratification, not for direct HRD-vs-HRP spatial comparison. (The BRCA-stratified Stur paper is a separate 2023 preprint.)
 
 - id: kopper-2019-pdo
   starred: true
@@ -1032,7 +1032,7 @@ items:
 
 - id: hwang-2022-pdac
   kind: paper
-  label: Hwang et al. — DFCI/HTAN PDAC snRNA + Slide-seq atlas (Nat Genet 2022)
+  label: Hwang et al. — DFCI/HTAN PDAC snRNA + GeoMx DSP atlas (Nat Genet 2022)
   modality: single-cell-rna
   year: 2022
   status: published
@@ -1044,7 +1044,7 @@ items:
   - pancreatic-cancer
   - single-cell
   - tumor-microenvironment
-  why: 43 patients incl. treatment-naive and post-neoadjuvant, ~225k nuclei with paired Slide-seqV2 (GSE202051). BRCA1/2/PALB2 genotype noted in the HTAN HTAPP subset — the human PDAC reference that pairs with the GSE276238 syngeneic dataset.
+  why: 43 patients (18 treatment-naive + 25 post-neoadjuvant), 224,988 nuclei post-QC, with paired NanoString GeoMx Whole-Transcriptome DSP on 21 tumors (GSE202051). BRCA1/2/PALB2 genotype noted in the HTAN HTAPP subset — the human PDAC reference that pairs with the GSE276238 syngeneic dataset. (The published modality is GeoMx DSP, not Slide-seqV2 — earlier corpus framing corrected 2026-06-02.)
 
 - id: combes-2022-iris
   kind: paper

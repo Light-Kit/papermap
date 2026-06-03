@@ -246,12 +246,9 @@ When the chain runs end-to-end, the project produces five named artifacts:
 
 ---
 
-## Corpus fixes surfaced during research
+## Corpus fixes applied during research
 
-Three corrections to the YAML emerged from the Phase-B research and should be applied in a follow-up commit (not in this blog round):
+Two corrections were applied to the YAML alongside this blog (the Launonen DOI flagged in the first draft turned out to be a research-agent misread — the YAML had the correct DOI already):
 
-1. **Launonen 2022 DOI**: the corpus YAML cites `10.1038/s41467-022-32310-3`, which does not resolve. The correct DOI is `10.1038/s41467-022-28389-3` (*Nat Commun* 2022, 13:835).
-2. **Hwang 2022 spatial modality**: the corpus YAML's `why` text describes Hwang 2022 as PDAC + Slide-seq. The published paper (Hwang et al. 2022 *Nat Genet*) uses NanoString GeoMx Whole-Transcriptome DSP on 21 tumors, not Slide-seqV2. Slide-seq may apply to a sister Hwang-lab deposit but not to the corpus-anchor paper.
-3. **Stur 2022 stratification**: the corpus YAML implies BRCA-status stratification of the Visium cohort. The published Stur 2022 *iScience* paper does *not* report BRCA status; cohort split is RECIST 1.1 NACT response (6 excellent vs 5 poor responders). The BRCA-stratified Stur paper is a separate 2023 preprint, not the iScience one. The corpus rationale should be revised — Stur 2022 supports the NACT-response analysis layer, not the BRCA-stratified spatial analysis.
-
-These are not blocking for the analysis plan as written — the plan above uses Stur 2022 correctly under NACT-response stratification — but they should be reflected in the YAML so the per-item `why` and `doi` fields are accurate.
+1. **Hwang 2022 spatial modality**: the corpus YAML's `why` text described Hwang 2022 as PDAC + Slide-seq. The published paper (Hwang et al. 2022 *Nat Genet*) uses NanoString GeoMx Whole-Transcriptome DSP on 21 tumors, not Slide-seqV2. The `label` and `why` fields are updated to reflect GeoMx DSP. Slide-seq may apply to a sister Hwang-lab deposit but not to the corpus-anchor paper.
+2. **Stur 2022 stratification**: the corpus YAML implied BRCA-status stratification of the Visium cohort. The published Stur 2022 *iScience* paper does *not* report BRCA status; cohort split is RECIST 1.1 NACT response (6 excellent vs 5 poor responders). The BRCA-stratified Stur paper is a separate 2023 preprint, not the iScience one. The `label` and `why` are updated to NACT-response framing — Stur 2022 supports the NACT-response analysis layer, not the BRCA-stratified spatial analysis.
