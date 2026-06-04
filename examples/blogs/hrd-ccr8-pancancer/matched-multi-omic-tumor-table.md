@@ -44,8 +44,8 @@ One naming caveat surfaced during the audit. The vault id `htan-hms-ovarian` was
 | **Sade-Feldman 2018 mel [v]** | standalone | melanoma (anti-PD-1) | WES | scRNA | 48 | GEO `GSE120575` |
 | **Bi 2021 ccRCC [v]** | standalone | ccRCC (anti-PD-1) | WES | scRNA | 8 | Broad SCP `SCP1288` + dbGaP `phs002252` |
 | **Liu 2022 NSCLC [v]** | standalone | NSCLC (IO) | WES | scRNA | 35 | EGA `EGAS00001005003` |
-| **Magen 2023 HCC [v]** | standalone | HCC (anti-PD-1) | WES | scRNA + scTCR | 33 | dbGaP `phs002748` |
-| **Wang 2025 SCLC PARPi [v]** | standalone | SCLC (PARPi context) | panel | scRNA | verify | GEO (per paper) |
+| **Magen 2023 HCC [v]** | standalone | HCC (anti-PD-1) | WES | scRNA + scTCR | 33 | **accession not located** (verify) |
+| **Wang 2025 SCLC PARPi [v]** | standalone | SCLC (PARPi context) | panel | scRNA | verify | **accession unverified** |
 | **Pelka 2021 CRC** | standalone | CRC (MMRd / MMRp) | WES | scRNA (+ MERFISH subset → bucket D) | 62 | GEO `GSE178341` + dbGaP `phs002407` |
 | **Lee 2020 CRC (Korea)** | standalone | CRC | WES + bulk RNA | scRNA | 29 | GEO `GSE132465` |
 | **Maynard 2020 NSCLC longitudinal** | standalone | NSCLC (TKI pre/residual/progression) | WES + clinical NGS | scRNA | 30 | EGA `EGAS00001004422` |
@@ -76,10 +76,10 @@ One naming caveat surfaced during the audit. The vault id `htan-hms-ovarian` was
 | name | consortium | cancer | genomic | TME | N pts | accession |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Stur 2022 HGSOC Visium [v]** | standalone | HGSOC (NACT response) | WGS | Visium | 12 | GEO `GSE211956` |
-| **Erickson 2022 prostate Visium** | standalone | prostate adeno | WGS + low-pass WGS | Visium (multi-section per pt) | 11 | EGA `EGAD00001008622` |
+| **Erickson 2022 prostate Visium** | standalone | prostate adeno | WGS + low-pass WGS | Visium (multi-section per pt) | 11 | EGA `EGAS00001006124` |
 | **Khaliq / Sun 2024 PDAC primary+met** | standalone | PDAC (primary + liver/LN mets) | WES + bulk RNA | Visium | 21 | GEO `GSE272362` |
-| **Pei / Min 2025 PDAC rapid autopsy** | standalone | PDAC (autopsy multi-organ) | WGS/WES (autopsy) | Visium (55 sections) | 13 | dbGaP (per Nature 2025 supp.) |
-| **Wu 2025 HGSOC Visium HD (preprint)** | standalone | HGSOC | bulk WES + HRD | Visium HD | ~30 | per preprint, accession TBD |
+| **Pei / Min 2025 PDAC rapid autopsy** | standalone | PDAC (autopsy multi-organ) | WGS/WES (autopsy) | Visium (55 sections) | 13 | **accession unverified** (Nature 642:212–221) |
+| **Wu 2025 HGSOC Visium HD (preprint)** | standalone | HGSOC | bulk WES + HRD | Visium HD | ~30 | **accession unverified** (preprint `10.1101/2025.11.24.690313`) |
 | **Ji 2020 cSCC ST** | standalone | cutaneous SCC | WES (subset 4) | ST (Visium predecessor) | 10 | GEO `GSE144236` |
 | **Xenium Prime 5K demo (10x) [v]** | 10x-public | breast, OV, NSCLC, melanoma, cervical | bulk WGS per block | Xenium 5K + Visium HD | demo (single-block per type) | 10x portal |
 
@@ -91,12 +91,12 @@ One naming caveat surfaced during the audit. The vault id `htan-hms-ovarian` was
 | --- | --- | --- | --- | --- | --- | --- |
 | **Launonen 2022 Färkkilä mIF HGSOC [v]** | standalone | HGSOC (HRD-vs-HRP) | WGS + BRCA1/2 status | t-CyCIF (mIF) | 44 | Synapse `syn26230540` |
 | **Färkkilä 2020 TOPACIO [v]** | TOPACIO (niraparib+pembro) | HGSOC + TNBC + endometrial | WGS + HRDsum + LOH | t-CyCIF | 62 | Synapse `syn22177117` |
-| **Mitri 2024 AMTEC PARPi mTNBC [v]** | standalone | mTNBC (PARPi pre/post) | WES | t-CyCIF | 12 | dbGaP per paper |
-| **Risom 2022 DCIS MIBI (HTAN-Stanford)** | HTAN-HTA6-orbital | breast DCIS → IBC | targeted panel + bulk RNA | MIBI-TOF, 37-plex | 122 | Synapse `syn26844071` |
+| **Mitri 2024 AMTEC PARPi mTNBC [v]** | standalone | mTNBC (PARPi pre/post) | WES | t-CyCIF | 12 | dbGaP `phs002371.v1.p1` (HTAN-HTAPP) |
+| **Risom 2022 DCIS MIBI (HTAN-Stanford)** | HTAN-HTA6-orbital | breast DCIS → IBC | targeted panel + bulk RNA | MIBI-TOF, 37-plex | 122 | Synapse via HTAN-HMS (`syn17773547` candidate — verify) |
 | **Jackson 2020 breast IMC** | standalone (METABRIC-linked) | breast (all subtypes) | METABRIC WES + CNA (linkable) | IMC, 37-plex | 281 | Zenodo `4607374` |
 | **Tietscher 2023 breast IMC** | standalone (METABRIC-linked) | breast (HER2+ + TNBC) | METABRIC WES + bulk RNA | IMC, 40-plex | 281 | Zenodo `7647079` |
 | **Ali / Danenberg 2020/2022 METABRIC IMC** | METABRIC (CRUK Cambridge) | breast (all subtypes) | METABRIC bulk WES + targeted + SNP-CNA | IMC, 37-plex | 483 (Ali) / 693 (Danenberg) | Zenodo `6036188` + cBioPortal METABRIC `EGAS00000000083` |
-| **Magness / Enfield 2024 TRACERx 100 IMC** | TRACERx (CRUK / UCL) | NSCLC early-stage | multi-region WES + bulk RNA | IMC (2 panels) | 81 | EGA `EGAS00001000809` |
+| **Magness / Enfield 2024 TRACERx 100 IMC** | TRACERx (CRUK / UCL) | NSCLC early-stage | multi-region WES + bulk RNA | IMC (2 panels) | 81 | Zenodo `12587543` (controlled-access via request) |
 | **Makhmut / Coscia 2025 STIC DVP** | standalone | HGSOC + STIC precursors | targeted HRD panel | deep visual proteomics (DVP, LMD-MS) | ~25 | PRIDE per bioRxiv 2025.03.19.643504 |
 
 **Tally C:** **9 cohorts, ~1,400 patients** (METABRIC IMC alone contributes ~700; this bucket is dominated by breast).
@@ -127,15 +127,15 @@ One naming caveat surfaced during the audit. The vault id `htan-hms-ovarian` was
 | **MSK SPECTRUM (Vázquez-García) [v]** | **MSK-SPECTRUM** | HGSOC | WGS + scWGS (DLP+) | scRNA + mIF | 42 | Synapse `syn25569736` |
 | **MSK SPECTRUM cfDNA / PARPi extension 2025** | **MSK-SPECTRUM** | HGSOC (pre/post platinum + PARPi maint.) | scWGS (DLP+) + bulk WGS + longitudinal cfDNA | scRNA (subset) | 24 | dbGaP `phs002857` |
 | **HMS-Sorger Ovarian [v, RENAME]** | HMS-Sorger (Ludwig) — **not HTAN** | HGSOC | WGS + HRD curated via MSK-SPECTRUM pipeline | t-CyCIF (40-plex) | ~25 | Synapse per Sorger lab page |
-| **Owkin MOSAIC (MOSAIC-Window release)** | **MOSAIC** (Owkin + 5 EU centers) | NSCLC + TNBC + DLBCL + OV + GBM + mesothelioma + bladder | WES + bulk RNA | Visium + Chromium Flex snRNA + H&E | 60 public of ~2,500 collected | EGA `EGAD50000001251` (parent `EGAS50000000689`) |
+| **Owkin MOSAIC-Window (bladder subset)** | **MOSAIC** (Owkin + 5 EU centers) | bladder (MIBC) — first public MOSAIC release | WES + bulk RNA | Visium + Chromium Flex snRNA + H&E | **15** public (MIBC subset of ~2,500 collected pan-cancer) | EGA `EGAD50000001251` (parent `EGAS50000000689`) |
 | **HTAPP metastatic breast (Klughammer 2024)** | HTAN-HTA1-orbital | metastatic breast | WES + low-pass WGS | snRNA + CITE-seq | 30 | dbGaP `phs002371` + Broad SCP `SCP2702` |
 | **HTAN HTA8 SCLC sub-cohort (Chan 2021)** | HTAN-HTA8-orbital | SCLC | matched IMPACT panel + WGS subset | scRNA + MIBI + Vectra IHC | 21 (54 specimens) | dbGaP `phs002371` (HTAN-MSK) |
 | **Hwang 2022 PDAC neoadj [v]** | standalone | PDAC (treatment-naive + neoadj) | WES + GeoMx DSP genomic readout | snRNA + GeoMx DSP | 43 | GEO `GSE202051` + dbGaP `phs002789` |
-| **Hwang 2025 PDAC neural invasion** | standalone | PDAC | bulk panel (verify) | Visium + snRNA | 25 (62 samples) | dbGaP per Cancer Cell 2025 |
-| **Sun 2024 HCC primary + metastasis** | standalone (Fudan) | HCC | multi-region WES + bulk RNA | Visium + scRNA + IHC | **182 (257 primary + 176 met)** | GSA `HRA005020` |
+| **Hwang 2025 PDAC neural invasion** | standalone | PDAC | bulk panel (verify) | Visium + snRNA | 25 (62 samples) | **accession unverified** |
+| **Sun 2024 HCC primary + metastasis** | standalone (Fudan) | HCC | multi-region WES + bulk RNA | Visium + scRNA + IHC | **182 (257 primary + 176 met)** | **accession not located** (verify) |
 | **Liu 2024 pediatric HGG (Filbin)** | standalone (DFCI/BCH) | pHGG / DMG / DHG (primary ↔ recurrent) | matched WGS | snRNA + snATAC + CODEX | 16 | GEO `GSE231860` |
 | **Ravi 2022 GBM multiomics** | standalone | GBM (primary + recurrent) | bulk WES + spot-level inferred CNA | Visium + IMC + MALDI + scRNA | 28 | GEO `GSE194329` |
-| **Greenwald 2024 GBM (Suvà/Tirosh)** | standalone | GBM + IDH-mut glioma | bulk WES (subset, + TCGA-anchored) | Visium + MIBI + scRNA + scATAC + Patch-seq | 100 (>1M cells) | GEO + Synapse (per paper data availability) |
+| **Greenwald 2024 GBM (Suvà/Tirosh)** | standalone | GBM + IDH-mut glioma | bulk WES (subset, + TCGA-anchored) | Visium + MIBI + scRNA + scATAC + Patch-seq | 100 (>1M cells) | GEO `GSE237183` + Zenodo `10.5281/zenodo.8105466` |
 | **Denisenko 2024 HGSOC Visium + CosMx** | standalone | HGSOC | WES subset (verify EGA) | Visium + CosMx SMI | 10 (Visium) / 1 (CosMx) | EGA `EGAS00001006816` + Zenodo `10048057` |
 | **Krishna 2021 ADAPTeR ccRCC IO [v]** | ADAPTeR (Royal Marsden) | ccRCC (nivo pre/on/post) | WES | scRNA + scTCR + mIF | 6 | EGA `EGAS00001005188` |
 | **Wu 2021 breast (Visium subset) [v]** | standalone | breast (ER+/HER2+/TNBC) | WES | scRNA + Visium subset | 26 (sc); 6 (Visium) | GEO `GSE176078` |
@@ -178,6 +178,30 @@ Others: HTA200 (UCSF Skin), HTA202 (Caltech LGG), HTA203 (MDACC Gastric GAME3D),
 **ASTRA consortium** (Garvan + U-Tokyo + 10x, launched Nov 2025): Asia-Pacific 2,000-sample Xenium pan-cancer atlas — pilot only currently.
 
 **HTAN Phase 2 data is likely to triple Bucket D over 2026–2027.** Re-audit then.
+
+## access status
+
+A post-publication verification round caught some accession errors and clarified the access pattern. Quick map by repository:
+
+- **Open** (no application — anyone downloads): all GEO `GSE…`, ArrayExpress `E-MTAB-…`, SRA `SRP…`, Broad Single Cell Portal `SCP…`, Zenodo, PRIDE. The bulk of Bucket A and most of Bucket B / C standalones live here.
+- **Controlled-access** (DAC application required, typically 2–6 weeks): dbGaP `phs…`, EGA `EGAS…` / `EGAD…`. Metadata is public; raw FASTQ/BAM are gated. Most of the immunotherapy cohorts (BIOKEY, CM-038, ADAPTeR, etc.), the HTAN raw genomics tier, and Owkin MOSAIC fall here.
+- **Synapse — mixed**: processed L3/L4 + metadata are openly downloadable with a free Synapse account. Raw L1/L2 is gated via a paired dbGaP/EGA tier. HTAN master fileview `syn20446927` is the gateway — browse anything, but raw sequencing for each sub-atlas needs the matching DUA. HMS-LSP Synapse projects (Färkkilä, Launonen, HMS-Sorger ovarian) release processed CyCIF/mIF + segmentation tables openly.
+- **GSA (Chinese NGDC)** — `HRA…` IDs are typically controlled-access (HDAC application).
+- **Owkin MOSAIC-Window**: the public `EGAD50000001251` release is specifically the **15-patient muscle-invasive bladder subset** of MOSAIC's broader ~2,500 collected pan-cancer pool. Plan around 15, not 60.
+
+Six accession IDs in the original draft pointed to the wrong cohorts and have been corrected in the tables above:
+
+- Erickson 2022 prostate Visium: `EGAD00001008622` (EPICC CRC) → corrected to `EGAS00001006124`.
+- Magness/Enfield 2024 TRACERx 100 IMC: `EGAS00001000809` (TRACERx pilot) → corrected to Zenodo `12587543`.
+- Greenwald 2024 GBM: "GEO + Synapse" → corrected to `GSE237183` + Zenodo `10.5281/zenodo.8105466`.
+- Mitri 2024 AMTEC: "dbGaP per paper" → confirmed `phs002371.v1.p1` (HTAN-HTAPP umbrella).
+- Sun 2024 HCC: `HRA005020` was actually a Sichuan U. islet study → marked `accession not located`.
+- Magen 2023 HCC: `phs002748` was actually Rosenberg metastectomy TCR → marked `accession not located`.
+- Risom 2022 DCIS MIBI: `syn26844071` was actually a Lee 2020 CRC project → flagged with `syn17773547` as a candidate, verify before relying on.
+
+Four 2025 cohorts (Hwang Cancer Cell PDAC neural, Pei Nature PDAC autopsy, Wu HGSOC Visium HD preprint, Wang SCLC PARPi) are recent enough that their accessions aren't surfaced in public indexes yet — flagged `accession unverified` in their rows. Track each at publication.
+
+The lesson: agent-sourced accession IDs need direct verification, not just policy categorisation. The four-bucket inventory and patient counts are solid; the six wrong IDs were transcription / matching errors, not cohort errors.
 
 ## housekeeping
 
