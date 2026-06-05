@@ -4,9 +4,14 @@
 // y-axis (cohort_id, busiest bucket first) and x-axis (modality token).
 // Top pane = "what we expect to have" (planned per the manifest);
 // bottom pane = "what we actually have on disk" (per-cohort MANIFEST +
-// status.tsv). Cell encoding for the bottom pane is categorical:
-// 0 = missing, 1 = blocked, 2 = partial, 3 = downloaded. Top pane is
-// binary (0/1) rendered with the same blue gradient timeline.js uses.
+// status.tsv). Cell encoding for the bottom pane is categorical
+// (5 states, updated 2026-06-05 after the blank-fill probe round):
+//   0 = unsearched (grey)    — paper/accession unverified, not yet probed
+//   1 = blocked    (red)     — probed, gated, no public mirror anywhere
+//   2 = partial    (amber)   — on disk, modality coverage incomplete
+//   3 = open-mirror (blue)   — public mirror confirmed, queueable today
+//   4 = downloaded (green)   — on disk, complete
+// Top pane is binary (0/1) rendered with the same blue gradient timeline.js uses.
 //
 // Data is baked in below as a COHORTS constant so the view stays
 // self-contained — no fetch, no infra change. Future iteration can swap
@@ -24,15 +29,17 @@ const MODALITIES = [
   "DVP-proteomics", "scTCR", "clinical",
 ];
 
-// State integer codes for the bottom pane.
-const ST_MISSING = 0;
+// State integer codes for the bottom pane (5-state taxonomy).
+const ST_UNSEARCHED = 0;
 const ST_BLOCKED = 1;
 const ST_PARTIAL = 2;
-const ST_DOWNLOADED = 3;
+const ST_OPEN_MIRROR = 3;
+const ST_DOWNLOADED = 4;
 
 // Cohort matrix. `planned` lists modalities promised by the manifest;
-// `actual` maps modality -> state integer (downloaded/partial/blocked).
-// Empty actual {} means nothing on disk (state == 0 everywhere).
+// `actual` maps modality -> state integer (5-state taxonomy above).
+// Empty actual {} means unsearched everywhere (state == 0).
+// Optional `note` carries hover-text annotation (probe date, dedupe flag).
 const COHORTS = [
   // --- bucket A: sc/snRNA + paired genomics ---
   { id: "luo-2024-nant-ovarian", bucket: "A", cancer: "HGSOC", n: 30,
@@ -40,7 +47,11 @@ const COHORTS = [
     actual: { "scRNA": ST_DOWNLOADED, "scTCR": ST_DOWNLOADED, "WGS": ST_BLOCKED },
     accession: "GEO GSE222556" },
   { id: "vazquez-garcia-2022-mskspectrum", bucket: "A", cancer: "HGSOC", n: 42,
-    planned: ["WGS", "scRNA"], actual: {}, accession: "Synapse syn25569736" },
+    planned: ["WGS", "scRNA", "bulk-RNA", "IMC"],
+    actual: { "scRNA": ST_OPEN_MIRROR, "bulk-RNA": ST_OPEN_MIRROR,
+              "WGS": ST_BLOCKED, "IMC": ST_BLOCKED },
+    accession: "CELLxGENE 4796c91c + GEO GSE180661 (Synapse syn25569736 gated)",
+    note: "probed 2026-06-05; dual-listed with D-row (dedupe candidate)" },
   { id: "olbrecht-2021-hgsoc", bucket: "A", cancer: "HGSOC", n: 7,
     planned: ["scRNA"], actual: { "scRNA": ST_DOWNLOADED },
     accession: "ArrayExpress E-MTAB-8107" },
@@ -48,8 +59,11 @@ const COHORTS = [
     planned: ["WGS", "scRNA"],
     actual: { "scRNA": ST_DOWNLOADED }, accession: "GEO GSE161529" },
   { id: "bassez-2021-biokey", bucket: "A", cancer: "breast-IO", n: 40,
-    planned: ["WES", "panel", "scRNA", "scTCR"], actual: {},
-    accession: "EGA EGAS00001004809" },
+    planned: ["WES", "panel", "scRNA", "scTCR"],
+    actual: { "WES": ST_BLOCKED, "panel": ST_BLOCKED,
+              "scRNA": ST_BLOCKED, "scTCR": ST_BLOCKED },
+    accession: "EGA EGAS00001004809",
+    note: "blocked-confirmed, probed 2026-06-05" },
   { id: "yost-2019-bcc", bucket: "A", cancer: "BCC-IO", n: 14,
     planned: ["scRNA", "scTCR"],
     actual: { "scRNA": ST_DOWNLOADED, "scTCR": ST_DOWNLOADED },
@@ -65,15 +79,21 @@ const COHORTS = [
     planned: ["WES", "SmartSeq2"], actual: { "SmartSeq2": ST_DOWNLOADED },
     accession: "GEO GSE120575" },
   { id: "bi-2021-ccrcc", bucket: "A", cancer: "ccRCC-IO", n: 8,
-    planned: ["WES", "scRNA"], actual: {},
-    accession: "SCP1288 + dbGaP phs002252" },
+    planned: ["WES", "scRNA"],
+    actual: { "WES": ST_BLOCKED, "scRNA": ST_BLOCKED },
+    accession: "SCP1288 + dbGaP phs002252",
+    note: "blocked-confirmed, probed 2026-06-05" },
   { id: "liu-2022-nsclc", bucket: "A", cancer: "NSCLC-IO", n: 35,
-    planned: ["WES", "scRNA"], actual: {}, accession: "EGA EGAS00001005003" },
+    planned: ["WES", "scRNA"], actual: {},
+    accession: "EGA EGAS00001005003 (manifest PMID 35020028 wrong paper)",
+    note: "accession-unverified; manifest PMID points to wrong paper, real paper PMID unresolved" },
   { id: "magen-2023-hcc", bucket: "A", cancer: "HCC-IO", n: 33,
     planned: ["WES", "scRNA", "scTCR"], actual: {},
-    accession: "not located" },
+    accession: "not located",
+    note: "accession-unverified; no scRNA paper at named PMID, possibly preprint or retracted" },
   { id: "wang-2025-sclc-parpi", bucket: "A", cancer: "SCLC-PARPi", n: null,
-    planned: ["panel", "scRNA"], actual: {}, accession: "unverified" },
+    planned: ["panel", "scRNA"], actual: {}, accession: "unverified",
+    note: "accession-unverified; only 2025 SCLC PARPi match is Zhang meta-analysis, Wang attribution wrong" },
   { id: "pelka-2021-crc", bucket: "A", cancer: "CRC-MMR", n: 62,
     planned: ["WES", "scRNA", "MERFISH"],
     actual: { "scRNA": ST_DOWNLOADED }, accession: "GEO GSE178341" },
@@ -81,8 +101,10 @@ const COHORTS = [
     planned: ["WES", "bulk-RNA", "scRNA"],
     actual: { "scRNA": ST_DOWNLOADED }, accession: "GEO GSE132465" },
   { id: "maynard-2020-nsclc-longitudinal", bucket: "A", cancer: "NSCLC-TKI", n: 30,
-    planned: ["WES", "panel", "scRNA"], actual: {},
-    accession: "EGA unverified" },
+    planned: ["WES", "panel", "scRNA"],
+    actual: { "WES": ST_BLOCKED, "panel": ST_BLOCKED, "scRNA": ST_BLOCKED },
+    accession: "EGA unverified",
+    note: "blocked-confirmed, probed 2026-06-05" },
   { id: "neftel-2019-gbm", bucket: "A", cancer: "GBM", n: 28,
     planned: ["WES", "scRNA", "SmartSeq2"],
     actual: { "scRNA": ST_DOWNLOADED, "SmartSeq2": ST_DOWNLOADED },
@@ -95,7 +117,10 @@ const COHORTS = [
     planned: ["WES", "SmartSeq2"],
     actual: { "SmartSeq2": ST_DOWNLOADED }, accession: "GEO GSE103322" },
   { id: "kim-2020-nsclc-mets", bucket: "A", cancer: "NSCLC-mets", n: 44,
-    planned: ["WES", "scRNA"], actual: {}, accession: "EGA EGAS00001004001" },
+    planned: ["WES", "scRNA"],
+    actual: { "WES": ST_BLOCKED, "scRNA": ST_BLOCKED },
+    accession: "EGA EGAS00001004001",
+    note: "blocked-confirmed, probed 2026-06-05" },
   { id: "tirosh-2016-melanoma", bucket: "A", cancer: "mel", n: 19,
     planned: ["WES", "SmartSeq2"],
     actual: { "SmartSeq2": ST_DOWNLOADED }, accession: "GEO GSE72056" },
@@ -103,8 +128,10 @@ const COHORTS = [
     planned: ["WES", "scRNA"],
     actual: { "scRNA": ST_DOWNLOADED }, accession: "GEO GSE115978" },
   { id: "stewart-2020-sclc-cdx", bucket: "A", cancer: "SCLC", n: 12,
-    planned: ["WGS", "WES", "scRNA"], actual: {},
-    accession: "EGA EGAS00001004025" },
+    planned: ["WGS", "WES", "scRNA"],
+    actual: { "WGS": ST_BLOCKED, "WES": ST_BLOCKED, "scRNA": ST_BLOCKED },
+    accession: "EGA EGAS00001004025",
+    note: "blocked-confirmed, probed 2026-06-05" },
   { id: "wang-2021-gastric-peritoneal", bucket: "A", cancer: "gastric", n: 6,
     planned: ["scRNA"], actual: { "scRNA": ST_DOWNLOADED },
     accession: "GEO GSE163558" },
@@ -112,7 +139,10 @@ const COHORTS = [
     planned: ["WES", "scRNA", "scTCR"],
     actual: { "scRNA": ST_DOWNLOADED }, accession: "GEO GSE183904" },
   { id: "couturier-2020-gbm", bucket: "A", cancer: "GBM", n: 14,
-    planned: ["WES", "scRNA"], actual: {}, accession: "EGA EGAS00001004422" },
+    planned: ["WES", "scRNA"],
+    actual: { "WES": ST_BLOCKED, "scRNA": ST_BLOCKED },
+    accession: "EGA EGAS00001004422",
+    note: "blocked-confirmed, probed 2026-06-05" },
   { id: "lambrechts-2018-nsclc", bucket: "A", cancer: "NSCLC", n: 5,
     planned: ["WES", "scRNA"], actual: { "scRNA": ST_DOWNLOADED },
     accession: "ArrayExpress E-MTAB-6149" },
@@ -121,7 +151,8 @@ const COHORTS = [
     accession: "ArrayExpress E-MTAB-8221" },
   { id: "sun-2021-hcc-early-relapse", bucket: "A", cancer: "HCC", n: 18,
     planned: ["WES", "scRNA", "scTCR"], actual: {},
-    accession: "not located" },
+    accession: "BGI/CNGB (registration required) — GSE149614 misattribution dropped",
+    note: "paper-only; deposit at BGI/CNGB not probed (user-side registration)" },
   { id: "kim-2018-tnbc-chemoresist", bucket: "A", cancer: "TNBC", n: 20,
     planned: ["WES", "scRNA", "SmartSeq2"],
     actual: { "WES": ST_PARTIAL, "SmartSeq2": ST_PARTIAL },
@@ -132,7 +163,8 @@ const COHORTS = [
   { id: "htan-hta3-bu-lung-precancer", bucket: "A", cancer: "lung-precancer", n: 484,
     planned: ["WES", "scRNA", "mIF"],
     actual: { "WES": ST_BLOCKED, "scRNA": ST_BLOCKED, "mIF": ST_BLOCKED },
-    accession: "Synapse syn20446927 HTA3" },
+    accession: "Synapse syn20446927 HTA3",
+    note: "blocked-confirmed, probed 2026-06-05" },
   { id: "su-2025-hcc-snrna", bucket: "A", cancer: "HCC", n: 12,
     planned: ["WES", "snRNA"], actual: { "snRNA": ST_DOWNLOADED },
     accession: "GEO GSE282701" },
@@ -142,15 +174,22 @@ const COHORTS = [
     planned: ["Visium"], actual: { "Visium": ST_DOWNLOADED },
     accession: "GEO GSE189843" },
   { id: "erickson-2022-prostate-visium", bucket: "B", cancer: "prostate", n: 11,
-    planned: ["WGS", "Visium"], actual: {},
-    accession: "EGA EGAS00001006124" },
+    planned: ["WGS", "Visium", "bulk-RNA"],
+    actual: { "Visium": ST_OPEN_MIRROR, "WGS": ST_BLOCKED },
+    accession: "Mendeley svw96g68dv v3 (Visium) + EGA EGAS00001006124 (WGS gated)",
+    note: "probed 2026-06-05; Visium open at Mendeley, WGS keep-blocked, bulk-RNA not in public deposit" },
   { id: "khaliq-sun-2024-pdac", bucket: "B", cancer: "PDAC", n: 30,
     planned: ["Visium"], actual: { "Visium": ST_DOWNLOADED },
     accession: "GEO GSE272362" },
   { id: "pei-min-2025-pdac-autopsy", bucket: "B", cancer: "PDAC", n: 13,
-    planned: ["WGS", "WES", "Visium"], actual: {}, accession: "unverified" },
+    planned: ["WGS", "WES", "Visium", "CosMx"],
+    actual: { "Visium": ST_OPEN_MIRROR, "CosMx": ST_OPEN_MIRROR },
+    accession: "GEO GSE274557 (Visium) + GSE277782 (CosMx); WGS/WES not in data availability",
+    note: "probed 2026-06-05; 57 Visium FF+FFPE + 7 CosMx 1000-plex open at GEO" },
   { id: "wu-2025-hgsoc-visium-hd", bucket: "B", cancer: "HGSOC", n: 30,
-    planned: ["WES", "VisiumHD"], actual: {}, accession: "unverified" },
+    planned: ["WES", "VisiumHD"], actual: {},
+    accession: "bioRxiv 2025.11.24.690313v1 (embargoed pre-acceptance)",
+    note: "paper-only; preprint embargoed, no deposit yet" },
   { id: "ji-2020-cscc-st", bucket: "B", cancer: "cSCC", n: 10,
     planned: ["WES", "ST"], actual: { "ST": ST_DOWNLOADED },
     accession: "GEO GSE144239" },
@@ -166,15 +205,18 @@ const COHORTS = [
   // --- bucket C: spatial proteomics + paired genomics ---
   { id: "launonen-2022-farkkila-mif-hgsoc", bucket: "C", cancer: "HGSOC-HRD", n: 44,
     planned: ["WGS", "panel", "t-CyCIF", "mIF"],
-    actual: { "t-CyCIF": ST_BLOCKED, "mIF": ST_BLOCKED, "WGS": ST_BLOCKED },
-    accession: "Synapse syn26230540" },
+    actual: { "t-CyCIF": ST_BLOCKED, "mIF": ST_BLOCKED, "WGS": ST_BLOCKED, "panel": ST_BLOCKED },
+    accession: "Synapse syn26230540",
+    note: "blocked-confirmed, probed 2026-06-05" },
   { id: "farkkila-2020-topacio", bucket: "C", cancer: "HGSOC-TNBC-endo", n: 62,
     planned: ["WGS", "t-CyCIF"],
     actual: { "t-CyCIF": ST_BLOCKED, "WGS": ST_BLOCKED },
-    accession: "Synapse syn22177117" },
+    accession: "Synapse syn22177117",
+    note: "blocked-confirmed, probed 2026-06-05" },
   { id: "mitri-2024-amtec-parpi-mtnbc", bucket: "C", cancer: "mTNBC-PARPi", n: 12,
     planned: ["WES", "t-CyCIF"], actual: {},
-    accession: "dbGaP phs002371.v1.p1" },
+    accession: "medRxiv 2024.08.29.24312245 (not PubMed-indexed)",
+    note: "paper-only; HTAN OHSU level-3/4 open subset needs manual portal walk — deferred" },
   { id: "risom-2022-dcis-mibi", bucket: "C", cancer: "breast-DCIS", n: 122,
     planned: ["panel", "bulk-RNA", "MIBI"],
     actual: { "MIBI": ST_DOWNLOADED }, accession: "Mendeley d87vg86zd8" },
@@ -195,7 +237,9 @@ const COHORTS = [
     accession: "Zenodo 6036188" },
   { id: "magness-enfield-2024-tracerx-imc", bucket: "C", cancer: "NSCLC-TRACERx", n: 81,
     planned: ["WES", "bulk-RNA", "IMC"],
-    actual: { "IMC": ST_BLOCKED }, accession: "Zenodo 12587543" },
+    actual: { "IMC": ST_BLOCKED, "WES": ST_BLOCKED, "bulk-RNA": ST_BLOCKED },
+    accession: "Zenodo 12587543",
+    note: "blocked-confirmed, probed 2026-06-05" },
   { id: "makhmut-coscia-2025-stic-dvp", bucket: "C", cancer: "HGSOC-STIC", n: 25,
     planned: ["panel", "DVP-proteomics"], actual: {},
     accession: "PRIDE" },
@@ -203,56 +247,97 @@ const COHORTS = [
   // --- bucket D: multi-spatial / full-tuple ---
   { id: "htan-hta1-htapp", bucket: "D", cancer: "mBC+NBL+LUAD+GBM", n: 205,
     planned: ["WES", "panel", "scRNA", "snRNA", "Visium", "MERFISH", "CODEX", "MIBI"],
-    actual: {}, accession: "Synapse syn20446927 HTA1" },
+    actual: { "scRNA": ST_OPEN_MIRROR, "Visium": ST_OPEN_MIRROR,
+              "WES": ST_BLOCKED, "CODEX": ST_UNSEARCHED },
+    accession: "CELLxGENE a96133de + Zenodo 4479018 (Synapse syn20446927 HTA1 gated)",
+    note: "probed 2026-06-05; scRNA/Visium open via CELLxGENE+Zenodo, WES keep-blocked, CODEX/mIHC not in public deposit" },
   { id: "htan-hta4-chop-pediatric", bucket: "D", cancer: "pediatric", n: 69,
-    planned: ["WGS", "WES", "scRNA", "CODEX"], actual: {},
-    accession: "Synapse syn20446927 HTA4" },
+    planned: ["WGS", "WES", "scRNA", "snRNA", "CODEX", "Visium"],
+    actual: { "scRNA": ST_OPEN_MIRROR, "snRNA": ST_OPEN_MIRROR,
+              "WGS": ST_BLOCKED, "WES": ST_BLOCKED },
+    accession: "CELLxGENE cee845e3 (NBL) + 9ceda3d2 (pHGG) + 10ec9198 (AML/B-ALL)",
+    note: "probed 2026-06-05; scRNA/snRNA open via CELLxGENE, WGS/WES keep-blocked, Visium not in public deposit" },
   { id: "htan-hta5-dfci-resistance", bucket: "D", cancer: "NSCLC-breast-mel", n: 156,
-    planned: ["WES", "t-CyCIF", "scRNA"], actual: {},
-    accession: "Synapse syn20446927 HTA5" },
+    planned: ["WES", "t-CyCIF", "scRNA"],
+    actual: { "WES": ST_BLOCKED, "t-CyCIF": ST_BLOCKED, "scRNA": ST_BLOCKED },
+    accession: "Synapse syn20446927 HTA5",
+    note: "blocked-confirmed, probed 2026-06-05" },
   { id: "htan-hta6-duke-stanford-dcis", bucket: "D", cancer: "breast-DCIS", n: 828,
-    planned: ["WGS", "MIBI", "scRNA", "bulk-RNA"], actual: {},
-    accession: "Synapse syn20446927 HTA6" },
+    planned: ["WGS", "MIBI", "scRNA", "bulk-RNA"],
+    actual: { "WGS": ST_BLOCKED, "MIBI": ST_BLOCKED,
+              "scRNA": ST_BLOCKED, "bulk-RNA": ST_BLOCKED },
+    accession: "Synapse syn20446927 HTA6",
+    note: "blocked-confirmed, probed 2026-06-05" },
   { id: "htan-hta7-hms-patch-sorger", bucket: "D", cancer: "mel+heme", n: 245,
-    planned: ["panel", "bulk-RNA", "t-CyCIF"], actual: {},
-    accession: "Synapse syn20446927 HTA7" },
+    planned: ["panel", "bulk-RNA", "t-CyCIF"],
+    actual: { "panel": ST_BLOCKED, "bulk-RNA": ST_BLOCKED, "t-CyCIF": ST_BLOCKED },
+    accession: "Synapse syn20446927 HTA7",
+    note: "blocked-confirmed, probed 2026-06-05" },
   { id: "htan-hta8-msk-metastasis", bucket: "D", cancer: "metastasis", n: 202,
-    planned: ["panel", "WGS", "scRNA", "MIBI"], actual: {},
-    accession: "Synapse syn20446927 HTA8" },
+    planned: ["panel", "WGS", "scRNA", "MIBI", "IMC", "Visium"],
+    actual: { "scRNA": ST_OPEN_MIRROR, "WGS": ST_BLOCKED,
+              "IMC": ST_UNSEARCHED, "Visium": ST_UNSEARCHED },
+    accession: "CELLxGENE 62e8f058 (Chan SCLC) + efd94500 (Treg); Synapse syn20446927 HTA8 gated",
+    note: "probed 2026-06-05; scRNA open via CELLxGENE, WGS keep-blocked, IMC/Visium not in public deposit" },
   { id: "htan-hta9-ohsu-smmart-mbc", bucket: "D", cancer: "mBC", n: 33,
-    planned: ["WGS", "scRNA", "t-CyCIF"], actual: {},
-    accession: "Synapse syn20446927 HTA9" },
+    planned: ["WGS", "scRNA", "t-CyCIF"],
+    actual: { "WGS": ST_BLOCKED, "scRNA": ST_BLOCKED, "t-CyCIF": ST_BLOCKED },
+    accession: "Synapse syn20446927 HTA9",
+    note: "blocked-confirmed, probed 2026-06-05" },
   { id: "htan-hta10-stanford-fap", bucket: "D", cancer: "FAP-CRC", n: 40,
-    planned: ["WGS", "scRNA", "Xenium", "CODEX"], actual: {},
-    accession: "Synapse syn20446927 HTA10" },
+    planned: ["WGS", "scRNA", "Xenium", "CODEX"],
+    actual: { "WGS": ST_BLOCKED, "scRNA": ST_BLOCKED,
+              "Xenium": ST_BLOCKED, "CODEX": ST_BLOCKED },
+    accession: "Synapse syn20446927 HTA10",
+    note: "blocked-confirmed, probed 2026-06-05" },
   { id: "htan-hta11-vanderbilt-crc", bucket: "D", cancer: "CRC", n: 195,
-    planned: ["WES", "WGS", "scRNA", "Visium"], actual: {},
-    accession: "Synapse syn20446927 HTA11" },
+    planned: ["WES", "WGS", "scRNA", "snRNA", "Visium"],
+    actual: { "scRNA": ST_OPEN_MIRROR, "snRNA": ST_OPEN_MIRROR,
+              "WGS": ST_BLOCKED },
+    accession: "CELLxGENE a48f5033 (Chen Cell 2021 HTAN VUMC); Synapse syn20446927 HTA11 gated",
+    note: "probed 2026-06-05; scRNA/snRNA open via CELLxGENE, WGS/MxIF keep-blocked, Visium not in public deposit" },
   { id: "htan-hta12-wustl-pancancer", bucket: "D", cancer: "pan-cancer", n: 295,
     planned: ["WGS", "WES", "scRNA", "snRNA", "Visium", "CODEX", "IMC", "Xenium"],
-    actual: {}, accession: "Synapse syn20446927 HTA12" },
+    actual: { "Visium": ST_OPEN_MIRROR, "WGS": ST_BLOCKED, "WES": ST_BLOCKED },
+    accession: "Zenodo 12689994 (Visium imaging); Synapse syn20446927 HTA12 gated",
+    note: "probed 2026-06-05; Visium/H&E imaging open at Zenodo, WGS/WES/RNA-seq keep-blocked, scRNA not in public deposit" },
   { id: "mskspectrum-cfdna-parpi-2025", bucket: "D", cancer: "HGSOC-PARPi", n: 24,
-    planned: ["WGS", "scRNA"], actual: {}, accession: "dbGaP phs002857" },
+    planned: ["WGS", "scRNA"], actual: {},
+    accession: "dbGaP phs002857 (no PubMed hit; likely unpublished/in-prep)",
+    note: "drafted-future; no PubMed match for MSK SPECTRUM cfDNA PARPi" },
   { id: "hms-sorger-ovarian-renamed", bucket: "D", cancer: "HGSOC", n: 25,
-    planned: ["WGS", "t-CyCIF"], actual: {}, accession: "Synapse Sorger" },
+    planned: ["WGS", "t-CyCIF"],
+    actual: { "WGS": ST_BLOCKED, "t-CyCIF": ST_BLOCKED },
+    accession: "Synapse Sorger",
+    note: "blocked-confirmed, probed 2026-06-05" },
   { id: "owkin-mosaic-window-bladder", bucket: "D", cancer: "bladder-MIBC", n: 15,
-    planned: ["WES", "bulk-RNA", "Visium", "snRNA"], actual: {},
-    accession: "EGA EGAD50000001251" },
+    planned: ["WES", "bulk-RNA", "Visium", "snRNA"],
+    actual: { "WES": ST_BLOCKED, "bulk-RNA": ST_BLOCKED,
+              "Visium": ST_BLOCKED, "snRNA": ST_BLOCKED },
+    accession: "EGA EGAD50000001251",
+    note: "blocked-confirmed, probed 2026-06-05" },
   { id: "htapp-klughammer-2024-mbc", bucket: "D", cancer: "mBC", n: 30,
     planned: ["WES", "snRNA", "CODEX", "MERFISH"],
-    actual: { "snRNA": ST_BLOCKED, "CODEX": ST_BLOCKED },
-    accession: "dbGaP phs002371 + SCP2702" },
+    actual: { "snRNA": ST_OPEN_MIRROR, "MERFISH": ST_OPEN_MIRROR,
+              "WES": ST_BLOCKED },
+    accession: "CELLxGENE a96133de + Zenodo 4479018; dbGaP phs002371 gated for WGS",
+    note: "probed 2026-06-05; dedupe candidate with HTA1-HTAPP (same Klughammer Nat Med 2024 paper, same CELLxGENE deposit)" },
   { id: "htan-hta8-sclc-chan-2021", bucket: "D", cancer: "SCLC", n: 21,
-    planned: ["panel", "WGS", "scRNA", "MIBI"], actual: {},
-    accession: "dbGaP phs002371" },
+    planned: ["panel", "WGS", "scRNA", "MIBI"],
+    actual: { "scRNA": ST_OPEN_MIRROR, "WGS": ST_BLOCKED },
+    accession: "CELLxGENE 62e8f058 + Zenodo 14057537 (Single Cell HTAN SCLC)",
+    note: "probed 2026-06-05; subsumed by HTA8 — dedupe candidate; IMC not in public deposit" },
   { id: "hwang-2022-pdac-neoadj", bucket: "D", cancer: "PDAC", n: 43,
     planned: ["WES", "snRNA", "DVP-proteomics"],
     actual: { "snRNA": ST_DOWNLOADED }, accession: "GEO GSE202051" },
   { id: "hwang-2025-pdac-neural", bucket: "D", cancer: "PDAC", n: 25,
-    planned: ["panel", "Visium", "snRNA"], actual: {}, accession: "unverified" },
+    planned: ["panel", "Visium", "snRNA"], actual: {},
+    accession: "rename candidate: hwang-2022-nat-genet-pdac-neoadj (PMID 35902743)",
+    note: "accession-unverified; cohort likely misattributed, may overlap hwang-lin-2022-pdac-chemo" },
   { id: "sun-2024-hcc-primary-met", bucket: "D", cancer: "HCC", n: 182,
     planned: ["WES", "bulk-RNA", "Visium", "scRNA"], actual: {},
-    accession: "not located" },
+    accession: "not located (zero PubMed hits)",
+    note: "accession-unverified; cohort may be misnamed or non-existent" },
   { id: "liu-2024-pediatric-hgg-filbin", bucket: "D", cancer: "pHGG", n: 16,
     planned: ["WGS", "snRNA", "CODEX"],
     actual: { "snRNA": ST_DOWNLOADED }, accession: "GEO GSE231860" },
@@ -269,22 +354,28 @@ const COHORTS = [
     actual: { "Visium": ST_DOWNLOADED, "CosMx": ST_DOWNLOADED, "scRNA": ST_DOWNLOADED },
     accession: "EGA EGAS00001006816 + Zenodo 10048057" },
   { id: "krishna-2021-adapter-ccrcc-io", bucket: "D", cancer: "ccRCC-IO", n: 6,
-    planned: ["WES", "scRNA", "scTCR", "mIF"], actual: {},
-    accession: "EGA EGAS00001005188" },
+    planned: ["WES", "WGS", "scRNA", "scTCR", "mIF"],
+    actual: { "scRNA": ST_OPEN_MIRROR,
+              "WES": ST_BLOCKED, "WGS": ST_BLOCKED },
+    accession: "CELLxGENE 3f50314f (Krishna Cancer Cell 2021); EGA EGAS00001005188 gated for WGS/WES",
+    note: "probed 2026-06-05; scRNA open via CELLxGENE, WGS/WES keep-blocked (EGA + PRJNA705464)" },
   { id: "wu-2021-breast-visium", bucket: "D", cancer: "breast", n: 26,
     planned: ["WES", "scRNA", "Visium"],
     actual: { "scRNA": ST_DOWNLOADED, "Visium": ST_DOWNLOADED },
     accession: "GEO GSE176078" },
 ];
 
-// Discrete colorscale for the bottom pane: 0 grey, 1 red, 2 amber, 3 green.
-// Plotly heatmap interprets colorscale by normalised z; with zmin=0 zmax=3
-// the band edges are 0, 1/3, 2/3, 1.
+// Discrete colorscale for the bottom pane: 5 categories.
+// 0 grey (unsearched), 1 red (blocked), 2 amber (partial),
+// 3 blue (open-mirror), 4 green (downloaded).
+// Plotly heatmap interprets colorscale by normalised z; with zmin=0 zmax=4
+// the band edges are 0, 0.25, 0.50, 0.75, 1.0.
 const ACTUAL_COLORSCALE = [
-  [0.000, "#e9ecef"], [0.166, "#e9ecef"],
-  [0.167, "#c0392b"], [0.499, "#c0392b"],
-  [0.500, "#e0a13a"], [0.832, "#e0a13a"],
-  [0.833, "#2c8c4a"], [1.000, "#2c8c4a"],
+  [0.00, "#bfbfbf"], [0.20, "#bfbfbf"],  // 0 unsearched
+  [0.20, "#c73e3e"], [0.40, "#c73e3e"],  // 1 blocked
+  [0.40, "#e0a93b"], [0.60, "#e0a93b"],  // 2 partial
+  [0.60, "#4a90e2"], [0.80, "#4a90e2"],  // 3 open-mirror
+  [0.80, "#2c8a3e"], [1.00, "#2c8a3e"],  // 4 downloaded
 ];
 
 // Blue gradient for the top pane (matches timeline.js palette).
@@ -293,7 +384,8 @@ const PLANNED_COLORSCALE = [
 ];
 
 const STATE_LABEL = {
-  0: "missing", 1: "blocked", 2: "partial", 3: "downloaded",
+  0: "unsearched", 1: "blocked", 2: "partial",
+  3: "open-mirror", 4: "downloaded",
 };
 
 export function render(state, filters, el) {
@@ -333,11 +425,12 @@ export function render(state, filters, el) {
     const plannedSet = new Set(c.planned);
     for (const m of modalities) {
       const planned = plannedSet.has(m) ? 1 : 0;
-      const actual = (c.actual && c.actual[m] != null) ? c.actual[m] : ST_MISSING;
+      const actual = (c.actual && c.actual[m] != null) ? c.actual[m] : ST_UNSEARCHED;
       zpRow.push(planned);
       zaRow.push(actual);
       const nText = c.n != null ? `${c.n} pts` : "N pts pending";
       const bucketTag = `bucket ${c.bucket}`;
+      const noteText = c.note ? `<br>note: ${c.note}` : "";
       hpRow.push(
         `<b>${c.id}</b><br>${bucketTag} · ${c.cancer} · ${nText}` +
         `<br>modality: ${m}<br>planned: ${planned ? "yes" : "no"}` +
@@ -346,7 +439,7 @@ export function render(state, filters, el) {
       haRow.push(
         `<b>${c.id}</b><br>${bucketTag} · ${c.cancer} · ${nText}` +
         `<br>modality: ${m}<br>state: ${STATE_LABEL[actual]}` +
-        `<br>accession: ${c.accession}`,
+        `<br>accession: ${c.accession}${noteText}`,
       );
     }
     zPlanned.push(zpRow);
@@ -355,27 +448,38 @@ export function render(state, filters, el) {
     hActual.push(haRow);
   }
 
-  // Tally per bucket for the header blurb.
+  // Tally per bucket for the header blurb. Classification priority
+  // (highest wins): downloaded > open-mirror > partial > blocked > unsearched.
   const tally = {};
+  const total = { d: 0, o: 0, p: 0, b: 0, u: 0 };
   for (const c of COHORTS) {
-    const b = (tally[c.bucket] = tally[c.bucket] || { d: 0, p: 0, b: 0, m: 0 });
+    const t = (tally[c.bucket] = tally[c.bucket] || { d: 0, o: 0, p: 0, b: 0, u: 0 });
     const states = new Set(Object.values(c.actual || {}));
-    if (states.has(ST_DOWNLOADED)) b.d += 1;
-    else if (states.has(ST_PARTIAL)) b.p += 1;
-    else if (states.has(ST_BLOCKED)) b.b += 1;
-    else b.m += 1;
+    let key;
+    if (states.has(ST_DOWNLOADED)) key = "d";
+    else if (states.has(ST_OPEN_MIRROR)) key = "o";
+    else if (states.has(ST_PARTIAL)) key = "p";
+    else if (states.has(ST_BLOCKED)) key = "b";
+    else key = "u";
+    t[key] += 1;
+    total[key] += 1;
   }
   const tallyBits = ["A", "B", "C", "D"].map(k => {
-    const t = tally[k] || { d: 0, p: 0, b: 0, m: 0 };
-    return `${k}: ${t.d}d/${t.p}p/${t.b}b/${t.m}planned`;
+    const t = tally[k] || { d: 0, o: 0, p: 0, b: 0, u: 0 };
+    return `${k}: ${t.d}d/${t.p}p/${t.o}o/${t.b}b/${t.u}u`;
   }).join(" · ");
+  const totalLine =
+    `${total.d} downloaded · ${total.p} partial · ${total.o} open-mirror · ` +
+    `${total.b} blocked · ${total.u} unsearched ` +
+    `= ${total.d + total.p + total.o + total.b + total.u}`;
 
   const header = document.createElement("header");
   header.innerHTML = `<h2>Cohort coverage progress
-    <small>${cohortsOrdered.length} cohorts × ${modalities.length} modalities · two-pane heatmap</small></h2>
+    <small>${cohortsOrdered.length} cohorts × ${modalities.length} modalities · 5-state taxonomy · two-pane heatmap</small></h2>
     <p class="view-blurb">Top pane = planned per the manifest (binary, blue gradient).
-    Bottom pane = actual state on disk (categorical: grey missing · red blocked · amber partial · green downloaded).
-    Hover any cell for cohort, modality, state, N pts, and accession. Bucket tally — ${tallyBits}.</p>`;
+    Bottom pane = actual state on disk (5 categories: grey unsearched · red blocked · amber partial · blue open-mirror · green downloaded).
+    Hover any cell for cohort, modality, state, N pts, accession, and probe note.
+    Totals — ${totalLine}. Bucket tally — ${tallyBits} (d/p/o/b/u).</p>`;
   div.appendChild(header);
 
   const figDiv = document.createElement("div");
@@ -404,14 +508,16 @@ export function render(state, filters, el) {
     text: hActual,
     hoverinfo: "text",
     colorscale: ACTUAL_COLORSCALE,
-    zmin: 0, zmax: 3,
+    zmin: 0, zmax: 4,
     showscale: true,
     xgap: 1, ygap: 1,
     colorbar: {
       title: "state",
       thickness: 10, len: 0.35, y: 0.22,
-      tickvals: [0.375, 1.125, 1.875, 2.625],
-      ticktext: ["missing", "blocked", "partial", "downloaded"],
+      // Tick midpoints for 5 discrete bins on zmin=0 zmax=4:
+      // bin centers at 0.4, 1.2, 2.0, 2.8, 3.6.
+      tickvals: [0.4, 1.2, 2.0, 2.8, 3.6],
+      ticktext: ["unsearched", "blocked", "partial", "open-mirror", "downloaded"],
     },
     xaxis: "x", yaxis: "y",
   };
