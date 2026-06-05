@@ -13,13 +13,14 @@ import * as blogs         from "./views/blogs.js";
 import * as presentations from "./views/presentations.js";
 import * as timeline      from "./views/timeline.js";
 import * as compare       from "./views/compare.js";
+import * as progress      from "./views/progress.js";
 
 const sidebar  = document.getElementById("corpora");
 const tabsBar  = document.getElementById("viewtabs");
 const filterBar = document.getElementById("filterbar");
 const main     = document.getElementById("main");
 
-const views = { browse, map: mapView, topics, blogs, presentations, timeline, compare };
+const views = { browse, map: mapView, topics, blogs, presentations, timeline, compare, progress };
 
 // Filters are mutated in place by filterbar.js (Phase 7).
 const filters = {
