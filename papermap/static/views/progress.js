@@ -424,23 +424,36 @@ export function render(state, filters, el) {
     const zpRow = [], zaRow = [], hpRow = [], haRow = [];
     const plannedSet = new Set(c.planned);
     for (const m of modalities) {
-      const planned = plannedSet.has(m) ? 1 : 0;
-      const actual = (c.actual && c.actual[m] != null) ? c.actual[m] : ST_UNSEARCHED;
+      const isPlanned = plannedSet.has(m);
+      const inActual = c.actual && c.actual[m] != null;
+      // Not in cohort plan AND no actual state → blank cell in both panes
+      // (Plotly renders null as transparent), so each pane only paints
+      // modalities relevant to that cohort.
+      const planned = isPlanned ? 1 : null;
+      const actual = inActual ? c.actual[m] : (isPlanned ? ST_UNSEARCHED : null);
       zpRow.push(planned);
       zaRow.push(actual);
       const nText = c.n != null ? `${c.n} pts` : "N pts pending";
       const bucketTag = `bucket ${c.bucket}`;
       const noteText = c.note ? `<br>note: ${c.note}` : "";
-      hpRow.push(
-        `<b>${c.id}</b><br>${bucketTag} · ${c.cancer} · ${nText}` +
-        `<br>modality: ${m}<br>planned: ${planned ? "yes" : "no"}` +
-        `<br>accession: ${c.accession}`,
-      );
-      haRow.push(
-        `<b>${c.id}</b><br>${bucketTag} · ${c.cancer} · ${nText}` +
-        `<br>modality: ${m}<br>state: ${STATE_LABEL[actual]}` +
-        `<br>accession: ${c.accession}${noteText}`,
-      );
+      if (!isPlanned && !inActual) {
+        const naMsg =
+          `<b>${c.id}</b><br>${bucketTag} · ${c.cancer} · ${nText}` +
+          `<br>modality: ${m}<br>n/a (not in cohort plan)`;
+        hpRow.push(naMsg);
+        haRow.push(naMsg);
+      } else {
+        hpRow.push(
+          `<b>${c.id}</b><br>${bucketTag} · ${c.cancer} · ${nText}` +
+          `<br>modality: ${m}<br>planned: ${isPlanned ? "yes" : "no"}` +
+          `<br>accession: ${c.accession}`,
+        );
+        haRow.push(
+          `<b>${c.id}</b><br>${bucketTag} · ${c.cancer} · ${nText}` +
+          `<br>modality: ${m}<br>state: ${STATE_LABEL[actual]}` +
+          `<br>accession: ${c.accession}${noteText}`,
+        );
+      }
     }
     zPlanned.push(zpRow);
     zActual.push(zaRow);
