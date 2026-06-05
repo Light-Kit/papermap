@@ -8,30 +8,30 @@ topics:
   - paired-data
   - phase-1
   - progress
-summary: 'planned-vs-actual cohort matrix mirroring [[matched-multi-omic-tumor-table]] but with a per-row state column (downloaded / partial / open-mirror / blocked / unsearched). 74 manifest rows; 35 downloaded, 3 partial, 11 newly open-mirror after the 2026-06-05 blank-fill probe, 17 blocked-confirmed under the 2026-06-04 public-only pivot, 8 unsearched (paper/accession unverified).'
+summary: 'planned-vs-actual cohort matrix mirroring [[matched-multi-omic-tumor-table]] but with a per-row state column (downloaded / partial / in-progress / blocked / unsearched). 74 manifest rows; 35 downloaded, 3 partial, 11 newly in-progress after the 2026-06-05 blank-fill probe, 17 blocked-confirmed under the 2026-06-04 public-only pivot, 8 unsearched (paper/accession unverified).'
 starred: true
 ---
 
 # cohort coverage progress — what we wanted, what we have
 
-[[matched-multi-omic-tumor-table]] is the planned schema — the four-bucket inventory of every public cohort that satisfies the genomics+TME-resolution gate. This post is its operational sibling: same four buckets, same per-row identity, plus a `state` column that records whether the cohort is `downloaded`, `partial`, `open-mirror`, `blocked`, or `unsearched` on disk. The 2026-06-04 pivot to public-tier only is what makes the reachable-vs-not split crisp — every gated cohort whose only path is a DUA / PAT is `blocked` by policy, not by missing bandwidth.
+[[matched-multi-omic-tumor-table]] is the planned schema — the four-bucket inventory of every public cohort that satisfies the genomics+TME-resolution gate. This post is its operational sibling: same four buckets, same per-row identity, plus a `state` column that records whether the cohort is `downloaded`, `partial`, `in-progress`, `blocked`, or `unsearched` on disk. The 2026-06-04 pivot to public-tier only is what makes the reachable-vs-not split crisp — every gated cohort whose only path is a DUA / PAT is `blocked` by policy, not by missing bandwidth.
 
 ## top line
 
-- **35 downloaded · 3 partial · 11 open-mirror · 17 blocked · 8 unsearched = 74 manifest rows.**
+- **35 downloaded · 3 partial · 11 in-progress · 17 blocked · 8 unsearched = 74 manifest rows.**
 - **On disk (downloaded + partial):** 38 cohorts. Per-patient sum across rows with reported N ≈ 1,950 (HTA3 484 is blocked; METABRIC-IMC 693 + Jackson 281 + Greenwald 100 + Caushi 16 etc. are on disk).
-- **Open-mirror (newly queueable after 2026-06-05 probe):** 11 cohorts representing ~1,038 patient-equivalents at CELLxGENE / Zenodo / GEO / Mendeley — mostly HTAN sub-atlases whose master Synapse fileview is gated but whose individual labs republished processed h5ads on CELLxGENE.
+- **In-progress (newly queueable after 2026-06-05 probe):** 11 cohorts representing ~1,038 patient-equivalents at CELLxGENE / Zenodo / GEO / Mendeley — mostly HTAN sub-atlases whose master Synapse fileview is gated but whose individual labs republished processed h5ads on CELLxGENE.
 - **Structurally gated under the public-only pivot (blocked-confirmed, probed 2026-06-05):** 17 rows split across A (htan-hta3, bassez, bi, maynard, kim-2020, stewart, couturier), C (launonen, farkkila-topacio, magness-enfield), and D (htan-hta5, hta6, hta7, hta9, hta10, hms-sorger, owkin-mosaic). All gates verified at the EGA / dbGaP / SCP-OAuth / Synapse-PAT level.
 - **Unsearched (paper/accession unverified, not yet probed):** 8 rows split across accession-unverified (liu-2022, magen-2023, wang-2025, hwang-2025, sun-2024, mskspectrum-cfdna) and paper-only / embargoed (sun-2021-CNGB, mitri-2024-medRxiv, wu-2025-bioRxiv).
 
-Bucket states use bare text tokens: `downloaded` (on disk, complete), `partial` (on disk but a primary axis still missing), `open-mirror` (public mirror confirmed today, queueable but not pulled), `blocked` (probed, gated, no public mirror anywhere), `unsearched` (paper/accession unverified, not yet probed).
+Bucket states use bare text tokens: `downloaded` (on disk, complete), `partial` (on disk but a primary axis still missing), `in-progress` (public mirror confirmed today, queueable but not pulled), `blocked` (probed, gated, no public mirror anywhere), `unsearched` (paper/accession unverified, not yet probed).
 
 ## A — sc/snRNA + paired genomics
 
 | name | consortium | cancer | genomic | TME | N pts | state | accession |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | **Luo 2024 NANT ovarian (anchor) [v]** | standalone | HGSOC | WGS + HRD scoring | scRNA + scTCR | 30 | partial | GEO `GSE222556` |
-| **Vázquez-García 2022 MSK SPECTRUM [v]** | MSK-SPECTRUM | HGSOC | WGS + scWGS (DLP+) | scRNA + bulk-RNA | 42 | open-mirror | CELLxGENE `4796c91c` + GEO `GSE180661` (Synapse `syn25569736` gated; dedupe with D-row) |
+| **Vázquez-García 2022 MSK SPECTRUM [v]** | MSK-SPECTRUM | HGSOC | WGS + scWGS (DLP+) | scRNA + bulk-RNA | 42 | in-progress | CELLxGENE `4796c91c` + GEO `GSE180661` (Synapse `syn25569736` gated; dedupe with D-row) |
 | **Olbrecht 2021 [v]** | standalone | HGSOC | germline BRCA | scRNA | 7 | downloaded | ArrayExpress `E-MTAB-8107` |
 | **Pal 2021 BRCA1-carrier breast [v]** | standalone | breast (BRCA1) | germline BRCA1 + WGS | scRNA | 21 | downloaded | GEO `GSE161529` |
 | **Bassez 2021 BIOKEY [v]** | BIOKEY | breast anti-PD-1 pre/post | WES + panel | scRNA + scTCR | 40 | blocked | EGA `EGAS00001004809` (blocked-confirmed 2026-06-05) |
@@ -69,9 +69,9 @@ Bucket states use bare text tokens: `downloaded` (on disk, complete), `partial` 
 | name | consortium | cancer | genomic | TME | N pts | state | accession |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | **Stur 2022 HGSOC Visium [v]** | standalone | HGSOC NACT-response | Visium-only (no WGS) | Visium | 12 | downloaded | GEO `GSE189843` (corrected) |
-| **Erickson 2022 prostate Visium** | standalone | prostate adeno | WGS + lpWGS | Visium multi-section | 11 | open-mirror | Mendeley `svw96g68dv` v3 (Visium); EGA `EGAS00001006124` WGS gated |
+| **Erickson 2022 prostate Visium** | standalone | prostate adeno | WGS + lpWGS | Visium multi-section | 11 | in-progress | Mendeley `svw96g68dv` v3 (Visium); EGA `EGAS00001006124` WGS gated |
 | **Khaliq / Sun 2024 PDAC** | standalone | PDAC primary + mets | (no WES on public layer) | Visium FFPE | 30 | downloaded | GEO `GSE272362` |
-| **Pei / Min 2025 PDAC autopsy** | standalone | PDAC autopsy multi-organ | WGS/WES (not in DAS) | Visium + CosMx-SMI | 13 | open-mirror | GEO `GSE274557` (Visium) + `GSE277782` (CosMx) |
+| **Pei / Min 2025 PDAC autopsy** | standalone | PDAC autopsy multi-organ | WGS/WES (not in DAS) | Visium + CosMx-SMI | 13 | in-progress | GEO `GSE274557` (Visium) + `GSE277782` (CosMx) |
 | **Wu 2025 HGSOC Visium HD** | standalone | HGSOC | WES + HRD | Visium HD | ~30 | unsearched | bioRxiv `2025.11.24.690313v1` (embargoed pre-acceptance) |
 | **Ji 2020 cSCC ST** | standalone | cutaneous SCC | WES (subset 4) | ST | 10 | downloaded | GEO `GSE144239` (B-arm corrected) |
 | **Xenium Prime 5K demo (10x) [v]** | 10x-public | breast/OV/NSCLC/mel/cervix | bulk WGS per block | Xenium 5K + Visium HD | demo | downloaded | 10x portal |
@@ -96,21 +96,21 @@ Bucket states use bare text tokens: `downloaded` (on disk, complete), `partial` 
 
 | name | consortium | cancer | genomic | TME | N pts | state | accession |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| **HTAN HTA1 HTAPP [v]** | HTAN-HTA1 | mBC + NBL + LUAD + GBM + Ewing | bulk WES + panel | scRNA + Visium + Slide-seq + MERFISH + ExSeq + CODEX + MIBI + snRNA | 205 | open-mirror | CELLxGENE `a96133de` + Zenodo `4479018` (Synapse `syn20446927` HTA1 gated for WGS) |
-| **HTAN HTA4 CHOP Pediatric** | HTAN-HTA4 | NBL + AML/B-ALL + pHGG + Ewing | bulk WGS/WES | scRNA + snRNA + scATAC + CODEX | 69 | open-mirror | CELLxGENE `cee845e3` (NBL) + `9ceda3d2` (pHGG) + `10ec9198` (AML/B-ALL); Synapse gated for WGS/WES |
+| **HTAN HTA1 HTAPP [v]** | HTAN-HTA1 | mBC + NBL + LUAD + GBM + Ewing | bulk WES + panel | scRNA + Visium + Slide-seq + MERFISH + ExSeq + CODEX + MIBI + snRNA | 205 | in-progress | CELLxGENE `a96133de` + Zenodo `4479018` (Synapse `syn20446927` HTA1 gated for WGS) |
+| **HTAN HTA4 CHOP Pediatric** | HTAN-HTA4 | NBL + AML/B-ALL + pHGG + Ewing | bulk WGS/WES | scRNA + snRNA + scATAC + CODEX | 69 | in-progress | CELLxGENE `cee845e3` (NBL) + `9ceda3d2` (pHGG) + `10ec9198` (AML/B-ALL); Synapse gated for WGS/WES |
 | **HTAN HTA5 DFCI Resistance** | HTAN-HTA5 | NSCLC TKIr + HR+/HER2+ breast + IO-r mel | bulk WES | t-CyCIF + scRNA | 156 | blocked | Synapse `syn20446927` (Atlas=HTA5) (blocked-confirmed 2026-06-05) |
 | **HTAN HTA6 Duke-Stanford DCIS** | HTAN-HTA6 | breast DCIS → IDC | bulk WGS (largest in HTAN) | MIBI + scRNA + bulk RNA | 828 | blocked | Synapse `syn20446927` (Atlas=HTA6) (blocked-confirmed 2026-06-05) |
 | **HTAN HTA7 HMS PATCH** | HTAN-HTA7 | mel + nevus + CTCL + FL + CLL/SLL | clinical panel + bulk RNA | t-CyCIF + H&E | 245 | blocked | Synapse `syn20446927` (Atlas=HTA7) (blocked-confirmed 2026-06-05) |
-| **HTAN HTA8 MSK Metastasis** | HTAN-HTA8 | SCLC + PDAC + brain + CRC mets | panel + WGS subset | scRNA + MIBI + GeoMx DSP | 202 | open-mirror | CELLxGENE `62e8f058` (Chan SCLC) + `efd94500` (Treg); Synapse gated for WGS |
+| **HTAN HTA8 MSK Metastasis** | HTAN-HTA8 | SCLC + PDAC + brain + CRC mets | panel + WGS subset | scRNA + MIBI + GeoMx DSP | 202 | in-progress | CELLxGENE `62e8f058` (Chan SCLC) + `efd94500` (Treg); Synapse gated for WGS |
 | **HTAN HTA9 OHSU SMMART** | HTAN-HTA9 | mBC CDK4/6i + IO-evolved | bulk WGS + scDNA + RPPA | mIHC/CyCIF + scATAC + scRNA + EM + GeoMx | 33 | blocked | Synapse `syn20446927` (Atlas=HTA9) (blocked-confirmed 2026-06-05) |
 | **HTAN HTA10 Stanford FAP** | HTAN-HTA10 | FAP-CRC | WGS + Hi-C + methylation | scRNA + scATAC + Xenium + CODEX + MS | 40 | blocked | Synapse `syn20446927` (Atlas=HTA10) (blocked-confirmed 2026-06-05) |
-| **HTAN HTA11 Vanderbilt CRC** | HTAN-HTA11 | sporadic CRC + adenoma + SSL | bulk WES/WGS | scRNA + snRNA + Visium + MxIF | 195 | open-mirror | CELLxGENE `a48f5033` (Chen Cell 2021 HTAN VUMC); Synapse gated for WGS/MxIF |
-| **HTAN HTA12 WUSTL pan-cancer** | HTAN-HTA12 | 11-tumor pan-cancer | bulk WGS/WES | scRNA + snRNA + scATAC + Visium + CODEX + IMC + Xenium pilot | 295 | open-mirror | Zenodo `12689994` (Visium/H&E imaging); Synapse gated for WGS/WES/RNA-seq |
+| **HTAN HTA11 Vanderbilt CRC** | HTAN-HTA11 | sporadic CRC + adenoma + SSL | bulk WES/WGS | scRNA + snRNA + Visium + MxIF | 195 | in-progress | CELLxGENE `a48f5033` (Chen Cell 2021 HTAN VUMC); Synapse gated for WGS/MxIF |
+| **HTAN HTA12 WUSTL pan-cancer** | HTAN-HTA12 | 11-tumor pan-cancer | bulk WGS/WES | scRNA + snRNA + scATAC + Visium + CODEX + IMC + Xenium pilot | 295 | in-progress | Zenodo `12689994` (Visium/H&E imaging); Synapse gated for WGS/WES/RNA-seq |
 | **MSK SPECTRUM cfDNA / PARPi 2025** | MSK-SPECTRUM | HGSOC platinum + PARPi-maint | scWGS-DLP + WGS + cfDNA | scRNA subset | 24 | unsearched | dbGaP `phs002857` (drafted-future; no PubMed hit) |
 | **HMS-Sorger Ovarian [v]** | HMS-Sorger | HGSOC | WGS + HRD | t-CyCIF 40-plex | 25 | blocked | Synapse Sorger-lab (blocked-confirmed 2026-06-05) |
 | **Owkin MOSAIC-Window bladder** | MOSAIC | bladder MIBC | WES + bulk RNA | Visium + Chromium Flex snRNA + H&E | 15 | blocked | EGA `EGAD50000001251` (blocked-confirmed 2026-06-05) |
-| **HTAPP Klughammer 2024 mBC** | HTAN-HTA1-orbital | metastatic breast | WES + lpWGS | snRNA + CODEX + MERFISH + ExSeq + Slide-seq | 30 | open-mirror | CELLxGENE `a96133de` + Zenodo `4479018` (dedupe candidate with HTA1-HTAPP) |
-| **HTAN HTA8 SCLC sub-cohort (Chan 2021)** | HTAN-HTA8-orbital | SCLC | IMPACT panel + WGS subset | scRNA + MIBI + Vectra | 21 | open-mirror | CELLxGENE `62e8f058` + Zenodo `14057537` (subsumed by HTA8) |
+| **HTAPP Klughammer 2024 mBC** | HTAN-HTA1-orbital | metastatic breast | WES + lpWGS | snRNA + CODEX + MERFISH + ExSeq + Slide-seq | 30 | in-progress | CELLxGENE `a96133de` + Zenodo `4479018` (dedupe candidate with HTA1-HTAPP) |
+| **HTAN HTA8 SCLC sub-cohort (Chan 2021)** | HTAN-HTA8-orbital | SCLC | IMPACT panel + WGS subset | scRNA + MIBI + Vectra | 21 | in-progress | CELLxGENE `62e8f058` + Zenodo `14057537` (subsumed by HTA8) |
 | **Hwang 2022 PDAC neoadj [v]** | standalone | PDAC naive + neoadj | WES + DSP | snRNA + GeoMx DSP | 43 | downloaded | GEO `GSE202051` + dbGaP `phs002789` |
 | **Hwang 2025 PDAC neural** | standalone | PDAC | bulk panel | Visium + snRNA | 25 | unsearched | rename candidate: hwang-2022-nat-genet-pdac-neoadj (PMID 35902743); may overlap hwang-lin-2022 |
 | **Sun 2024 HCC primary + met** | standalone-Fudan | HCC | multi-region WES + bulk RNA | Visium + scRNA + IHC | 182 | unsearched | accession not located (zero PubMed hits; may be misnamed) |
@@ -118,7 +118,7 @@ Bucket states use bare text tokens: `downloaded` (on disk, complete), `partial` 
 | **Ravi 2022 GBM multiomics** | standalone | GBM primary + recurrent | bulk WES + inferred CNA | Visium + IMC + MALDI + scRNA | 28 | downloaded | GEO `GSE194329` |
 | **Greenwald 2024 GBM (Suvà/Tirosh)** | standalone | GBM + IDH-mut glioma | bulk WES + TCGA-anchored | Visium + MIBI + scRNA + scATAC + Patch-seq | 100 | downloaded | GEO `GSE237183` + Zenodo `8105466` |
 | **Denisenko 2024 HGSOC Visium + CosMx** | standalone | HGSOC | WES subset | Visium + CosMx SMI | 10 | downloaded | EGA `EGAS00001006816` + Zenodo `10048057` |
-| **Krishna 2021 ADAPTeR ccRCC IO [v]** | ADAPTeR | ccRCC nivo pre/on/post | WES + WGS | scRNA + scTCR + mIF | 6 | open-mirror | CELLxGENE `3f50314f` (Krishna Cancer Cell 2021); EGA `EGAS00001005188` gated for WGS/WES |
+| **Krishna 2021 ADAPTeR ccRCC IO [v]** | ADAPTeR | ccRCC nivo pre/on/post | WES + WGS | scRNA + scTCR + mIF | 6 | in-progress | CELLxGENE `3f50314f` (Krishna Cancer Cell 2021); EGA `EGAS00001005188` gated for WGS/WES |
 | **Wu 2021 breast Visium [v]** | standalone | breast ER+ / HER2+ / TNBC | WES (controlled) | scRNA + Visium subset | 26 | downloaded | GEO `GSE176078` |
 
 `[v]` = present in the vault topic YAML. State markers reflect status.tsv as of 2026-06-05 plus per-cohort MANIFEST.yaml. The superseded `tietscher-2023-breast-imc` row is left in place but `blocked` and replaced by `tietscher-2023-breast-imc-bodenmiller` in the row directly below it.
@@ -129,7 +129,7 @@ The biggest patient-equivalent absences are structural, not operational. **HTAN 
 
 ## the unsearched-vs-blocked split — what changed today
 
-The prior view collapsed every credential-gated row into a single `planned` bucket — meaning "in the manifest, never touched". Today's blank-fill probe round (three subagents covering A / D / B+C buckets) split that lump into three semantically distinct cells. **Blocked-confirmed** is the strict definition we want: probed today at the EGA / dbGaP / Synapse-PAT / SCP-OAuth level, and nothing public anywhere — those gates are real. **Open-mirror** is the surprising finding: 11 cohorts whose master accession is gated but whose individual labs republished processed h5ads on CELLxGENE (or Zenodo, or Mendeley, or GEO) — queueable today, no DUA, just `wget`. **Unsearched** is the residue: rows whose accession or PMID didn't survive a basic literature check, plus paper-only rows whose deposit lives on registration-walled platforms (BGI/CNGB) or in pre-acceptance embargo (bioRxiv). "Haven't searched yet" is now a first-class cell color (grey) distinct from "searched, gated" (red).
+The prior view collapsed every credential-gated row into a single `planned` bucket — meaning "in the manifest, never touched". Today's blank-fill probe round (three subagents covering A / D / B+C buckets) split that lump into three semantically distinct cells. **Blocked-confirmed** is the strict definition we want: probed today at the EGA / dbGaP / Synapse-PAT / SCP-OAuth level, and nothing public anywhere — those gates are real. **In-progress** is the surprising finding: 11 cohorts whose master accession is gated but whose individual labs republished processed h5ads on CELLxGENE (or Zenodo, or Mendeley, or GEO) — queueable today, no DUA, just `wget`. **Unsearched** is the residue: rows whose accession or PMID didn't survive a basic literature check, plus paper-only rows whose deposit lives on registration-walled platforms (BGI/CNGB) or in pre-acceptance embargo (bioRxiv). "Haven't searched yet" is now a first-class cell color (grey) distinct from "searched, gated" (red).
 
 The 11 newly-fetchable cohorts and their open mirrors:
 
