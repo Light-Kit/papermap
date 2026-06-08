@@ -1,6 +1,6 @@
 ---
 title: 'the canonical layer — how 23 different cohort shapes feed one qc pipeline'
-date: '2026-06-08 21:00 UTC'
+date: '2026-06-08 16:00 CT'
 topics: [hrd, ccr8, pan-cancer, engineering, pipeline-design, canonical-layer, hpc, lsf]
 summary: 'after v6, the corpus crossed 50 cohorts on disk and the tier-1 (cohort-level) hrd × ccr8 intersection landed. the next task — tier-2 per-cell standardization — surfaced an engineering wall: every cohort arrives in a different shape (tpm vs umi, ensembl vs hgnc symbols, sample column called sample vs sample_id vs patienttypeid, log1p in X vs counts in X), and the qc dispatcher was growing a per-cohort branch every time. this post is about the architectural fix: a stage-2 canonical layer that pins one anndata contract and pushes all per-study quirks into a 30-line shim per cohort. today we wrote 9 shims via 4 parallel subagents, bootstrapped the env on seadragon hpc, and have the first multi-cohort lsf fan-out queued. four-tier flowchart at the top, contract spec in the middle, shim pattern at the end.'
 prev: progress-v6-2026-06-05

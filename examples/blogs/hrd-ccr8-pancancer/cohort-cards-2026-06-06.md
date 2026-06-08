@@ -1,6 +1,6 @@
 ---
 title: 'cohort cards — pan-cancer HRD × CCR8 stratifier (73 cohorts across 4 buckets)'
-date: '2026-06-06 16:42 UTC'
+date: '2026-06-06 11:42 CT'
 topics:
   - hrd
   - ccr8

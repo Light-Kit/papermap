@@ -1,6 +1,6 @@
 ---
 title: '一个模型，多个原型 —— PARPi 响应预测模型的概念与设计'
-date: '2026-06-03 19:57 UTC'
+date: '2026-06-03 14:57 CT'
 topics:
   - hrd
   - pan-cancer

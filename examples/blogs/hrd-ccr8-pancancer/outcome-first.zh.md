@@ -1,6 +1,6 @@
 ---
 title: '结果优先 —— 把 HRD 当成特征，不当成筛选条件'
-date: '2026-06-03 19:57 UTC'
+date: '2026-06-03 14:57 CT'
 topics:
   - hrd
   - pan-cancer

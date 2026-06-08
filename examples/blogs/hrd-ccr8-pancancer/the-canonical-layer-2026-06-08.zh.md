@@ -1,6 +1,6 @@
 ---
 title: '规范化层 — 让 23 种不同形态的队列喂给同一条 qc 管线'
-date: '2026-06-08 21:00 UTC'
+date: '2026-06-08 16:00 CT'
 topics: [hrd, ccr8, pan-cancer, engineering, pipeline-design, canonical-layer, hpc, lsf]
 summary: 'v6 之后，语料越过 50 个队列上盘，tier-1（队列级 hrd × ccr8 交集）落地。下一步 tier-2（按细胞的标准化）撞上一堵工程墙：每个队列的形态都不一样（tpm 对 umi、ensembl 对 hgnc 符号、sample 列叫 sample 还是 sample_id 还是 PatientTypeID、log1p 在 X 里还是 counts 在 X 里），qc 派发器每接一个新队列就长出一个分支。这篇是关于架构修复：stage-2 规范化层把 anndata 契约固定下来，把所有按研究的怪癖都推到每队列 30 行的 shim 里。今天我们用 4 个并行 subagent 写了 9 个 shim，在 seadragon hpc 上把环境启好了，第一批多队列 lsf 扇出已经排队。文章开头是四层架构流程图，中段是契约规范，末段是 shim 模式。'
 prev: progress-v6-2026-06-05

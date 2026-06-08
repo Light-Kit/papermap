@@ -1,6 +1,6 @@
 ---
 title: 'paired-data — searching pan-cancer public corpora for tumor genomics × TME'
-date: '2026-06-03 19:57 UTC'
+date: '2026-06-03 14:57 CT'
 topics:
   - hrd
   - pan-cancer

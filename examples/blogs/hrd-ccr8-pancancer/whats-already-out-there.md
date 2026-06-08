@@ -1,6 +1,6 @@
 ---
 title: "what's already out there — the pan-cancer HRD work we stand on, and the seam where this project sits"
-date: '2026-06-03 19:57 UTC'
+date: '2026-06-03 14:57 CT'
 topics:
 - hrd
 - pan-cancer
