@@ -1,6 +1,6 @@
 ---
 title: 'HRD 是能算出来的 —— 但算的是哪个 HRD？'
-date: '2026-06-03'
+date: '2026-06-03 19:57 UTC'
 topics:
   - hrd
   - pan-cancer
