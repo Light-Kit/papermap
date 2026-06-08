@@ -1,6 +1,6 @@
 ---
 title: 'from corpus to intersection — today, the project crossed its first analytical readout'
-date: '2026-06-05'
+date: '2026-06-05 02:11 UTC'
 topics:
   - hrd
   - ccr8

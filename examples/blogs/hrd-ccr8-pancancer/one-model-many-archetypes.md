@@ -1,6 +1,6 @@
 ---
 title: 'one model, many archetypes — concept and design for the parpi-response model'
-date: '2026-06-03'
+date: '2026-06-03 19:57 UTC'
 topics:
   - hrd
   - pan-cancer
