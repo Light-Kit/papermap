@@ -214,8 +214,10 @@ function renderBody(container, rows, blocksByCohort, filters, asOfDate) {
 
 // Contract matches the other views: app.js calls `views[name].render(state,
 // filters, el)`. This view manages its own internal data fetch + filter
-// state, so it only consumes the mount element (third arg).
-export async function render(state, filters, root) {
+// state, so it ignores the first two args (note the leading underscores —
+// the local `filters` object below would otherwise collide) and only uses
+// the mount element (third arg).
+export async function render(_state, _filters, root) {
   const date = DEFAULT_DATE;
 
   // Layout: sidebar (left, 280px) | body (right, scrollable).
