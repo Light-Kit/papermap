@@ -80,8 +80,9 @@ export function render(_state, _filters, el) {
   const clearChip = _topicFilter
     ? ` <a href="#" class="blog-clear-filter">clear ×</a>`
     : "";
+  const corpusTitle = (_state && _state.title) ? _state.title : "this corpus";
   header.innerHTML = `<h2>${headline}${clearChip}
-    <small>long-form essays from the FM-to-virtual-cells corpus</small>
+    <small>long-form essays from ${escape(corpusTitle)}</small>
     <a href="#" class="star-filter ${_starOnly ? "on" : ""}">${_starOnly ? "★" : "☆"} starred (${starredCount})</a>
     <a href="#" class="archive-filter ${_archivedOnly ? "on" : ""}" title="${_archivedOnly ? "Showing only archived blogs — click to show live blogs again" : "Show only archived blogs"}">🗄 archived (${archCount})</a></h2>`;
   div.appendChild(header);
