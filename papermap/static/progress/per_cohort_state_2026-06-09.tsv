@@ -1,0 +1,76 @@
+cohort_id	cancer	bucket	n	now_position	next_branch
+luo-2024-nant-ovarian	HGSOC	A	30	in-flight @ bulk-RNA	pull WGS
+vazquez-garcia-2022-mskspectrum	HGSOC	A	42	blocked @ WGS	pull WGS + IMC
+olbrecht-2021-hgsoc	HGSOC	A	7	blocked @ WES	QC + canonical-layer shim
+pal-2021-brca1-breast	breast-BRCA1	A	21	blocked @ WGS	pull WGS
+bassez-2021-biokey	breast-IO	A	40	blocked @ WES	pull WES + panel + scRNA + scTCR
+yost-2019-bcc	BCC-IO	A	14	blocked @ bulk-RNA	QC + canonical-layer shim
+caushi-2021-nsclc	NSCLC-IO	A	16	blocked @ WES	pull WES + panel
+luoma-2022-hnscc	HNSCC-IO	A	29	blocked @ panel	pull panel
+sade-feldman-2018-mel	melanoma-IO	A	48	blocked @ WES	pull WES
+bi-2021-ccrcc	ccRCC-IO	A	8	blocked @ WES	pull WES + scRNA
+liu-2022-nsclc	NSCLC-IO	A	35	on-disk (all planned present)	pull WES + scRNA
+magen-2023-hcc	HCC-IO	A	33	on-disk (all planned present)	pull WES + scRNA + scTCR
+wang-2025-sclc-parpi	SCLC-PARPi	A		on-disk (all planned present)	pull panel + scRNA
+pelka-2021-crc	CRC-MMR	A	62	blocked @ WES	pull WES + MERFISH
+lee-2020-crc-korea	CRC	A	29	blocked @ WES	pull WES + bulk-RNA
+maynard-2020-nsclc-longitudinal	NSCLC-TKI	A	30	blocked @ WES	pull WES + panel + scRNA
+neftel-2019-gbm	GBM	A	28	blocked @ WES	pull WES
+karaayvaz-2018-tnbc	TNBC	A	6	partial @ SmartSeq2	pull WES + SmartSeq2
+puram-2017-hnscc	HNSCC	A	18	blocked @ WES	pull WES
+kim-2020-nsclc-mets	NSCLC-mets	A	44	blocked @ WES	pull WES + scRNA
+tirosh-2016-melanoma	mel	A	19	blocked @ WES	pull WES
+jerby-arnon-2018-mel	mel-IO	A	33	blocked @ WES	pull WES
+stewart-2020-sclc-cdx	SCLC	A	12	blocked @ scRNA	pull WGS + WES + scRNA
+wang-2021-gastric-peritoneal	gastric	A	6	blocked @ bulk-RNA	QC + canonical-layer shim
+zhang-2022-gastric-tcell	gastric	A	29	blocked @ WES	pull WES + scTCR
+couturier-2020-gbm	GBM	A	14	blocked @ WES	pull WES + scRNA
+lambrechts-2018-nsclc	NSCLC	A	5	blocked @ WES	pull WES
+goveia-2020-nsclc-ec	NSCLC-EC	A	8	blocked @ WES	pull WES
+sun-2021-hcc-early-relapse	HCC	A	18	on-disk (all planned present)	pull WES + scRNA + scTCR
+kim-2018-tnbc-chemoresist	TNBC	A	20	partial @ WES	pull WES + scRNA + SmartSeq2
+hwang-lin-2022-pdac-chemo	PDAC	A	43	blocked @ WES	pull WES + DVP-proteomics
+htan-hta3-bu-lung-precancer	lung-precancer	A	484	blocked @ WES	pull WES + scRNA + mIF
+su-2025-hcc-snrna	HCC	A	12	blocked @ WES	pull WES
+stur-2022-hgsoc-visium	HGSOC	B	12	blocked @ scRNA	QC + canonical-layer shim
+erickson-2022-prostate-visium	prostate	B	11	blocked @ WGS	pull WGS + bulk-RNA
+khaliq-sun-2024-pdac	PDAC	B	30	on-disk (all planned present)	QC + canonical-layer shim
+pei-min-2025-pdac-autopsy	PDAC	B	13	blocked @ WGS	pull WGS + WES
+wu-2025-hgsoc-visium-hd	HGSOC	B	30	on-disk (all planned present)	pull WES + VisiumHD
+ji-2020-cscc-st	cSCC	B	10	in-flight @ scRNA	pull WES
+xenium-5k-demo-10x	5-tumor-demo	B		blocked @ WGS	pull WGS
+cervilla-2025-st-platforms-comparison	6-cancer-benchmark	B		on-disk (all planned present)	QC + canonical-layer shim
+launonen-2022-farkkila-mif-hgsoc	HGSOC-HRD	C	44	blocked @ t-CyCIF	pull WGS + panel + t-CyCIF + mIF
+farkkila-2020-topacio	HGSOC-TNBC-endo	C	62	blocked @ t-CyCIF	pull WGS + t-CyCIF
+mitri-2024-amtec-parpi-mtnbc	mTNBC-PARPi	C	12	on-disk (all planned present)	pull WES + t-CyCIF
+risom-2022-dcis-mibi	breast-DCIS	C	122	blocked @ panel	pull panel + bulk-RNA
+jackson-2020-breast-imc	breast	C	281	blocked @ scRNA	pull WES
+tietscher-2023-breast-imc	breast-HER2-TNBC	C	14	blocked @ IMC	pull IMC
+tietscher-2023-breast-imc-bodenmiller	breast-HER2-TNBC	C	14	on-disk (all planned present)	QC + canonical-layer shim
+ali-danenberg-2020-metabric-imc	breast-METABRIC	C	693	blocked @ scRNA	pull WES + panel
+magness-enfield-2024-tracerx-imc	NSCLC-TRACERx	C	81	blocked @ IMC	pull WES + bulk-RNA + IMC
+makhmut-coscia-2025-stic-dvp	HGSOC-STIC	C	25	blocked @ panel	pull panel + DVP-proteomics
+htan-hta1-htapp	mBC+NBL+LUAD+GBM	D	205	partial @ WES	pull WES + panel + snRNA + MERFISH + CODEX + MIBI
+htan-hta4-chop-pediatric	pediatric	D	69	partial @ WGS	pull WGS + WES + CODEX + Visium
+htan-hta5-dfci-resistance	NSCLC-breast-mel	D	156	blocked @ WES	pull WES + t-CyCIF + scRNA
+htan-hta6-duke-stanford-dcis	breast-DCIS	D	828	blocked @ WGS	pull WGS + MIBI + scRNA + bulk-RNA
+htan-hta7-hms-patch-sorger	mel+heme	D	245	blocked @ panel	pull panel + bulk-RNA + t-CyCIF
+htan-hta8-msk-metastasis	metastasis	D	202	blocked @ WGS	pull panel + WGS + MIBI + IMC + Visium
+htan-hta9-ohsu-smmart-mbc	mBC	D	33	blocked @ WGS	pull WGS + scRNA + t-CyCIF
+htan-hta10-stanford-fap	FAP-CRC	D	40	blocked @ WGS	pull WGS + scRNA + Xenium + CODEX
+htan-hta11-vanderbilt-crc	CRC	D	195	blocked @ WGS	pull WES + WGS + Visium
+htan-hta12-wustl-pancancer	pan-cancer (PAAD open tier)	D	21	blocked @ WGS	pull WGS + WES + scRNA + snRNA + Visium + CODEX + IMC + Xenium
+mskspectrum-cfdna-parpi-2025	HGSOC-PARPi	D	24	on-disk (all planned present)	pull WGS + scRNA
+hms-sorger-ovarian-renamed	HGSOC	D	25	blocked @ WGS	pull WGS + t-CyCIF
+owkin-mosaic-window-bladder	bladder-MIBC	D	15	blocked @ WES	pull WES + bulk-RNA + Visium + snRNA
+htapp-klughammer-2024-mbc	mBC	D	30	blocked @ WES	pull WES + CODEX
+htan-hta8-sclc-chan-2021	SCLC	D	21	partial @ WGS	pull panel + WGS + MIBI
+hwang-2022-pdac-neoadj	PDAC	D	43	blocked @ bulk-RNA	pull WES + DVP-proteomics
+hwang-2025-pdac-neural	PDAC	D	25	on-disk (all planned present)	pull panel + Visium + snRNA
+sun-2024-hcc-primary-met	HCC	D	182	on-disk (all planned present)	pull WES + bulk-RNA + Visium + scRNA
+liu-2024-pediatric-hgg-filbin	pHGG	D	16	in-flight @ bulk-RNA	pull WGS + CODEX
+ravi-2022-gbm-multiomics	GBM	D	28	blocked @ bulk-RNA	pull WES + IMC
+greenwald-2024-gbm-suva-tirosh	GBM	D	100	on-disk (all planned present)	pull WES
+denisenko-2024-hgsoc-visium-cosmx	HGSOC	D	10	blocked @ IMC	pull WES
+krishna-2021-adapter-ccrcc-io	ccRCC-IO	D	6	blocked @ WES	pull WES + WGS + scTCR + mIF
+wu-2021-breast-visium	breast	D	26	in-flight @ bulk-RNA	pull WES

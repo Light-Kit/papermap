@@ -980,3 +980,26 @@ body.zen .blog-post aside.qa-reply { display: none; }
 .item-relations .rel-label { color: #6b6b5e; min-width: 9rem; font-size: 0.85rem; }
 .item-relations .rel-link { text-decoration: none; }
 .item-relations .rel-link:hover { text-decoration: underline; }
+
+/* ── Progress flowchart view (per-cohort ASCII DAG) ───────────── */
+.flowchart-root { display: flex; gap: 1.2rem; align-items: flex-start; }
+.flowchart-sidebar {
+  flex: 0 0 280px; position: sticky; top: 0.5rem;
+  font-size: 0.85rem; display: flex; flex-direction: column; gap: 0.6rem;
+}
+.flowchart-sidebar h3 { margin: 0 0 0.2rem; font-size: 0.95rem; }
+.flowchart-sidebar label { display: flex; flex-direction: column; gap: 0.2rem; color: #6b6b5e; }
+.flowchart-sidebar select,
+.flowchart-sidebar input { font: inherit; padding: 3px 6px; border: 1px solid #d7d7cc; border-radius: 3px; }
+.flowchart-legend { margin: 0.4rem 0 0; display: grid; grid-template-columns: auto 1fr; gap: 2px 8px; }
+.flowchart-legend dt { font-family: ui-monospace, Menlo, monospace; color: #46463c; }
+.flowchart-legend dd { margin: 0; color: #6b6b5e; }
+.flowchart-body { flex: 1 1 auto; min-width: 0; }
+.flowchart-asof { color: #8a8a7d; font-size: 0.82rem; }
+.flowchart-count { color: #6b6b5e; font-size: 0.85rem; margin: 0.2rem 0 0.8rem; }
+.flowchart-block {
+  font-family: ui-monospace, Menlo, monospace; font-size: 0.8rem; line-height: 1.4;
+  background: #f7f7f1; border: 1px solid #e3e3da; border-radius: 4px;
+  padding: 0.6rem 0.9rem; margin: 0 0 0.7rem; overflow-x: auto; white-space: pre;
+}
+.flowchart-empty { color: #8a8a7d; font-style: italic; }

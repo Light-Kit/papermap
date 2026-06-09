@@ -1,0 +1,772 @@
+══════════════════════════════════════════════════════════════════════
+  luo-2024-nant-ovarian                 HGSOC   n=30 pt   bucket A
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] WGS          blocked
+    [+] scRNA        on-disk
+    [+] scTCR        on-disk
+    [?] bulk-RNA     in-flight   ◄ NOW
+
+  NEXT BRANCH: pull WGS
+  note: Set 4 2026-06-06: bulk-TCR (GSE222554) + Singleron scTCR (GSE222555) + scRNA validation (GSE269793) fetch queued via SuperSeries GSE222557; tracked under bulk-RNA cell pending fetch
+══════════════════════════════════════════════════════════════════════
+  vazquez-garcia-2022-mskspectrum       HGSOC   n=42 pt   bucket A
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] WGS          blocked   ◄ NOW
+    [+] scRNA        on-disk
+    [+] bulk-RNA     on-disk
+    [!] IMC          blocked
+
+  NEXT BRANCH: pull WGS + IMC
+  note: probed 2026-06-05; dual-listed with D-row (dedupe candidate)
+══════════════════════════════════════════════════════════════════════
+  olbrecht-2021-hgsoc                   HGSOC   n=7 pt   bucket A
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [+] scRNA        on-disk
+    [!] WES          blocked   ◄ NOW
+
+  NEXT BRANCH: QC + canonical-layer shim
+  note: Set 3 2026-06-06: WES companion probed empty (E-MTAB-8107 stand-alone scRNA; germline-BRCA flag is clinical metadata not WES deposit)
+══════════════════════════════════════════════════════════════════════
+  pal-2021-brca1-breast                 breast-BRCA1   n=21 pt   bucket A
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] WGS          blocked   ◄ NOW
+    [+] scRNA        on-disk
+    [!] bulk-RNA     blocked
+
+  NEXT BRANCH: pull WGS
+  note: Set 2 + Set 3 2026-06-06: WGS out-of-bucket probe empty; bulk-RNA companion empty (GSE161529 stand-alone scRNA atlas)
+══════════════════════════════════════════════════════════════════════
+  bassez-2021-biokey                    breast-IO   n=40 pt   bucket A
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] WES          blocked   ◄ NOW
+    [!] panel        blocked
+    [~] scRNA        partial
+    [!] scTCR        blocked
+    [!] bulk-RNA     blocked
+
+  NEXT BRANCH: pull WES + panel + scRNA + scTCR
+  note: v5-followup 2026-06-05: processed tier landed via Figshare + Nat Med supps; raw FASTQ/WES/CITE stay EGA-controlled; scTCR not in processed deposit; Set 3 2026-06-06 bulk-RNA companion empty (figshare + Nat Med are scRNA-Seurat only)
+══════════════════════════════════════════════════════════════════════
+  yost-2019-bcc                         BCC-IO   n=14 pt   bucket A
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [+] scRNA        on-disk
+    [+] scTCR        on-disk
+    [!] bulk-RNA     blocked   ◄ NOW
+
+  NEXT BRANCH: QC + canonical-layer shim
+  note: Set 3 2026-06-06: bulk-RNA companion empty (GSE123813 not in any SuperSeries)
+══════════════════════════════════════════════════════════════════════
+  caushi-2021-nsclc                     NSCLC-IO   n=16 pt   bucket A
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] WES          blocked   ◄ NOW
+    [!] panel        blocked
+    [+] scRNA        on-disk
+    [+] scTCR        on-disk
+    [!] bulk-RNA     blocked
+
+  NEXT BRANCH: pull WES + panel
+  note: Set 2 + Set 3 2026-06-06: WES/panel out-of-bucket empty; bulk-RNA companion empty (GSE176021 stand-alone; raw at EGA EGAS00001005343 controlled)
+══════════════════════════════════════════════════════════════════════
+  luoma-2022-hnscc                      HNSCC-IO   n=29 pt   bucket A
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] panel        blocked   ◄ NOW
+    [+] scRNA        on-disk
+    [!] bulk-RNA     blocked
+
+  NEXT BRANCH: pull panel
+  note: Set 2 + Set 3 2026-06-06: panel out-of-bucket empty; bulk-RNA companion empty (GSE200996 stand-alone)
+══════════════════════════════════════════════════════════════════════
+  sade-feldman-2018-mel                 melanoma-IO   n=48 pt   bucket A
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] WES          blocked   ◄ NOW
+    [+] SmartSeq2    on-disk
+    [!] bulk-RNA     blocked
+
+  NEXT BRANCH: pull WES
+  note: Set 2 + Set 3 2026-06-06: WES out-of-bucket empty; bulk-RNA companion empty (GSE120575 stand-alone; raw at dbGaP phs001680 controlled)
+══════════════════════════════════════════════════════════════════════
+  bi-2021-ccrcc                         ccRCC-IO   n=8 pt   bucket A
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] WES          blocked   ◄ NOW
+    [~] scRNA        partial
+
+  NEXT BRANCH: pull WES + scRNA
+  note: v5-followup 2026-06-05: user manually fetched SCP1288 via Google login; processed scRNA (matrix+counts+metadata+cluster) on disk; raw WGS at dbGaP stays blocked
+══════════════════════════════════════════════════════════════════════
+  liu-2022-nsclc                        NSCLC-IO   n=35 pt   bucket A
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [ ] WES          unsearched
+    [ ] scRNA        unsearched
+
+  NEXT BRANCH: pull WES + scRNA
+  note: accession-unverified; manifest PMID points to wrong paper, real paper PMID unresolved
+══════════════════════════════════════════════════════════════════════
+  magen-2023-hcc                        HCC-IO   n=33 pt   bucket A
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [ ] WES          unsearched
+    [ ] scRNA        unsearched
+    [ ] scTCR        unsearched
+
+  NEXT BRANCH: pull WES + scRNA + scTCR
+  note: accession-unverified; no scRNA paper at named PMID, possibly preprint or retracted
+══════════════════════════════════════════════════════════════════════
+  wang-2025-sclc-parpi                  SCLC-PARPi   n=null pt   bucket A
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [ ] panel        unsearched
+    [ ] scRNA        unsearched
+
+  NEXT BRANCH: pull panel + scRNA
+  note: accession-unverified; only 2025 SCLC PARPi match is Zhang meta-analysis, Wang attribution wrong
+══════════════════════════════════════════════════════════════════════
+  pelka-2021-crc                        CRC-MMR   n=62 pt   bucket A
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] WES          blocked   ◄ NOW
+    [+] scRNA        on-disk
+    [!] MERFISH      blocked
+    [!] bulk-RNA     blocked
+
+  NEXT BRANCH: pull WES + MERFISH
+  note: Set 2 + Set 3 2026-06-06: WES out-of-bucket empty; MERFISH companion sits in D-tier Chen Cell 2021 atlas (tracked separately); bulk-RNA companion empty (raw at dbGaP phs002407 controlled)
+══════════════════════════════════════════════════════════════════════
+  lee-2020-crc-korea                    CRC   n=29 pt   bucket A
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] WES          blocked   ◄ NOW
+    [!] bulk-RNA     blocked
+    [+] scRNA        on-disk
+
+  NEXT BRANCH: pull WES + bulk-RNA
+  note: Set 2 + Set 3 2026-06-06: WES + bulk-RNA out-of-bucket / companion empty (GSE132465 stand-alone scRNA)
+══════════════════════════════════════════════════════════════════════
+  maynard-2020-nsclc-longitudinal       NSCLC-TKI   n=30 pt   bucket A
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] WES          blocked   ◄ NOW
+    [!] panel        blocked
+    [!] scRNA        blocked
+
+  NEXT BRANCH: pull WES + panel + scRNA
+  note: blocked-confirmed, probed 2026-06-05
+══════════════════════════════════════════════════════════════════════
+  neftel-2019-gbm                       GBM   n=28 pt   bucket A
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] WES          blocked   ◄ NOW
+    [+] scRNA        on-disk
+    [+] SmartSeq2    on-disk
+    [!] bulk-RNA     blocked
+
+  NEXT BRANCH: pull WES
+  note: Set 2 + Set 3 2026-06-06: WES out-of-bucket empty; bulk-RNA companion empty (GSE131928 raw at dbGaP controlled)
+══════════════════════════════════════════════════════════════════════
+  karaayvaz-2018-tnbc                   TNBC   n=6 pt   bucket A
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [~] WES          partial
+    [~] SmartSeq2    partial   ◄ NOW
+
+  NEXT BRANCH: pull WES + SmartSeq2
+══════════════════════════════════════════════════════════════════════
+  puram-2017-hnscc                      HNSCC   n=18 pt   bucket A
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] WES          blocked   ◄ NOW
+    [+] SmartSeq2    on-disk
+    [!] bulk-RNA     blocked
+
+  NEXT BRANCH: pull WES
+  note: Set 2 + Set 3 2026-06-06: WES out-of-bucket empty; bulk-RNA companion empty (GSE103322 stand-alone; raw deferred)
+══════════════════════════════════════════════════════════════════════
+  kim-2020-nsclc-mets                   NSCLC-mets   n=44 pt   bucket A
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] WES          blocked   ◄ NOW
+    [!] scRNA        blocked
+
+  NEXT BRANCH: pull WES + scRNA
+  note: blocked-confirmed, probed 2026-06-05
+══════════════════════════════════════════════════════════════════════
+  tirosh-2016-melanoma                  mel   n=19 pt   bucket A
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] WES          blocked   ◄ NOW
+    [+] SmartSeq2    on-disk
+    [!] bulk-RNA     blocked
+
+  NEXT BRANCH: pull WES
+  note: Set 2 + Set 3 2026-06-06: WES out-of-bucket empty; bulk-RNA companion empty (GSE72056 stand-alone; raw at dbGaP controlled)
+══════════════════════════════════════════════════════════════════════
+  jerby-arnon-2018-mel                  mel-IO   n=33 pt   bucket A
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] WES          blocked   ◄ NOW
+    [+] scRNA        on-disk
+    [!] bulk-RNA     blocked
+
+  NEXT BRANCH: pull WES
+  note: Set 2 + Set 3 2026-06-06: WES out-of-bucket empty; bulk-RNA companion empty (GSE115978 scRNA atlas; raw at dbGaP controlled)
+══════════════════════════════════════════════════════════════════════
+  stewart-2020-sclc-cdx                 SCLC   n=12 pt   bucket A
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [~] WGS          partial
+    [~] WES          partial
+    [!] scRNA        blocked   ◄ NOW
+
+  NEXT BRANCH: pull WGS + WES + scRNA
+  note: Set 1 2026-06-06: alt-genomic via cBioPortal sclc_ucologne_2015 + sclc_jhu + sclc_clcgp + sclc_cancercell_gardner_2017 — WGS mutation-table, SBS3-derivable (n=120+80+29+20); scRNA still blocked
+══════════════════════════════════════════════════════════════════════
+  wang-2021-gastric-peritoneal          gastric   n=6 pt   bucket A
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [+] scRNA        on-disk
+    [!] bulk-RNA     blocked   ◄ NOW
+
+  NEXT BRANCH: QC + canonical-layer shim
+  note: Set 3 2026-06-06: bulk-RNA companion empty (GSE163558 stand-alone scRNA)
+══════════════════════════════════════════════════════════════════════
+  zhang-2022-gastric-tcell              gastric   n=29 pt   bucket A
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] WES          blocked   ◄ NOW
+    [+] scRNA        on-disk
+    [ ] scTCR        unsearched
+    [!] bulk-RNA     blocked
+
+  NEXT BRANCH: pull WES + scTCR
+  note: Set 2 + Set 3 2026-06-06: WES out-of-bucket empty; bulk-RNA companion empty (GSE183904 stand-alone scRNA; misnamed Kumar-Tan 2022 per status notes)
+══════════════════════════════════════════════════════════════════════
+  couturier-2020-gbm                    GBM   n=14 pt   bucket A
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] WES          blocked   ◄ NOW
+    [!] scRNA        blocked
+
+  NEXT BRANCH: pull WES + scRNA
+  note: blocked-confirmed, probed 2026-06-05
+══════════════════════════════════════════════════════════════════════
+  lambrechts-2018-nsclc                 NSCLC   n=5 pt   bucket A
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] WES          blocked   ◄ NOW
+    [+] scRNA        on-disk
+
+  NEXT BRANCH: pull WES
+  note: Set 2 + Set 3 2026-06-06: WES out-of-bucket / companion empty (E-MTAB-6149 stand-alone scRNA; WES not in BioStudies inventory)
+══════════════════════════════════════════════════════════════════════
+  goveia-2020-nsclc-ec                  NSCLC-EC   n=8 pt   bucket A
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] WES          blocked   ◄ NOW
+    [+] scRNA        on-disk
+
+  NEXT BRANCH: pull WES
+  note: v5-followup 2026-06-05: prior E-MTAB-8221 was paper-level mis-id (fetal lung dev, preserved separately as fetal-lung-dev-dual-smad); real Goveia 2020 NSCLC tumor endothelial pulled; Set 2 2026-06-06 WES out-of-bucket empty (E-MTAB-6308 stand-alone scRNA)
+══════════════════════════════════════════════════════════════════════
+  sun-2021-hcc-early-relapse            HCC   n=18 pt   bucket A
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [ ] WES          unsearched
+    [ ] scRNA        unsearched
+    [ ] scTCR        unsearched
+
+  NEXT BRANCH: pull WES + scRNA + scTCR
+  note: paper-only; deposit at BGI/CNGB not probed (user-side registration)
+══════════════════════════════════════════════════════════════════════
+  kim-2018-tnbc-chemoresist             TNBC   n=20 pt   bucket A
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [~] WES          partial   ◄ NOW
+    [ ] scRNA        unsearched
+    [~] SmartSeq2    partial
+
+  NEXT BRANCH: pull WES + scRNA + SmartSeq2
+══════════════════════════════════════════════════════════════════════
+  hwang-lin-2022-pdac-chemo             PDAC   n=43 pt   bucket A
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] WES          blocked   ◄ NOW
+    [+] snRNA        on-disk
+    [!] DVP-proteomics blocked
+    [!] bulk-RNA     blocked
+
+  NEXT BRANCH: pull WES + DVP-proteomics
+  note: Set 2 + Set 3 2026-06-06: WES + DVP-proteomics out-of-bucket empty (DVP at EGA EGAD00010002388 controlled, no PRIDE record); bulk-RNA companion empty (raw at dbGaP phs002789 controlled)
+══════════════════════════════════════════════════════════════════════
+  htan-hta3-bu-lung-precancer           lung-precancer   n=484 pt   bucket A
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] WES          blocked   ◄ NOW
+    [!] scRNA        blocked
+    [!] mIF          blocked
+
+  NEXT BRANCH: pull WES + scRNA + mIF
+  note: blocked-confirmed, probed 2026-06-05
+══════════════════════════════════════════════════════════════════════
+  su-2025-hcc-snrna                     HCC   n=12 pt   bucket A
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] WES          blocked   ◄ NOW
+    [+] snRNA        on-disk
+    [!] bulk-RNA     blocked
+
+  NEXT BRANCH: pull WES
+  note: Set 2 + Set 3 2026-06-06: WES out-of-bucket empty (wes-chord-via-integration; planned as TCGA-LIHC integration); bulk-RNA companion empty (GSE282701 stand-alone snRNA)
+══════════════════════════════════════════════════════════════════════
+  stur-2022-hgsoc-visium                HGSOC   n=12 pt   bucket B
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [+] Visium       on-disk
+    [!] scRNA        blocked   ◄ NOW
+    [!] bulk-RNA     blocked
+
+  NEXT BRANCH: QC + canonical-layer shim
+  note: Set 3 2026-06-06: scRNA + bulk-RNA companions empty (GSE189843 stand-alone Visium-only)
+══════════════════════════════════════════════════════════════════════
+  erickson-2022-prostate-visium         prostate   n=11 pt   bucket B
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] WGS          blocked   ◄ NOW
+    [+] Visium       on-disk
+    [!] bulk-RNA     blocked
+
+  NEXT BRANCH: pull WGS + bulk-RNA
+  note: probed 2026-06-05; Visium open at Mendeley, WGS keep-blocked; Set 2 2026-06-06 bulk-RNA out-of-bucket empty
+══════════════════════════════════════════════════════════════════════
+  khaliq-sun-2024-pdac                  PDAC   n=30 pt   bucket B
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [+] Visium       on-disk
+
+  NEXT BRANCH: QC + canonical-layer shim
+══════════════════════════════════════════════════════════════════════
+  pei-min-2025-pdac-autopsy             PDAC   n=13 pt   bucket B
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] WGS          blocked   ◄ NOW
+    [!] WES          blocked
+    [+] Visium       on-disk
+    [+] CosMx        on-disk
+
+  NEXT BRANCH: pull WGS + WES
+  note: probed 2026-06-05; 57 Visium FF+FFPE + 7 CosMx 1000-plex open at GEO; Set 2 2026-06-06 WGS/WES out-of-bucket empty (no accession in Nature 2025 642:212 data availability)
+══════════════════════════════════════════════════════════════════════
+  wu-2025-hgsoc-visium-hd               HGSOC   n=30 pt   bucket B
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [ ] WES          unsearched
+    [ ] VisiumHD     unsearched
+
+  NEXT BRANCH: pull WES + VisiumHD
+  note: paper-only; preprint embargoed, no deposit yet
+══════════════════════════════════════════════════════════════════════
+  ji-2020-cscc-st                       cSCC   n=10 pt   bucket B
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] WES          blocked
+    [+] ST           on-disk
+    [?] scRNA        in-flight   ◄ NOW
+
+  NEXT BRANCH: pull WES
+  note: Set 2 2026-06-06 WES out-of-bucket empty per out-of-bucket probe; Set 4 2026-06-06 scRNA companion fetch queued (GSE144236 in SuperSeries GSE144240)
+══════════════════════════════════════════════════════════════════════
+  xenium-5k-demo-10x                    5-tumor-demo   n=null pt   bucket B
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] WGS          blocked   ◄ NOW
+    [+] Xenium       on-disk
+    [+] VisiumHD     on-disk
+
+  NEXT BRANCH: pull WGS
+  note: Set 2 2026-06-06: WGS out-of-bucket empty (demo dataset, no companion germline)
+══════════════════════════════════════════════════════════════════════
+  cervilla-2025-st-platforms-comparison 6-cancer-benchmark   n=null pt   bucket B
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [+] Visium       on-disk
+    [+] VisiumHD     on-disk
+    [+] Xenium       on-disk
+
+  NEXT BRANCH: QC + canonical-layer shim
+══════════════════════════════════════════════════════════════════════
+  launonen-2022-farkkila-mif-hgsoc      HGSOC-HRD   n=44 pt   bucket C
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] WGS          blocked
+    [!] panel        blocked
+    [!] t-CyCIF      blocked   ◄ NOW
+    [!] mIF          blocked
+
+  NEXT BRANCH: pull WGS + panel + t-CyCIF + mIF
+  note: blocked-confirmed, probed 2026-06-05
+══════════════════════════════════════════════════════════════════════
+  farkkila-2020-topacio                 HGSOC-TNBC-endo   n=62 pt   bucket C
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] WGS          blocked
+    [!] t-CyCIF      blocked   ◄ NOW
+
+  NEXT BRANCH: pull WGS + t-CyCIF
+  note: blocked-confirmed, probed 2026-06-05
+══════════════════════════════════════════════════════════════════════
+  mitri-2024-amtec-parpi-mtnbc          mTNBC-PARPi   n=12 pt   bucket C
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [ ] WES          unsearched
+    [ ] t-CyCIF      unsearched
+
+  NEXT BRANCH: pull WES + t-CyCIF
+  note: paper-only; HTAN OHSU level-3/4 open subset needs manual portal walk — deferred
+══════════════════════════════════════════════════════════════════════
+  risom-2022-dcis-mibi                  breast-DCIS   n=122 pt   bucket C
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] panel        blocked   ◄ NOW
+    [!] bulk-RNA     blocked
+    [+] MIBI         on-disk
+    [!] scRNA        blocked
+
+  NEXT BRANCH: pull panel + bulk-RNA
+  note: Set 2 + Set 3 2026-06-06: panel + bulk-RNA out-of-bucket empty; scRNA companion empty (Risom DCIS MIBI-TOF paper does not produce paired scRNA)
+══════════════════════════════════════════════════════════════════════
+  jackson-2020-breast-imc               breast   n=281 pt   bucket C
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [ ] WES          unsearched
+    [+] IMC          on-disk
+    [!] scRNA        blocked   ◄ NOW
+
+  NEXT BRANCH: pull WES
+  note: Set 3 2026-06-06: scRNA companion empty (Jackson IMC METABRIC-linked; no paired scRNA in Zenodo 4607374). Set 2 WES open-mirror hit at cBioPortal brca_metabric not auto-applied — needs manual review.
+══════════════════════════════════════════════════════════════════════
+  tietscher-2023-breast-imc             breast-HER2-TNBC   n=14 pt   bucket C
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] IMC          blocked   ◄ NOW
+
+  NEXT BRANCH: pull IMC
+══════════════════════════════════════════════════════════════════════
+  tietscher-2023-breast-imc-bodenmiller breast-HER2-TNBC   n=14 pt   bucket C
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [+] IMC          on-disk
+    [+] scRNA        on-disk
+
+  NEXT BRANCH: QC + canonical-layer shim
+══════════════════════════════════════════════════════════════════════
+  ali-danenberg-2020-metabric-imc       breast-METABRIC   n=693 pt   bucket C
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [~] WES          partial
+    [ ] panel        unsearched
+    [+] IMC          on-disk
+    [!] scRNA        blocked   ◄ NOW
+
+  NEXT BRANCH: pull WES + panel
+  note: Set 3 2026-06-06: scRNA companion empty (METABRIC source is bulk WES + bulk RNA per cBioPortal, not sc). Set 2 panel open-mirror hit at cBioPortal brca_metabric not auto-applied — needs manual review.
+══════════════════════════════════════════════════════════════════════
+  magness-enfield-2024-tracerx-imc      NSCLC-TRACERx   n=81 pt   bucket C
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] WES          blocked
+    [!] bulk-RNA     blocked
+    [!] IMC          blocked   ◄ NOW
+
+  NEXT BRANCH: pull WES + bulk-RNA + IMC
+  note: blocked-confirmed, probed 2026-06-05
+══════════════════════════════════════════════════════════════════════
+  makhmut-coscia-2025-stic-dvp          HGSOC-STIC   n=25 pt   bucket C
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] panel        blocked   ◄ NOW
+    [ ] DVP-proteomics unsearched
+
+  NEXT BRANCH: pull panel + DVP-proteomics
+  note: Set 2 2026-06-06: panel out-of-bucket empty (DVP-proteomics on PRIDE PXD069630 confirmed primary; targeted HRD panel NOT in PRIDE/Zenodo/Mendeley)
+══════════════════════════════════════════════════════════════════════
+  htan-hta1-htapp                       mBC+NBL+LUAD+GBM   n=205 pt   bucket D
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [~] WES          partial   ◄ NOW
+    [ ] panel        unsearched
+    [+] scRNA        on-disk
+    [ ] snRNA        unsearched
+    [+] Visium       on-disk
+    [ ] MERFISH      unsearched
+    [ ] CODEX        unsearched
+    [ ] MIBI         unsearched
+
+  NEXT BRANCH: pull WES + panel + snRNA + MERFISH + CODEX + MIBI
+  note: probed 2026-06-05; scRNA/Visium open via CELLxGENE+Zenodo; Set 1 2026-06-06 WES flipped BLOCKED→PARTIAL via cBioPortal nbl_target_2018_pub + nbl_msk_2023 + es_dfarber_broad_2014 (NBL mutation+CNA + Ewing mutation); Set 3 CITE-seq companion empty (no MODALITIES column, not rendered)
+══════════════════════════════════════════════════════════════════════
+  htan-hta4-chop-pediatric              pediatric   n=69 pt   bucket D
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [~] WGS          partial   ◄ NOW
+    [~] WES          partial
+    [+] scRNA        on-disk
+    [+] snRNA        on-disk
+    [ ] CODEX        unsearched
+    [ ] Visium       unsearched
+
+  NEXT BRANCH: pull WGS + WES + CODEX + Visium
+  note: probed 2026-06-05; scRNA/snRNA open via CELLxGENE; Set 1 2026-06-06 WGS/WES flipped BLOCKED→PARTIAL via cBioPortal nbl_target_2018_pub + aml_target_2018_pub + aml_stjude_2024 + all_phase2_target_2018_pub + brain_cptac_2020 + es_dfarber_broad_2014 (mutation-tables + selected CNA across 5 unmapped pediatric cancers)
+══════════════════════════════════════════════════════════════════════
+  htan-hta5-dfci-resistance             NSCLC-breast-mel   n=156 pt   bucket D
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] WES          blocked   ◄ NOW
+    [!] t-CyCIF      blocked
+    [!] scRNA        blocked
+
+  NEXT BRANCH: pull WES + t-CyCIF + scRNA
+  note: blocked-confirmed, probed 2026-06-05
+══════════════════════════════════════════════════════════════════════
+  htan-hta6-duke-stanford-dcis          breast-DCIS   n=828 pt   bucket D
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] WGS          blocked   ◄ NOW
+    [!] MIBI         blocked
+    [!] scRNA        blocked
+    [!] bulk-RNA     blocked
+
+  NEXT BRANCH: pull WGS + MIBI + scRNA + bulk-RNA
+  note: blocked-confirmed, probed 2026-06-05
+══════════════════════════════════════════════════════════════════════
+  htan-hta7-hms-patch-sorger            mel+heme   n=245 pt   bucket D
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] panel        blocked   ◄ NOW
+    [!] bulk-RNA     blocked
+    [!] t-CyCIF      blocked
+
+  NEXT BRANCH: pull panel + bulk-RNA + t-CyCIF
+  note: blocked-confirmed, probed 2026-06-05
+══════════════════════════════════════════════════════════════════════
+  htan-hta8-msk-metastasis              metastasis   n=202 pt   bucket D
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [ ] panel        unsearched
+    [!] WGS          blocked   ◄ NOW
+    [+] scRNA        on-disk
+    [ ] MIBI         unsearched
+    [ ] IMC          unsearched
+    [ ] Visium       unsearched
+
+  NEXT BRANCH: pull panel + WGS + MIBI + IMC + Visium
+  note: probed 2026-06-05; scRNA open via CELLxGENE, WGS keep-blocked, IMC/Visium not in public deposit
+══════════════════════════════════════════════════════════════════════
+  htan-hta9-ohsu-smmart-mbc             mBC   n=33 pt   bucket D
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] WGS          blocked   ◄ NOW
+    [!] scRNA        blocked
+    [!] t-CyCIF      blocked
+
+  NEXT BRANCH: pull WGS + scRNA + t-CyCIF
+  note: blocked-confirmed, probed 2026-06-05
+══════════════════════════════════════════════════════════════════════
+  htan-hta10-stanford-fap               FAP-CRC   n=40 pt   bucket D
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] WGS          blocked   ◄ NOW
+    [!] scRNA        blocked
+    [!] Xenium       blocked
+    [!] CODEX        blocked
+
+  NEXT BRANCH: pull WGS + scRNA + Xenium + CODEX
+  note: blocked-confirmed, probed 2026-06-05
+══════════════════════════════════════════════════════════════════════
+  htan-hta11-vanderbilt-crc             CRC   n=195 pt   bucket D
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [ ] WES          unsearched
+    [!] WGS          blocked   ◄ NOW
+    [+] scRNA        on-disk
+    [+] snRNA        on-disk
+    [ ] Visium       unsearched
+
+  NEXT BRANCH: pull WES + WGS + Visium
+  note: probed 2026-06-05; scRNA/snRNA open via CELLxGENE, WGS/MxIF keep-blocked, Visium not in public deposit
+══════════════════════════════════════════════════════════════════════
+  htan-hta12-wustl-pancancer            pan-cancer (PAAD open tier)   n=21 pt   bucket D
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] WGS          blocked   ◄ NOW
+    [!] WES          blocked
+    [ ] scRNA        unsearched
+    [ ] snRNA        unsearched
+    [ ] Visium       unsearched
+    [ ] CODEX        unsearched
+    [ ] IMC          unsearched
+    [ ] Xenium       unsearched
+
+  NEXT BRANCH: pull WGS + WES + scRNA + snRNA + Visium + CODEX + IMC + Xenium
+  note: v5-followup 2026-06-05: n=21 PAAD pathology slide microscopy (not Visium spatial) landed via s5cmd against IDC public bucket; earlier n=295 blog claim referred to full multi-cancer atlas across all modalities; scRNA/Visium/CODEX/WGS keep-blocked at Synapse PAT
+══════════════════════════════════════════════════════════════════════
+  mskspectrum-cfdna-parpi-2025          HGSOC-PARPi   n=24 pt   bucket D
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [ ] WGS          unsearched
+    [ ] scRNA        unsearched
+
+  NEXT BRANCH: pull WGS + scRNA
+  note: drafted-future; no PubMed match for MSK SPECTRUM cfDNA PARPi
+══════════════════════════════════════════════════════════════════════
+  hms-sorger-ovarian-renamed            HGSOC   n=25 pt   bucket D
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] WGS          blocked   ◄ NOW
+    [!] t-CyCIF      blocked
+
+  NEXT BRANCH: pull WGS + t-CyCIF
+  note: blocked-confirmed, probed 2026-06-05
+══════════════════════════════════════════════════════════════════════
+  owkin-mosaic-window-bladder           bladder-MIBC   n=15 pt   bucket D
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] WES          blocked   ◄ NOW
+    [!] bulk-RNA     blocked
+    [!] Visium       blocked
+    [!] snRNA        blocked
+
+  NEXT BRANCH: pull WES + bulk-RNA + Visium + snRNA
+  note: blocked-confirmed, probed 2026-06-05
+══════════════════════════════════════════════════════════════════════
+  htapp-klughammer-2024-mbc             mBC   n=30 pt   bucket D
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] WES          blocked   ◄ NOW
+    [+] snRNA        on-disk
+    [ ] CODEX        unsearched
+    [+] MERFISH      on-disk
+
+  NEXT BRANCH: pull WES + CODEX
+  note: probed 2026-06-05; dedupe candidate with HTA1-HTAPP (same Klughammer Nat Med 2024 paper, same CELLxGENE deposit)
+══════════════════════════════════════════════════════════════════════
+  htan-hta8-sclc-chan-2021              SCLC   n=21 pt   bucket D
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [ ] panel        unsearched
+    [~] WGS          partial   ◄ NOW
+    [+] scRNA        on-disk
+    [ ] MIBI         unsearched
+
+  NEXT BRANCH: pull panel + WGS + MIBI
+  note: probed 2026-06-05; subsumed by HTA8 — dedupe candidate; IMC not in public deposit; Set 1 2026-06-06 WGS flipped BLOCKED→PARTIAL via cBioPortal sclc_ucologne_2015 (n=120) WGS mutation-table
+══════════════════════════════════════════════════════════════════════
+  hwang-2022-pdac-neoadj                PDAC   n=43 pt   bucket D
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [ ] WES          unsearched
+    [+] snRNA        on-disk
+    [ ] DVP-proteomics unsearched
+    [!] bulk-RNA     blocked   ◄ NOW
+
+  NEXT BRANCH: pull WES + DVP-proteomics
+  note: Set 3 2026-06-06: bulk-RNA companion empty (GSE202051 covers Hwang-Lin 2022 snRNA reference; no bulk-RNA arm)
+══════════════════════════════════════════════════════════════════════
+  hwang-2025-pdac-neural                PDAC   n=25 pt   bucket D
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [ ] panel        unsearched
+    [ ] Visium       unsearched
+    [ ] snRNA        unsearched
+
+  NEXT BRANCH: pull panel + Visium + snRNA
+  note: accession-unverified; cohort likely misattributed, may overlap hwang-lin-2022-pdac-chemo
+══════════════════════════════════════════════════════════════════════
+  sun-2024-hcc-primary-met              HCC   n=182 pt   bucket D
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [ ] WES          unsearched
+    [ ] bulk-RNA     unsearched
+    [ ] Visium       unsearched
+    [ ] scRNA        unsearched
+
+  NEXT BRANCH: pull WES + bulk-RNA + Visium + scRNA
+  note: accession-unverified; cohort may be misnamed or non-existent
+══════════════════════════════════════════════════════════════════════
+  liu-2024-pediatric-hgg-filbin         pHGG   n=16 pt   bucket D
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [~] WGS          partial
+    [+] snRNA        on-disk
+    [ ] CODEX        unsearched
+    [?] bulk-RNA     in-flight   ◄ NOW
+
+  NEXT BRANCH: pull WGS + CODEX
+  note: Set 1 2026-06-06: WGS PARTIAL via cBioPortal brain_cptac_2020 WES mutation-table + CNA (n=218 pHGG/DMG); Set 4 2026-06-06 bulk-RNA fetch queued (GSE231858 in SuperSeries GSE231860); scATAC companion empty (no MODALITIES column)
+══════════════════════════════════════════════════════════════════════
+  ravi-2022-gbm-multiomics              GBM   n=28 pt   bucket D
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [ ] WES          unsearched
+    [+] Visium       on-disk
+    [ ] IMC          unsearched
+    [+] scRNA        on-disk
+    [!] bulk-RNA     blocked   ◄ NOW
+
+  NEXT BRANCH: pull WES + IMC
+  note: Set 3 2026-06-06: bulk-RNA companion empty (deposits at dbGaP phs002251 controlled; MALDI companion also empty but no MODALITIES column)
+══════════════════════════════════════════════════════════════════════
+  greenwald-2024-gbm-suva-tirosh        GBM   n=100 pt   bucket D
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [ ] WES          unsearched
+    [+] Visium       on-disk
+    [+] MIBI         on-disk
+    [+] scRNA        on-disk
+
+  NEXT BRANCH: pull WES
+  note: Set 3 2026-06-06: scATAC + Patch-seq companions probed empty but neither has a MODALITIES column — no rendered cell flipped
+══════════════════════════════════════════════════════════════════════
+  denisenko-2024-hgsoc-visium-cosmx     HGSOC   n=10 pt   bucket D
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [ ] WES          unsearched
+    [+] Visium       on-disk
+    [+] CosMx        on-disk
+    [+] scRNA        on-disk
+    [!] IMC          blocked   ◄ NOW
+
+  NEXT BRANCH: pull WES
+  note: Set 3 2026-06-06: IMC companion empty (no IMC/CODEX/bulk-RNA companion at GEO or Zenodo 10048057)
+══════════════════════════════════════════════════════════════════════
+  krishna-2021-adapter-ccrcc-io         ccRCC-IO   n=6 pt   bucket D
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [!] WES          blocked   ◄ NOW
+    [!] WGS          blocked
+    [+] scRNA        on-disk
+    [ ] scTCR        unsearched
+    [ ] mIF          unsearched
+
+  NEXT BRANCH: pull WES + WGS + scTCR + mIF
+  note: probed 2026-06-05; scRNA open via CELLxGENE, WGS/WES keep-blocked (EGA + PRJNA705464)
+══════════════════════════════════════════════════════════════════════
+  wu-2021-breast-visium                 breast   n=26 pt   bucket D
+  axes: modality → acquisition-state    (as of 2026-06-09 CT)
+
+    [ ] WES          unsearched
+    [+] scRNA        on-disk
+    [+] Visium       on-disk
+    [?] bulk-RNA     in-flight   ◄ NOW
+
+  NEXT BRANCH: pull WES
+  note: Set 4 2026-06-06: bulk-RNA fetch queued (GSE176078 suppl file ships open bulk-RNA-seq raw counts for 24 matched samples)
+══════════════════════════════════════════════════════════════════════
