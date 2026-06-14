@@ -45,7 +45,7 @@ the honesty cut: of the first 5 x1 hgsoc sub-series fetched (gse222554/555/556 +
 - gse222554 / 555 / gse281519 = **blocked_not_scrna** (bulk + visium spatial).
 - gse269793 = scrna but **no hrd labels** in deposit or supp.
 
-false-positive rate at the paper-pubmed signal layer: 30%+. the [memory `feedback_scout_cohort_viability_verification`](feedback_scout_cohort_viability_verification.md) lesson sticks — dar-verified deposit count + dns probe + axes-viability gate before flipping `paired_axes:true`.
+false-positive rate at the paper-pubmed signal layer: 30%+. the `feedback_scout_cohort_viability_verification` lesson sticks — dar-verified deposit count + dns probe + axes-viability gate before flipping `paired_axes:true`.
 
 ## section 3 — b2-fetch waves
 
@@ -63,7 +63,7 @@ wins (selected): **qian-2024-hgsoc-gse184880** (65,820 cells, 9 hrd-pop pts), **
 
 honest failures (5): regulation-tnbc-gse314386 (scrublet sigterm oom on 9-pt), cancerscem-tnbc-gse148673 (`string→float` bug in axis_ccr8), tisch2-ov-gse158722 (no_cells_filtered, rescued via phase b), song-prad (scrublet pca singular on 12-cell subsample), kurten-hnscc (stalled cell-typist, memory thrash on 151k cells).
 
-every failure logged rc=1 + reason; the runner does not silently drop, per [memory `feedback_dont_rm_archive_instead`](feedback_dont_rm_archive_instead.md).
+every failure logged rc=1 + reason; the runner does not silently drop, per the `feedback_dont_rm_archive_instead` rule.
 
 ## section 5 — phase b supp pulls
 
