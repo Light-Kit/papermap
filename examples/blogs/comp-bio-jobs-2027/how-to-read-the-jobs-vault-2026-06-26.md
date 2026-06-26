@@ -10,7 +10,7 @@ prev: the-full-time-map-2026-06-26
 
 # how to read the jobs vault
 
-This is the full-time tracker — **470 employers and 661 roles** spanning industry jobs (FTE) and academic postdocs, in the US and internationally. It is built for a computational-biology PhD with a Chinese (PRC) passport, currently in a US program, targeting a full-time start in the **2027–2029** window. The US-internships vault is a separate, near-term track; here is how this one works.
+This is the full-time tracker — **947 employers and 1,187 roles** spanning industry jobs (FTE) and academic postdocs, in the US and internationally. It is built for a computational-biology PhD with a Chinese (PRC) passport, currently in a US program, targeting a full-time start in the **2027–2029** window. The US-internships vault is a separate, near-term track; here is how this one works.
 
 ## the filter is US vs International
 
