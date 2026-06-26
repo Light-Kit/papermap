@@ -49,4 +49,4 @@ Arc Institute、Altos、Salk、Whitehead、Gladstone、Parker Institute，再加
 4. **把研究所和新 techbio 当成靠匹配打的彩票**，每类几家，用一个方法开场。
 5. **优先那些少见的、确认能投的名额**（Caribou 那种 `✓`）——它们比一个永远不会跟你讲清签证的大牌更值得你上心。
 
-按板块、按你真正做的 topic 去筛 resources；海外 vault 收的是这一切的非美国版本。第一梯队仍然是主轴——这一层是怎么把漏斗开得更宽、又不放低标准。
+按板块、按你真正做的 topic 去筛 resources；全职 vault 收的是全职岗位和博后（美国和海外都有）。第一梯队仍然是主轴——这一层是怎么把漏斗开得更宽、又不放低标准。

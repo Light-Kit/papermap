@@ -49,4 +49,4 @@ do not carpet-bomb it. the second tier is where you spend judgment, not volume:
 4. **treat institutes and new techbio as fit-driven lottery tickets**, a handful each, opened with a method.
 5. **prioritize the rare confirmed-eligible seats** (caribou-style `✓` rows) wherever they appear — those are worth more of your attention than a marquee name that will never clarify your visa status.
 
-filter resources by sector and by the topics you actually do; the international vault covers the non-US version of all of this. the marquee tier is still the spine — this tier is how you widen the funnel without lowering the bar.
+filter resources by sector and by the topics you actually do; the jobs vault covers full-time roles and postdocs (US and international). the marquee tier is still the spine — this tier is how you widen the funnel without lowering the bar.

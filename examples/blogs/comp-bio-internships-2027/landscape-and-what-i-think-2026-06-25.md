@@ -8,15 +8,15 @@ topics:
   - ml-biotech
   - big-tech
   - academic
-summary: 'a read on the US comp-bio PhD internship market for an F-1 candidate with a cancer multi-omics (HRD, single-cell, spatial) background — who actually hires, where the real fits are, how competitive it is, and a concrete recommendation. built from 282 orgs and 593 roles across the 2026 cycle.'
+summary: 'a read on the US comp-bio PhD internship market for an F-1 candidate with a cancer multi-omics (HRD, single-cell, spatial) background — who actually hires, where the real fits are, how competitive it is, and a concrete recommendation. built from 282 orgs and 589 roles across the 2026 cycle.'
 starred: true
 ---
 
 # the landscape, and what i actually think you should do
 
-this vault tracks 282 companies and labs and 593 internship roles, built by reading the 2026 cycle so we can target summer 2027. the honest headline first: as of mid-2026, **summer-2027 postings mostly do not exist yet**. the 2027 cycle opens in waves from roughly september 2026 through march 2027. so what is collected here is not a list of live 2027 links — it is the recurring shape the 2027 cycle will take, learned from the roles that were actually posted for 2026, each tagged with where it sits in the calendar and whether it is realistic for an F-1 student. treat it as a target map, not a live job board, and re-pull the live links when the season opens.
+this vault tracks 282 companies and labs and 589 internship roles, built by reading the 2026 cycle so we can target summer 2027. the honest headline first: as of mid-2026, **summer-2027 postings mostly do not exist yet**. the 2027 cycle opens in waves from roughly september 2026 through march 2027. so what is collected here is not a list of live 2027 links — it is the recurring shape the 2027 cycle will take, learned from the roles that were actually posted for 2026, each tagged with where it sits in the calendar and whether it is realistic for an F-1 student. treat it as a target map, not a live job board, and re-pull the live links when the season opens.
 
-(this essay was written off the first 100-org tier and still holds — it is the strategic read. the vault has since grown to 282 orgs by adding a second, broader tier: mid-size and specialty oncology/genomics shops, diagnostics & sequencing-tool companies, cancer-center and health-system summer programs, and nonprofit institutes. the companion post **"beyond the marquee"** maps that second tier. a separate **international vault** covers non-US roles — Europe, China, Singapore/Japan/Korea, Canada/Australia.)
+(this essay was written off the first 100-org tier and still holds — it is the strategic read. the vault has since grown to 282 orgs by adding a second, broader tier: mid-size and specialty oncology/genomics shops, diagnostics & sequencing-tool companies, cancer-center and health-system summer programs, and nonprofit institutes. the companion post **"beyond the marquee"** maps that second tier. this vault is **US internships only**. for full-time jobs and academic postdocs — US *and* international — see the separate **jobs vault**, filtered by US vs International and flagged for visa sponsorship rather than F-1. (the earlier non-US internships vault has been folded into that full-time track.))
 
 with that said, here is the read.
 
