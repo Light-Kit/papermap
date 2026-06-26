@@ -10,7 +10,7 @@ prev: f1-cpt-opt-playbook
 
 # how to read this vault
 
-this is a target map for a US computational-biology PhD internship search, built for an F-1 candidate with a cancer multi-omics (HRD, single-cell, spatial) background. 282 organizations, 593 roles. here is how to use it. (non-US roles live in a separate **international vault** — Europe, China, Singapore/Japan/Korea, Canada/Australia — where the filter is region instead of sector and eligibility is flagged for work-authorization abroad, not F-1.)
+this is a target map for a US computational-biology PhD internship search, built for an F-1 candidate with a cancer multi-omics (HRD, single-cell, spatial) background. 282 organizations, 589 roles. here is how to use it. (this vault is **US internships only**. full-time jobs and academic postdocs — US *and* international — live in a separate **jobs vault**, where the filter is US vs International and eligibility is flagged as visa sponsorship, not F-1.)
 
 ## the two kinds of entries
 

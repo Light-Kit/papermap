@@ -877,7 +877,7 @@ items:
   - drug-discovery
   - ml-ai
   - foundation-models
-  meta: 2 role(s) tracked · ML-first biotech (TechBio)
+  meta: 1 role(s) tracked · ML-first biotech (TechBio)
   why: 'San Francisco AI lab building frontier models for biomolecular structure/interaction prediction
     and therapeutic design (Chai-1/Chai-2). Posts an Internship plus PhD-level AI Research Scientist roles. '
   description: San Francisco AI lab building frontier models for biomolecular structure/interaction prediction
@@ -1006,7 +1006,7 @@ items:
   - genomics
   - drug-discovery
   - single-cell
-  meta: 2 role(s) tracked · ML-first biotech (TechBio)
+  meta: 1 role(s) tracked · ML-first biotech (TechBio)
   why: AI-driven drug-discovery biotech (South San Francisco + Seattle). Hires comp-bio/ML PhDs in the
     US. No traditional summer student internship found, but runs a PhD-eligible 'AI in Residence' program
     (p
@@ -1027,7 +1027,7 @@ items:
   - drug-discovery
   - chemistry
   - structural-bio
-  meta: 3 role(s) tracked · ML-first biotech (TechBio)
+  meta: 2 role(s) tracked · ML-first biotech (TechBio)
   why: '''Scientific superintelligence'' / autonomous-lab company (Cambridge MA + San Francisco). Runs
     both Co-op/intern roles and a structured AI Residency Program (2026 cohort). Has a directly relevant
     ML-for'
@@ -1597,7 +1597,7 @@ items:
   topics:
   - ml-ai
   - foundation-models
-  meta: 3 role(s) tracked · Big tech — bio/health research
+  meta: 2 role(s) tracked · Big tech — bio/health research
   why: Runs a paid 13-week (extendable to 26) in-person PhD research internship in San Francisco, plus
     a 6-month Residency — but has NO dedicated comp-bio/bioinformatics internship track; roles are ML/system
   description: Runs a paid 13-week (extendable to 26) in-person PhD research internship in San Francisco,
@@ -6102,30 +6102,6 @@ items:
 
     **Status:** recurring program. Apply window: rolling/recurring; check Ashby board. Location: San Francisco,
     CA.'
-- id: pos-chai-discovery-1-ai-research-scientist-phd-elig
-  kind: position
-  label: Chai Discovery — AI Research Scientist (PhD-eligible)
-  modality: ml-biotech
-  year: 2026
-  status: recurring
-  url: https://jobs.ashbyhq.com/chaidiscovery
-  topics:
-  - ml-ai
-  - structural-bio
-  - foundation-models
-  - drug-discovery
-  meta: F-1 ? · recurring program · apply rolling/recurring · San Francisco, CA
-  why: New-grad pathway rather than a summer internship; relevant if pivoting toward structural/representation
-    ML, less so for pure cancer multi-omics. Elite talent bar.
-  description: 'Computational modeling for biological applications: structure prediction extended into
-    real-world therapeutic engineering; requires PhD in ML/comp-bio/comp-chem and top-venue publications.
-
-
-    **Eligibility (F-1 verify):** Full-time research role open to fresh PhDs; no published sponsorship/work-authorization
-    policy.
-
-
-    **Status:** recurring program. Apply window: rolling/recurring. Location: San Francisco, CA.'
 - id: pos-profluent-bio-0-research-intern-computational
   kind: position
   label: Profluent Bio — Research Intern, Computational
@@ -6388,35 +6364,6 @@ items:
 
     **Status:** status unclear. Apply window: No intern cycle published; general applications via hiring@nabla.bio.
     Monitor careers page for a future intern req.. Location: Cambridge, MA.'
-- id: pos-xaira-therapeutics-0-ai-in-residence
-  kind: position
-  label: Xaira Therapeutics — AI in Residence
-  modality: ml-biotech
-  year: 2026
-  status: recurring
-  url: https://job-boards.greenhouse.io/xairatherapeutics/jobs/5089321007
-  topics:
-  - foundation-models
-  - ml-ai
-  - genomics
-  - single-cell
-  - drug-discovery
-  meta: F-1 ? · recurring program · apply rolling; first hires March 2026, additional intakes Summer and
-    Fall 2026 · South San Francisco, CA / Seattle, WA (in-office 5 days/wk)
-  why: Strong fit for a comp-bio PhD with multi-omics + single-cell/spatial modeling and a publication
-    record; highly selective small cohort, geared to recent/finishing PhDs rather than mid-program students.
-  description: '6-12 month residency (industry alternative to a postdoc) building foundation models over
-    multimodal biological data, handling small/noisy/biased datasets, experimental-prioritization systems,
-    evaluation frameworks, and scientist-facing tooling — owning projects end-to-end from problem framing
-    to deployment.
-
-
-    **Eligibility (F-1 verify):** Application asks about work authorization and sponsorship but posting
-    gives no explicit CPT/OPT or international-student policy; contact recruiter to confirm.
-
-
-    **Status:** recurring program. Apply window: rolling; first hires March 2026, additional intakes Summer
-    and Fall 2026. Location: South San Francisco, CA / Seattle, WA (in-office 5 days/wk).'
 - id: pos-xaira-therapeutics-1-ai-scientist-biomedical-ai-phd
   kind: position
   label: Xaira Therapeutics — AI Scientist, BioMedical AI (PhD-level; not internship)
@@ -6468,34 +6415,6 @@ items:
 
     **Status:** recurring program. Apply window: Spring 2026 co-op cycle started Jan/Feb 2026; expect
     a Summer/Fall 2026 reposting for the 2027 cycle. Location: San Francisco, CA.'
-- id: pos-lila-sciences-1-ai-residency-program-2026-coho
-  kind: position
-  label: Lila Sciences — AI Residency Program (2026 Cohort)
-  modality: ml-biotech
-  year: 2026
-  status: recurring
-  url: https://www.lila.ai/open-roles
-  topics:
-  - ml-ai
-  - foundation-models
-  - chemistry
-  - structural-bio
-  meta: F-1 ? · recurring program · apply 2026 cohort recruiting cycle; proposal + resume submission ·
-    Cambridge, MA / San Francisco, CA
-  why: PhD-eligible and proposal-driven — fits a candidate who can frame an ML-for-biology project; note
-    advertised cohorts lean materials/chemistry, so pitch a life-science/omics angle.
-  description: 'Cohort-based residency: residents pursue open-ended scientific research projects with
-    access to proprietary datasets, HPC compute, and scientist mentors. Requires a research proposal (up
-    to 3 pages). Open to Bachelor''s/Master''s/PhD in CS, AI/ML, Physics, Math, Chemistry, Materials Science
-    or related.
-
-
-    **Eligibility (F-1 verify):** No CPT/OPT or sponsorship language published; verify whether residency
-    is structured as internship (CPT-eligible) or employment.
-
-
-    **Status:** recurring program. Apply window: 2026 cohort recruiting cycle; proposal + resume submission.
-    Location: Cambridge, MA / San Francisco, CA.'
 - id: pos-lila-sciences-2-intern-life-science-automation
   kind: position
   label: Lila Sciences — Intern, Life Science Automation & AI
@@ -8619,30 +8538,6 @@ items:
 
     **Status:** open (2026 cycle). Apply window: opens ~fall, closes winter/early spring. Location: San
     Francisco, CA (in-person, 13 wk).'
-- id: pos-openai-2-openai-residency
-  kind: position
-  label: OpenAI — OpenAI Residency
-  modality: big-tech
-  year: 2026
-  status: closed-2026
-  url: https://openai.com/residency/
-  topics:
-  - ml-ai
-  - foundation-models
-  meta: F-1 ✗ · closed (2026 — recurs) · apply 2026 cycle closed; watch for next-cycle reopening · San
-    Francisco, CA (6 months, full-time)
-  why: Not viable while enrolled; relevant only as a post-PhD pivot path, not a Summer-2027 internship.
-  description: 'Transition program for researchers from adjacent fields (physics, math, neuroscience,
-    biology) into AI research/engineering roles.
-
-
-    **Eligibility (F-1 no):** Not an internship: Residents are full-time employees and cannot be enrolled
-    in a degree program — unsuitable for a current F-1 PhD student doing CPT/OPT. 2026 applications are
-    closed.
-
-
-    **Status:** closed (2026 — recurs). Apply window: 2026 cycle closed; watch for next-cycle reopening.
-    Location: San Francisco, CA (6 months, full-time).'
 - id: pos-chan-zuckerberg-initiative-cz-biohub-0-computational-biologist-intern
   kind: position
   label: Chan Zuckerberg Initiative / CZ Biohub — Computational Biologist Intern (CZ Biohub SF)
