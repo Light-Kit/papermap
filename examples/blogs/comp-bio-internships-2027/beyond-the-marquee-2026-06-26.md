@@ -7,13 +7,13 @@ topics:
   - ml-biotech
   - academic
   - diagnostics
-summary: 'the first 100 orgs were the marquee names. this vault now tracks 282 — the extra ~180 are a second tier: mid-size and specialty oncology/genomics, diagnostics & sequencing-tool companies, cancer-center and health-system summer programs, and nonprofit institutes. who among them actually takes comp-bio PhD interns, what the F-1 reality is per category, and how to rank them against the marquee.'
+summary: 'the first 100 orgs were the marquee names. this vault now tracks 620 — it has grown more than six-fold across successive broader tiers, and the second tier worth analyzing falls into four categories: mid-size and specialty oncology/genomics, diagnostics & sequencing-tool companies, cancer-center and health-system summer programs, and nonprofit institutes. who among them actually takes comp-bio PhD interns, what the F-1 reality is per category, and how to rank them against the marquee.'
 prev: how-to-read-this-vault
 ---
 
 # beyond the marquee: the second tier worth your time
 
-the landscape essay was written off the first 100-org tier — genentech, the big pharma data-science programs, the brand-name techbio, the elite institutes. that read still holds; it is the strategy. but the vault has since roughly tripled, to 282 organizations, by adding a second, broader tier. this post is the map of that tier: four categories the first pass under-counted, what they are actually worth to an HRD / single-cell / spatial cancer-omics PhD on an F-1, and where the rare F-1-actionable seats hide.
+the landscape essay was written off the first 100-org tier — genentech, the big pharma data-science programs, the brand-name techbio, the elite institutes. that read still holds; it is the strategy. but the vault has since grown more than six-fold, to 620 organizations, across successive broader tiers. this post is the map of those tiers: four categories the first pass under-counted, what they are actually worth to an HRD / single-cell / spatial cancer-omics PhD on an F-1, and where the rare F-1-actionable seats hide.
 
 the honesty caveat from the landscape post still applies to every row here: as of mid-2026 the summer-2027 cycle mostly is not posted yet, so these are 2026-cycle roles and recurring programs that show you the shape and the eligibility, not live 2027 links.
 
