@@ -10,7 +10,7 @@ prev: f1-cpt-opt-playbook
 
 # 怎么读这个 vault
 
-这是一张为美国计算生物 PhD 实习搜索准备的目标地图，给一个做癌症多组学（HRD、单细胞、空间）、F-1 身份的候选人。100 家机构，327 个岗位。下面是用法。
+这是一张为美国计算生物 PhD 实习搜索准备的目标地图，给一个做癌症多组学（HRD、单细胞、空间）、F-1 身份的候选人。282 家机构，593 个岗位。下面是用法。（非美国的岗位放在另一个**海外 vault** 里——欧洲、中国、新加坡/日本/韩国、加拿大/澳洲——那边的筛选轴是「地区」而不是「板块」，资格也是按海外工作许可来标，不是 F-1。）
 
 ## 两类条目
 
@@ -21,7 +21,7 @@ prev: f1-cpt-opt-playbook
 
 **resources** 视图有两种分面：
 
-- **板块**（也就是 modality 筛选）：`pharma` · `ml-biotech` · `big-tech` · `academic` · `national-lab`。从这里开始——各板块的玩法很不一样，landscape 那篇讲了。
+- **板块**（也就是 modality 筛选）：`pharma` · `ml-biotech` · `big-tech` · `academic` · `national-lab` · `dx-tools`（诊断/测序/实验室工具）。从这里开始——各板块的玩法很不一样，landscape 那篇讲了。
 - **topic**：研究方向——`single-cell`、`spatial`、`comp-onc`、`genomics`、`foundation-models`、`ml-ai` 等等。筛到你真正做的。
 
 **topics** 视图则把所有岗位按研究方向归组——如果你更想按「在做什么」而不是「谁在招」来浏览。
