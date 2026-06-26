@@ -10,7 +10,7 @@ prev: f1-cpt-opt-playbook
 
 # how to read this vault
 
-this is a target map for a US computational-biology PhD internship search, built for an F-1 candidate with a cancer multi-omics (HRD, single-cell, spatial) background. 100 organizations, 327 roles. here is how to use it.
+this is a target map for a US computational-biology PhD internship search, built for an F-1 candidate with a cancer multi-omics (HRD, single-cell, spatial) background. 282 organizations, 593 roles. here is how to use it. (non-US roles live in a separate **international vault** — Europe, China, Singapore/Japan/Korea, Canada/Australia — where the filter is region instead of sector and eligibility is flagged for work-authorization abroad, not F-1.)
 
 ## the two kinds of entries
 
@@ -21,7 +21,7 @@ this is a target map for a US computational-biology PhD internship search, built
 
 the **resources** view facets two ways:
 
-- **sector** (the modality filter): `pharma` · `ml-biotech` · `big-tech` · `academic` · `national-lab`. start here — the sectors behave very differently, as the landscape blog explains.
+- **sector** (the modality filter): `pharma` · `ml-biotech` · `big-tech` · `academic` · `national-lab` · `dx-tools` (diagnostics, sequencing & lab-tools). start here — the sectors behave very differently, as the landscape blog explains.
 - **topic**: the research area — `single-cell`, `spatial`, `comp-onc`, `genomics`, `foundation-models`, `ml-ai`, and so on. filter to what you actually do.
 
 the **topics** view groups every role by research area if you would rather browse by what the work is than by who the employer is.
