@@ -7,7 +7,7 @@ topics:
   - pharma
   - ml-biotech
   - academic
-summary: 'a numbers-first tour of the US comp-bio PhD internship vault: 620 orgs and 1,008 roles, how they split across six sectors, what the F-1 eligibility picture actually looks like (13 ✓ / 870 ? / 125 ✗), where the bullseyes are, and the one honest caveat about 2027 timing.'
+summary: 'a numbers-first tour of the US comp-bio PhD internship vault: 620 orgs and 1,008 roles, how they split across six sectors, what the F-1 eligibility picture actually looks like (14 ✓ / 882 ? / 112 ✗), where the bullseyes are, and the one honest caveat about 2027 timing.'
 prev: landscape-and-what-i-think-2026-06-25
 starred: true
 ---
@@ -25,15 +25,15 @@ as of mid-2026 the **summer-2027 reqs mostly do not exist yet** — that cycle o
 six sectors, and they are not the same size or the same value to you:
 
 - **pharma / big biotech — 271 roles.** the deepest and most F-1-navigable pool. genentech alone runs a family of computational-biology-and-medicine intern tracks; roche, abbvie, bms, merck, astrazeneca, j&j, takeda, sanofi all post real PhD comp-bio/bioinformatics reqs. this is the spine.
-- **ml-first biotech / techbio — 272 roles.** the most companies, the fewest seats per company. insitro, recursion, tempus, generate, noetik, immunai and the rest each run one or two slots — superb intellectual fits doing the single-cell / spatial / perturbation work you do, but lottery tickets you usually win through a warm intro or a paper.
-- **academic / institute — 189 roles.** broad, msk, dana-farber, fred hutch, st. jude, allen, flatiron, plus a long tail of cancer-center and health-system summer programs. scientifically dead-on — but watch the funding line: institution-funded PhD lab internships are usually fine, federally-funded SIPs usually are not.
+- **ml-first biotech / techbio — 273 roles.** the most companies, the fewest seats per company. insitro, recursion, tempus, generate, noetik, immunai and the rest each run one or two slots — superb intellectual fits doing the single-cell / spatial / perturbation work you do, but lottery tickets you usually win through a warm intro or a paper.
+- **academic / institute — 193 roles.** broad, msk, dana-farber, fred hutch, st. jude, allen, flatiron, plus a long tail of cancer-center and health-system summer programs. scientifically dead-on — but watch the funding line: institution-funded PhD lab internships are usually fine, federally-funded SIPs usually are not.
 - **big tech — bio/health — 91 roles.** nvidia's bio-foundation-model intern is a genuine, late-closing, on-profile US role; microsoft health futures and google research run health/bio research internships. a few headline "bio" reqs are mislabeled or mislocated — the vault marks those so you don't waste an application.
-- **diagnostics / sequencing / tools — 163 roles.** natera, exact sciences, thermo, pacbio, twist, plus the spatial/single-cell tool makers. real bioinformatics pipelines, your NGS/single-cell skills map cleanly; more pipeline than discovery — a breadth play.
-- **national lab — 15 roles.** oak ridge, berkeley/JGI, argonne, PNNL, los alamos and the NIH federal SIP. flagged, but mostly **closed to you** — these typically require US citizenship or a green card.
+- **diagnostics / sequencing / tools — 162 roles.** natera, exact sciences, thermo, pacbio, twist, plus the spatial/single-cell tool makers. real bioinformatics pipelines, your NGS/single-cell skills map cleanly; more pipeline than discovery — a breadth play.
+- **national lab — 18 roles.** oak ridge, berkeley/JGI, argonne, PNNL, los alamos and the NIH federal SIP. flagged, but mostly **closed to you** — these typically require US citizenship or a green card.
 
 ## the eligibility picture is the part most lists hide
 
-every role carries an F-1 flag, set conservatively: **13 are `✓`** (source-confirmed open to F-1 / CPT-OPT), **870 are `?`** (policy unstated — verify before you invest), and **125 are `✗`** (citizenship/PR required, or the posting explicitly excludes sponsorship-dependent students — novartis's analytics PhD program is the textbook example). the `✗` share has actually fallen to ~12% — a batch correction moved a lot of private-industry intern roles that state *no citizenship requirement* out of `✗` and into `?`, where they belong. what stays `✗` is the genuine bars: the federal / NSF-REU / national-lab summer programs, the citizen-only academic SIPs, and the handful of pharma programs that screen out CPT/OPT. here that's a badge, not a surprise — you can skip them on sight instead of discovering them only after you'd written the essay.
+every role carries an F-1 flag, set conservatively: **14 are `✓`** (source-confirmed open to F-1 / CPT-OPT), **882 are `?`** (policy unstated — verify before you invest), and **112 are `✗`** (citizenship/PR required, or the posting explicitly excludes sponsorship-dependent students — novartis's analytics PhD program is the textbook example). the `✗` share has actually fallen to ~11% — a batch correction moved a lot of private-industry intern roles that state *no citizenship requirement* out of `✗` and into `?`, where they belong. what stays `✗` is the genuine bars: the federal / NSF-REU / national-lab summer programs, the citizen-only academic SIPs, and the handful of pharma programs that screen out CPT/OPT. here that's a badge, not a surprise — you can skip them on sight instead of discovering them only after you'd written the essay.
 
 ## where the bullseyes are
 

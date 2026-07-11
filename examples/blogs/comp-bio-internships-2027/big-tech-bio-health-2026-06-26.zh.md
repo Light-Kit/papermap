@@ -7,7 +7,7 @@ topics:
   - foundation-models
   - ml-ai
   - strategy
-summary: '把大厂 bio/health 这块实习放大细看:11 家机构、61 个岗(亚马逊、苹果、字节、CZI/CZ Biohub、Google DeepMind、Google Research、IBM、Meta FAIR、微软研究院、英伟达、OpenAI)、三种不同脾性的机构、决定你能不能落到一个生物组的「匹配」难题、F-1 的真实画面(4 个 ✓ / 55 个 ? / 2 个 ✗),以及对一个 HRD / 单细胞 / 空间背景的人,到底哪几个岗是靶心。'
+summary: '把大厂 bio/health 这块实习放大细看:11 家机构、61 个岗(亚马逊、苹果、字节、CZI/CZ Biohub、Google DeepMind、Google Research、IBM、Meta FAIR、微软研究院、英伟达、OpenAI)、三种不同脾性的机构、决定你能不能落到一个生物组的「匹配」难题、F-1 的真实画面(4 个 ✓ / 57 个 ? / 0 个 ✗),以及对一个 HRD / 单细胞 / 空间背景的人,到底哪几个岗是靶心。'
 prev: the-2027-internship-overview-2026-06-26
 starred: true
 ---
@@ -35,7 +35,7 @@ starred: true
 
 ## F-1 这一栏,是要拿来排兵布阵的部分
 
-61 个里:**4 个 `✓`、55 个 `?`、2 个 `✗`**。别把那一墙 `?` 读过头了——大厂实习在现实里是各处中**最**对 F-1 友好的:这些都是常年用 CPT 接收国际 PhD 实习生的大雇主,那个 `?` 多半只是这个具体岗位页没写明政策而已。两个 `✗` 是真的、值得记下:**IBM 的 *Accelerated Drug Discovery Intern* 和 *Research Summer Intern, Computational Biology(Industrial & Applied Genomics)***,读起来是要公民/绿卡的。而那四个 **字节 Seed** 的 `✓`,是明确欢迎国际学生的。第一通招聘电话里还是把 CPT 资格确认一下——但这个板块你该当成大体开放,而不是关着的。
+61 个里:**4 个 `✓`、57 个 `?`、0 个 `✗`**。别把那一墙 `?` 读过头了——大厂实习在现实里是各处中**最**对 F-1 友好的:这些都是常年用 CPT 接收国际 PhD 实习生的大雇主,那个 `?` 多半只是这个具体岗位页没写明政策而已。这里没有 `✗`:**IBM 那两个实习岗**(*Accelerated Drug Discovery* 和 *Computational Biology,Industrial & Applied Genomics*)一度被读成要公民/绿卡,复核后发现并没有这道坎——计算生物那个岗在圣何塞的民用实验室,资格栏写的是"None",而 IBM 常年用 CPT 接收 F-1 实习生——所以两个现在都是 `?`。而那四个 **字节 Seed** 的 `✓`,是明确欢迎国际学生的。第一通招聘电话里还是把 CPT 资格确认一下——但这个板块你该当成大体开放,而不是关着的。
 
 ## 有多卷,以及他们到底看什么
 

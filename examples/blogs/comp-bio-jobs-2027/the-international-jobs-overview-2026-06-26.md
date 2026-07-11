@@ -7,7 +7,7 @@ topics:
   - visa
   - postdoc
   - industry-role
-summary: 'a numbers-first tour of the international half of the jobs vault: 606 full-time roles across China, UK & Europe, Singapore/Japan/Korea and Canada/Australia (212 ✓ / 392 ? / 2 ✗), why China is the one no-friction region, where the European sponsorship walls are, and how the regions actually differ for a PRC national.'
+summary: 'a numbers-first tour of the international half of the jobs vault: 606 full-time roles across China, UK & Europe, Singapore/Japan/Korea and Canada/Australia (212 ✓ / 394 ? / 0 ✗), why China is the one no-friction region, where the European sponsorship walls are, and how the regions actually differ for a PRC national.'
 prev: the-us-jobs-overview-2026-06-26
 starred: true
 ---
@@ -18,10 +18,10 @@ filter the vault to `International` and the F-1/OPT logic disappears entirely �
 
 ## sponsorship, region by region
 
-across the whole international half: **212 `✓` · 392 `?` · 2 `✗`**. but that average hides everything — the `✓` is concentrated, and where it sits tells you where to aim.
+across the whole international half: **212 `✓` · 394 `?` · 0 `✗`**. but that average hides everything — the `✓` is concentrated, and where it sits tells you where to aim.
 
 - **China — 125 roles, essentially all `✓`.** the one region where work authorization is simply not a question for you, and the comp-bio depth is real: BeiGene/BeOne computational science, ByteDance and Tencent AI-for-science, WuXi, BGI/MGI, Zai Lab, Insilico, plus the clinical-genomics shops. if you are open to going back, this is the no-friction option — the visa problem vanishes and the science is genuine.
-- **UK & Europe — 254 roles.** the most prestigious science and the hardest fine print for a non-EU national. the bullseyes are the international-by-design hosts that relocate foreign hires — **EMBL/EMBL-EBI, DKFZ, the Crick, Roche/Novartis Basel** — while **AstraZeneca-UK and GSK explicitly state no sponsorship** (the two `✗` in the whole region). most of the rest sits at `?`: excellent science, the gate is whether the institute will carry the permit. ask first.
+- **UK & Europe — 254 roles.** the most prestigious science and the hardest fine print for a non-EU national. the bullseyes are the international-by-design hosts that relocate foreign hires — **EMBL/EMBL-EBI, DKFZ, the Crick, Roche/Novartis Basel** — while **AstraZeneca-UK and GSK** were the region's only `✗`, but a re-check found both are licensed UK Skilled Worker sponsors, so they now read `?` — sponsorship there is posting- and level-dependent, so ask. most of the rest sits at `?`: excellent science, the gate is whether the institute will carry the permit. ask first.
 - **Singapore / Japan / Korea — 117 roles.** A*STAR and RIKEN are international-friendly and on-profile for genomics; a clean, navigable set if you want Asia outside China.
 - **Canada / Australia — 110 roles.** Canada's research-worker permits are comparatively navigable (AbCellera, the Toronto AI-bio cluster, OICR, BC Cancer); Australia's flagship institutes (Garvan, WEHI, Peter Mac) do superb cancer work but read `?` on visa support for an external hire.
 
@@ -31,7 +31,7 @@ the role-type split is **332 industry FTE to 274 postdocs** — more balanced th
 
 ## status, and the same honesty caveat
 
-**109 recurring / rolling, 66 anticipated — monitor, 57 open, 22 closed (recurs).** as on the US side, there are no live 2027–2029 reqs yet and international reqs rot just as fast, so closed 2026 postings were redowngraded with links pointed at the lab or careers page where the next one will appear. no dead link is shown as live; no URL is invented.
+**341 recurring / rolling, 150 open, 68 anticipated — monitor, 22 closed (recurs)** (plus 25 status-unclear). as on the US side, there are no live 2027–2029 reqs yet and international reqs rot just as fast, so closed 2026 postings were redowngraded with links pointed at the lab or careers page where the next one will appear. no dead link is shown as live; no URL is invented.
 
 ## start here
 

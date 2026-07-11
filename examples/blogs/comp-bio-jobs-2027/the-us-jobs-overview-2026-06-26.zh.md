@@ -36,7 +36,7 @@ starred: true
 
 ## 状态标签在告诉你什么
 
-**150 个 open（抓取时有活 req）、157 个 recurring / rolling、73 个 anticipated — monitor、27 个 closed（recurs）。**那条诚实声明从地图延续过来:没有 2027–2029 的活 req,而且全职 req 烂得快,所以凡是 2026 的岗已经关了的,都被降级成「closed（recurs）」、链接改指那个组的 careers 页。没有一个死链被当成活的展示,也没有一个 URL 是编的。
+**194 个 open（抓取时有活 req）、262 个 recurring / rolling、76 个 anticipated — monitor、27 个 closed（recurs）**（另有 22 个状态未定）。那条诚实声明从地图延续过来:没有 2027–2029 的活 req,而且全职 req 烂得快,所以凡是 2026 的岗已经关了的,都被降级成「closed（recurs）」、链接改指那个组的 careers 页。没有一个死链被当成活的展示,也没有一个 URL 是编的。
 
 ## 从这儿起步
 

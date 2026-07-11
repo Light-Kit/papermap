@@ -7,7 +7,7 @@ topics:
   - foundation-models
   - ml-ai
   - strategy
-summary: 'a close read of the big-tech bio/health internship corner: 61 roles across 11 orgs (Amazon, Apple, ByteDance, CZI/CZ Biohub, Google DeepMind, Google Research, IBM, Meta FAIR, Microsoft Research, NVIDIA, OpenAI), the three flavors of org, the "matching" problem that decides whether you land a bio team, the F-1 picture (4 ✓ / 55 ? / 2 ✗), and exactly which roles are bullseyes for an HRD / single-cell / spatial profile.'
+summary: 'a close read of the big-tech bio/health internship corner: 61 roles across 11 orgs (Amazon, Apple, ByteDance, CZI/CZ Biohub, Google DeepMind, Google Research, IBM, Meta FAIR, Microsoft Research, NVIDIA, OpenAI), the three flavors of org, the "matching" problem that decides whether you land a bio team, the F-1 picture (4 ✓ / 57 ? / 0 ✗), and exactly which roles are bullseyes for an HRD / single-cell / spatial profile.'
 prev: the-2027-internship-overview-2026-06-26
 starred: true
 ---
@@ -35,7 +35,7 @@ in pharma you apply as a **computational biologist** — the wet-lab fluency and
 
 ## the F-1 picture is the part to plan around
 
-across the 61: **4 are `✓`, 55 are `?`, and 2 are `✗`**. don't over-read the wall of `?` — big-tech internships are, in practice, among the *most* F-1-friendly anywhere: these are large employers that routinely take international PhD interns on CPT, and the `?` mostly means the specific req page just doesn't state a policy. the two `✗` are real and worth knowing: **IBM's *Accelerated Drug Discovery Intern* and *Research Summer Intern, Computational Biology (Industrial & Applied Genomics)*** read citizenship/PR-restricted. and the four **ByteDance Seed** `✓` roles are the ones that explicitly welcome international students. still verify CPT eligibility in the first recruiter screen — but you should treat this sector as broadly open, not closed.
+across the 61: **4 are `✓`, 57 are `?`, and 0 are `✗`**. don't over-read the wall of `?` — big-tech internships are, in practice, among the *most* F-1-friendly anywhere: these are large employers that routinely take international PhD interns on CPT, and the `?` mostly means the specific req page just doesn't state a policy. there are no `✗` here: **IBM's two intern roles** (*Accelerated Drug Discovery* and *Computational Biology, Industrial & Applied Genomics*) once read as citizenship-restricted, but a re-check found no such bar — the Computational Biology posting is a civilian San Jose lab that lists eligibility as "None", and IBM routinely takes F-1 interns on CPT — so both now read `?`. and the four **ByteDance Seed** `✓` roles are the ones that explicitly welcome international students. still verify CPT eligibility in the first recruiter screen — but you should treat this sector as broadly open, not closed.
 
 ## how competitive, and what they actually look for
 
