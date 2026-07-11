@@ -22,7 +22,7 @@ For full-time work, F-1 / CPT / OPT logic no longer decides anything — those g
 
 - **Visa-sponsor `✓`** — sponsorship is effectively available: a **China** role (no barrier for a PRC national); a US **university/nonprofit postdoc** (H-1B **cap-exempt** or J-1 — universities sponsor these year-round, outside the lottery); or a large employer that is a known, routine H-1B sponsor (most big pharma and big tech). Earned from the source, not assumed.
 - **Visa-sponsor `?`** — sponsorship is unstated. Most industry startups and many non-US institutes sit here: the science may be perfect but you must confirm they will file/relocate before you invest. Ask in the first conversation.
-- **Visa-sponsor `✗`** — no sponsorship: the posting says so (e.g. AstraZeneca-UK, GSK), or US **citizenship/clearance** is required (DOE national labs, federal roles), or the postdoc is on a **T32 training grant** (US citizens / permanent residents only by statute). Do not spend an application here.
+- **Visa-sponsor `✗`** — no sponsorship: US **citizenship/clearance** is required (DOE national labs, federal roles), or the postdoc is on a **T32 training grant** (US citizens / permanent residents only by statute). Do not spend an application here.
 
 The flag is deliberately conservative: a `✓` means a real, sourced basis for sponsorship, and the US cap-exempt-postdoc `✓` is the one most people overlook.
 

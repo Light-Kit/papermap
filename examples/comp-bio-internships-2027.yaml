@@ -14189,7 +14189,7 @@ items:
   - liquid-biopsy
   - comp-onc
   - clinical-genomics
-  meta: F-1 ✗ · closed (2026 — recurs) · apply Oct-Feb · San Carlos, CA (hybrid, 2 days/wk on-site)
+  meta: F-1 ? · closed (2026 — recurs) · apply Oct-Feb · San Carlos, CA (hybrid, 2 days/wk on-site)
   why: 'Strong fit for an HRD/cancer-multiomics PhD: cfDNA early-detection, NGS, epigenetic biomarkers
     and TCGA-style public-data work map directly to the candidate''s profile; competitive but well-aligned.'
   description: 'PhD-level intern in the Early Cancer Detection program discovering/validating genetic
@@ -14197,7 +14197,7 @@ items:
     modeling on proprietary cfDNA/NGS data.
 
 
-    **Eligibility (F-1 no):** Posting makes no mention of visa sponsorship, citizenship, or CPT/OPT; not
+    **Eligibility (F-1 verify):** Posting makes no mention of visa sponsorship, citizenship, or CPT/OPT; not
     federally funded. Confirm work-authorization policy with Natera recruiting before applying.
 
 
@@ -14972,7 +14972,7 @@ items:
   - ml-ai
   - statistical-genetics
   - single-cell
-  meta: F-1 ✗ · recurring program · apply Jan-Mar · Rochester, MN
+  meta: F-1 ? · recurring program · apply Jan-Mar · Rochester, MN
   why: Strong topical fit (genomics, stats, ML) for an HRD/single-cell PhD, but the PhD bioinformatics
     req states no visa sponsorship — likely off-limits for F-1 CPT/OPT; competitive named program.
   description: 'Mayo''s Division of Biomedical Statistics & Informatics hires ~7-8 graduate/PhD summer
@@ -14980,7 +14980,7 @@ items:
     statistical and ML/AI analysis of ongoing research projects (~3 months, May/Jun-Aug, ~$29.88/hr).
 
 
-    **Eligibility (F-1 no):** The PhD-level Bioinformatics Intern req at Mayo explicitly states ''Visa
+    **Eligibility (F-1 verify):** The PhD-level Bioinformatics Intern req at Mayo explicitly states ''Visa
     sponsorship is not available for this position,'' so it falls under the no-sponsorship exclusion.
 
 
@@ -15178,7 +15178,7 @@ items:
   - single-cell
   - spatial
   - ml-ai
-  meta: F-1 ✗ · anticipated 2027 · apply rolling · Stanford, CA
+  meta: F-1 ? · anticipated 2027 · apply rolling · Stanford, CA
   why: DBDS and Stanford cancer single-cell/spatial labs are an excellent topical fit; an F-1 PhD would
     need a host-PI CPT arrangement, not a posted summer program.
   description: 'No posted PhD comp-bio internship; named summer programs are HS/undergrad/pre-med only.
@@ -15186,7 +15186,7 @@ items:
     DBDS + careers.
 
 
-    **Eligibility (F-1 no):** No PhD-eligible comp-bio summer internship posting found; Stanford Medicine''s
+    **Eligibility (F-1 verify):** No PhD-eligible comp-bio summer internship posting found; Stanford Medicine''s
     named summer programs (SIMR, LCGM, Clinical Summer Internship) are high-school/undergrad/pre-med and
     some require US citizen/PR. PhD-level work would be a PI-sponsored arrangement — verify visa case-by-case.
 
@@ -15230,14 +15230,14 @@ items:
   - comp-onc
   - ml-ai
   - genomics
-  meta: F-1 ✗ · anticipated 2027 · apply rolling · New York, NY
+  meta: F-1 ? · anticipated 2027 · apply rolling · New York, NY
   why: Mount Sinai's single-cell/spatial cancer-multiomics groups are a strong topical match; F-1 would
     need a PI-sponsored CPT engagement rather than a posted program.
   description: 'No posted PhD comp-bio internship; realistic route is a direct faculty arrangement (e.g.,
     Tisch Cancer Center / Center for Bioinformatics single-cell & spatial groups). Monitor labs + careers.
 
 
-    **Eligibility (F-1 no):** No PhD-specific comp-bio summer intern posting; the named summer programs
+    **Eligibility (F-1 verify):** No PhD-specific comp-bio summer intern posting; the named summer programs
     (Ma''ayan Big Data, SPARKED, SURP4US) are undergrad/master''s and often citizen/PR-only. PhD work
     via a host PI is institution-funded — verify CPT acceptance case-by-case.
 
@@ -15308,7 +15308,7 @@ items:
   - comp-onc
   - genomics
   - single-cell
-  meta: F-1 ✗ · recurring program · apply Nov-Jan · St. Louis, MO
+  meta: F-1 ✓ · recurring program · apply Nov-Jan · St. Louis, MO
   why: Best visa precedent of the four (explicit F-1/OPT acceptance) and dead-on cancer-genomics topic,
     but it is scoped to undergrad/master's so a comp-bio PhD is over-leveled; valuable mainly as proof
     the lab/Miller group hosts F-1 students — approach PIs directly for a PhD-level role.
@@ -15317,7 +15317,7 @@ items:
     23. Run by Chris Miller.
 
 
-    **Eligibility (F-1 no):** Posting EXPLICITLY accepts F-1 students (held through WashU, or on OPT via
+    **Eligibility (F-1 ok):** Posting EXPLICITLY accepts F-1 students (held through WashU, or on OPT via
     another university) and DACA, in addition to citizens/PRs; explicitly excludes H-1B/J-1/TN. Rare earned
     ''ok'' — but note F-1 acceptance is for the undergrad/master''s level of this program.
 
@@ -15444,7 +15444,7 @@ items:
   - comp-onc
   - ml-ai
   - clinical-genomics
-  meta: F-1 ✗ · anticipated 2027 · apply rolling · Chicago, IL
+  meta: F-1 ? · anticipated 2027 · apply rolling · Chicago, IL
   why: Good topical alignment (cancer genomics, informatics) for an HRD/single-cell PhD, but nothing PhD-eligible
     to apply to; the undergrad cancer-center SIPs are citizen-leaning and out of scope.
   description: 'UChicago has strong comp-bio infrastructure (Center for Research Informatics Bioinformatics
@@ -15453,7 +15453,7 @@ items:
     rotation rather than an application-cycle program.
 
 
-    **Eligibility (F-1 no):** UChicago summer research programs are for undergraduates or incoming BSD
+    **Eligibility (F-1 verify):** UChicago summer research programs are for undergraduates or incoming BSD
     grad students; cancer-center summer programs (Chicago EYES on Cancer, ACS Research Internship, DICR,
     ResearcHStart) are undergrad/high-school and several are federally/ACS-funded SIPs that can require
     US citizenship/PR. No PhD-level external comp-bio internship is posted.
@@ -15474,7 +15474,7 @@ items:
   - ml-ai
   - single-cell
   - comp-onc
-  meta: F-1 ✗ · recurring program · apply Feb-Jul (rolling) · Los Angeles, CA
+  meta: F-1 ? · recurring program · apply Feb-Jul (rolling) · Los Angeles, CA
   why: High fit for a single-cell/statistical-genomics PhD wanting to deepen comp-genomics + ML methods;
     competitive but training-oriented rather than employment, so a strong methods CV is the main lever.
   description: '23-day computational-genomics institute (~July 8-31, 2026) at UCLA: a retreat plus two
@@ -15482,7 +15482,7 @@ items:
     Open to current grad students and recent PhDs; rolling admissions with decisions starting ~Feb 1.
 
 
-    **Eligibility (F-1 no):** CGSI is a named recurring NIH-supported (R25 GM135043) summer training institute
+    **Eligibility (F-1 verify):** CGSI is a named recurring NIH-supported (R25 GM135043) summer training institute
     open to graduate students and recent PhDs, with an international partner (Safra Center, Tel Aviv).
     It is an educational short-course/retreat, not federal-citizen-only employment, so it is not auto-disqualifying;
     but visa/eligibility for international participants is not explicitly stated and must be verified.
@@ -15502,7 +15502,7 @@ items:
   - genomics
   - single-cell
   - spatial
-  meta: F-1 ✗ · anticipated 2027 · apply rolling · Los Angeles, CA
+  meta: F-1 ? · anticipated 2027 · apply rolling · Los Angeles, CA
   why: Topically ideal (single-cell/spatial cancer multiomics) for an HRD PhD, but no PhD-eligible posting;
     CGSI is the concrete UCLA route, with direct-PI outreach as the alternative.
   description: 'Beyond CGSI, JCCC''s training office runs undergrad-focused programs (e.g., B.I.G. Summer
@@ -15511,7 +15511,7 @@ items:
     openings.
 
 
-    **Eligibility (F-1 no):** JCCC''s Office of Cancer Training & Education and B.I.G. Summer are oriented
+    **Eligibility (F-1 verify):** JCCC''s Office of Cancer Training & Education and B.I.G. Summer are oriented
     to undergraduates/local trainees and named programs are typically NIH-funded with possible citizenship/PR
     constraints; no PhD-level comp-bio summer internship is posted. PhD-level institutional lab roles
     would need individual visa verification.
@@ -16048,7 +16048,7 @@ items:
   - genomics
   - immunology
   - single-cell
-  meta: F-1 ✗ · anticipated 2027 · apply rolling · Philadelphia, PA
+  meta: F-1 ? · anticipated 2027 · apply rolling · Philadelphia, PA
   why: Strong topical overlap (cancer single-cell/genomics, immuno-oncology) but no intern pipeline; best
     approached as cold PI outreach for a paid summer research stint rather than a posted internship. F-1
     must confirm any role is institution- not NSF-funded.
@@ -16057,7 +16057,7 @@ items:
     Graduate Studies or direct PI contact.
 
 
-    **Eligibility (F-1 no):** No PhD-eligible comp-bio intern posting exists. The only structured summer
+    **Eligibility (F-1 verify):** No PhD-eligible comp-bio intern posting exists. The only structured summer
     program is the NSF-funded REU, which is undergraduate-only and requires US citizen/national/permanent-resident
     status (would be ''no'' for F-1 if it were the target). PhD-level engagement here happens via UPenn
     BGS rotations or direct PI/Center for Systems & Computational Biology outreach; institution-funded
@@ -16727,7 +16727,7 @@ items:
   - ml-ai
   - immunology
   - genomics
-  meta: F-1 ✗ · recurring program · apply rolling · South San Francisco, CA (remote possible)
+  meta: F-1 ? · recurring program · apply rolling · South San Francisco, CA (remote possible)
   why: 'Strong fit: single-cell + ML on immuno-oncology data maps directly to an HRD/single-cell PhD;
     BS/MS/PhD-eligible, flexible start, possible remote — highly competitive but a clean topical match.'
   description: 'Intern in the CompBio & ML group analyzing internal and public datasets (bulk and single-cell
@@ -16735,7 +16735,7 @@ items:
     immunology, and high-throughput assays supporting CAR-T programs.
 
 
-    **Eligibility (F-1 no):** Posting states no visa/CPT/OPT or citizenship requirement; sponsorship not
+    **Eligibility (F-1 verify):** Posting states no visa/CPT/OPT or citizenship requirement; sponsorship not
     mentioned, so verify before applying.
 
 
@@ -18039,7 +18039,7 @@ items:
   - genomics
   - single-cell
   - ml-ai
-  meta: F-1 ✗ · anticipated 2027 · apply rolling · Madison, WI
+  meta: F-1 ? · anticipated 2027 · apply rolling · Madison, WI
   why: Topically strong (cancer omics, single-cell at WIMR) but no external PhD intern route; an F-1 would
     need a direct faculty arrangement rather than a posted program.
   description: 'UWCCC has no standing external-facing PhD computational-biology summer internship. Related
@@ -18048,7 +18048,7 @@ items:
     page for monitoring.
 
 
-    **Eligibility (F-1 no):** No specific posting to evaluate. UW–Madison summer pipelines (SROP, Biostat/Medical-Informatics
+    **Eligibility (F-1 verify):** No specific posting to evaluate. UW–Madison summer pipelines (SROP, Biostat/Medical-Informatics
     summer) are largely for prospective/underrepresented students and are often citizen/PR-funded; the
     Graduate School Industry Internship Program is for already-enrolled UW PhD students, not external
     applicants. Visa terms not stated — must verify per opportunity.
@@ -18456,7 +18456,7 @@ items:
   - single-cell
   - spatial
   - immunology
-  meta: F-1 ✗ · recurring program · apply Jan-Mar · Chicago, IL
+  meta: F-1 ? · recurring program · apply Jan-Mar · Chicago, IL
   why: Strong fit for single-cell/spatial + ML-for-biology background; AI-powered tissue measurement aligns
     with multi-omics skills, and graduate eligibility makes this competitive but realistic.
   description: 'Independent Chicago Biohub summer program; interns (undergrad and graduate students) work
@@ -18464,7 +18464,7 @@ items:
     real time, much of it AI/ML and single-cell/spatial driven.
 
 
-    **Eligibility (F-1 no):** CZ Biohub is privately funded (Chan Zuckerberg Initiative), not a federal
+    **Eligibility (F-1 verify):** CZ Biohub is privately funded (Chan Zuckerberg Initiative), not a federal
     program, so citizen-only rules do not automatically apply; however the posting does not mention visa/CPT/OPT
     — confirm sponsorship before applying.
 
@@ -19851,7 +19851,7 @@ items:
   - single-cell
   - spatial
   - ml-ai
-  meta: F-1 ✗ · recurring program · apply rolling · Pleasanton, CA
+  meta: F-1 ? · recurring program · apply rolling · Pleasanton, CA
   why: 'Engineering-leaning seat: best if the candidate wants production single-cell/spatial software
     (Python/Rust/C++) rather than method development. Less directly aligned with HRD/multi-omics research,
     but strong single-cell tooling exposure and brand value.'
@@ -19860,7 +19860,7 @@ items:
     intern tracks.
 
 
-    **Eligibility (F-1 no):** Posting does not state visa sponsorship or CPT/OPT eligibility, nor a citizenship
+    **Eligibility (F-1 verify):** Posting does not state visa sponsorship or CPT/OPT eligibility, nor a citizenship
     requirement; private company. Verify before applying.
 
 

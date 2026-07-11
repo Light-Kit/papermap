@@ -36,7 +36,7 @@ the **251 `?`** are mostly techbio startups that simply don't state a policy: as
 
 ## what the status labels are telling you
 
-**150 are open (a live req at harvest), 157 recurring / rolling, 73 anticipated — monitor, 27 closed (recurs).** the honest caveat carries over from the map: there are no live 2027–2029 reqs yet, and full-time reqs rot fast, so where a 2026 posting had already closed it was redowngraded to "closed (recurs)" with the link pointed at the team's careers page. no dead link is shown as live; no URL is invented.
+**194 are open (a live req at harvest), 262 recurring / rolling, 76 anticipated — monitor, 27 closed (recurs)** (plus 22 status-unclear). the honest caveat carries over from the map: there are no live 2027–2029 reqs yet, and full-time reqs rot fast, so where a 2026 posting had already closed it was redowngraded to "closed (recurs)" with the link pointed at the team's careers page. no dead link is shown as live; no URL is invented.
 
 ## start here
 
