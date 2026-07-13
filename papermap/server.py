@@ -7,14 +7,79 @@ import os
 from pathlib import Path
 
 from flask import Flask, Response, abort, jsonify, render_template, request, send_file
-
-import yaml
+from flask_compress import Compress
 
 from .blogs import list_blogs
-from .loaders import Format, detect_format, load_corpus
+from .loaders import Format, load_corpus, load_corpus_with_format
 from .render import build_figure
 from .schema import CorpusError, lint_corpus
 from .state import build_state
+
+# Parsing a corpus is the dominant cost of a request — the jobs vault alone is
+# ~2 MB of YAML. Cache the parsed result per file and invalidate on mtime, so
+# editing a YAML still shows up on the next refresh without a restart.
+_corpus_cache: dict[Path, tuple[float, object]] = {}
+
+
+def _load_cached(path: Path):
+    """Return (corpus, format) for path, reusing the parse until the file changes.
+
+    Load failures are cached too, so a broken corpus doesn't get re-parsed on
+    every scan just to fail the same way.
+    """
+    mtime = path.stat().st_mtime
+    hit = _corpus_cache.get(path)
+    if hit is not None and hit[0] == mtime:
+        result = hit[1]
+    else:
+        try:
+            result = load_corpus_with_format(path)
+        except CorpusError as exc:
+            result = exc
+        _corpus_cache[path] = (mtime, result)
+    if isinstance(result, CorpusError):
+        raise result
+    return result
+
+
+# build_state re-derives the whole layout (positions, traces, facets) from the
+# corpus. It's a pure function of the parsed corpus, so cache it alongside.
+_state_cache: dict[Path, tuple[float, dict]] = {}
+
+
+def _state_cached(path: Path) -> dict:
+    mtime = path.stat().st_mtime
+    hit = _state_cache.get(path)
+    if hit is not None and hit[0] == mtime:
+        return hit[1]
+    corpus, fmt = _load_cached(path)
+    label = "resourcelib" if fmt is Format.RESOURCELIB else "papermap"
+    state = build_state(corpus, name=path.stem, format_label=label)
+    _state_cache[path] = (mtime, state)
+    return state
+
+
+# Rendering a blog dir means running every .md file through markdown — the FM
+# vault is ~1.7 MB of it. Cache the rendered payload per directory, keyed on the
+# set of files and their mtimes, so an edited post still appears on refresh.
+_blogs_cache: dict[tuple, list[dict]] = {}
+
+
+def _dir_fingerprint(directory: Path) -> tuple:
+    if not directory.is_dir():
+        return ()
+    return tuple(sorted(
+        (p.name, p.stat().st_mtime) for p in directory.iterdir() if p.is_file()
+    ))
+
+
+def _blogs_cached(directory: Path, **kwargs) -> list[dict]:
+    key = (directory, _dir_fingerprint(directory), tuple(sorted(kwargs.items())))
+    hit = _blogs_cache.get(key)
+    if hit is None:
+        hit = [b.to_dict() for b in list_blogs(directory, **kwargs)]
+        _blogs_cache[key] = hit
+    return hit
 
 
 def _check_basic_auth(expected_password: str) -> bool:
@@ -35,6 +100,8 @@ def create_app(corpus_dir: Path) -> Flask:
     that value. The username is ignored.
     """
     app = Flask(__name__)
+    # The state/blog payloads are large JSON; gzip cuts them several-fold.
+    Compress(app)
     app.config["CORPUS_DIR"] = Path(corpus_dir).resolve()
     app.config["PAPERMAP_PASSWORD"] = os.environ.get("PAPERMAP_PASSWORD")
     # Blogs may reference sibling mkdocs pages (e.g. supplementary)
@@ -74,29 +141,21 @@ def create_app(corpus_dir: Path) -> Flask:
     def state_for(name: str):
         path = _resolve(app.config["CORPUS_DIR"], name)
         try:
-            corpus = load_corpus(path)
+            return jsonify(_state_cached(path))
         except CorpusError as exc:
             return jsonify({"error": str(exc)}), 422
-        raw = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
-        try:
-            fmt = "resourcelib" if detect_format(raw) is Format.RESOURCELIB else "papermap"
-        except ValueError:
-            fmt = "papermap"
-        return jsonify(build_state(corpus, name=path.stem, format_label=fmt))
 
     @app.get("/api/blogs/<path:name>")
     def blogs_for(name: str):
         path = _resolve(app.config["CORPUS_DIR"], name)
         blogs_dir = app.config["CORPUS_DIR"] / "blogs" / path.stem
         asset_prefix = f"/api/blogs/{name}/assets/"
-        return jsonify([
-            b.to_dict() for b in list_blogs(
-                blogs_dir,
-                asset_url_prefix=asset_prefix,
-                external_docs_base=app.config.get("EXTERNAL_DOCS_BASE_URL", ""),
-                source_subpath=_blog_source_subpath(path.stem),
-            )
-        ])
+        return jsonify(_blogs_cached(
+            blogs_dir,
+            asset_url_prefix=asset_prefix,
+            external_docs_base=app.config.get("EXTERNAL_DOCS_BASE_URL", ""),
+            source_subpath=_blog_source_subpath(path.stem),
+        ))
 
     @app.get("/api/topics/<path:name>")
     def topics_for(name: str):
@@ -104,12 +163,10 @@ def create_app(corpus_dir: Path) -> Flask:
         # separate dir so they don't leak into the Blogs index.
         path = _resolve(app.config["CORPUS_DIR"], name)
         topics_dir = app.config["CORPUS_DIR"] / "topics" / path.stem
-        return jsonify([
-            b.to_dict() for b in list_blogs(
-                topics_dir,
-                external_docs_base=app.config.get("EXTERNAL_DOCS_BASE_URL", ""),
-            )
-        ])
+        return jsonify(_blogs_cached(
+            topics_dir,
+            external_docs_base=app.config.get("EXTERNAL_DOCS_BASE_URL", ""),
+        ))
 
     @app.get("/api/presentations/<path:name>")
     def presentations_for(name: str):
@@ -119,12 +176,10 @@ def create_app(corpus_dir: Path) -> Flask:
         # ``<section class="slide" data-notes="…">`` blocks.
         path = _resolve(app.config["CORPUS_DIR"], name)
         pres_dir = app.config["CORPUS_DIR"] / "presentations" / path.stem
-        return jsonify([
-            b.to_dict() for b in list_blogs(
-                pres_dir,
-                external_docs_base=app.config.get("EXTERNAL_DOCS_BASE_URL", ""),
-            )
-        ])
+        return jsonify(_blogs_cached(
+            pres_dir,
+            external_docs_base=app.config.get("EXTERNAL_DOCS_BASE_URL", ""),
+        ))
 
     @app.get("/api/blogs/<path:name>/assets/<asset>")
     def blog_asset(name: str, asset: str):
@@ -195,7 +250,7 @@ def _scan(root: Path) -> list[dict]:
             continue
         entry = {"name": path.name, "title": path.stem, "valid": True, "error": None}
         try:
-            entry["title"] = load_corpus(path).title
+            entry["title"] = _load_cached(path)[0].title
         except CorpusError as exc:
             entry["valid"] = False
             entry["error"] = str(exc)

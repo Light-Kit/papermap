@@ -22,6 +22,7 @@ dependencies = [
     "plotly>=5.0",
     "pyyaml>=6.0",
     "flask>=3.0",
+    "flask-compress>=1.14",
     "markdown>=3.5",
 ]
 
