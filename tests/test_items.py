@@ -10,7 +10,7 @@ FIX = Path(__file__).parent / "fixtures"
 
 
 def test_native_papermap_produces_items():
-    corpus = load_corpus("examples/fm-to-virtual-cells.yaml")
+    corpus = load_corpus(FIX / "native_papermap.yaml")
     assert len(corpus.items) == len(corpus.papers)
     for item, paper in zip(corpus.items, corpus.papers):
         assert item.id == paper.id

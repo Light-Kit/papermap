@@ -12,7 +12,7 @@ import pytest
 from papermap import build_figure, compute_layout, lint_corpus, load_corpus
 from papermap.schema import CorpusError
 
-EXAMPLE = Path(__file__).parent.parent / "examples" / "fm-to-virtual-cells.yaml"
+EXAMPLE = Path(__file__).parent / "fixtures" / "native_papermap.yaml"
 
 
 # ── the worked example loads, lays out, and renders ──────────────────────────

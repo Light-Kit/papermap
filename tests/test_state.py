@@ -27,7 +27,7 @@ def test_state_payload_for_resourcelib():
 
 
 def test_state_payload_native_papermap():
-    corpus = load_corpus("examples/fm-to-virtual-cells.yaml")
+    corpus = load_corpus(FIX / "native_papermap.yaml")
     state = build_state(corpus, name="fm", format_label="papermap")
     assert state["format"] == "papermap"
     assert state["map"]["traces"]

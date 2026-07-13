@@ -7,7 +7,7 @@ from pathlib import Path
 
 from papermap.export import export_static
 
-EXAMPLE = Path("examples/fm-to-virtual-cells.yaml")
+EXAMPLE = Path(__file__).parent / "fixtures" / "native_papermap.yaml"
 
 
 def test_export_produces_state_and_bundle(tmp_path):
